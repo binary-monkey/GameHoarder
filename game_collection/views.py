@@ -7,7 +7,6 @@ from django.http import HttpResponse
 from django.shortcuts import render
 
 from GameHoarder.settings import BASE_DIR
-from game_collection.models import Interested, Wishlist
 from game_collection.tasks import *
 
 
