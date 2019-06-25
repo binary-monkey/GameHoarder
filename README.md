@@ -15,9 +15,8 @@ These instructions will get you a copy of the project up and running on your loc
 ## Prerequisites
 
 * Any GNU/Linux Distro, i have tested it on Arch, although it should run on Windows.
-* A Transmission Server, see [Deployment](https://github.com/rafaelromon/RSSTorrentDownloader#deployment) for additional information.
-* python3 and transmission-remote packages.
-* Additional Python packages: feedparser and pytz.
+* python3 and redis-remote packages.
+* Additional Python packages
 
 ##### Arch based Distros
 ```
