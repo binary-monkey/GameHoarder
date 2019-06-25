@@ -1,0 +1,429 @@
+{% extends "base_site.html" %}
+{% load static %}
+{% load i18n %}
+{% load general_filters %}
+
+{% block title %}{% trans "Import List" %}{% endblock title %}
+
+{% block stylesheets %}
+    {{ block.super }}
+{% endblock stylesheets %}
+
+{% block content %}
+
+    <div class="right_col" role="main">
+        <div class="">
+            <div class="page-title">
+                <div class="title_left">
+                    <h3>{% trans "Import List" %}</h3>
+                </div>
+
+            </div>
+            <div class="clearfix"></div>
+
+            {% if stage == 1 %}
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="x_panel">
+                            <div class="x_title">
+                                <h2>{% trans "File Selector" %}</h2>
+                                <ul class="nav navbar-right panel_toolbox" style="min-width: 0">
+                                    <li><a class="collapse-link">
+                                        <i class="fa fa-chevron-up"></i></a>
+                                    </li>
+                                </ul>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="x_content">
+                                <form method="post" enctype="multipart/form-data"
+                                      class="form-horizontal form-label-left">
+                                    {% csrf_token %}
+                                    <div class="form-group">
+
+                                        <label class="col-md-3 col-sm-3 col-xs-12 control-label" for="list">
+                                            File
+                                        </label>
+
+                                        <div class="col-md-9 col-sm-9 col-xs-12">
+                                            <input type="file" name="list">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+
+                                        <label class="col-md-3 col-sm-3 col-xs-12 control-label" for="remove-header">
+                                            Remove Header
+                                        </label>
+
+                                        <div class="col-md-9 col-sm-9 col-xs-12">
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" checked name="remove-header">
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="ln_solid"></div>
+                                    <div class="form-group">
+                                        <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+                                            <button type="submit" class="btn btn-primary">Upload</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% elif stage == 2 and task_id %}
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="x_panel">
+                            <div class="x_title">
+                                <h2>{% trans "Progress" %}</h2>
+                                <ul class="nav navbar-right panel_toolbox" style="min-width: 0">
+                                    <li><a class="collapse-link">
+                                        <i class="fa fa-chevron-up"></i></a>
+                                    </li>
+                                </ul>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="x_content">
+
+                                <div class="row">
+                                    <div class="col-md-8 col-md-offset-2">
+                                        <div class='progress'>
+                                            <div id='progress-bar' class="progress-bar progress-bar-success"
+                                                 style="width: 0%;">
+                                                &nbsp;
+                                            </div>
+                                        </div>
+                                        <div id="progress-bar-message"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% elif stage == 2 %}
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="x_panel">
+                            <div class="x_title">
+                                <h2>{% trans "Import Summary" %}</h2>
+                                <ul class="nav navbar-right panel_toolbox" style="min-width: 0">
+                                    <li><a class="collapse-link">
+                                        <i class="fa fa-chevron-up"></i></a>
+                                    </li>
+                                </ul>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="x_content">
+
+                                <div class="row">
+                                    <table class="table">
+                                        <tr>
+                                            <th></th>
+                                            <th>Number</th>
+                                        </tr>
+                                        <tr>
+                                            <td> Imported by ID</td>
+                                            <td>{{ imported_id }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td> Imported by Search</td>
+                                            <td>{{ imported_search }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Total Imported</td>
+                                            <td>{{ imported_id|add:imported_search }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Failed</td>
+                                            <td>{{ failed }}</td>
+                                        </tr>
+                                    </table>
+                                </div>
+
+                                <div class="ln_solid"></div>
+                                <div class="form-group">
+                                    <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+                                        <form id="import" method="post"
+                                              enctype="multipart/form-data">
+                                            {% csrf_token %}
+                                            {% for title in id_titles %}
+                                                <input type="hidden" value="{{ title }}" name="titles"/>
+                                            {% endfor %}
+                                            {% for title in searched_titles %}
+                                                <input type="hidden" value="{{ title }}" name="titles"/>
+                                            {% endfor %}
+                                            <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+                                                <button type="submit" class="btn btn-primary">Import</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {% if error_search %}
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="x_panel">
+                                <div class="x_title">
+                                    <h2>{% trans "Not Matching Titles" %}</h2>
+                                    <ul class="nav navbar-right panel_toolbox" style="min-width: 0">
+                                        <li><a class="collapse-link">
+                                            <i class="fa fa-chevron-up"></i></a>
+                                        </li>
+                                    </ul>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="x_content">
+                                    <table id="datatable"
+                                           class="table table-striped table-bordered dt-responsive nowrap">
+                                        <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th>DB ID</th>
+                                            <th>Platform</th>
+                                            <th>Original Name</th>
+                                            <th>DB Name</th>
+
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% for title in error_search %}
+                                            <tr>
+                                                <td>
+                                                    <label>
+                                                        <input form="import" type="checkbox"
+                                                               value="{{ title }}" name="titles"/>
+                                                    </label>
+                                                </td>
+                                                <td>
+                                                    <a href="https://www.giantbomb.com/games/3030-{{ title|lookup:"id" }}"
+                                                       target="_blank">{{ title|lookup:"id" }}</a>
+                                                </td>
+                                                <td>
+                                                    {{ title|lookup:"platform" }}
+                                                </td>
+                                                <td>
+                                                    {{ title|lookup:"original_name" }}
+                                                </td>
+                                                <td>
+                                                    {{ title|lookup:"name" }}
+                                                </td>
+                                            </tr>
+                                        {% endfor %}
+                                        </tbody>
+                                    </table>
+
+                                    <div class="ln_solid"></div>
+                                    <div class="form-group">
+                                        <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+                                            <form method="post" action="{% url "download_csv" %}"
+                                                  enctype="multipart/form-data">
+                                                {% csrf_token %}
+                                                <input type="hidden" value="search_error" name="filename"/>
+                                                {% for title in error_search %}
+                                                    <input type="hidden" value="{{ title }}" name="data"/>
+                                                {% endfor %}
+                                                <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+                                                    <button type="submit" class="btn btn-primary">Download</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+
+                {% if failed_titles %}
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="x_panel">
+                                <div class="x_title">
+                                    <h2>{% trans "Failed Titles" %}</h2>
+                                    <ul class="nav navbar-right panel_toolbox" style="min-width: 0">
+                                        <li><a class="collapse-link">
+                                            <i class="fa fa-chevron-up"></i></a>
+                                        </li>
+                                    </ul>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="x_content">
+
+                                    <table class="table">
+                                        <tr>
+                                            <th>Platform</th>
+                                            <th>Name</th>
+                                        </tr>
+                                        {% for title in failed_titles %}
+                                            <tr>
+                                                <td>{{ title|lookup:"platform" }}</td>
+                                                <td>{{ title|lookup:"name" }}</td>
+                                            </tr>
+                                        {% endfor %}
+                                    </table>
+
+                                    <div class="ln_solid"></div>
+                                    <div class="form-group">
+                                        <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+                                            <form method="post" action="{% url "download_csv" %}"
+                                                  enctype="multipart/form-data">
+                                                {% csrf_token %}
+                                                <input type="hidden" value="failed" name="filename"/>
+                                                {% for title in failed_titles %}
+                                                    <input type="hidden" value="{{ title }}" name="data"/>
+                                                {% endfor %}
+                                                <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+                                                    <button type="submit" class="btn btn-primary">Download</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            {% elif stage == 3 and task_id %}
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="x_panel">
+                            <div class="x_title">
+                                <h2>{% trans "Progress" %}</h2>
+                                <ul class="nav navbar-right panel_toolbox" style="min-width: 0">
+                                    <li><a class="collapse-link">
+                                        <i class="fa fa-chevron-up"></i></a>
+                                    </li>
+                                </ul>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="x_content">
+
+                                <div class="row">
+                                    <div class="col-md-8 col-md-offset-2">
+                                        <div class='progress'>
+                                            <div id='progress-bar' class="progress-bar progress-bar-success"
+                                                 style="width: 0%;">
+                                                &nbsp;
+                                            </div>
+                                        </div>
+                                        <div id="progress-bar-message"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% elif stage == 3 %}
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="x_panel">
+                            <div class="x_title">
+                                <h2>{% trans "Import Summary" %}</h2>
+                                <ul class="nav navbar-right panel_toolbox" style="min-width: 0">
+                                    <li><a class="collapse-link">
+                                        <i class="fa fa-chevron-up"></i></a>
+                                    </li>
+                                </ul>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="x_content">
+
+                                <div class="row">
+
+                                    out of {{ total_titles }}, {{ failed_titles }} failed
+
+                                    <table class="table">
+                                        <tr>
+                                            <th>List</th>
+                                            <th>Number</th>
+                                        </tr>
+                                        <tr>
+                                            <td>Interested</td>
+                                            <td>{{ interested_titles }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Wishlist</td>
+                                            <td>{{ wishlist_titles }}</td>
+                                        </tr>
+                                    </table>
+                                </div>
+
+                                <div class="ln_solid"></div>
+                                <div class="form-group">
+                                    <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+                                        <form id="import" method="post"
+                                              enctype="multipart/form-data">
+                                            <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+                                                <button type="submit" class="btn btn-primary">Finish</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+
+        </div>
+    </div>
+
+{% endblock content %}
+
+{% block javascripts %}
+    {{ block.super }}
+
+    <!-- Datatables -->
+    <script src="{% static 'vendors/datatables.net/js/jquery.dataTables.min.js' %}"></script>
+    <script src="{% static 'vendors/datatables.net-bs/js/dataTables.bootstrap.min.js' %}"></script>
+    <script src="{% static 'vendors/datatables.net-buttons/js/dataTables.buttons.min.js' %}"></script>
+    <script src="{% static 'vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js' %}"></script>
+    <script src="{% static 'vendors/datatables.net-buttons/js/buttons.flash.min.js' %}"></script>
+    <script src="{% static 'vendors/datatables.net-buttons/js/buttons.html5.min.js' %}"></script>
+    <script src="{% static 'vendors/datatables.net-buttons/js/buttons.print.min.js' %}"></script>
+    <script src="{% static 'vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js' %}"></script>
+    <script src="{% static 'vendors/datatables.net-keytable/js/dataTables.keyTable.min.js' %}"></script>
+    <script src="{% static 'vendors/datatables.net-responsive/js/dataTables.responsive.min.js' %}"></script>
+    <script src="{% static 'vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js' %}"></script>
+    <script src="{% static 'vendors/datatables.net-scroller/js/dataTables.scroller.min.js' %}"></script>
+    <script src="{% static 'vendors/jszip/dist/jszip.min.js' %}"></script>
+    <script src="{% static 'vendors/pdfmake/build/pdfmake.min.js' %}"></script>
+    <script src="{% static 'vendors/pdfmake/build/vfs_fonts.js' %}"></script>
+
+    <script>
+        $(document).ready(function () {
+            $("#datatable-responsive").DataTable();
+        });
+    </script>
+
+
+    {% if task_id %}
+
+        <script>
+            $(document).ready(function () {
+                var form = $('<form method="post" enctype="multipart/form-data">{% csrf_token %}<input type="hidden" value="{{ stage }}" name="stage"><input type="hidden" value="{{ task_id }}" name="task_id"></form>');
+                $('body').append(form);
+                form.submit();
+            });
+        </script>
+
+        <script src="{% static 'celery_progress/celery_progress.js' %}"></script>
+        <script>
+
+            // vanilla JS version
+            document.addEventListener("DOMContentLoaded", function () {
+                var progressUrl = "{% url 'celery_progress:task_status' task_id %}";
+
+                CeleryProgressBar.initProgressBar(progressUrl);
+            });
+        </script>
+    {% endif %}
+{% endblock javascripts %}

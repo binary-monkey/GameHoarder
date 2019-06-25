@@ -1,0 +1,10 @@
+Pillow
+Django
+pytz
+mysqlclient
+setuptools
+howlongtobeatpy
+requests
+celery
+celery-progress
+redis

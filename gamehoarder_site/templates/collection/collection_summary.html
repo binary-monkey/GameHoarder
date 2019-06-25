@@ -1,0 +1,19 @@
+{% extends "base_site.html" %}
+
+{% block title %} Collection Summary {% endblock title %}
+
+{% block stylesheets %}
+    {{ block.super }}
+{% endblock stylesheets %}
+
+{% block content %}
+    <div class="right_col" role="main">
+        {# TODO this should be in the settings page   #}
+        <a href="{% url "import_collection" %}" class="btn btn-primary">Import Collection</a>
+        <a href="{% url "import_lists" %}" class="btn btn-primary">Import Lists</a>
+    </div>
+{% endblock content %}
+
+{% block javascripts %}
+    {{ block.super }}
+{% endblock javascripts %}
