@@ -1,4 +1,4 @@
- Byte-compiled / optimized / DLL files
+# Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
 *$py.class
@@ -20,6 +20,15 @@ venv.bak/
 
 # General
 media/
+
+# IntelliJ project files
+*.iml
+*.iws
+*.ipr
+.idea/
+bin/
+out/
+log/
 
 # Celery
 *.rdb
