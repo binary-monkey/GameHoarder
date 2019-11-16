@@ -166,6 +166,7 @@ def import_collection_task(self, titles, username):
 
     for i in range(total_titles):
         title = titles[i]
+
         user = User.objects.get(username=username)
 
         if not Platform.objects.filter(name=title["platform"]).exists():
@@ -194,6 +195,7 @@ def import_collection_task(self, titles, username):
             collection_entry["time_played"] = title["time_played"]
 
         for tag_name in title["tags"].split(";"):
+
             if not Tag.objects.filter(name=tag_name, user=user).exists():
                 Tag.objects.create(name=tag_name, user=user)
 
@@ -209,7 +211,6 @@ def import_collection_task(self, titles, username):
                 queue_titles += 1
 
         elif list_type == "PLAYING":
-
             if title["date_started"] != "":
                 collection_entry["date_started"] = title["date_started"]
 

@@ -82,7 +82,7 @@ def import_list(request):
             if "remove-header" in request.POST:
                 csv_file.pop(0)  # Removes headers
 
-            print(csv_file)
+            # print(csv_file)
 
             result = verify_list_task.delay(csv_file)
 
