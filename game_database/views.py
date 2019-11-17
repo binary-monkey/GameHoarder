@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 
-from game_database.functions import GiantBombAPI, HowLongToBeatAPI
+from game_database.functions import HowLongToBeatAPI, GameCollectionController
 from game_database.models import Game, GameVersion, Genre, Platform
 
 
@@ -8,14 +8,12 @@ def update_games(request):
     game_versions = GameVersion.objects.filter(update=True)
 
     for game_version in game_versions:
-        data = GiantBombAPI.load_release(game_version.db_id)["results"]
-        GiantBombAPI.update_game_version(game_version, data)
+        GameCollectionController.update_game_version(game_version)
 
     games = Game.objects.filter(update=True)
 
     for game in games:
-        data = GiantBombAPI.load_game(game.db_id)["results"]
-        GiantBombAPI.update_game(game, data)
+        GameCollectionController.update_game(game)
 
     games = Game.objects.all()
 

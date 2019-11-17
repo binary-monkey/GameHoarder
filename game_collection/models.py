@@ -102,7 +102,7 @@ class Interested(List):
 
 class TagGroup(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name=_("user"))
-    name = models.CharField(max_length=16, verbose_name=_("name"))
+    name = models.CharField(max_length=16, verbose_name=_("name"), unique=True)
 
     def __str__(self):
         return self.name
@@ -115,7 +115,7 @@ class TagGroup(models.Model):
 
 class Tag(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name=_("user"))
-    name = models.CharField(max_length=16, verbose_name=_("name"))
+    name = models.CharField(max_length=16, verbose_name=_("name"), unique=True)
     game_version = models.ManyToManyField(GameVersion, verbose_name=_("game version"))
 
     tag_group = models.ForeignKey(TagGroup, on_delete=models.SET_NULL, blank=True, null=True,
