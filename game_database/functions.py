@@ -5,20 +5,21 @@ import requests
 import unidecode
 from howlongtobeatpy import HowLongToBeat
 
-from GameHoarder.settings import API_KEY
-from game_database.models import Genre, Game, GameVersion
+from GameHoarder.settings import API_KEY, DEV_MAIL
+from game_database.models import Genre, Game, GameVersion, Platform
 
 BASE_URL = "https://www.giantbomb.com/api/"
 
 HEADERS = {
     'User-Agent': 'GameCollection 1.0',
-    'From': 'jailander@protonmail.com'  # This is another valid field
+    'From': DEV_MAIL
 }
 
 
 class ResourceType(Enum):
     GAME = "game"
     RELEASE = "release"
+    PLATFORM = "platform"
 
 
 class GiantBombAPI:
@@ -45,23 +46,41 @@ class GiantBombAPI:
         return GiantBombAPI.load_json("search", params)["results"]
 
     @staticmethod
-    def search_game(game_title, platform_name, limit):
+    def search_platform(platform_name):
+
+        filter_field = "filter=name:%s" % platform_name
+
+        params = {
+            "api_key": API_KEY,
+            "format": "json",
+            "filter": filter_field,
+        }
+
+        data = GiantBombAPI.load_json("platforms", params)["results"]
+
+        for result in data:
+            if result["name"] == platform_name:
+                return result
+
+        return None
+
+    @staticmethod
+    def search_game(game_title, platform_id, limit):
         data = GiantBombAPI.search(game_title, "game", limit)
 
         for result in data:
-
             platforms = result["platforms"]
             if platforms is not None:
                 for platform_data in platforms:
-                    if platform_data["name"] == platform_name:
+                    if platform_data["id"] == platform_id:
                         return result
 
         return None
 
     @staticmethod
-    def search_releases(game_id, platform, limit):
+    def search_releases(game_id, platform_id, limit):
 
-        filter_field = "game:%s&filter=platform:%s" % (game_id, platform)
+        filter_field = "game:%s&filter=platform:%s" % (game_id, platform_id)
 
         params = {
             "api_key": API_KEY,
@@ -84,6 +103,13 @@ class GiantBombAPI:
 
         elif resource == ResourceType.RELEASE:
             resource_url = "release/3050-%s" % resource_id
+            params = {
+                "api_key": API_KEY,
+                "format": "json",
+            }
+
+        elif resource == ResourceType.PLATFORM:
+            resource_url = "platform/3045-%s" % resource_id
             params = {
                 "api_key": API_KEY,
                 "format": "json",
@@ -140,6 +166,14 @@ class HowLongToBeatAPI:
 class GameCollectionController:
 
     @staticmethod
+    def create_platform(db_id):
+        platform = Platform.objects.create(db_id=db_id)
+
+        GameCollectionController.update_platform(platform)
+
+        return platform
+
+    @staticmethod
     def create_game(db_id, platform):
         game = Game.objects.create(db_id=db_id)
 
@@ -152,7 +186,7 @@ class GameCollectionController:
 
     @staticmethod
     def create_gameversion(game, platform):
-        results = GiantBombAPI.search_releases(game.db_id, platform, 1)
+        results = GiantBombAPI.search_releases(game.db_id, platform.db_id, 1)
 
         if len(results) > 0:
             version_data = results[0]
@@ -163,6 +197,23 @@ class GameCollectionController:
         else:
             # In some weird cases a game does not have a game version in it
             return GameVersion.objects.create(parent_game=game, platform=platform)
+
+    @staticmethod
+    def update_platform(platform):
+        data = GiantBombAPI.load(platform.db_id, ResourceType.PLATFORM)
+
+        if "name" in data:
+            platform.name = data["name"]
+
+        if "deck" in data:
+            platform.description = data["deck"]
+
+        if "image" in data:
+            if "original_url" in data["image"]:
+                platform.img_url = data["image"]["original_url"]
+
+        platform.update = False
+        platform.save()
 
     @staticmethod
     def update_game(game):

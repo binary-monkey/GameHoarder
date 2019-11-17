@@ -136,6 +136,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 API_KEY = "your-key-here"
+DEV_MAIL = "your-mail-here"
 
 BROKER_URL = 'redis://localhost:6379'
 CELERY_RESULT_BACKEND = 'redis://localhost:6379'

@@ -41,10 +41,10 @@ def verify_collection_task(self, csv_file):
 
         if title["id"] == "":
 
-            platform_name = title["platform"]
+            platform_id = GiantBombAPI.search_platform(title["platform"])["id"]
             original_name = title["name"]
 
-            result = GiantBombAPI.search_game(original_name, platform_name, 10)
+            result = GiantBombAPI.search_game(original_name, platform_id, 10)
             if result is not None:
 
                 title["id"] = result["id"]
@@ -109,11 +109,10 @@ def verify_list_task(self, csv_file):
         }
 
         if title["id"] == "":
-
-            platform_name = title["platform"]
+            platform_id = GiantBombAPI.search_platform(title["platform"])["id"]
             original_name = title["name"]
 
-            result = GiantBombAPI.search_game(original_name, platform_name, 10)
+            result = GiantBombAPI.search_game(original_name, platform_id, 10)
             if result is not None:
 
                 title["id"] = result["id"]
@@ -170,7 +169,8 @@ def import_collection_task(self, titles, username):
         user = User.objects.get(username=username)
 
         if not Platform.objects.filter(name=title["platform"]).exists():
-            Platform.objects.create(name=title["platform"])
+            platform_id = GiantBombAPI.search_platform(title["platform"])["id"]
+            GameCollectionController.create_platform(platform_id)
 
         platform = Platform.objects.get(name=title["platform"])
 
@@ -288,7 +288,8 @@ def import_list_task(self, titles, username):
         user = User.objects.get(username=username)
 
         if not Platform.objects.filter(name=title["platform"]).exists():
-            Platform.objects.create(name=title["platform"])
+            platform_id = GiantBombAPI.search_platform(title["platform"])["id"]
+            GameCollectionController.create_platform(platform_id)
 
         platform = Platform.objects.get(name=title["platform"])
 

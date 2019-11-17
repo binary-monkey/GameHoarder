@@ -12,7 +12,7 @@ class HLTBTest(TestCase):
 
         pc = Platform.objects.create(name="PC")
 
-        self.game = GameCollectionController.create_game(1539, pc)
+        self.game = GameCollectionController.create_game(1539, pc).parent_game
 
         # Removing times for update test
         self.game.main_time = 0
