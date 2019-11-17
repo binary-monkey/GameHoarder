@@ -65,15 +65,18 @@ class GiantBombAPI:
         return None
 
     @staticmethod
-    def search_game(game_title, platform_id, limit):
+    def search_game(game_title, limit, platform_id = None):
         data = GiantBombAPI.search(game_title, "game", limit)
 
-        for result in data:
-            platforms = result["platforms"]
-            if platforms is not None:
-                for platform_data in platforms:
-                    if platform_data["id"] == platform_id:
-                        return result
+        if platform_id is not None:
+            for result in data:
+                platforms = result["platforms"]
+                if platforms is not None:
+                    for platform_data in platforms:
+                        if platform_data["id"] == platform_id:
+                            return result
+        else:
+            return data
 
         return None
 

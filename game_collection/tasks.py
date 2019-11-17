@@ -44,7 +44,7 @@ def verify_collection_task(self, csv_file):
             platform_id = GiantBombAPI.search_platform(title["platform"])["id"]
             original_name = title["name"]
 
-            result = GiantBombAPI.search_game(original_name, platform_id, 10)
+            result = GiantBombAPI.search_game(original_name, 10, platform_id)
             if result is not None:
 
                 title["id"] = result["id"]
@@ -112,7 +112,7 @@ def verify_list_task(self, csv_file):
             platform_id = GiantBombAPI.search_platform(title["platform"])["id"]
             original_name = title["name"]
 
-            result = GiantBombAPI.search_game(original_name, platform_id, 10)
+            result = GiantBombAPI.search_game(original_name, 10, platform_id)
             if result is not None:
 
                 title["id"] = result["id"]
