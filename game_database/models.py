@@ -4,6 +4,7 @@ from django.utils.translation import ugettext_lazy as _
 
 class Genre(models.Model):
     name = models.CharField(max_length=64, verbose_name=_("name"), unique=True)
+    db_id = models.CharField(max_length=16, verbose_name=_("DB ID"), unique=True)
 
     def __str__(self):
         return self.name
@@ -11,6 +12,18 @@ class Genre(models.Model):
     class Meta:
         verbose_name = _("Genre")
         verbose_name_plural = _("Genres")
+
+
+class Company(models.Model):
+    name = models.CharField(max_length=64, verbose_name=_("name"), unique=True)
+    db_id = models.CharField(max_length=16, verbose_name=_("DB ID"), unique=True)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = _("Company")
+        verbose_name_plural = _("Companies")
 
 
 class Game(models.Model):
@@ -23,6 +36,8 @@ class Game(models.Model):
     completion_time = models.FloatField(default=0, verbose_name=_("completion time"))
 
     release_date = models.DateField(blank=True, null=True, verbose_name=_("release date"))
+    description = models.TextField(verbose_name=_("description"), blank=True)
+    img_url = models.CharField(max_length=128, verbose_name=_("image url"), blank=True)
 
     genres = models.ManyToManyField(Genre, verbose_name=_("genres"))
 
@@ -63,6 +78,9 @@ class GameVersion(models.Model):
     release_date = models.DateField(blank=True, null=True, verbose_name=_("release date"))
 
     db_id = models.CharField(max_length=16)
+
+    publishers = models.ManyToManyField(Company, verbose_name=_("publishers"), related_name="publishers")
+    developers = models.ManyToManyField(Company, verbose_name=_("developers"), related_name="developers")
 
     update = models.BooleanField(default=True)
 

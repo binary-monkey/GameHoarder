@@ -20,5 +20,6 @@ class GameVersionAdmin(admin.ModelAdmin):
 
 admin.site.register(Platform)
 admin.site.register(Genre)
+admin.site.register(Company)
 admin.site.register(Game, GameAdmin)
 admin.site.register(GameVersion, GameVersionAdmin)
