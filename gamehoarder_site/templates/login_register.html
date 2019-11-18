@@ -1,0 +1,117 @@
+{#Página de login/registro de usuario#}
+{% load i18n %}
+<!DOCTYPE html>
+<html >
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>Smartxa Login</title>
+    <link href="{% static 'css/letras.css' %}" rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="{% static 'css/normalize.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+</head>
+
+<body>
+{#  <img src="http://cdn.wonderfulengineering.com/wp-content/uploads/2014/09/blue-wallpaper-7.jpg" alt="fondo">#}
+<img src="{% static 'images/fondo.png' %}" alt="fondo" class="img">
+<div class="form">
+
+    <ul class="tab-group">
+        <li class="tab"><a href="#signup">{% trans 'Register' %}</a></li>
+        <li class="tab active"><a href="#login">{% trans 'Login' %}</a></li>
+    </ul>
+
+    <div class="tab-content">
+
+        <div id="login">
+            <h1>{% trans 'Welcome again!' %}</h1>
+
+            <form action="login" method="post">
+                {% csrf_token %}
+                <div class="field-wrap">
+                    <label for="id_username">{% trans 'user' %}
+                        <span class="req">*</span>
+                    </label>
+                    <input id="id_username" name="username" type="text" required autocomplete="off"/>
+                </div>
+
+                <div class="field-wrap">
+                    <label for="id_password">{% trans 'Password' %}
+                        <span class="req">*</span>
+                    </label>
+                    <input id="id_password" name="password" type="password" required autocomplete="off"/>
+                </div>
+
+                {#              <p class="forgot"><a href="#">Has olvidado tu contraseña?</a></p>#}
+
+                <button type="submit" class="button button-block">{% trans 'Login' %}</button>
+
+            </form>
+
+        </div>
+        <div id="signup">
+            <h1>{% trans 'Register' %}</h1>
+
+            <form action="login" method="post">
+                {% csrf_token %}
+                <div class="top-row">
+                    <div class="field-wrap">
+                        <label for="id_first_name">
+                            {% trans 'Name' %}<span class="req">*</span>
+                        </label>
+                        <input id="id_first_name" name="first_name" type="text" required autocomplete="off" />
+                    </div>
+
+                    <div class="field-wrap">
+                        <label for="id_last_name">{% trans 'Surname' %}
+                            <span class="req">*</span>
+                        </label>
+                        <input id="id_last_name" name="last_name" type="text" required autocomplete="off"/>
+                    </div>
+                </div>
+                <div class="field-wrap">
+                    <label for="id_username"> {% trans 'User' %}
+                        <span class="req">*</span>
+                    </label>
+                    <input id="id_username" name="username" type="text" required autocomplete="off"/>
+                </div>
+
+                <div class="field-wrap">
+                    <label for="id_email">
+                        Email<span class="req">*</span>
+                    </label>
+                    <input id="id_email" name="email" type="email" required autocomplete="off"/>
+                </div>
+
+                <div class="field-wrap">
+                    <label for="id_password1">{% trans 'Password' %}
+                        <span class="req">*</span>
+                    </label>
+                    <input id="id_password1" name="password1" type="password" minlength="8" required autocomplete="off"/>
+                </div>
+
+                <div class="field-wrap">
+                    <label for="id_password2">{% trans 'Repeat Password' %}
+                        <span class="req">*</span>
+                    </label>
+                    <input id="id_password2" name="password2" type="password" minlength="8" required autocomplete="off"/>
+                </div>
+
+                <button type="submit" class="button button-block">{% trans 'Create' %}
+                </button>
+
+            </form>
+
+        </div>
+
+    </div><!-- tab-content -->
+
+</div> <!-- /form -->
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/index.js' %}"></script>
+<script src="{% static 'js/password-match.js' %}"></script>
+
+
+</body>
+</html>

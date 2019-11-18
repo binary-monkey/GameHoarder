@@ -1,7 +1,11 @@
 import csv
 import json
 
-from django.http import HttpResponse
+from django.contrib.auth import authenticate, login
+from django.template.context_processors import csrf
+from django.contrib import auth
+from .forms import *
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.views.decorators.http import require_GET
 from game_collection.models import Tag
@@ -46,11 +50,33 @@ def download_csv(request):
         return response
 
 
-# @require_GET
-# def search(request):
-#     params = request.GET.dict()
-#     return render(request, 'search/search_table.html', {'games': local_games})
+def login_register(request):
+    if request.method == 'POST':
+        form = UserForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('login')
+        else:
+            username = request.POST.get('username')
+            password = request.POST.get('password')
+            user = authenticate(username=username, password=password)
+            if user is not None:
+                if user.is_active:
+                    login(request, user)
+                    return HttpResponseRedirect('/es/')
+    else:
+        form = UserForm
 
+
+    token = {}
+    token.update(csrf(request))
+    token['form'] = form
+
+    return render(request, 'login_register.html')
+
+def logout(request):
+    auth.logout(request)
+    return HttpResponseRedirect("login")
 
 def search(request):
     # multiple-choice values
@@ -85,3 +111,4 @@ def search(request):
         'genres': genres[1:] if len(genres) > 1 else [],
         'games': games
     })
+
