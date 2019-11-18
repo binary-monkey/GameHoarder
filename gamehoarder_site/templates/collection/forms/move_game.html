@@ -1,0 +1,273 @@
+{% extends "base_site.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Move" %} {{ game_version.parent_game.title }}{% endblock title %}
+
+{% block stylesheets %}
+    {{ block.super }}
+{% endblock stylesheets %}
+{% load i18n %}
+
+{% block content %}
+    <div class="right_col" role="main">
+        <div class="">
+            <div class="page-title">
+                <div class="title_left">
+                    <h3>{% trans "Move" %} {{ game_version.parent_game.title }}</h3>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2>{% trans "Move Game" %}</h2>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="x_content">
+                            <br/>
+                            <form id="movement-form" data-parsley-validate class="form-horizontal form-label-left"
+                                  method="post">
+
+                                {% csrf_token %}
+
+                                {# List Change Selection #}
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3">{% trans "Lists" %}
+                                        <span class="required">*</span>
+                                    </label>
+                                    <label class="control-label"
+                                           for="current_state">
+                                    </label>
+                                    <div class="col-md-2 col-sm-2 col-xs-12">
+                                        <select id="current_state" disabled name="origin" class="form-control">
+                                            <option value="0">{{ current_state.title }}</option>
+                                        </select>
+                                    </div>
+
+                                    <div style="text-align: center;" class="col-md-2 col-sm-2 col-xs-12 ">
+                                        <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
+                                    </div>
+
+                                    <label class="control-label"
+                                           for="{{ form.new_state.id_for_label }}">
+                                    </label>
+                                    <div class="col-md-2 col-sm-2 col-xs-12">
+                                        <select id="{{ form.new_state.id_for_label }}" name="new_state"
+                                                class="form-control">
+                                            <option value="0"></option>
+                                            {% for state in collection_states %}
+                                                {% if not state.upper == current_state %}
+                                                    <option value="{{ forloop.counter }}"> {{ state }} </option>
+                                                {% endif %}
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                                </div>
+
+                                {# Information #}
+
+                                <div class="x_title col-md-8 col-sm-8 col-md-offset-2">
+                                    <h2>{% trans "Item" %}</h2>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <br>
+
+                                <div class="form-group" id="price">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12"
+                                           for="{{ form.price.id_for_label }}">{% trans "Price" %}
+                                        <span class="required">*</span>
+                                    </label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <input type="number" class="form-control col-md-7 col-xs-12" step="0.01"
+                                               min="0" id="{{ form.price.id_for_label }}"
+                                               value="{{ current_item.price }}" name="price">
+                                    </div>
+                                </div>
+
+                                <div class="form-group" id="date-started">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12"
+                                           for="single_cal3">{% trans "Date Adquired" %}
+                                        <span class="required">*</span>
+                                    </label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12 xdisplay_inputx form-group has-feedback">
+                                        <input type="text" class="form-control has-feedback-left" id="single_cal3"
+                                               name="date_adquired" placeholder="{% trans "Date Adquired" %}"
+                                               value="{{ current_item.date_adquired|date:"m/d/Y" }}"
+                                               aria-describedby="inputSuccess2Status3">
+                                        <span class="fa fa-calendar-o form-control-feedback left"
+                                              aria-hidden="true"></span>
+                                        <span id="inputSuccess2Status3" class="sr-only">(success)</span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group" id="date-started">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12"
+                                           for="single_cal2">{% trans "Date Started" %}
+                                        <span class="required">*</span>
+                                    </label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12 xdisplay_inputx form-group has-feedback">
+                                        <input type="text" class="form-control has-feedback-left" id="single_cal2"
+                                               name="date_started" placeholder="{% trans "Date Started" %}"
+                                                {% if current_item != "QUEUE" %}
+                                               value="{{ current_item.date_started|date:"m/d/Y" }}"
+                                                {% endif %}
+                                               aria-describedby="inputSuccess2Status3">
+                                        <span class="fa fa-calendar-o form-control-feedback left"
+                                              aria-hidden="true"></span>
+                                        <span id="inputSuccess2Status3" class="sr-only">(success)</span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group" id="date-other">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12"
+                                           for="single_cal1">{% trans "Date Other" %}
+                                        <span class="required">*</span>
+                                    </label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12 xdisplay_inputx form-group has-feedback">
+                                        <input type="text" class="form-control has-feedback-left" id="single_cal1"
+                                               name="date_other" placeholder="{% trans "Date Other" %}"
+                                               aria-describedby="inputSuccess2Status3">
+                                        <span class="fa fa-calendar-o form-control-feedback left"
+                                              aria-hidden="true"></span>
+                                        <span id="inputSuccess2Status3" class="sr-only">(success)</span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group" id="time-played">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12"
+                                           for="{{ form.time_played.id_for_label }}">{% trans "Time Played" %}
+                                        <span class="required">*</span>
+                                    </label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <input type="number" class="form-control col-md-7 col-xs-12" step="0.01"
+                                               min="0" id="{{ form.time_played.id_for_label }}"
+                                               name="time_played"
+                                               value="{{ current_item.time_played }}"
+                                        >
+                                    </div>
+                                </div>
+
+                                <div class="form-group" id="time-finish">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12"
+                                           for="{{ form.time_other.id_for_label }}">{% trans "Time to Finish" %}
+                                        <span class="required">*</span>
+                                    </label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <input type="number" class="form-control col-md-7 col-xs-12" step="0.01"
+                                               min="0" id="{{ form.time_other.id_for_label }}"
+                                               name="time_other"
+                                                {% if current_state == "FINISHED" %}
+                                               value="{{ current_item.time_to_finish }}"
+                                                {% else %}
+                                               value="0.0"
+                                                {% endif %}
+                                        >
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group" id="Playstyle">
+                                    <label class="control-label col-md-3 col-sm-3"
+                                           for="{{ form.playstyle.id_for_label }}">{% trans "Playstyle" %}
+                                        <span class="required">*</span>
+                                    </label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <select name="playstyle" id="{{ form.playstyle.id_for_label }}"
+                                                class="form-control">
+                                            <option {% if current_state == "FINISHED" %}
+                                                {% if current_item.playstyle.value == "Main Story" %}
+                                                    selected
+                                                {% endif %}
+                                            {% endif %}
+                                                    value="1">{% trans "Main Story" %} </option>
+                                            <option {% if current_state == "FINISHED" %}
+                                                {% if current_item.playstyle.value == "Main + Extras" %}
+                                                    selected
+                                                {% endif %}
+                                            {% endif %}
+                                                    value="2">{% trans "Main + Extras" %}</option>
+                                            <option {% if current_state == "FINISHED" %}
+                                                {% if current_item.playstyle.value == "Completionist" %}
+                                                    selected
+                                                {% endif %}
+                                            {% endif %}
+                                                    value="3">{% trans "Completionist" %} </option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                {# Buttons #}
+                                <div class="ln_solid"></div>
+                                <div class="form-group">
+                                    <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                                        <button class="btn btn-danger" type="button">{% trans "Cancel" %}</button>
+                                        <button class="btn btn-primary" type="reset">{% trans "Reset" %}</button>
+                                        <input type="submit" class="btn btn-success" value="{% trans "Submit" %}">
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script>
+
+
+        $('{{ form.new_state.id_for_label }}').on("change", function () {
+            //do stuff here, eg.
+            if (this.val == 2) { // Playing
+                document.getElementById("date-started").hidden = false;
+                document.getElementById("time-played").hidden = false;
+                document.getElementById("date-other").hidden = true;
+
+            }
+            if (this.val == 3) { // Played
+                document.getElementById("date-started").hidden = false;
+                document.getElementById("time-played").hidden = false;
+                document.getElementById("date-other").hidden = false;
+
+                document.getElementById("label-date-other").value = {% trans "Date Stopped" %};
+            }
+
+            if (this.val == 1 && this.val == 0) { //check the selected option etc.
+                document.getElementById("date-started").hidden = true;
+                document.getElementById("time-played").hidden = true;
+                document.getElementById("date-other").hidden = true;
+            }
+        });
+
+    </script>
+
+{% endblock content %}
+
+{% block javascripts %}
+    {{ block.super }}
+    <!-- Chart.js -->
+    <script src="/static/vendors/Chart.js/dist/Chart.min.js"></script>
+    <!-- gauge.js -->
+    <script src="/static/vendors/gauge.js/dist/gauge.min.js"></script>
+    <!-- Skycons -->
+    <script src="/static/vendors/skycons/skycons.js"></script>
+    <!-- Flot -->
+    <script src="/static/vendors/Flot/jquery.flot.js"></script>
+    <script src="/static/vendors/Flot/jquery.flot.pie.js"></script>
+    <script src="/static/vendors/Flot/jquery.flot.time.js"></script>
+    <script src="/static/vendors/Flot/jquery.flot.stack.js"></script>
+    <script src="/static/vendors/Flot/jquery.flot.resize.js"></script>
+    <!-- Flot plugins -->
+    <script src="/static/vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
+    <script src="/static/vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
+    <script src="/static/vendors/flot.curvedlines/curvedLines.js"></script>
+    <!-- DateJS -->
+    <script src="/static/vendors/DateJS/build/date.js"></script>
+    <!-- JQVMap -->
+    <script src="/static/vendors/jqvmap/dist/jquery.vmap.js"></script>
+    <script src="/static/vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+    <script src="/static/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
+{% endblock javascripts %}
