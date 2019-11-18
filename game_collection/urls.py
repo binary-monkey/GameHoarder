@@ -22,4 +22,6 @@ urlpatterns = [
 
     path('search', views.game_search, name='game_search'),
     path('tag/', views_tables.tag_table, name='tag_table'),
+
+    path('game/<str:id>', views.game_view, name='game_view'),
 ]

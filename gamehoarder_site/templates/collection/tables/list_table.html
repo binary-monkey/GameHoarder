@@ -55,7 +55,8 @@
                                             {{ title.game_version.platform.name }}
                                         </td>
                                         <td>
-                                            {{ title.game_version.parent_game.title }}
+                                            <a href="/game/{{ title.game_version.parent_game.id }}">
+                                            {{ title.game_version.parent_game.title }}</a>
                                         </td>
                                         <td class="text-center">
                                             {{ title.game_version.parent_game.main_time }}
