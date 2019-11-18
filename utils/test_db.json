@@ -2,33 +2,16 @@
 {
     "model": "auth.user",
     "fields": {
-        "password": "pbkdf2_sha256$150000$cfo1FECG0VGz$Xk6C6O87dvtliqM3CI/6uH7KfxN2S5qIb2fUzw5L3xg=",
-        "last_login": null,
-        "is_superuser": true,
-        "username": "jader",
-        "first_name": "",
-        "last_name": "",
-        "email": "",
-        "is_staff": true,
+        "password": "pbkdf2_sha256$150000$CCc4bsb5AKoZ$pqZin1dXA2vDDFCkiGO15FaSyor7Bfl2EfcavhEfqUQ=",
+        "last_login": "2019-11-18T22:19:48.977Z",
+        "is_superuser": false,
+        "username": "johnny.pepperoni",
+        "first_name": "John",
+        "last_name": "Doe",
+        "email": "john@opendeusto.es",
+        "is_staff": false,
         "is_active": true,
-        "date_joined": "2019-11-18T16:58:58.848Z",
-        "groups": [],
-        "user_permissions": []
-    }
-},
-{
-    "model": "auth.user",
-    "fields": {
-        "password": "pbkdf2_sha256$150000$57AQQOfMT8dq$0uaHSqGwRJmcZlfsn9UnwXjHs34MxXAPwfRvkv592mU=",
-        "last_login": "2019-11-18T17:01:25.290Z",
-        "is_superuser": true,
-        "username": "jailander",
-        "first_name": "",
-        "last_name": "",
-        "email": "",
-        "is_staff": true,
-        "is_active": true,
-        "date_joined": "2019-11-18T17:01:22.222Z",
+        "date_joined": "2019-11-18T22:19:35.696Z",
         "groups": [],
         "user_permissions": []
     }
@@ -165,16 +148,16 @@
     "model": "game_database.genre",
     "pk": 17,
     "fields": {
-        "name": "Dual-Joystick Shooter",
-        "db_id": "31"
+        "name": "Brawler",
+        "db_id": "37"
     }
 },
 {
     "model": "game_database.genre",
     "pk": 18,
     "fields": {
-        "name": "Brawler",
-        "db_id": "37"
+        "name": "Dual-Joystick Shooter",
+        "db_id": "31"
     }
 },
 {
@@ -909,13 +892,21 @@
     "model": "game_database.company",
     "pk": 92,
     "fields": {
-        "name": "Subset Games",
-        "db_id": "8016"
+        "name": "Splash Damage, Ltd",
+        "db_id": "1082"
     }
 },
 {
     "model": "game_database.company",
     "pk": 93,
+    "fields": {
+        "name": "Human Head Studios, Inc.",
+        "db_id": "1628"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 94,
     "fields": {
         "name": "Telltale Games",
         "db_id": "397"
@@ -923,7 +914,7 @@
 },
 {
     "model": "game_database.company",
-    "pk": 94,
+    "pk": 95,
     "fields": {
         "name": "Outsource Media (OMUK)",
         "db_id": "10727"
@@ -931,7 +922,7 @@
 },
 {
     "model": "game_database.company",
-    "pk": 95,
+    "pk": 96,
     "fields": {
         "name": "Numinous Games",
         "db_id": "9104"
@@ -939,7 +930,7 @@
 },
 {
     "model": "game_database.company",
-    "pk": 96,
+    "pk": 97,
     "fields": {
         "name": "Wargaming.net",
         "db_id": "4066"
@@ -947,7 +938,7 @@
 },
 {
     "model": "game_database.company",
-    "pk": 97,
+    "pk": 98,
     "fields": {
         "name": "NGD Studios",
         "db_id": "290"
@@ -955,7 +946,7 @@
 },
 {
     "model": "game_database.company",
-    "pk": 98,
+    "pk": 99,
     "fields": {
         "name": "Special Reserve Games",
         "db_id": "18362"
@@ -963,7 +954,7 @@
 },
 {
     "model": "game_database.company",
-    "pk": 99,
+    "pk": 100,
     "fields": {
         "name": "Dodge Roll",
         "db_id": "10603"
@@ -971,7 +962,7 @@
 },
 {
     "model": "game_database.company",
-    "pk": 100,
+    "pk": 101,
     "fields": {
         "name": "The Game Bakers",
         "db_id": "7657"
@@ -979,7 +970,7 @@
 },
 {
     "model": "game_database.company",
-    "pk": 101,
+    "pk": 102,
     "fields": {
         "name": "D-pad Studio",
         "db_id": "7036"
@@ -987,7 +978,7 @@
 },
 {
     "model": "game_database.company",
-    "pk": 102,
+    "pk": 103,
     "fields": {
         "name": "Soedesco",
         "db_id": "10558"
@@ -995,7 +986,7 @@
 },
 {
     "model": "game_database.company",
-    "pk": 103,
+    "pk": 104,
     "fields": {
         "name": "Finji",
         "db_id": "10055"
@@ -1003,7 +994,7 @@
 },
 {
     "model": "game_database.company",
-    "pk": 104,
+    "pk": 105,
     "fields": {
         "name": "Infinite Fall",
         "db_id": "9499"
@@ -1011,7 +1002,7 @@
 },
 {
     "model": "game_database.company",
-    "pk": 105,
+    "pk": 106,
     "fields": {
         "name": "Team Cherry",
         "db_id": "10636"
@@ -1019,7 +1010,7 @@
 },
 {
     "model": "game_database.company",
-    "pk": 106,
+    "pk": 107,
     "fields": {
         "name": "Fangamer",
         "db_id": "19557"
@@ -1027,7 +1018,7 @@
 },
 {
     "model": "game_database.company",
-    "pk": 107,
+    "pk": 108,
     "fields": {
         "name": "SCS Software",
         "db_id": "3214"
@@ -1035,7 +1026,7 @@
 },
 {
     "model": "game_database.company",
-    "pk": 108,
+    "pk": 109,
     "fields": {
         "name": "Wendros AB",
         "db_id": "8479"
@@ -1043,7 +1034,7 @@
 },
 {
     "model": "game_database.company",
-    "pk": 109,
+    "pk": 110,
     "fields": {
         "name": "Excalibur Publishing Limited",
         "db_id": "2861"
@@ -1051,7 +1042,7 @@
 },
 {
     "model": "game_database.company",
-    "pk": 110,
+    "pk": 111,
     "fields": {
         "name": "Strategy First, Inc.",
         "db_id": "323"
@@ -1059,7 +1050,7 @@
 },
 {
     "model": "game_database.company",
-    "pk": 111,
+    "pk": 112,
     "fields": {
         "name": "Paradox Interactive AB",
         "db_id": "1366"
@@ -1067,7 +1058,7 @@
 },
 {
     "model": "game_database.company",
-    "pk": 112,
+    "pk": 113,
     "fields": {
         "name": "Focus Home Interactive",
         "db_id": "720"
@@ -1075,7 +1066,7 @@
 },
 {
     "model": "game_database.company",
-    "pk": 113,
+    "pk": 114,
     "fields": {
         "name": "GIANTS Software GmbH",
         "db_id": "6833"
@@ -1083,7 +1074,7 @@
 },
 {
     "model": "game_database.company",
-    "pk": 114,
+    "pk": 115,
     "fields": {
         "name": "Square Enix",
         "db_id": "104"
@@ -1091,7 +1082,7 @@
 },
 {
     "model": "game_database.company",
-    "pk": 115,
+    "pk": 116,
     "fields": {
         "name": "Square Visual Works",
         "db_id": "10321"
@@ -1099,7 +1090,7 @@
 },
 {
     "model": "game_database.company",
-    "pk": 116,
+    "pk": 117,
     "fields": {
         "name": "Paradox Development Studio",
         "db_id": "8504"
@@ -1107,7 +1098,7 @@
 },
 {
     "model": "game_database.company",
-    "pk": 117,
+    "pk": 118,
     "fields": {
         "name": "IO Interactive",
         "db_id": "3562"
@@ -1115,7 +1106,7 @@
 },
 {
     "model": "game_database.company",
-    "pk": 118,
+    "pk": 119,
     "fields": {
         "name": "Avalanche Studios",
         "db_id": "5927"
@@ -1123,7 +1114,7 @@
 },
 {
     "model": "game_database.company",
-    "pk": 119,
+    "pk": 120,
     "fields": {
         "name": "Deck Nine Games",
         "db_id": "14383"
@@ -1131,7 +1122,7 @@
 },
 {
     "model": "game_database.company",
-    "pk": 120,
+    "pk": 121,
     "fields": {
         "name": "DrinkBox Studios",
         "db_id": "7162"
@@ -1139,7 +1130,7 @@
 },
 {
     "model": "game_database.company",
-    "pk": 121,
+    "pk": 122,
     "fields": {
         "name": "Broken Rules",
         "db_id": "7114"
@@ -1147,7 +1138,7 @@
 },
 {
     "model": "game_database.company",
-    "pk": 122,
+    "pk": 123,
     "fields": {
         "name": "CD Projekt Red",
         "db_id": "2890"
@@ -1155,7 +1146,7 @@
 },
 {
     "model": "game_database.company",
-    "pk": 123,
+    "pk": 124,
     "fields": {
         "name": "Bandai Namco Entertainment Europe",
         "db_id": "17313"
@@ -1163,42 +1154,26 @@
 },
 {
     "model": "game_database.company",
-    "pk": 124,
-    "fields": {
-        "name": "Tango Gameworks",
-        "db_id": "7035"
-    }
-},
-{
-    "model": "game_database.company",
     "pk": 125,
     "fields": {
-        "name": "Tokyo RPG Factory",
-        "db_id": "11175"
+        "name": "Team Silent",
+        "db_id": "757"
     }
 },
 {
     "model": "game_database.company",
     "pk": 126,
     "fields": {
-        "name": "Gemdrops, Inc.",
-        "db_id": "17622"
+        "name": "Vatra Games",
+        "db_id": "7056"
     }
 },
 {
     "model": "game_database.company",
     "pk": 127,
     "fields": {
-        "name": "Deep Silver",
-        "db_id": "52"
-    }
-},
-{
-    "model": "game_database.company",
-    "pk": 128,
-    "fields": {
-        "name": "Warhorse studios",
-        "db_id": "7684"
+        "name": "Climax LA",
+        "db_id": "5243"
     }
 },
 {
@@ -2330,24 +2305,28 @@
     "model": "game_database.game",
     "pk": 45,
     "fields": {
-        "title": "FTL: Faster Than Light",
-        "db_id": "37770",
-        "main_time": 11.5,
-        "extra_time": 29.5,
-        "completion_time": 124.0,
+        "title": "Batman: Arkham Origins",
+        "db_id": "42245",
+        "main_time": 12.5,
+        "extra_time": 22.0,
+        "completion_time": 37.0,
         "release_date": null,
-        "description": "In this roguelike space sim, players are tasked with commanding a customized starship on an important mission through a randomized universe, with vile rebels nipping at their heels.",
-        "img_url": "https://www.giantbomb.com/api/image/original/2326566-ftl_box.jpg",
+        "description": "Two years after beginning his crime-fighting career, Batman faces his toughest challenge ever when the crime lord known as Black Mask hires the eight deadliest assassins in the DC Universe to kill the vigilante who has been interfering in his operations.",
+        "img_url": "https://www.giantbomb.com/api/image/original/2485321-486263.jpg",
         "update": false,
         "publishers": [
-            92
+            11
         ],
         "developers": [
-            92
+            13,
+            14,
+            15,
+            92,
+            93
         ],
         "genres": [
-            1,
-            12
+            9,
+            17
         ]
     }
 },
@@ -2365,11 +2344,11 @@
         "img_url": "https://www.giantbomb.com/api/image/original/3039239-box_twauttgs.png",
         "update": false,
         "publishers": [
-            93
+            94
         ],
         "developers": [
-            93,
-            94
+            94,
+            95
         ],
         "genres": [
             5
@@ -2391,7 +2370,7 @@
         "update": false,
         "publishers": [],
         "developers": [
-            95
+            96
         ],
         "genres": [
             5
@@ -2412,10 +2391,10 @@
         "img_url": "https://www.giantbomb.com/api/image/original/2763901-6576315634-capsu.jpg",
         "update": false,
         "publishers": [
-            96
+            97
         ],
         "developers": [
-            97
+            98
         ],
         "genres": [
             1
@@ -2437,10 +2416,10 @@
         "update": false,
         "publishers": [
             27,
-            98
+            99
         ],
         "developers": [
-            99
+            100
         ],
         "genres": [
             4,
@@ -2464,14 +2443,14 @@
         "update": false,
         "publishers": [
             33,
-            100
+            101
         ],
         "developers": [
-            100
+            101
         ],
         "genres": [
             7,
-            17
+            18
         ]
     }
 },
@@ -2489,11 +2468,11 @@
         "img_url": "https://www.giantbomb.com/api/image/original/3017059-box_ob.png",
         "update": false,
         "publishers": [
-            101,
-            102
+            102,
+            103
         ],
         "developers": [
-            101
+            102
         ],
         "genres": [
             8,
@@ -2516,10 +2495,10 @@
         "update": false,
         "publishers": [
             33,
-            103
+            104
         ],
         "developers": [
-            104
+            105
         ],
         "genres": [
             5,
@@ -2541,11 +2520,11 @@
         "img_url": "https://www.giantbomb.com/api/image/original/3138852-box_hk.png",
         "update": false,
         "publishers": [
-            105,
-            106
+            106,
+            107
         ],
         "developers": [
-            105
+            106
         ],
         "genres": [
             8,
@@ -2567,12 +2546,12 @@
         "img_url": "https://www.giantbomb.com/api/image/original/3140522-box_ets2.png",
         "update": false,
         "publishers": [
-            107,
             108,
-            109
+            109,
+            110
         ],
         "developers": [
-            107
+            108
         ],
         "genres": [
             10,
@@ -2594,10 +2573,10 @@
         "img_url": "https://www.giantbomb.com/api/image/original/2331102-box_eu.png",
         "update": false,
         "publishers": [
-            110
+            111
         ],
         "developers": [
-            111
+            112
         ],
         "genres": [
             1,
@@ -2619,11 +2598,11 @@
         "img_url": "https://www.giantbomb.com/api/image/original/3037741-box_fs17.png",
         "update": false,
         "publishers": [
-            112,
-            113
+            113,
+            114
         ],
         "developers": [
-            113
+            114
         ],
         "genres": [
             10
@@ -2644,11 +2623,11 @@
         "img_url": "https://www.giantbomb.com/api/image/original/2903750-final%20fantasy%20xv%20v3.jpg",
         "update": false,
         "publishers": [
-            114
+            115
         ],
         "developers": [
-            114,
-            115
+            115,
+            116
         ],
         "genres": [
             7,
@@ -2671,10 +2650,10 @@
         "img_url": "https://www.giantbomb.com/api/image/original/2594042-gaming-hearts-of-iron-4.jpg",
         "update": false,
         "publishers": [
-            111
+            112
         ],
         "developers": [
-            116
+            117
         ],
         "genres": [
             1
@@ -2695,10 +2674,10 @@
         "img_url": "https://www.giantbomb.com/api/image/original/3124186-1671936150-packs.jpg",
         "update": false,
         "publishers": [
-            114
+            115
         ],
         "developers": [
-            117
+            118
         ],
         "genres": [
             9
@@ -2719,10 +2698,10 @@
         "img_url": "https://www.giantbomb.com/api/image/original/2996057-box_jc3.png",
         "update": false,
         "publishers": [
-            114
+            115
         ],
         "developers": [
-            118
+            119
         ],
         "genres": [
             7
@@ -2743,10 +2722,10 @@
         "img_url": "https://www.giantbomb.com/api/image/original/2945312-screen%20shot%202017-06-11%20at%208.09.07%20pm.png",
         "update": false,
         "publishers": [
-            114
+            115
         ],
         "developers": [
-            119
+            120
         ],
         "genres": [
             5
@@ -2768,16 +2747,16 @@
         "update": false,
         "publishers": [
             33,
-            120
+            121
         ],
         "developers": [
-            120,
-            121
+            121,
+            122
         ],
         "genres": [
             7,
             8,
-            18
+            17
         ]
     }
 },
@@ -2796,11 +2775,11 @@
         "update": false,
         "publishers": [
             11,
-            122,
-            123
+            123,
+            124
         ],
         "developers": [
-            122
+            123
         ],
         "genres": [
             9,
@@ -2822,7 +2801,7 @@
         "img_url": "https://www.giantbomb.com/api/image/original/3124187-8762523691-packs.jpg",
         "update": false,
         "publishers": [
-            114
+            115
         ],
         "developers": [
             18,
@@ -2838,23 +2817,24 @@
     "model": "game_database.game",
     "pk": 65,
     "fields": {
-        "title": "The Evil Within 2",
-        "db_id": "59907",
-        "main_time": 13.0,
-        "extra_time": 18.5,
-        "completion_time": 26.5,
+        "title": "Silent Hill",
+        "db_id": "4312",
+        "main_time": 7.0,
+        "extra_time": 8.0,
+        "completion_time": 13.5,
         "release_date": null,
-        "description": "The Evil Within 2",
-        "img_url": "https://www.giantbomb.com/api/image/original/2945463-tew2_pg_ka_final_rgb_cl_042517_1496835937-1.jpg",
+        "description": "Everyman Harry Mason searches the desolate town of Silent Hill for his missing daughter in the first of a series of survival horror titles that rely more on unsettling atmosphere than jump scares for tension.",
+        "img_url": "https://www.giantbomb.com/api/image/original/1799372-box_silenthill.png",
         "update": false,
         "publishers": [
-            66
+            52
         ],
         "developers": [
-            124
+            52,
+            125
         ],
         "genres": [
-            4
+            9
         ]
     }
 },
@@ -2862,23 +2842,23 @@
     "model": "game_database.game",
     "pk": 66,
     "fields": {
-        "title": "Final Fantasy XII: The Zodiac Age",
-        "db_id": "54121",
-        "main_time": 40.5,
-        "extra_time": 61.5,
-        "completion_time": 102.0,
+        "title": "Silent Hill: Downpour",
+        "db_id": "30645",
+        "main_time": 9.0,
+        "extra_time": 12.0,
+        "completion_time": 17.0,
         "release_date": null,
-        "description": "The Zodiac Age is a remake of 2006's Final Fantasy XII that includes a job system that was previously only available in the Japan-only \"International\" edition. The remake also includes various other additions and enhancements.",
-        "img_url": "https://www.giantbomb.com/api/image/original/3124183-1203822419-packs.jpg",
+        "description": "The eighth game in the esteemed survival-horror franchise sees convict Murphy Pendleton escape captivity and flee into the much greater danger of the cursed town of Silent Hill.",
+        "img_url": "https://www.giantbomb.com/api/image/original/2120439-box_shd.png",
         "update": false,
         "publishers": [
-            114
+            52
         ],
         "developers": [
-            114
+            126
         ],
         "genres": [
-            12
+            9
         ]
     }
 },
@@ -2886,24 +2866,25 @@
     "model": "game_database.game",
     "pk": 67,
     "fields": {
-        "title": "I Am Setsuna",
-        "db_id": "50001",
-        "main_time": 20.5,
-        "extra_time": 26.0,
-        "completion_time": 47.0,
+        "title": "Silent Hill: 0rigins",
+        "db_id": "14392",
+        "main_time": 0.0,
+        "extra_time": 0.0,
+        "completion_time": 0.0,
         "release_date": null,
-        "description": "A Japanese role-playing game developed by Square Enix's Tokyo RPG Factory studio. Its design is meant as a throwback to the classic JRPGs of the 90s.",
-        "img_url": "https://www.giantbomb.com/api/image/original/2872021-28210570252_09c44dd693_o.jpg",
+        "description": "Enter Silent Hill for the first time, as redneck trucker Travis Grady explores the haunted town and discovers how true evil began.",
+        "img_url": "https://www.giantbomb.com/api/image/original/1867822-box_shill0.png",
         "update": false,
         "publishers": [
-            114
+            52
         ],
         "developers": [
-            125,
-            126
+            10,
+            95,
+            127
         ],
         "genres": [
-            12
+            9
         ]
     }
 },
@@ -2911,24 +2892,23 @@
     "model": "game_database.game",
     "pk": 68,
     "fields": {
-        "title": "Kingdom Come: Deliverance",
-        "db_id": "44790",
-        "main_time": 39.5,
-        "extra_time": 71.5,
-        "completion_time": 122.0,
+        "title": "Silent Hill 2: Restless Dreams",
+        "db_id": "614",
+        "main_time": 0.0,
+        "extra_time": 0.0,
+        "completion_time": 0.0,
         "release_date": null,
-        "description": "A medieval open world RPG focused on period-accurate fighting and technique.",
-        "img_url": "https://www.giantbomb.com/api/image/original/3005658-box_kcd.png",
+        "description": "Silent Hill 2: Restless Dreams is an updated version of the original Silent Hill 2 released a month after the original version.",
+        "img_url": "https://www.giantbomb.com/api/image/original/617672-shrd.png",
         "update": false,
         "publishers": [
-            127
+            52
         ],
         "developers": [
-            128
+            125
         ],
         "genres": [
-            7,
-            12
+            9
         ]
     }
 },
@@ -2940,6 +2920,116 @@
         "db_id": "94",
         "description": "The PC (Personal Computer) is a highly configurable and upgradable gaming platform that, among home systems, sports the widest variety of control methods, largest library of games, and cutting edge graphics and sound capabilities.",
         "img_url": "https://www.giantbomb.com/api/image/original/1650285-ibm_pc_5150.jpg",
+        "update": false
+    }
+},
+{
+    "model": "game_database.platform",
+    "pk": 2,
+    "fields": {
+        "name": "PlayStation",
+        "db_id": "22",
+        "description": "Sony's first video game console established the PlayStation brand. It dominated the 32/64-bit era and was the best-selling home console up until the PlayStation 2.",
+        "img_url": "https://www.giantbomb.com/api/image/original/1426393-logo.jpg",
+        "update": false
+    }
+},
+{
+    "model": "game_database.platform",
+    "pk": 3,
+    "fields": {
+        "name": "PlayStation Network (PS3)",
+        "db_id": "88",
+        "description": "The PlayStation Network is the online service by Sony Computer Entertainment, providing downloads of games, trailers, themes and much more. The service is free, but also offers a paid version for various benefits.",
+        "img_url": "https://www.giantbomb.com/api/image/original/2122559-psnps3.png",
+        "update": false
+    }
+},
+{
+    "model": "game_database.platform",
+    "pk": 4,
+    "fields": {
+        "name": "PlayStation Network (PSP)",
+        "db_id": "116",
+        "description": "This platform is specifically for PSP releases that are made available as digital downloads via the PlayStation Store. The Store includes PSP games (some exclusive to PSN), PSP Minis, PSone Classics, trailers, movies, TV shows, and digital comics.",
+        "img_url": "https://www.giantbomb.com/api/image/original/2122556-psnpsp.png",
+        "update": false
+    }
+},
+{
+    "model": "game_database.platform",
+    "pk": 5,
+    "fields": {
+        "name": "PlayStation Network (Vita)",
+        "db_id": "143",
+        "description": "The PlayStation Network is Sony's digital storefront for delivering games, add-ons, and other content. This specific platform page focuses on the PlayStation Vita version of said storefront.",
+        "img_url": "https://www.giantbomb.com/api/image/original/2124933-psnpsv1.png",
+        "update": false
+    }
+},
+{
+    "model": "game_database.platform",
+    "pk": 6,
+    "fields": {
+        "name": "Xbox 360",
+        "db_id": "20",
+        "description": "The Xbox 360 is the second game console produced by Microsoft Corporation and is the successor to the original Xbox.",
+        "img_url": "https://www.giantbomb.com/api/image/original/195092-xbox_360_console_02.jpg",
+        "update": false
+    }
+},
+{
+    "model": "game_database.platform",
+    "pk": 7,
+    "fields": {
+        "name": "PlayStation 3",
+        "db_id": "35",
+        "description": "The PlayStation 3 (often abbreviated PS3) is the third home video game console created and released by Sony Computer Entertainment Inc.",
+        "img_url": "https://www.giantbomb.com/api/image/original/1426360-logo.jpg",
+        "update": false
+    }
+},
+{
+    "model": "game_database.platform",
+    "pk": 8,
+    "fields": {
+        "name": "Xbox 360 Games Store",
+        "db_id": "86",
+        "description": "Xbox Live Games Store is an online store for the Xbox 360 and Xbox One which allows users to purchase games digitally.",
+        "img_url": "https://www.giantbomb.com/api/image/original/2564457-8881913767-XboxL.png",
+        "update": false
+    }
+},
+{
+    "model": "game_database.platform",
+    "pk": 9,
+    "fields": {
+        "name": "PlayStation Portable",
+        "db_id": "18",
+        "description": "PlayStation Portable (PSP) is Sony's first entry into the handheld gaming market. The PSP also sports multimedia features including music and video playback, a photo viewer, and an online store. Several model revisions have been released: the PSP-2000, 3000, PSPgo and the PSP-E1000.",
+        "img_url": "https://www.giantbomb.com/api/image/original/2122792-pspmain.png",
+        "update": false
+    }
+},
+{
+    "model": "game_database.platform",
+    "pk": 10,
+    "fields": {
+        "name": "PlayStation 2",
+        "db_id": "19",
+        "description": "Sony's PlayStation 2 is the second home video game console produced by Sony Computer Entertainment Incorporated, and to date is the best-selling home console of all time, with an install base of 150 million units since its launch.",
+        "img_url": "https://www.giantbomb.com/api/image/original/438868-ps2_full_large.jpg",
+        "update": false
+    }
+},
+{
+    "model": "game_database.platform",
+    "pk": 11,
+    "fields": {
+        "name": "Xbox",
+        "db_id": "32",
+        "description": "Microsoft's first home gaming system and one of the first to include an internal hard drive and built in online play capability. It was considered the first console to have fully supported meaningful online play.",
+        "img_url": "https://www.giantbomb.com/api/image/original/359843-xbox.jpg",
         "update": false
     }
 },
@@ -3565,9 +3655,9 @@
     "fields": {
         "parent_game": 45,
         "platform": 1,
-        "name": "FTL",
-        "release_date": "2012-09-14",
-        "db_id": "119544",
+        "name": "Batman: Arkham Origins",
+        "release_date": "2013-10-25",
+        "db_id": "127873",
         "update": false,
         "publishers": [],
         "developers": []
@@ -3844,10 +3934,10 @@
     "pk": 65,
     "fields": {
         "parent_game": 65,
-        "platform": 1,
-        "name": "The Evil Within 2",
-        "release_date": "2017-10-13",
-        "db_id": "154803",
+        "platform": 2,
+        "name": "Silent Hill",
+        "release_date": "1999-01-31",
+        "db_id": "79404",
         "update": false,
         "publishers": [],
         "developers": []
@@ -3858,10 +3948,10 @@
     "pk": 66,
     "fields": {
         "parent_game": 66,
-        "platform": 1,
-        "name": "Final Fantasy XII: The Zodiac Age",
-        "release_date": "2019-04-30",
-        "db_id": "165476",
+        "platform": 6,
+        "name": "Silent Hill: Downpour",
+        "release_date": "2012-03-13",
+        "db_id": "101647",
         "update": false,
         "publishers": [],
         "developers": []
@@ -3872,10 +3962,10 @@
     "pk": 67,
     "fields": {
         "parent_game": 67,
-        "platform": 1,
-        "name": "I Am Setsuna",
-        "release_date": "2016-07-19",
-        "db_id": "147259",
+        "platform": 9,
+        "name": "Silent Hill: 0rigins",
+        "release_date": "2007-11-16",
+        "db_id": "75096",
         "update": false,
         "publishers": [],
         "developers": []
@@ -3886,10 +3976,10 @@
     "pk": 68,
     "fields": {
         "parent_game": 68,
-        "platform": 1,
-        "name": "Kingdom Come: Deliverance",
-        "release_date": "2018-02-13",
-        "db_id": "158541",
+        "platform": 11,
+        "name": "Silent Hill 2: Restless Dreams (Platinum Hits)",
+        "release_date": "2003-02-19",
+        "db_id": "79415",
         "update": false,
         "publishers": [],
         "developers": []
@@ -3899,7 +3989,7 @@
     "model": "game_collection.queue",
     "pk": 1,
     "fields": {
-        "user": 2,
+        "user": 1,
         "game_version": 1,
         "price": 0.0,
         "date_adquired": "2018-05-17",
@@ -3910,7 +4000,7 @@
     "model": "game_collection.queue",
     "pk": 2,
     "fields": {
-        "user": 2,
+        "user": 1,
         "game_version": 2,
         "price": 0.0,
         "date_adquired": "2018-05-17",
@@ -3921,7 +4011,7 @@
     "model": "game_collection.queue",
     "pk": 3,
     "fields": {
-        "user": 2,
+        "user": 1,
         "game_version": 3,
         "price": 0.0,
         "date_adquired": "2017-01-01",
@@ -3932,7 +4022,7 @@
     "model": "game_collection.queue",
     "pk": 4,
     "fields": {
-        "user": 2,
+        "user": 1,
         "game_version": 4,
         "price": 0.0,
         "date_adquired": "2018-01-03",
@@ -3943,7 +4033,7 @@
     "model": "game_collection.queue",
     "pk": 5,
     "fields": {
-        "user": 2,
+        "user": 1,
         "game_version": 5,
         "price": 0.0,
         "date_adquired": "2016-06-03",
@@ -3954,7 +4044,7 @@
     "model": "game_collection.queue",
     "pk": 6,
     "fields": {
-        "user": 2,
+        "user": 1,
         "game_version": 6,
         "price": 0.0,
         "date_adquired": "2018-10-28",
@@ -3965,7 +4055,7 @@
     "model": "game_collection.queue",
     "pk": 7,
     "fields": {
-        "user": 2,
+        "user": 1,
         "game_version": 7,
         "price": 0.0,
         "date_adquired": "2018-01-18",
@@ -3976,7 +4066,7 @@
     "model": "game_collection.queue",
     "pk": 8,
     "fields": {
-        "user": 2,
+        "user": 1,
         "game_version": 8,
         "price": 0.0,
         "date_adquired": "2018-07-31",
@@ -3987,7 +4077,7 @@
     "model": "game_collection.queue",
     "pk": 9,
     "fields": {
-        "user": 2,
+        "user": 1,
         "game_version": 9,
         "price": 0.0,
         "date_adquired": "2018-05-17",
@@ -3998,9 +4088,9 @@
     "model": "game_collection.queue",
     "pk": 10,
     "fields": {
-        "user": 2,
+        "user": 1,
         "game_version": 10,
-        "price": 4.1,
+        "price": 0.0,
         "date_adquired": "2018-01-03",
         "time_played": null
     }
@@ -4009,7 +4099,7 @@
     "model": "game_collection.queue",
     "pk": 11,
     "fields": {
-        "user": 2,
+        "user": 1,
         "game_version": 42,
         "price": 0.0,
         "date_adquired": "2018-02-19",
@@ -4020,7 +4110,7 @@
     "model": "game_collection.queue",
     "pk": 12,
     "fields": {
-        "user": 2,
+        "user": 1,
         "game_version": 43,
         "price": 0.0,
         "date_adquired": "2019-03-26",
@@ -4031,7 +4121,7 @@
     "model": "game_collection.queue",
     "pk": 13,
     "fields": {
-        "user": 2,
+        "user": 1,
         "game_version": 44,
         "price": 0.0,
         "date_adquired": "2016-06-03",
@@ -4039,10 +4129,32 @@
     }
 },
 {
+    "model": "game_collection.queue",
+    "pk": 14,
+    "fields": {
+        "user": 1,
+        "game_version": 45,
+        "price": 0.0,
+        "date_adquired": "2018-10-28",
+        "time_played": null
+    }
+},
+{
+    "model": "game_collection.queue",
+    "pk": 15,
+    "fields": {
+        "user": 1,
+        "game_version": 65,
+        "price": 50.0,
+        "date_adquired": "2019-11-04",
+        "time_played": 0.0
+    }
+},
+{
     "model": "game_collection.playing",
     "pk": 1,
     "fields": {
-        "user": 2,
+        "user": 1,
         "game_version": 11,
         "price": 0.0,
         "date_adquired": "2018-05-17",
@@ -4054,7 +4166,7 @@
     "model": "game_collection.playing",
     "pk": 2,
     "fields": {
-        "user": 2,
+        "user": 1,
         "game_version": 12,
         "price": 0.0,
         "date_adquired": "2018-01-03",
@@ -4066,7 +4178,7 @@
     "model": "game_collection.playing",
     "pk": 3,
     "fields": {
-        "user": 2,
+        "user": 1,
         "game_version": 13,
         "price": 0.0,
         "date_adquired": "2018-02-19",
@@ -4078,7 +4190,7 @@
     "model": "game_collection.playing",
     "pk": 4,
     "fields": {
-        "user": 2,
+        "user": 1,
         "game_version": 14,
         "price": 0.0,
         "date_adquired": "2019-03-26",
@@ -4090,7 +4202,7 @@
     "model": "game_collection.playing",
     "pk": 5,
     "fields": {
-        "user": 2,
+        "user": 1,
         "game_version": 15,
         "price": 0.0,
         "date_adquired": "2016-06-03",
@@ -4102,7 +4214,7 @@
     "model": "game_collection.playing",
     "pk": 6,
     "fields": {
-        "user": 2,
+        "user": 1,
         "game_version": 16,
         "price": 0.0,
         "date_adquired": "2016-06-03",
@@ -4114,7 +4226,7 @@
     "model": "game_collection.playing",
     "pk": 7,
     "fields": {
-        "user": 2,
+        "user": 1,
         "game_version": 17,
         "price": 0.0,
         "date_adquired": "2018-10-28",
@@ -4126,7 +4238,7 @@
     "model": "game_collection.playing",
     "pk": 8,
     "fields": {
-        "user": 2,
+        "user": 1,
         "game_version": 18,
         "price": 0.0,
         "date_adquired": "2018-01-18",
@@ -4138,7 +4250,7 @@
     "model": "game_collection.playing",
     "pk": 9,
     "fields": {
-        "user": 2,
+        "user": 1,
         "game_version": 19,
         "price": 0.0,
         "date_adquired": "2018-07-31",
@@ -4150,20 +4262,8 @@
     "model": "game_collection.playing",
     "pk": 10,
     "fields": {
-        "user": 2,
+        "user": 1,
         "game_version": 20,
-        "price": 0.0,
-        "date_adquired": "2018-05-17",
-        "time_played": null,
-        "date_started": null
-    }
-},
-{
-    "model": "game_collection.playing",
-    "pk": 11,
-    "fields": {
-        "user": 2,
-        "game_version": 45,
         "price": 0.0,
         "date_adquired": "2018-05-17",
         "time_played": null,
@@ -4174,7 +4274,7 @@
     "model": "game_collection.finished",
     "pk": 1,
     "fields": {
-        "user": 2,
+        "user": 1,
         "game_version": 21,
         "price": 0.0,
         "date_adquired": "2016-07-03",
@@ -4189,7 +4289,7 @@
     "model": "game_collection.finished",
     "pk": 2,
     "fields": {
-        "user": 2,
+        "user": 1,
         "game_version": 22,
         "price": 0.0,
         "date_adquired": "2016-07-03",
@@ -4204,7 +4304,7 @@
     "model": "game_collection.finished",
     "pk": 3,
     "fields": {
-        "user": 2,
+        "user": 1,
         "game_version": 23,
         "price": 0.0,
         "date_adquired": "2016-07-03",
@@ -4219,7 +4319,7 @@
     "model": "game_collection.finished",
     "pk": 4,
     "fields": {
-        "user": 2,
+        "user": 1,
         "game_version": 24,
         "price": 0.0,
         "date_adquired": "2016-03-06",
@@ -4234,7 +4334,7 @@
     "model": "game_collection.finished",
     "pk": 5,
     "fields": {
-        "user": 2,
+        "user": 1,
         "game_version": 25,
         "price": 0.0,
         "date_adquired": "2016-07-03",
@@ -4249,7 +4349,7 @@
     "model": "game_collection.finished",
     "pk": 6,
     "fields": {
-        "user": 2,
+        "user": 1,
         "game_version": 26,
         "price": 0.0,
         "date_adquired": "2016-07-04",
@@ -4264,7 +4364,7 @@
     "model": "game_collection.finished",
     "pk": 7,
     "fields": {
-        "user": 2,
+        "user": 1,
         "game_version": 27,
         "price": 0.0,
         "date_adquired": "2016-07-03",
@@ -4279,7 +4379,7 @@
     "model": "game_collection.finished",
     "pk": 8,
     "fields": {
-        "user": 2,
+        "user": 1,
         "game_version": 28,
         "price": 0.0,
         "date_adquired": "2016-07-03",
@@ -4294,7 +4394,7 @@
     "model": "game_collection.finished",
     "pk": 9,
     "fields": {
-        "user": 2,
+        "user": 1,
         "game_version": 29,
         "price": 0.0,
         "date_adquired": "2016-07-03",
@@ -4309,7 +4409,7 @@
     "model": "game_collection.finished",
     "pk": 10,
     "fields": {
-        "user": 2,
+        "user": 1,
         "game_version": 30,
         "price": 0.0,
         "date_adquired": "2016-06-30",
@@ -4324,7 +4424,7 @@
     "model": "game_collection.finished",
     "pk": 11,
     "fields": {
-        "user": 2,
+        "user": 1,
         "game_version": 31,
         "price": 0.0,
         "date_adquired": "2016-12-21",
@@ -4339,7 +4439,7 @@
     "model": "game_collection.finished",
     "pk": 12,
     "fields": {
-        "user": 2,
+        "user": 1,
         "game_version": 32,
         "price": 0.0,
         "date_adquired": "2016-03-06",
@@ -4354,7 +4454,7 @@
     "model": "game_collection.finished",
     "pk": 13,
     "fields": {
-        "user": 2,
+        "user": 1,
         "game_version": 33,
         "price": 0.0,
         "date_adquired": "2016-11-02",
@@ -4369,7 +4469,7 @@
     "model": "game_collection.finished",
     "pk": 14,
     "fields": {
-        "user": 2,
+        "user": 1,
         "game_version": 34,
         "price": 0.0,
         "date_adquired": "2016-07-04",
@@ -4384,7 +4484,7 @@
     "model": "game_collection.finished",
     "pk": 15,
     "fields": {
-        "user": 2,
+        "user": 1,
         "game_version": 35,
         "price": 0.0,
         "date_adquired": "2016-03-06",
@@ -4399,7 +4499,7 @@
     "model": "game_collection.finished",
     "pk": 16,
     "fields": {
-        "user": 2,
+        "user": 1,
         "game_version": 36,
         "price": 0.0,
         "date_adquired": "2015-06-14",
@@ -4414,7 +4514,7 @@
     "model": "game_collection.finished",
     "pk": 17,
     "fields": {
-        "user": 2,
+        "user": 1,
         "game_version": 37,
         "price": 0.0,
         "date_adquired": "2016-07-03",
@@ -4429,7 +4529,7 @@
     "model": "game_collection.played",
     "pk": 1,
     "fields": {
-        "user": 2,
+        "user": 1,
         "game_version": 38,
         "price": 0.0,
         "date_adquired": "2014-09-23",
@@ -4442,7 +4542,7 @@
     "model": "game_collection.played",
     "pk": 2,
     "fields": {
-        "user": 2,
+        "user": 1,
         "game_version": 39,
         "price": 0.0,
         "date_adquired": "2014-09-23",
@@ -4455,7 +4555,7 @@
     "model": "game_collection.played",
     "pk": 3,
     "fields": {
-        "user": 2,
+        "user": 1,
         "game_version": 40,
         "price": 0.0,
         "date_adquired": null,
@@ -4468,7 +4568,7 @@
     "model": "game_collection.played",
     "pk": 4,
     "fields": {
-        "user": 2,
+        "user": 1,
         "game_version": 41,
         "price": 0.0,
         "date_adquired": null,
@@ -4481,7 +4581,7 @@
     "model": "game_collection.wishlist",
     "pk": 1,
     "fields": {
-        "user": 2,
+        "user": 1,
         "game_version": 46,
         "date_added": "2019-11-18"
     }
@@ -4490,7 +4590,7 @@
     "model": "game_collection.wishlist",
     "pk": 2,
     "fields": {
-        "user": 2,
+        "user": 1,
         "game_version": 47,
         "date_added": "2019-11-18"
     }
@@ -4499,7 +4599,7 @@
     "model": "game_collection.wishlist",
     "pk": 3,
     "fields": {
-        "user": 2,
+        "user": 1,
         "game_version": 48,
         "date_added": "2019-11-18"
     }
@@ -4508,7 +4608,7 @@
     "model": "game_collection.wishlist",
     "pk": 4,
     "fields": {
-        "user": 2,
+        "user": 1,
         "game_version": 49,
         "date_added": "2019-11-18"
     }
@@ -4517,7 +4617,7 @@
     "model": "game_collection.wishlist",
     "pk": 5,
     "fields": {
-        "user": 2,
+        "user": 1,
         "game_version": 50,
         "date_added": "2019-11-18"
     }
@@ -4526,7 +4626,7 @@
     "model": "game_collection.wishlist",
     "pk": 6,
     "fields": {
-        "user": 2,
+        "user": 1,
         "game_version": 51,
         "date_added": "2019-11-18"
     }
@@ -4535,7 +4635,7 @@
     "model": "game_collection.wishlist",
     "pk": 7,
     "fields": {
-        "user": 2,
+        "user": 1,
         "game_version": 52,
         "date_added": "2019-11-18"
     }
@@ -4544,7 +4644,7 @@
     "model": "game_collection.wishlist",
     "pk": 8,
     "fields": {
-        "user": 2,
+        "user": 1,
         "game_version": 53,
         "date_added": "2019-11-18"
     }
@@ -4553,7 +4653,7 @@
     "model": "game_collection.wishlist",
     "pk": 9,
     "fields": {
-        "user": 2,
+        "user": 1,
         "game_version": 62,
         "date_added": "2019-11-18"
     }
@@ -4562,7 +4662,7 @@
     "model": "game_collection.wishlist",
     "pk": 10,
     "fields": {
-        "user": 2,
+        "user": 1,
         "game_version": 63,
         "date_added": "2019-11-18"
     }
@@ -4571,7 +4671,7 @@
     "model": "game_collection.wishlist",
     "pk": 11,
     "fields": {
-        "user": 2,
+        "user": 1,
         "game_version": 64,
         "date_added": "2019-11-18"
     }
@@ -4580,7 +4680,7 @@
     "model": "game_collection.interested",
     "pk": 1,
     "fields": {
-        "user": 2,
+        "user": 1,
         "game_version": 54,
         "date_added": "2019-11-18"
     }
@@ -4589,7 +4689,7 @@
     "model": "game_collection.interested",
     "pk": 2,
     "fields": {
-        "user": 2,
+        "user": 1,
         "game_version": 55,
         "date_added": "2019-11-18"
     }
@@ -4598,7 +4698,7 @@
     "model": "game_collection.interested",
     "pk": 3,
     "fields": {
-        "user": 2,
+        "user": 1,
         "game_version": 56,
         "date_added": "2019-11-18"
     }
@@ -4607,7 +4707,7 @@
     "model": "game_collection.interested",
     "pk": 4,
     "fields": {
-        "user": 2,
+        "user": 1,
         "game_version": 57,
         "date_added": "2019-11-18"
     }
@@ -4616,7 +4716,7 @@
     "model": "game_collection.interested",
     "pk": 5,
     "fields": {
-        "user": 2,
+        "user": 1,
         "game_version": 58,
         "date_added": "2019-11-18"
     }
@@ -4625,7 +4725,7 @@
     "model": "game_collection.interested",
     "pk": 6,
     "fields": {
-        "user": 2,
+        "user": 1,
         "game_version": 59,
         "date_added": "2019-11-18"
     }
@@ -4634,7 +4734,7 @@
     "model": "game_collection.interested",
     "pk": 7,
     "fields": {
-        "user": 2,
+        "user": 1,
         "game_version": 60,
         "date_added": "2019-11-18"
     }
@@ -4643,44 +4743,8 @@
     "model": "game_collection.interested",
     "pk": 8,
     "fields": {
-        "user": 2,
+        "user": 1,
         "game_version": 61,
-        "date_added": "2019-11-18"
-    }
-},
-{
-    "model": "game_collection.interested",
-    "pk": 9,
-    "fields": {
-        "user": 2,
-        "game_version": 65,
-        "date_added": "2019-11-18"
-    }
-},
-{
-    "model": "game_collection.interested",
-    "pk": 10,
-    "fields": {
-        "user": 2,
-        "game_version": 66,
-        "date_added": "2019-11-18"
-    }
-},
-{
-    "model": "game_collection.interested",
-    "pk": 11,
-    "fields": {
-        "user": 2,
-        "game_version": 67,
-        "date_added": "2019-11-18"
-    }
-},
-{
-    "model": "game_collection.interested",
-    "pk": 12,
-    "fields": {
-        "user": 2,
-        "game_version": 68,
         "date_added": "2019-11-18"
     }
 },
@@ -4688,7 +4752,7 @@
     "model": "game_collection.tag",
     "pk": 1,
     "fields": {
-        "user": 2,
+        "user": 1,
         "name": "",
         "tag_group": null,
         "game_version": [
@@ -4755,11 +4819,7 @@
             61,
             62,
             63,
-            64,
-            65,
-            66,
-            67,
-            68
+            64
         ]
     }
 }
