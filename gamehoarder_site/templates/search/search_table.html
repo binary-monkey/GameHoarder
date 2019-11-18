@@ -22,6 +22,7 @@
             <th class="text-center">Platform</th>
             <th class="text-center">Developer</th>
             <th class="text-center">Publisher</th>
+            <th class="text-center">Actions</th>
           </tr>
           </thead>
           <tbody>
@@ -47,9 +48,16 @@
                   {{ game.developers.name }}
                 {% endif %}
               </td>
-              <td>
+              <td class="text-center">
                 {% if game.publishers is not None %}
                   {{ game.publishers.name }}
+                {% endif %}
+              </td>
+              <td class="text-center">
+                {% if game in user.interested_set %}
+                    Already in interested
+                {% else %}
+                  <button class="btn btn-primary" type="button">Add to interested</button>
                 {% endif %}
               </td>
             </tr>

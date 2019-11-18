@@ -7,7 +7,7 @@ from django.contrib import auth
 from .forms import *
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
-from django.views.decorators.http import require_GET
+from django.views.decorators.http import require_GET, require_POST
 from game_collection.models import Tag
 from game_database.functions import GameHoarderDB
 from game_database.models import Genre, Platform
@@ -78,6 +78,13 @@ def logout(request):
     auth.logout(request)
     return HttpResponseRedirect("login")
 
+
+@require_POST
+def add_to_interested(request):
+    pass
+
+
+@require_GET
 def search(request):
     # multiple-choice values
     choices = ['genres', 'platforms']
@@ -109,6 +116,7 @@ def search(request):
         'first_genre': genres[0] if len(genres) > 0 else None,
         'platforms': platforms[1:] if len(platforms) > 1 else [],
         'genres': genres[1:] if len(genres) > 1 else [],
-        'games': games
+        'games': games,
+        'user': request.user.interested_set
     })
 
