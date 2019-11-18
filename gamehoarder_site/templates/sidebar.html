@@ -2,7 +2,7 @@
 
 <div class="left_col scroll-view">
     <div class="navbar nav_title" style="border: 0;">
-        <a href="index.html" class="site_title"><i class="fa fa-spinner"></i> <span>Gentelella Alela!</span></a>
+        <a href="index.html" class="site_title"><i class="fa fa-spinner"></i> <span>GameHoarder</span></a>
     </div>
 
     <div class="clearfix"></div>
@@ -27,12 +27,15 @@
             <h3>{% trans "General" %}</h3>
             <ul class="nav side-menu">
                 <li><a href="{% url "index" %}"><i class="fa fa-home"></i> Home <span class="fa"></span></a></li>
+                <li><a href="{% url "friends" %}"><i class="fa fa-users"></i> {% trans "Friends" %} <span class="fa"></span></a></li>
             </ul>
         </div>
         <div class="menu_section">
             <h3>{% trans "Collection" %}</h3>
             <ul class="nav side-menu">
                 <li><a href="{% url "collection_summary" %}"><i class="fa fa-archive"></i> {% trans "Summary" %} <span
+                        class="fa"></span></a></li>
+                <li><a href="{% url "game_search" %}"><i class="fa fa-search"></i> {% trans "Search" %} <span
                         class="fa"></span></a></li>
                 <li><a><i class="fa fa-table"></i> {% trans "Tables" %} <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
@@ -51,6 +54,13 @@
                 <li><a href="{% url "interested_table" %}"><i class="fa fa-bookmark"></i> {% trans "Interested" %} <span class="fa"></span></a>
                 </li>
                 <li><a href="{% url "wishlist_table" %}"><i class="fa fa-star"></i> {% trans "Wishlist" %} <span class="fa"></span></a></li>
+                <li><a><i class="fa fa-institution"></i> {% trans "Custom" %} <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                        {% for tag in tags %}
+                            <li><a href="/tag/?tag={{ tag.name }}">{{ tag.name }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </li>
             </ul>
         </div>
     </div>

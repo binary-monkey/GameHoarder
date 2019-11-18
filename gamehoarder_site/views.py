@@ -3,11 +3,18 @@ import json
 
 from django.http import HttpResponse
 from django.shortcuts import render
-
+from game_collection.models import Tag
 
 def index(request):
-    return render(request, "index.html")
+    custom = Tag.objects.filter(user=request.user)
 
+    context = {
+        "tags": custom
+    }
+    return render(request, "index.html", context)
+
+def friends(request):
+    return render(request, "index.html")
 
 def download_csv(request):
     if request.method == 'POST':

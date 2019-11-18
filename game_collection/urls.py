@@ -19,4 +19,7 @@ urlpatterns = [
     path('collection/finished', views_tables.finished_table, name='finished_table'),
     path('collection/played', views_tables.played_table, name='played_table'),
     path('collection/abandoned', views_tables.abandoned_table, name='abandoned_table'),
+
+    path('search', views.game_search, name='game_search'),
+    path('tag/', views_tables.tag_table, name='tag_table'),
 ]

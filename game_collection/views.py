@@ -8,6 +8,7 @@ from django.shortcuts import render
 
 from GameHoarder.settings import BASE_DIR
 from game_collection.tasks import *
+from game_collection.models import *
 
 
 def read_csv(file):
@@ -19,12 +20,17 @@ def read_csv(file):
 
 
 def collection_summary(request):
-    return render(request, "collection/collection_summary.html")
+    custom = Tag.objects.filter(user=request.user)
+
+    context = {
+        "tags": custom
+    }
+    return render(request, "collection/collection_summary.html", context)
 
 
 def import_collection(request):
     if request.method == 'POST':
-
+        custom = Tag.objects.filter(user=request.user)
         if "collection" in request.FILES:
             myfile = request.FILES['collection']
             fs = FileSystemStorage()
@@ -37,7 +43,7 @@ def import_collection(request):
 
             result = verify_collection_task.delay(csv_file)
 
-            context = {"stage": 2, 'task_id': result.task_id}
+            context = {"stage": 2, 'task_id': result.task_id, "tags": custom}
 
             return render(request, 'collection/import_collection.html', context)
 
@@ -50,6 +56,7 @@ def import_collection(request):
 
             context = task.get()
             context["stage"] = int(request.POST.get("stage"))
+            context["tags"] = custom
 
             return render(request, 'collection/import_collection.html', context)
 
@@ -62,7 +69,7 @@ def import_collection(request):
 
             result = import_collection_task.delay(titles, request.user.username)
 
-            context = {"stage": 3, 'task_id': result.task_id}
+            context = {"stage": 3, 'task_id': result.task_id, "tags": custom}
 
             return render(request, 'collection/import_collection.html', context)
 
@@ -71,7 +78,7 @@ def import_collection(request):
 
 def import_list(request):
     if request.method == 'POST':
-
+        custom = Tag.objects.filter(user=request.user)
         if "list" in request.FILES:
             myfile = request.FILES['list']
             fs = FileSystemStorage()
@@ -86,7 +93,7 @@ def import_list(request):
 
             result = verify_list_task.delay(csv_file)
 
-            context = {"stage": 2, 'task_id': result.task_id}
+            context = {"stage": 2, 'task_id': result.task_id, "tags": custom}
 
             return render(request, 'collection/import_list.html', context)
 
@@ -99,6 +106,7 @@ def import_list(request):
 
             context = task.get()
             context["stage"] = int(request.POST.get("stage"))
+            context["tags"] = custom
 
             return render(request, 'collection/import_list.html', context)
 
@@ -349,3 +357,7 @@ def export_list(request):
         writer.writerow(row)
 
     return response
+
+
+def game_search(request):
+    return render(request, 'index.html')
