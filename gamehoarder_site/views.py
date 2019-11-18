@@ -1,18 +1,20 @@
 import csv
 import json
 
-from django.contrib.auth import authenticate, login
-from django.template.context_processors import csrf
 from django.contrib import auth
-from .forms import *
+from django.contrib.auth import authenticate, login
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
-from django.views.decorators.http import require_GET, require_POST
+from django.template.context_processors import csrf
+
 from game_collection.models import Tag
 from game_database.functions import GameHoarderDB
 from game_database.models import Genre, Platform
+from .forms import *
 
 
+@login_required(login_url='login')
 def index(request):
     custom = Tag.objects.filter(user=request.user)
 
@@ -22,10 +24,12 @@ def index(request):
     return render(request, "index.html", context)
 
 
+@login_required(login_url='login')
 def friends(request):
     return render(request, "index.html")
 
 
+@login_required(login_url='login')
 def download_csv(request):
     if request.method == 'POST':
         response = HttpResponse(content_type='text/csv')
@@ -67,24 +71,20 @@ def login_register(request):
     else:
         form = UserForm
 
-
     token = {}
     token.update(csrf(request))
     token['form'] = form
 
     return render(request, 'login_register.html')
 
+
+@login_required(login_url='login')
 def logout(request):
     auth.logout(request)
     return HttpResponseRedirect("login")
 
 
-@require_POST
-def add_to_interested(request):
-    pass
-
-
-@require_GET
+@login_required(login_url='login')
 def search(request):
     # multiple-choice values
     choices = ['genres', 'platforms']
@@ -119,4 +119,3 @@ def search(request):
         'games': games,
         'user': request.user.interested_set
     })
-

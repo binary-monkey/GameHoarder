@@ -3,6 +3,7 @@ import datetime
 import json
 
 from celery.result import AsyncResult
+from django.contrib.auth.decorators import login_required
 from django.core.files.storage import FileSystemStorage
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
@@ -13,6 +14,7 @@ from game_collection.foms import *
 from game_collection.tasks import *
 
 
+@login_required(login_url='login')
 def read_csv(file):
     file_url = BASE_DIR + file
 
@@ -21,6 +23,7 @@ def read_csv(file):
     return list(csv.reader(csv_file, delimiter=','))
 
 
+@login_required(login_url='login')
 def collection_summary(request):
     custom = Tag.objects.filter(user=request.user)
 
@@ -30,6 +33,7 @@ def collection_summary(request):
     return render(request, "collection/collection_summary.html", context)
 
 
+@login_required(login_url='login')
 def import_collection(request):
     if request.method == 'POST':
         custom = Tag.objects.filter(user=request.user)
@@ -78,6 +82,7 @@ def import_collection(request):
     return render(request, 'collection/import_collection.html', {"stage": 1})
 
 
+@login_required(login_url='login')
 def import_list(request):
     if request.method == 'POST':
         custom = Tag.objects.filter(user=request.user)
@@ -128,6 +133,7 @@ def import_list(request):
     return render(request, 'collection/import_list.html', {"stage": 1})
 
 
+@login_required(login_url='login')
 def export_collection(request):
     response = HttpResponse(content_type='text/csv')
 
@@ -311,6 +317,7 @@ def export_collection(request):
     return response
 
 
+@login_required(login_url='login')
 def export_list(request):
     response = HttpResponse(content_type='text/csv')
 
@@ -361,10 +368,12 @@ def export_list(request):
     return response
 
 
+@login_required(login_url='login')
 def game_search(request):
     return render(request, 'index.html')
 
 
+@login_required(login_url='login')
 def where_is(game_version, user):
     if Played.objects.filter(game_version=game_version, user=user).exists():
         return ["PLAYED", Played.objects.get(game_version=game_version, user=user)]
@@ -384,6 +393,7 @@ def where_is(game_version, user):
     return None
 
 
+@login_required(login_url='login')
 def game_view(request, db_id):
     custom = Tag.objects.filter(user=request.user)
     game_version = GameVersion.objects.get(db_id=db_id)
@@ -418,6 +428,17 @@ def game_view(request, db_id):
     return render(request, 'collection/game_view.html', context)
 
 
+@login_required(login_url='login')
+def add_game(request, db_id):
+    game_version = GameVersion.objects.get(db_id=db_id)
+    user = request.user
+
+    Interested.objects.create(game_version=game_version, user=user)
+
+    return redirect("/%s/game/%s" % (to_locale(get_language()), db_id))
+
+
+@login_required(login_url='login')
 def move_game(request, db_id):
     game_version = GameVersion.objects.get(db_id=db_id)
     user = request.user
