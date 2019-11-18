@@ -410,10 +410,12 @@ def game_view(request, db_id):
         "developers": developers,
         "states": states,
         "title": title,
-        "game_version": game_version
+        "game_version": game_version,
+        "current_state": where_is(game_version, request.user)[0],
+        "current_item": where_is(game_version, request.user)[1]
     }
 
-    return render(request, 'game_view.html', context)
+    return render(request, 'collection/game_view.html', context)
 
 
 def move_game(request, db_id):
@@ -440,20 +442,26 @@ def move_game(request, db_id):
             new_state = form.cleaned_data["new_state"]
 
             if new_state == 1:
+                Interested.objects.create(user=user, game_version=game_version)
+
+            if new_state == 2:
+                Wishlist.objects.create(user=user, game_version=game_version)
+
+            if new_state == 3:
                 Queue.objects.create(**new_item)
 
-            elif new_state == 2:
+            elif new_state == 4:
                 new_item["date_started"] = datetime.datetime.strptime(form.cleaned_data['date_started'], "%m/%d/%Y")
 
                 Playing.objects.create(**new_item)
 
-            elif new_state == 3:
+            elif new_state == 5:
                 new_item["date_started"] = datetime.datetime.strptime(form.cleaned_data['date_started'], "%m/%d/%Y")
                 new_item["date_stopped"] = datetime.datetime.strptime(form.cleaned_data['date_other'], "%m/%d/%Y")
 
                 Played.objects.create(**new_item)
 
-            elif new_state == 4:
+            elif new_state == 6:
                 new_item["date_started"] = datetime.datetime.strptime(form.cleaned_data['date_started'], "%m/%d/%Y")
                 new_item["date_finished"] = datetime.datetime.strptime(form.cleaned_data['date_other'], "%m/%d/%Y")
 
@@ -461,7 +469,7 @@ def move_game(request, db_id):
 
                 Finished.objects.create(**new_item)
 
-            elif new_state == 5:
+            elif new_state == 7:
                 new_item["date_started"] = datetime.datetime.strptime(form.cleaned_data['date_started'], "%m/%d/%Y")
                 new_item["date_abandoned"] = datetime.datetime.strptime(form.cleaned_data['date_other'], "%m/%d/%Y")
 
@@ -476,7 +484,7 @@ def move_game(request, db_id):
 
     custom = Tag.objects.filter(user=user)
 
-    collection_states = ['Queue', 'Playing', 'Played', 'Finished', 'Abandoned']
+    collection_states = ["Interested", "Wishlist", 'Queue', 'Playing', 'Played', 'Finished', 'Abandoned']
 
     context = {
         "tags": custom,

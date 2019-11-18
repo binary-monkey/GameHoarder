@@ -21,7 +21,7 @@
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="x_panel">
                         <div class="x_title">
-                            <h2>{% trans "Move Game" %}</h2>
+                            <h2>{% trans "Movement Form" %}</h2>
                             <div class="clearfix"></div>
                         </div>
                         <div class="x_content">
@@ -33,34 +33,23 @@
 
                                 {# List Change Selection #}
                                 <div class="form-group">
-                                    <label class="control-label col-md-3 col-sm-3">{% trans "Lists" %}
+                                    <label class="control-label col-md-3 col-sm-3">{% trans "List" %}
                                         <span class="required">*</span>
                                     </label>
-                                    <label class="control-label"
-                                           for="current_state">
-                                    </label>
-                                    <div class="col-md-2 col-sm-2 col-xs-12">
-                                        <select id="current_state" disabled name="origin" class="form-control">
-                                            <option value="0">{{ current_state.title }}</option>
-                                        </select>
-                                    </div>
 
-                                    <div style="text-align: center;" class="col-md-2 col-sm-2 col-xs-12 ">
-                                        <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
-                                    </div>
-
-                                    <label class="control-label"
-                                           for="{{ form.new_state.id_for_label }}">
-                                    </label>
-                                    <div class="col-md-2 col-sm-2 col-xs-12">
-                                        <select id="{{ form.new_state.id_for_label }}" name="new_state"
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <select name="new_state" id="{{ form.new_state.id_for_label }}"
                                                 class="form-control">
-                                            <option value="0"></option>
-                                            {% for state in collection_states %}
-                                                {% if not state.upper == current_state %}
-                                                    <option value="{{ forloop.counter }}"> {{ state }} </option>
-                                                {% endif %}
-                                            {% endfor %}
+                                            <optgroup label="Lists">
+                                                {% for state in collection_states %}
+                                                    {% if  forloop.counter == 3 %}
+                                                        </optgroup>
+                                                        <optgroup label="Collection">
+                                                    {% endif %}
+                                                    <option {% if state.upper == current_state %} selected {% endif %}
+                                                                                                  value="{{ forloop.counter }}"> {{ state }} </option>
+                                                {% endfor %}
+                                                </optgroup>
                                         </select>
                                     </div>
                                 </div>
@@ -75,13 +64,18 @@
 
                                 <div class="form-group" id="price">
                                     <label class="control-label col-md-3 col-sm-3 col-xs-12"
-                                           for="{{ form.price.id_for_label }}">{% trans "Price" %}
+                                           for="{{ form.price.id_for_label }}">{% trans "Cost" %}
                                         <span class="required">*</span>
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         <input type="number" class="form-control col-md-7 col-xs-12" step="0.01"
                                                min="0" id="{{ form.price.id_for_label }}"
-                                               value="{{ current_item.price }}" name="price">
+                                                {% if current_state == "WISHLIST" or current_state == "INTERESTED" %}
+                                               value="0.0"
+                                                {% else %}
+                                               value="{{ current_item.price }}"
+                                                {% endif %}
+                                               name="price">
                                     </div>
                                 </div>
 
@@ -143,7 +137,11 @@
                                         <input type="number" class="form-control col-md-7 col-xs-12" step="0.01"
                                                min="0" id="{{ form.time_played.id_for_label }}"
                                                name="time_played"
-                                               value="{{ current_item.time_played }}"
+                                                {% if current_state != "WISHLIST" and current_state != "INTERESTED" %}
+                                                    {{ current_item.time_played }}
+                                                {% else %}
+                                               value="0.0"
+                                                {% endif %}
                                         >
                                     </div>
                                 </div>

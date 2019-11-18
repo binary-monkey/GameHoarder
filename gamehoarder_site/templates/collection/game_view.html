@@ -1,0 +1,258 @@
+{% extends "base_site.html" %}
+{% load i18n %}
+{% block title %} Game View {% endblock title %}
+
+{% block stylesheets %}
+    {{ block.super }}
+{% endblock stylesheets %}
+
+{% block content %}
+    <div class="right_col" role="main">
+
+        <div class="">
+            <div class="page-title">
+                <div class="title_left">
+                    <h3>Game Overview</h3>
+                </div>
+
+            </div>
+
+            <div class="clearfix"></div>
+
+            <div class="row">
+                <div class="col-md-12 col-sm-12 ">
+                    <div class="x_panel">
+
+                        <div class="x_title">
+                            <h2>{{ title.title }}</h2>
+                            <ul class="nav navbar-right panel_toolbox" style="min-width: 0">
+                                <li><a class="collapse-link">
+                                    <i class="fa fa-chevron-up"></i></a>
+                                </li>
+                            </ul>
+                            <div class="clearfix"></div>
+                        </div>
+
+                        <div class="x_content">
+
+                            <div class="col-md-4 col-sm-4">
+                                <div>
+                                    <img class="img-responsive avatar-view" src="{{ title.img_url }}" alt="..."/>
+                                </div>
+                            </div>
+
+                            <div class="col-md-5 col-sm-5 " style="border:0px solid #e5e5e5;">
+
+                                <h4>{{ title.description }}</h4>
+                                <br/>
+
+                                <h2>
+                                    Release Date: {% if game_version.release_date is not None %}
+                                    {{ game_version.release_date }}
+                                {% elif title.release_date is not None %}
+                                    {{ title.release_date }}
+                                {% endif %}
+                                </h2>
+
+                                <br/>
+
+                                <div class="">
+                                    <h2>Publishers:</h2>
+                                    <ul class="list-inline prod_size display-layout">
+                                        {% for publisher in publishers %}
+                                            <li>
+                                                <button class="btn btn-default btn-xs disabled">{{ publisher.name }}</button>
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                                <br/>
+
+                                <div class="">
+                                    <h2>Developers:</h2>
+                                    <ul class="list-inline prod_size display-layout">
+                                        {% for developer in developers %}
+                                            <li>
+                                                <button class="btn btn-default btn-xs disabled">{{ developer.name }}</button>
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                                <br/>
+
+                                <div class="">
+                                    <h2>Genres:</h2>
+                                    <ul class="list-inline prod_size display-layout">
+                                        {% for genre in genres %}
+                                            <li>
+                                                <button class="btn btn-default btn-xs disabled">{{ genre.name }}</button>
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                                <br/>
+
+                                <div>
+                                    <h2>Main time: {{ title.main_time }}h</h2>
+                                    <h2>Extra time: {{ title.extra_time }}h</h2>
+                                    <h2>Completion time: {{ title.completion_time }}h</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12 col-sm-12 ">
+                    <div class="x_panel">
+
+                        <div class="x_title">
+                            <h2>{% trans "User Information" %}</h2>
+                            <ul class="nav navbar-right panel_toolbox" style="min-width: 0">
+                                <li><a class="collapse-link">
+                                    <i class="fa fa-chevron-up"></i></a>
+                                </li>
+                            </ul>
+                            <div class="clearfix"></div>
+                        </div>
+
+                        <div class="x_content">
+
+                            <div class="form-horizontal form-label-left">
+
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12"
+                                           for="state">{% trans "State" %}
+                                    </label>
+                                    <div class="col-md-6 col-xs-12 col-xs-12">
+                                        <input type="text" disabled id="state"
+                                               value="{{ current_state|title }}"
+                                               class="form-control col-md-7 col-xs-12">
+                                    </div>
+                                </div>
+
+                                {% if current_state != "WISHLIST" and current_state != "INTERESTED" %}
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12"
+                                               for="state">{% trans "Cost" %}
+                                        </label>
+                                        <div class="col-md-6 col-xs-12 col-xs-12">
+                                            <input type="text" disabled id="state"
+                                                   value="{{ current_item.price }} €"
+                                                   class="form-control col-md-7 col-xs-12">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12"
+                                               for="state">{% trans "Date Adquired" %}
+                                        </label>
+                                        <div class="col-md-6 col-xs-12 col-xs-12">
+                                            <input type="text" disabled id="state"
+                                                   value="{{ current_item.date_adquired }}"
+                                                   class="form-control col-md-7 col-xs-12">
+                                        </div>
+                                    </div>
+
+                                    {% if current_state != "QUEUE" %}
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12"
+                                                   for="state">{% trans "Date Started" %}
+                                            </label>
+                                            <div class="col-md-6 col-xs-12 col-xs-12">
+                                                <input type="text" disabled id="state"
+                                                       value="{{ current_item.date_started }}"
+                                                       class="form-control col-md-7 col-xs-12">
+                                            </div>
+                                        </div>
+                                    {% endif %}
+
+                                    {% if current_state == "FINISHED" %}
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12"
+                                                   for="state">{% trans "Date Finished" %}
+                                            </label>
+                                            <div class="col-md-6 col-xs-12 col-xs-12">
+                                                <input type="text" disabled id="state"
+                                                       value="{{ current_item.date_finished }}"
+                                                       class="form-control col-md-7 col-xs-12">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12"
+                                                   for="state">{% trans "Time to Finish" %}
+                                            </label>
+                                            <div class="col-md-6 col-xs-12 col-xs-12">
+                                                <input type="text" disabled id="state"
+                                                       value="{{ current_item.time_to_finish }} h"
+                                                       class="form-control col-md-7 col-xs-12">
+                                            </div>
+                                        </div>
+
+                                    {% endif %}
+
+                                    {% if current_state == "PLAYED" %}
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12"
+                                                   for="state">{% trans "Date Stopped" %}
+                                            </label>
+                                            <div class="col-md-6 col-xs-12 col-xs-12">
+                                                <input type="text" disabled id="state"
+                                                       value="{{ current_item.date_stopped }}"
+                                                       class="form-control col-md-7 col-xs-12">
+                                            </div>
+                                        </div>
+
+                                    {% endif %}
+
+                                    {% if current_state == "ABANDONED" %}
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12"
+                                                   for="state">{% trans "Date Abandoned" %}
+                                            </label>
+                                            <div class="col-md-6 col-xs-12 col-xs-12">
+                                                <input type="text" disabled id="state"
+                                                       value="{{ current_item.date_abandoned }}"
+                                                       class="form-control col-md-7 col-xs-12">
+                                            </div>
+                                        </div>
+
+                                    {% endif %}
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12"
+                                               for="state">{% trans "Time Played" %}
+                                        </label>
+                                        <div class="col-md-6 col-xs-12 col-xs-12">
+                                            <input type="text" disabled id="state"
+                                                   value="{{ current_item.time_played }} h"
+                                                   class="form-control col-md-7 col-xs-12">
+                                        </div>
+                                    </div>
+
+                                    </div>
+
+                                {% endif %}
+
+                            {# Buttons #}
+                            <div class="ln_solid"></div>
+                            <div class="form-group">
+                                <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                                    <button class="btn btn-danger" type="button">{% trans "Remove" %}</button>
+                                    <a class="btn btn-primary" href="{% url "move_game" game_version.db_id %}">Edit</a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+
+{% block javascripts %}
+    {{ block.super }}
+{% endblock javascripts %}
