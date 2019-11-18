@@ -6,7 +6,7 @@ import unidecode
 from howlongtobeatpy import HowLongToBeat
 
 from GameHoarder.settings import API_KEY, DEV_MAIL
-from game_database.models import Genre, Game, GameVersion, Platform
+from game_database.models import Genre, Game, GameVersion, Platform, Company
 
 BASE_URL = "https://www.giantbomb.com/api/"
 
@@ -65,7 +65,7 @@ class GiantBombAPI:
         return None
 
     @staticmethod
-    def search_game(game_title, limit, platform_id = None):
+    def search_game(game_title, limit, platform_id=None):
         data = GiantBombAPI.search(game_title, "game", limit)
 
         if platform_id is not None:
@@ -235,12 +235,43 @@ class GameCollectionController:
             game.genres.clear()
 
             for genre in data["genres"]:
-                genre_name = genre["name"]
+                genre_id = genre["id"]
 
-                if Genre.objects.filter(name=genre_name).exists():
-                    game.genres.add(Genre.objects.get(name=genre_name))
+                if Genre.objects.filter(db_id=genre_id).exists():
+                    game.genres.add(Genre.objects.get(db_id=genre_id))
                 else:
-                    game.genres.add(Genre.objects.create(name=genre_name))
+                    game.genres.add(Genre.objects.create(db_id=genre_id, name=genre["name"]))
+
+        if "deck" in data:
+            game.description = data["deck"]
+
+        if "image" in data:
+            if "original_url" in data["image"]:
+                game.img_url = data["image"]["original_url"]
+
+        if "publishers" in data:
+            game.publishers.clear()
+
+            if data["publishers"] is not None:
+                for company in data["publishers"]:
+                    company_id = company["id"]
+
+                    if Company.objects.filter(db_id=company_id).exists():
+                        game.publishers.add(Company.objects.get(db_id=company_id))
+                    else:
+                        game.publishers.add(Company.objects.create(db_id=company_id, name=company["name"]))
+
+        if "developers" in data:
+            game.developers.clear()
+
+            if data["developers"] is not None:
+                for company in data["developers"]:
+                    company_id = company["id"]
+
+                    if Company.objects.filter(db_id=company_id).exists():
+                        game.developers.add(Company.objects.get(db_id=company_id))
+                    else:
+                        game.developers.add(Company.objects.create(db_id=company_id, name=company["name"]))
 
         game.update = False
         game.save()
@@ -257,10 +288,37 @@ class GameCollectionController:
             else:
                 data = None
 
+        if "name" in data:
+            game_version.name = data["name"]
+
         if "release_date" in data:
             string_date = data["release_date"]
             if string_date is not None:
                 game_version.release_date = datetime.strptime(string_date, '%Y-%m-%d %H:%M:%S')
+
+        if "publishers" in data:
+            game_version.publishers.clear()
+
+            if data["publishers"] is not None:
+                for company in data["publishers"]:
+                    company_id = company["id"]
+
+                    if Company.objects.filter(db_id=company_id).exists():
+                        game_version.publishers.add(Company.objects.get(db_id=company_id))
+                    else:
+                        game_version.publishers.add(Company.objects.create(db_id=company_id, name=company["name"]))
+
+        if "developers" in data:
+            game_version.developers.clear()
+
+            if data["developers"] is not None:
+                for company in data["developers"]:
+                    company_id = company["id"]
+
+                    if Company.objects.filter(db_id=company_id).exists():
+                        game_version.developers.add(Company.objects.get(db_id=company_id))
+                    else:
+                        game_version.developers.add(Company.objects.create(db_id=company_id, name=company["name"]))
 
         game_version.update = False
         game_version.save()
