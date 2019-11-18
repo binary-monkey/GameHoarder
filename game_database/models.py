@@ -40,7 +40,13 @@ class Game(models.Model):
 
 
 class Platform(models.Model):
-    name = models.CharField(max_length=64, verbose_name=_("name"), unique=True)
+    name = models.CharField(max_length=64, verbose_name=_("name"), blank=True)
+    db_id = models.CharField(max_length=16, verbose_name=_("DB ID"), unique=True)
+
+    description = models.TextField(verbose_name=_("description"), blank=True)
+    img_url = models.CharField(max_length=128, verbose_name=_("image url"), blank=True)
+
+    update = models.BooleanField(default=True)
 
     def __str__(self):
         return self.name

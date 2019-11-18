@@ -41,10 +41,10 @@ def verify_collection_task(self, csv_file):
 
         if title["id"] == "":
 
-            platform_name = title["platform"]
+            platform_id = GiantBombAPI.search_platform(title["platform"])["id"]
             original_name = title["name"]
 
-            result = GiantBombAPI.search_game(original_name, platform_name, 10)
+            result = GiantBombAPI.search_game(original_name, 10, platform_id)
             if result is not None:
 
                 title["id"] = result["id"]
@@ -109,11 +109,10 @@ def verify_list_task(self, csv_file):
         }
 
         if title["id"] == "":
-
-            platform_name = title["platform"]
+            platform_id = GiantBombAPI.search_platform(title["platform"])["id"]
             original_name = title["name"]
 
-            result = GiantBombAPI.search_game(original_name, platform_name, 10)
+            result = GiantBombAPI.search_game(original_name, 10, platform_id)
             if result is not None:
 
                 title["id"] = result["id"]
@@ -166,10 +165,12 @@ def import_collection_task(self, titles, username):
 
     for i in range(total_titles):
         title = titles[i]
+
         user = User.objects.get(username=username)
 
         if not Platform.objects.filter(name=title["platform"]).exists():
-            Platform.objects.create(name=title["platform"])
+            platform_id = GiantBombAPI.search_platform(title["platform"])["id"]
+            GameCollectionController.create_platform(platform_id)
 
         platform = Platform.objects.get(name=title["platform"])
 
@@ -194,6 +195,7 @@ def import_collection_task(self, titles, username):
             collection_entry["time_played"] = title["time_played"]
 
         for tag_name in title["tags"].split(";"):
+
             if not Tag.objects.filter(name=tag_name, user=user).exists():
                 Tag.objects.create(name=tag_name, user=user)
 
@@ -209,7 +211,6 @@ def import_collection_task(self, titles, username):
                 queue_titles += 1
 
         elif list_type == "PLAYING":
-
             if title["date_started"] != "":
                 collection_entry["date_started"] = title["date_started"]
 
@@ -287,7 +288,8 @@ def import_list_task(self, titles, username):
         user = User.objects.get(username=username)
 
         if not Platform.objects.filter(name=title["platform"]).exists():
-            Platform.objects.create(name=title["platform"])
+            platform_id = GiantBombAPI.search_platform(title["platform"])["id"]
+            GameCollectionController.create_platform(platform_id)
 
         platform = Platform.objects.get(name=title["platform"])
 

@@ -3,6 +3,7 @@ Django
 pytz
 mysqlclient
 setuptools
+unidecode
 howlongtobeatpy
 requests
 celery
