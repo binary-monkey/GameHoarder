@@ -1,7 +1,11 @@
 import csv
 import json
 
-from django.http import HttpResponse
+from django.contrib.auth import authenticate, login
+from django.template.context_processors import csrf
+from django.contrib import auth
+from .forms import *
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from game_collection.models import Tag
 
@@ -38,3 +42,32 @@ def download_csv(request):
             writer.writerow(list(title.values()))
 
         return response
+
+
+def login_register(request):
+    if request.method == 'POST':
+        form = UserForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('login')
+        else:
+            username = request.POST.get('username')
+            password = request.POST.get('password')
+            user = authenticate(username=username, password=password)
+            if user is not None:
+                if user.is_active:
+                    login(request, user)
+                    return HttpResponseRedirect('/es/')
+    else:
+        form = UserForm
+
+
+    token = {}
+    token.update(csrf(request))
+    token['form'] = form
+
+    return render(request, 'login_register.html')
+
+def logout(request):
+    auth.logout(request)
+    return HttpResponseRedirect("login")
