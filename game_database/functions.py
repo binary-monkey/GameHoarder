@@ -322,3 +322,43 @@ class GameCollectionController:
 
         game_version.update = False
         game_version.save()
+
+
+class GameHoarderDB:
+
+    @staticmethod
+    def search(params):
+        search_params = {
+            # # key: REST param, value: model query
+            'developer': 'parent_game__developers__name__contains',
+            # 'genre': 'parent_game__genres__in',
+            'platform': 'platform__name__iendswith',
+            'publisher': 'parent_game__publishers__name__contains',
+            'year': 'parent_game__release_date__year',
+            'title': 'parent_game__title__contains',
+        }
+        # GameVersion.objects.filter(=)
+
+        special_params = {
+            # # key: special param, value: extraction function
+            # 'genre': lambda x: x.split(',')
+        }
+        query = {}
+        for k, v in search_params.items():
+            # param is present and not empty
+            if k in params.keys() and params.get(k):
+                # run extraction function on special param
+                if k in special_params.keys():
+                    query[v] = special_params[k](params.get(k))
+                # use raw param
+                else:
+                    query[v] = params.get(k)
+        local_games = GameVersion.objects.filter(**query)
+        return local_games
+
+    @staticmethod
+    def params_empty(params):
+        for _, v in params.items():
+            if v:
+                return False
+        return True

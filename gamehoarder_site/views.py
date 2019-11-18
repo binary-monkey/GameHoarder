@@ -5,7 +5,8 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from django.views.decorators.http import require_GET
 from game_collection.models import Tag
-from game_database.models import GameVersion
+from game_database.functions import GameHoarderDB
+from game_database.models import Genre, Platform
 
 
 def index(request):
@@ -45,40 +46,25 @@ def download_csv(request):
         return response
 
 
-@require_GET
+# @require_GET
+# def search(request):
+#     params = request.GET.dict()
+#     return render(request, 'search/search_table.html', {'games': local_games})
+
+
 def search(request):
-    search_params = {
-        # # key: REST param, value: model query
-        'developer': 'parent_game__developers__name__contains',
-        # 'genre': 'parent_game__genres__in',
-        'platform': 'platform__name__iendswith',
-        'publisher': 'parent_game__publishers__name__contains',
-        'year': 'parent_game__release_date__year',
-        'title': 'parent_game__title__contains',
-    }
-    # GameVersion.objects.filter(=)
-
-    special_params = {
-        # # key: special param, value: extraction function
-        # 'genre': lambda x: x.split(',')
-    }
-
     params = request.GET.dict()
-    query = {}
-    for k, v in search_params.items():
-        # param is present and not empty
-        if k in params.keys() and params.get(k):
-            # run extraction function on special param
-            if k in special_params.keys():
-                query[v] = special_params[k](params.get(k))
-            # use raw param
-            else:
-                query[v] = params.get(k)
-    print(query)
-    local_games = GameVersion.objects.filter(**query)
-
-    return render(request, 'search/search_table.html', {'games': local_games})
-
-
-def search_form(request):
-    return HttpResponse(201)
+    # if query is empty, don't search
+    if not GameHoarderDB.params_empty(params):
+        games = GameHoarderDB.search(params)
+    else:
+        games = None
+    platforms = [p.get('name') for p in Platform.objects.order_by().values('name').distinct()]
+    genres = [g.get('name') for g in Genre.objects.order_by().values('name').distinct()]
+    return render(request, 'search/search_form.html', {
+        'first_platform': platforms[0] if len(platforms) > 0 else None,
+        'first_genre': genres[0] if len(genres) > 0 else None,
+        'platforms': platforms[1:] if len(platforms) > 1 else [],
+        'genres': genres[1:] if len(genres) > 1 else [],
+        'games': games
+    })
