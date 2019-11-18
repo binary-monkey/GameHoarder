@@ -14,7 +14,6 @@ from game_collection.foms import *
 from game_collection.tasks import *
 
 
-@login_required(login_url='login')
 def read_csv(file):
     file_url = BASE_DIR + file
 
@@ -373,7 +372,6 @@ def game_search(request):
     return render(request, 'index.html')
 
 
-@login_required(login_url='login')
 def where_is(game_version, user):
     if Played.objects.filter(game_version=game_version, user=user).exists():
         return ["PLAYED", Played.objects.get(game_version=game_version, user=user)]

@@ -53,7 +53,6 @@ def download_csv(request):
 
         return response
 
-
 def login_register(request):
     if request.method == 'POST':
         form = UserForm(request.POST)
