@@ -7,7 +7,11 @@ from django.contrib import auth
 from .forms import *
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
+from django.views.decorators.http import require_GET
 from game_collection.models import Tag
+from game_database.functions import GameHoarderDB
+from game_database.models import Genre, Platform
+
 
 def index(request):
     custom = Tag.objects.filter(user=request.user)
@@ -17,8 +21,10 @@ def index(request):
     }
     return render(request, "index.html", context)
 
+
 def friends(request):
     return render(request, "index.html")
+
 
 def download_csv(request):
     if request.method == 'POST':
@@ -71,3 +77,38 @@ def login_register(request):
 def logout(request):
     auth.logout(request)
     return HttpResponseRedirect("login")
+
+def search(request):
+    # multiple-choice values
+    choices = ['genres', 'platforms']
+    # all values except those
+    params = {k: v for k, v in request.GET.dict().items() if k[:-2] not in choices}
+
+    # check if external API should be used
+    use_api = False
+    try:
+        use_api = params.pop('use_api')
+        use_api = use_api == "true"
+    except KeyError:
+        pass
+
+    # extract multiple-choice values
+    for choice in choices:
+        if f'{choice}[]' in request.GET.keys():
+            params[choice] = request.GET.getlist(f'{choice}[]')
+
+    # if query is empty, don't search
+    if not GameHoarderDB.params_empty(params):
+        games = GameHoarderDB.search(params, use_api=use_api)
+    else:
+        games = None
+    platforms = [p.get('name') for p in Platform.objects.order_by().values('name').distinct()]
+    genres = [g.get('name') for g in Genre.objects.order_by().values('name').distinct()]
+    return render(request, 'search/search_form.html', {
+        'first_platform': platforms[0] if len(platforms) > 0 else None,
+        'first_genre': genres[0] if len(genres) > 0 else None,
+        'platforms': platforms[1:] if len(platforms) > 1 else [],
+        'genres': genres[1:] if len(genres) > 1 else [],
+        'games': games
+    })
+

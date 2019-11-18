@@ -1,14 +1,16 @@
 import csv
+import datetime
 import json
 
 from celery.result import AsyncResult
 from django.core.files.storage import FileSystemStorage
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.utils.translation import to_locale, get_language
 
 from GameHoarder.settings import BASE_DIR
+from game_collection.foms import *
 from game_collection.tasks import *
-from game_collection.models import *
 
 
 def read_csv(file):
@@ -362,14 +364,39 @@ def export_list(request):
 def game_search(request):
     return render(request, 'index.html')
 
-def game_view(request, id):
+
+def where_is(game_version, user):
+    if Played.objects.filter(game_version=game_version, user=user).exists():
+        return ["PLAYED", Played.objects.get(game_version=game_version, user=user)]
+    elif Playing.objects.filter(game_version=game_version, user=user).exists():
+        return ["PLAYING", Playing.objects.get(game_version=game_version, user=user)]
+    elif Finished.objects.filter(game_version=game_version, user=user).exists():
+        return ["FINISHED", Finished.objects.get(game_version=game_version, user=user)]
+    elif Abandoned.objects.filter(game_version=game_version, user=user).exists():
+        return ["ABANDONED", Abandoned.objects.get(game_version=game_version, user=user)]
+    elif Queue.objects.filter(game_version=game_version, user=user).exists():
+        return ["QUEUE", Queue.objects.get(game_version=game_version, user=user)]
+    elif Wishlist.objects.filter(game_version=game_version, user=user).exists():
+        return ["WISHLIST", Wishlist.objects.get(game_version=game_version, user=user)]
+    elif Interested.objects.filter(game_version=game_version, user=user).exists():
+        return ["INTERESTED", Interested.objects.get(game_version=game_version, user=user)]
+
+    return None
+
+
+def game_view(request, db_id):
     custom = Tag.objects.filter(user=request.user)
-    title = Game.objects.get(id=id)
+    game_version = GameVersion.objects.get(db_id=db_id)
+
+    title = game_version.parent_game
     genres = title.genres.all()
     publishers = title.publishers.all()
     developers = title.developers.all()
+
     states = [['Played'], ['Playing'], ['Finished'], ['Abandoned'], ['Queue']]
-    game_version = GameVersion.objects.get(parent_game=title)
+
+    game_version = GameVersion.objects.get(db_id=db_id)
+
     states[0].append(len(Played.objects.filter(game_version=game_version)))
     states[1].append(len(Playing.objects.filter(game_version=game_version)))
     states[2].append(len(Finished.objects.filter(game_version=game_version)))
@@ -382,7 +409,91 @@ def game_view(request, id):
         "publishers": publishers,
         "developers": developers,
         "states": states,
-        "title": title
+        "title": title,
+        "game_version": game_version,
+        "current_state": where_is(game_version, request.user)[0],
+        "current_item": where_is(game_version, request.user)[1]
     }
 
-    return render(request, 'game_view.html', context)
+    return render(request, 'collection/game_view.html', context)
+
+
+def move_game(request, db_id):
+    game_version = GameVersion.objects.get(db_id=db_id)
+    user = request.user
+    current_item = where_is(game_version, user)[1]
+
+    if request.method == 'POST':
+
+        form = MoveForm(request.POST)
+
+        print(form.errors)
+
+        if form.is_valid():
+
+            new_item = {
+                "user": user,
+                "game_version": game_version,
+                "price": form.cleaned_data["price"],
+                "date_adquired": datetime.datetime.strptime(form.cleaned_data['date_adquired'], "%m/%d/%Y"),
+                "time_played": form.cleaned_data["time_played"],
+            }
+
+            new_state = form.cleaned_data["new_state"]
+
+            if new_state == 1:
+                Interested.objects.create(user=user, game_version=game_version)
+
+            if new_state == 2:
+                Wishlist.objects.create(user=user, game_version=game_version)
+
+            if new_state == 3:
+                Queue.objects.create(**new_item)
+
+            elif new_state == 4:
+                new_item["date_started"] = datetime.datetime.strptime(form.cleaned_data['date_started'], "%m/%d/%Y")
+
+                Playing.objects.create(**new_item)
+
+            elif new_state == 5:
+                new_item["date_started"] = datetime.datetime.strptime(form.cleaned_data['date_started'], "%m/%d/%Y")
+                new_item["date_stopped"] = datetime.datetime.strptime(form.cleaned_data['date_other'], "%m/%d/%Y")
+
+                Played.objects.create(**new_item)
+
+            elif new_state == 6:
+                new_item["date_started"] = datetime.datetime.strptime(form.cleaned_data['date_started'], "%m/%d/%Y")
+                new_item["date_finished"] = datetime.datetime.strptime(form.cleaned_data['date_other'], "%m/%d/%Y")
+
+                new_item["time_to_finish"] = form.cleaned_data["time_other"]
+
+                Finished.objects.create(**new_item)
+
+            elif new_state == 7:
+                new_item["date_started"] = datetime.datetime.strptime(form.cleaned_data['date_started'], "%m/%d/%Y")
+                new_item["date_abandoned"] = datetime.datetime.strptime(form.cleaned_data['date_other'], "%m/%d/%Y")
+
+                Abandoned.objects.create(**new_item)
+
+            current_item.delete()
+
+            return redirect("/%s/game/%s" % (to_locale(get_language()), db_id))
+
+    else:
+        form = MoveForm()
+
+    custom = Tag.objects.filter(user=user)
+
+    collection_states = ["Interested", "Wishlist", 'Queue', 'Playing', 'Played', 'Finished', 'Abandoned']
+
+    context = {
+        "tags": custom,
+        "game_version": game_version,
+        "user": user,
+        "form": form,
+        "collection_states": collection_states,
+        "current_state": where_is(game_version, user)[0],
+        "current_item": current_item
+    }
+
+    return render(request, "collection/forms/move_game.html", context)

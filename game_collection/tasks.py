@@ -33,10 +33,11 @@ def verify_collection_task(self, csv_file):
             "platform": row[4].strip(),
             "name": row[5].strip().replace("'", ""),
             "id": row[6].strip(),
-            "time_played": row[7].strip(),
-            "time_to_finish": row[8].strip(),
-            "playstyle": row[9].strip(),
-            "tags": row[10].strip()
+            "price": row[7].strip(),
+            "time_played": row[8].strip(),
+            "time_to_finish": row[9].strip(),
+            "playstyle": row[10].strip(),
+            "tags": row[11].strip()
         }
 
         if title["id"] == "":
