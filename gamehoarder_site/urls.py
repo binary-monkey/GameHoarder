@@ -6,4 +6,6 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('friends', views.friends, name='friends'),
     path('export', views.download_csv, name='download_csv'),
+    path('search', views.search, name='search'),
+    path('search_form', views.search_form, name='search_form'),
 ]
