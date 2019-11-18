@@ -53,10 +53,27 @@ def download_csv(request):
 
 
 def search(request):
-    params = request.GET.dict()
+    # multiple-choice values
+    choices = ['genres', 'platforms']
+    # all values except those
+    params = {k: v for k, v in request.GET.dict().items() if k[:-2] not in choices}
+
+    # check if external API should be used
+    use_api = False
+    try:
+        use_api = params.pop('use_api')
+        use_api = use_api == "true"
+    except KeyError:
+        pass
+
+    # extract multiple-choice values
+    for choice in choices:
+        if f'{choice}[]' in request.GET.keys():
+            params[choice] = request.GET.getlist(f'{choice}[]')
+
     # if query is empty, don't search
     if not GameHoarderDB.params_empty(params):
-        games = GameHoarderDB.search(params)
+        games = GameHoarderDB.search(params, use_api=use_api)
     else:
         games = None
     platforms = [p.get('name') for p in Platform.objects.order_by().values('name').distinct()]

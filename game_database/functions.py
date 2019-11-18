@@ -327,11 +327,11 @@ class GameCollectionController:
 class GameHoarderDB:
 
     @staticmethod
-    def search(params):
+    def _local_search(params):
         search_params = {
             # # key: REST param, value: model query
             'developer': 'parent_game__developers__name__contains',
-            # 'genre': 'parent_game__genres__in',
+            # 'genres': 'parent_game__genres__in',  # TODO: correct filter for genres
             'platform': 'platform__name__iendswith',
             'publisher': 'parent_game__publishers__name__contains',
             'year': 'parent_game__release_date__year',
@@ -339,22 +339,45 @@ class GameHoarderDB:
         }
         # GameVersion.objects.filter(=)
 
-        special_params = {
-            # # key: special param, value: extraction function
-            # 'genre': lambda x: x.split(',')
-        }
         query = {}
         for k, v in search_params.items():
             # param is present and not empty
             if k in params.keys() and params.get(k):
-                # run extraction function on special param
-                if k in special_params.keys():
-                    query[v] = special_params[k](params.get(k))
-                # use raw param
-                else:
-                    query[v] = params.get(k)
+                query[v] = params.get(k)
         local_games = GameVersion.objects.filter(**query)
         return local_games
+
+    @staticmethod
+    def search(params, use_api=False):
+        # para evitar repetir versiones presentes en la DB local y remota,
+        # utilizaremos el nombre_padre+nombre como identificador único
+        #
+        # podría realizarse con sets y no dicts, pero corremos el riesgo
+        # de que un cambio en campos como el resumen del juego o el tiempo
+        # de juego cree duplicados
+        local_games = GameHoarderDB._local_search(params)
+        local_games_dict = {
+            f'{x.parent_game.title}{x.name}': x for x in local_games
+        }
+        # TODO: extender búsqueda externa a más campos que 'title'
+        remote_games_dict = {}
+        if use_api and params.get('title'):
+            remote_games = GiantBombAPI.search_game(game_title=params.get('title'), limit=5)
+            for game in remote_games:
+                for platform in game.get("platforms"):
+                    platforms = Platform.objects.filter(db_id=platform.get('id'))
+                    # evitar repetir búsquedas
+                    if len(platforms) == 0:
+                        p = GameCollectionController.create_platform(platform.get('id'))
+                        p.save()
+                        games = Game.objects.filter(db_id=game.get('id'))
+                        # evitar repetir búsquedas
+                        if len(games) == 0:
+                            g = GameCollectionController.create_game(game.get('id'), p)
+                            g.save()
+                            remote_games_dict[f'{g.parent_game.title}{g.name}'] = g
+        # unir diccionarios, dando preferencia a elementos de la DB local
+        return {**remote_games_dict, **local_games_dict}.values()
 
     @staticmethod
     def params_empty(params):
