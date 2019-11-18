@@ -11,6 +11,7 @@ from game_database.models import GameVersion
 class Collection(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name=_("user"))
     game_version = models.ForeignKey(GameVersion, on_delete=models.PROTECT, verbose_name=_("game version"))
+    price = models.FloatField(default=0.0, verbose_name=_("price"))
 
     date_adquired = models.DateField(blank=True, null=True, verbose_name=_("date adquired"))
     time_played = models.FloatField(blank=True, null=True, verbose_name=_("time played"))
