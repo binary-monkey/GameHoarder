@@ -2,8 +2,25 @@
 {
     "model": "auth.user",
     "fields": {
-        "password": "pbkdf2_sha256$150000$vYaPJxTflWWe$lEsMH/DdVHW1sgXHgQbapSLeR0TezAbVR40k3gOT75k=",
-        "last_login": "2019-11-17T18:30:49.135Z",
+        "password": "pbkdf2_sha256$150000$cfo1FECG0VGz$Xk6C6O87dvtliqM3CI/6uH7KfxN2S5qIb2fUzw5L3xg=",
+        "last_login": null,
+        "is_superuser": true,
+        "username": "jader",
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2019-11-18T16:58:58.848Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "fields": {
+        "password": "pbkdf2_sha256$150000$57AQQOfMT8dq$0uaHSqGwRJmcZlfsn9UnwXjHs34MxXAPwfRvkv592mU=",
+        "last_login": "2019-11-18T17:01:25.290Z",
         "is_superuser": true,
         "username": "jailander",
         "first_name": "",
@@ -11,7 +28,7 @@
         "email": "",
         "is_staff": true,
         "is_active": true,
-        "date_joined": "2019-11-17T18:29:35.531Z",
+        "date_joined": "2019-11-18T17:01:22.222Z",
         "groups": [],
         "user_permissions": []
     }
@@ -148,16 +165,1040 @@
     "model": "game_database.genre",
     "pk": 17,
     "fields": {
-        "name": "Brawler",
-        "db_id": "37"
+        "name": "Dual-Joystick Shooter",
+        "db_id": "31"
     }
 },
 {
     "model": "game_database.genre",
     "pk": 18,
     "fields": {
-        "name": "Dual-Joystick Shooter",
-        "db_id": "31"
+        "name": "Brawler",
+        "db_id": "37"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 1,
+    "fields": {
+        "name": "Petroglyph Games Inc.",
+        "db_id": "2946"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 2,
+    "fields": {
+        "name": "Orange_Juice",
+        "db_id": "6640"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 3,
+    "fields": {
+        "name": "Fruitbat Factory",
+        "db_id": "8815"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 4,
+    "fields": {
+        "name": "Frictional Games",
+        "db_id": "2417"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 5,
+    "fields": {
+        "name": "THQ",
+        "db_id": "15"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 6,
+    "fields": {
+        "name": "Merge Games",
+        "db_id": "9636"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 7,
+    "fields": {
+        "name": "Lince Works",
+        "db_id": "12604"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 8,
+    "fields": {
+        "name": "Ubisoft Entertainment",
+        "db_id": "82"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 9,
+    "fields": {
+        "name": "Ubisoft Montreal Studios",
+        "db_id": "1559"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 10,
+    "fields": {
+        "name": "Climax Studios",
+        "db_id": "2267"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 11,
+    "fields": {
+        "name": "WB Games",
+        "db_id": "4405"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 12,
+    "fields": {
+        "name": "Rocksteady Studios Ltd",
+        "db_id": "2576"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 13,
+    "fields": {
+        "name": "Iron Galaxy Studios",
+        "db_id": "6974"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 14,
+    "fields": {
+        "name": "WB Games Montr\u00e9al",
+        "db_id": "8238"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 15,
+    "fields": {
+        "name": "Known Shippable ",
+        "db_id": "18464"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 16,
+    "fields": {
+        "name": "Sega",
+        "db_id": "62"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 17,
+    "fields": {
+        "name": "Nintendo",
+        "db_id": "90"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 18,
+    "fields": {
+        "name": "PlatinumGames",
+        "db_id": "6319"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 19,
+    "fields": {
+        "name": "Bee Tribe",
+        "db_id": "10023"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 20,
+    "fields": {
+        "name": "Exordium Games ",
+        "db_id": "12965"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 21,
+    "fields": {
+        "name": "Alawar Entertainment, Inc.",
+        "db_id": "8"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 22,
+    "fields": {
+        "name": "Curve Digital",
+        "db_id": "6465"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 23,
+    "fields": {
+        "name": "Warm Lamp Games",
+        "db_id": "13378"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 24,
+    "fields": {
+        "name": "Gearbox Software LLC",
+        "db_id": "1615"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 25,
+    "fields": {
+        "name": "Relic Entertainment",
+        "db_id": "1804"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 26,
+    "fields": {
+        "name": "KillHouse Games",
+        "db_id": "9761"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 27,
+    "fields": {
+        "name": "Devolver Digital",
+        "db_id": "6718"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 28,
+    "fields": {
+        "name": "Moppin",
+        "db_id": "10799"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 29,
+    "fields": {
+        "name": "Zachtronics Industries",
+        "db_id": "7484"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 30,
+    "fields": {
+        "name": "Adult Swim Games",
+        "db_id": "8613"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 31,
+    "fields": {
+        "name": "Crazy Viking Studios",
+        "db_id": "8957"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 32,
+    "fields": {
+        "name": "Vlambeer",
+        "db_id": "7731"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 33,
+    "fields": {
+        "name": "Limited Run Games",
+        "db_id": "13306"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 34,
+    "fields": {
+        "name": "Red Hook Studios",
+        "db_id": "9303"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 35,
+    "fields": {
+        "name": "id Software",
+        "db_id": "347"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 36,
+    "fields": {
+        "name": "MacPlay",
+        "db_id": "981"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 37,
+    "fields": {
+        "name": "Apogee Software, Ltd.",
+        "db_id": "346"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 38,
+    "fields": {
+        "name": "BAM! Entertainment, Inc.",
+        "db_id": "538"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 39,
+    "fields": {
+        "name": "Interplay Entertainment Corp.",
+        "db_id": "580"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 40,
+    "fields": {
+        "name": "Atari SA",
+        "db_id": "548"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 41,
+    "fields": {
+        "name": "Imagineer Co., Ltd.",
+        "db_id": "374"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 42,
+    "fields": {
+        "name": "Activision",
+        "db_id": "78"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 43,
+    "fields": {
+        "name": "Zenimax Media Inc",
+        "db_id": "7049"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 44,
+    "fields": {
+        "name": "Nerve Software, LLC",
+        "db_id": "1083"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 45,
+    "fields": {
+        "name": "Pocketwatch Games",
+        "db_id": "7034"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 46,
+    "fields": {
+        "name": "Tribute Games",
+        "db_id": "7751"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 47,
+    "fields": {
+        "name": "Galactic Cafe",
+        "db_id": "9034"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 48,
+    "fields": {
+        "name": "Mike Bithell Games",
+        "db_id": "10456"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 49,
+    "fields": {
+        "name": "Electronic Arts",
+        "db_id": "1"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 50,
+    "fields": {
+        "name": "Double Fine Productions, Inc.",
+        "db_id": "2215"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 51,
+    "fields": {
+        "name": "Frozenbyte, Inc.",
+        "db_id": "4203"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 52,
+    "fields": {
+        "name": "Konami",
+        "db_id": "87"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 53,
+    "fields": {
+        "name": "Kojima Productions",
+        "db_id": "2057"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 54,
+    "fields": {
+        "name": "Konami Los Angeles Studio",
+        "db_id": "10605"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 55,
+    "fields": {
+        "name": "Majesco Entertainment",
+        "db_id": "370"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 56,
+    "fields": {
+        "name": "The Adventure Company",
+        "db_id": "353"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 57,
+    "fields": {
+        "name": "EuroVideo Medien GmbH",
+        "db_id": "9985"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 58,
+    "fields": {
+        "name": "Budcat Creations",
+        "db_id": "4570"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 59,
+    "fields": {
+        "name": "Defiant Development",
+        "db_id": "8349"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 60,
+    "fields": {
+        "name": "8-4, Ltd.",
+        "db_id": "6484"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 61,
+    "fields": {
+        "name": "TransGaming Technologies",
+        "db_id": "5554"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 62,
+    "fields": {
+        "name": "Digital Hearts Co., Ltd. ",
+        "db_id": "10645"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 63,
+    "fields": {
+        "name": "Rockstar Games",
+        "db_id": "1194"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 64,
+    "fields": {
+        "name": "Take-Two Interactive Software, Inc.",
+        "db_id": "450"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 65,
+    "fields": {
+        "name": "Rockstar North",
+        "db_id": "1408"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 66,
+    "fields": {
+        "name": "Bethesda Softworks",
+        "db_id": "786"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 67,
+    "fields": {
+        "name": "Certain Affinity",
+        "db_id": "6279"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 68,
+    "fields": {
+        "name": "Escalation Studios",
+        "db_id": "6702"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 69,
+    "fields": {
+        "name": "Panic Button",
+        "db_id": "7250"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 70,
+    "fields": {
+        "name": "Kumobius",
+        "db_id": "7871"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 71,
+    "fields": {
+        "name": "Acid Nerve",
+        "db_id": "10033"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 72,
+    "fields": {
+        "name": "Black Forest Games",
+        "db_id": "8302"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 73,
+    "fields": {
+        "name": "bitComposer Games",
+        "db_id": "6797"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 74,
+    "fields": {
+        "name": "Red Barrels",
+        "db_id": "8337"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 75,
+    "fields": {
+        "name": "Stoic",
+        "db_id": "7896"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 76,
+    "fields": {
+        "name": "Turtle Cream",
+        "db_id": "8726"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 77,
+    "fields": {
+        "name": "Rainy Frog",
+        "db_id": "10408"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 78,
+    "fields": {
+        "name": "PokPoong Games",
+        "db_id": "8727"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 79,
+    "fields": {
+        "name": "Flippfly",
+        "db_id": "8748"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 80,
+    "fields": {
+        "name": "Madruga Works",
+        "db_id": "11557"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 81,
+    "fields": {
+        "name": "Introversion Software Limited",
+        "db_id": "543"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 82,
+    "fields": {
+        "name": "Double Eleven",
+        "db_id": "7647"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 83,
+    "fields": {
+        "name": "Bohemia Interactive Studio",
+        "db_id": "275"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 84,
+    "fields": {
+        "name": "Stardock Corporation",
+        "db_id": "1064"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 85,
+    "fields": {
+        "name": "Oxide Games",
+        "db_id": "12055"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 86,
+    "fields": {
+        "name": "Ubisoft Bucharest",
+        "db_id": "2404"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 87,
+    "fields": {
+        "name": "Ubisoft Sofia",
+        "db_id": "6268"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 88,
+    "fields": {
+        "name": "Ubisoft Singapore",
+        "db_id": "6770"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 89,
+    "fields": {
+        "name": "Ubisoft Quebec",
+        "db_id": "3831"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 90,
+    "fields": {
+        "name": "Ubisoft Chengdu",
+        "db_id": "9915"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 91,
+    "fields": {
+        "name": "Ubisoft Milan Studio",
+        "db_id": "621"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 92,
+    "fields": {
+        "name": "Subset Games",
+        "db_id": "8016"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 93,
+    "fields": {
+        "name": "Telltale Games",
+        "db_id": "397"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 94,
+    "fields": {
+        "name": "Outsource Media (OMUK)",
+        "db_id": "10727"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 95,
+    "fields": {
+        "name": "Numinous Games",
+        "db_id": "9104"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 96,
+    "fields": {
+        "name": "Wargaming.net",
+        "db_id": "4066"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 97,
+    "fields": {
+        "name": "NGD Studios",
+        "db_id": "290"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 98,
+    "fields": {
+        "name": "Special Reserve Games",
+        "db_id": "18362"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 99,
+    "fields": {
+        "name": "Dodge Roll",
+        "db_id": "10603"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 100,
+    "fields": {
+        "name": "The Game Bakers",
+        "db_id": "7657"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 101,
+    "fields": {
+        "name": "D-pad Studio",
+        "db_id": "7036"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 102,
+    "fields": {
+        "name": "Soedesco",
+        "db_id": "10558"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 103,
+    "fields": {
+        "name": "Finji",
+        "db_id": "10055"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 104,
+    "fields": {
+        "name": "Infinite Fall",
+        "db_id": "9499"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 105,
+    "fields": {
+        "name": "Team Cherry",
+        "db_id": "10636"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 106,
+    "fields": {
+        "name": "Fangamer",
+        "db_id": "19557"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 107,
+    "fields": {
+        "name": "SCS Software",
+        "db_id": "3214"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 108,
+    "fields": {
+        "name": "Wendros AB",
+        "db_id": "8479"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 109,
+    "fields": {
+        "name": "Excalibur Publishing Limited",
+        "db_id": "2861"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 110,
+    "fields": {
+        "name": "Strategy First, Inc.",
+        "db_id": "323"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 111,
+    "fields": {
+        "name": "Paradox Interactive AB",
+        "db_id": "1366"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 112,
+    "fields": {
+        "name": "Focus Home Interactive",
+        "db_id": "720"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 113,
+    "fields": {
+        "name": "GIANTS Software GmbH",
+        "db_id": "6833"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 114,
+    "fields": {
+        "name": "Square Enix",
+        "db_id": "104"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 115,
+    "fields": {
+        "name": "Square Visual Works",
+        "db_id": "10321"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 116,
+    "fields": {
+        "name": "Paradox Development Studio",
+        "db_id": "8504"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 117,
+    "fields": {
+        "name": "IO Interactive",
+        "db_id": "3562"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 118,
+    "fields": {
+        "name": "Avalanche Studios",
+        "db_id": "5927"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 119,
+    "fields": {
+        "name": "Deck Nine Games",
+        "db_id": "14383"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 120,
+    "fields": {
+        "name": "DrinkBox Studios",
+        "db_id": "7162"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 121,
+    "fields": {
+        "name": "Broken Rules",
+        "db_id": "7114"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 122,
+    "fields": {
+        "name": "CD Projekt Red",
+        "db_id": "2890"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 123,
+    "fields": {
+        "name": "Bandai Namco Entertainment Europe",
+        "db_id": "17313"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 124,
+    "fields": {
+        "name": "Tango Gameworks",
+        "db_id": "7035"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 125,
+    "fields": {
+        "name": "Tokyo RPG Factory",
+        "db_id": "11175"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 126,
+    "fields": {
+        "name": "Gemdrops, Inc.",
+        "db_id": "17622"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 127,
+    "fields": {
+        "name": "Deep Silver",
+        "db_id": "52"
+    }
+},
+{
+    "model": "game_database.company",
+    "pk": 128,
+    "fields": {
+        "name": "Warhorse studios",
+        "db_id": "7684"
     }
 },
 {
@@ -173,6 +1214,12 @@
         "description": "8-Bit Armies is a retro styled RTS game from Petroglyph.",
         "img_url": "https://www.giantbomb.com/api/image/original/3051471-box_8ba.png",
         "update": false,
+        "publishers": [
+            1
+        ],
+        "developers": [
+            1
+        ],
         "genres": [
             1,
             2
@@ -192,6 +1239,13 @@
         "description": "A shooter based fighting game. Doujin PC title developed by Orange_Juice.",
         "img_url": "https://www.giantbomb.com/api/image/original/2104778-aos2logo.jpg",
         "update": false,
+        "publishers": [
+            2,
+            3
+        ],
+        "developers": [
+            2
+        ],
         "genres": [
             3,
             4
@@ -211,6 +1265,13 @@
         "description": "A first-person survival horror game with advanced physics-based puzzles from Frictional Games, the creators of the Penumbra series. Its dynamic of light and darkness and focus on avoidance of enemies rather than combat have been highly influential in recent horror games.",
         "img_url": "https://www.giantbomb.com/api/image/original/2299522-amnesia.png",
         "update": false,
+        "publishers": [
+            4,
+            5
+        ],
+        "developers": [
+            4
+        ],
         "genres": [
             5,
             6
@@ -230,6 +1291,12 @@
         "description": "A stealth action game featuring an assassin who has control over shadows.",
         "img_url": "https://www.giantbomb.com/api/image/original/3029647-box_ara.png",
         "update": false,
+        "publishers": [
+            6
+        ],
+        "developers": [
+            7
+        ],
         "genres": [
             7
         ]
@@ -248,6 +1315,13 @@
         "description": "A 2.5D downloadable title for the Xbox One, PlayStation 4 and PC. The game follows Shao Jun, the last remaining Assassin of the Chinese Brotherhood.",
         "img_url": "https://www.giantbomb.com/api/image/original/2739447-assassins-creed-unity-china-chronicles-1.jpg",
         "update": false,
+        "publishers": [
+            8
+        ],
+        "developers": [
+            9,
+            10
+        ],
         "genres": [
             8,
             9
@@ -267,6 +1341,15 @@
         "description": "Arkham Knight, developer Rocksteady's return to the Batman series, takes place one year after Arkham City. It promises to expand the open world from the previous game, allowing players to drive the Batmobile through Gotham City's streets.",
         "img_url": "https://www.giantbomb.com/api/image/original/2606852-keyfull%209237457203.jpg",
         "update": false,
+        "publishers": [
+            11
+        ],
+        "developers": [
+            12,
+            13,
+            14,
+            15
+        ],
         "genres": [
             9
         ]
@@ -285,6 +1368,8 @@
         "description": "Battlevoid: Harbinger is an epic space adventure RTS developed by Bugbyte Ltd.",
         "img_url": "https://www.giantbomb.com/api/image/original/2975952-maincapsule616x353%20%28version2%29.jpg",
         "update": false,
+        "publishers": [],
+        "developers": [],
         "genres": [
             1
         ]
@@ -303,6 +1388,14 @@
         "description": "Bayonetta is a \"stylish action game\" from PlatinumGames.  The titular character is a witch who can use hair-based magic, as well as firearms attached to her feet, to battle fallen angels and other foes.",
         "img_url": "https://www.giantbomb.com/api/image/original/1124551-gb.png",
         "update": false,
+        "publishers": [
+            16,
+            17
+        ],
+        "developers": [
+            18,
+            19
+        ],
         "genres": [
             7
         ]
@@ -321,6 +1414,12 @@
         "description": "Bear With Me is an episodic adventure game with a noir inspired theme. It was developed by Exordium Games.",
         "img_url": "https://www.giantbomb.com/api/image/original/2876102-bearwithme.jpg",
         "update": false,
+        "publishers": [
+            20
+        ],
+        "developers": [
+            20
+        ],
         "genres": [
             5
         ]
@@ -339,6 +1438,13 @@
         "description": "Beholder is a totalitarian themed spying game.",
         "img_url": "https://www.giantbomb.com/api/image/original/2894334-header.jpg",
         "update": false,
+        "publishers": [
+            21,
+            22
+        ],
+        "developers": [
+            23
+        ],
         "genres": [
             1,
             10
@@ -358,6 +1464,13 @@
         "description": "A collection of the originals and remakes of Homeworld 1 and 2. Improvements include better textures, models, access to higher resolutions and redone cutscenes.",
         "img_url": "https://www.giantbomb.com/api/image/original/2730473-untitled.png",
         "update": false,
+        "publishers": [
+            24
+        ],
+        "developers": [
+            24,
+            25
+        ],
         "genres": [
             2
         ]
@@ -376,6 +1489,12 @@
         "description": "Door Kickers is a top-down real-time SWAT tactics game.",
         "img_url": "https://www.giantbomb.com/api/image/original/2695093-doorkickers.png",
         "update": false,
+        "publishers": [
+            26
+        ],
+        "developers": [
+            26
+        ],
         "genres": [
             1
         ]
@@ -394,6 +1513,12 @@
         "description": "A vertical-scrolling action roguelike that is heavily inspired by Spelunky.",
         "img_url": "https://www.giantbomb.com/api/image/original/3118812-box_dw.png",
         "update": false,
+        "publishers": [
+            27
+        ],
+        "developers": [
+            28
+        ],
         "genres": [
             8,
             11
@@ -413,6 +1538,10 @@
         "description": "TIS-100 is a programming puzzle game developed by Zachtronics.",
         "img_url": "https://www.giantbomb.com/api/image/original/2756477-0812024717-heade.jpg",
         "update": false,
+        "publishers": [],
+        "developers": [
+            29
+        ],
         "genres": [
             6,
             10
@@ -432,6 +1561,12 @@
         "description": "A tough-as-nails, retro-styled action game published by Adult Swim.",
         "img_url": "https://www.giantbomb.com/api/image/original/2701435-box_volgarr.png",
         "update": false,
+        "publishers": [
+            30
+        ],
+        "developers": [
+            31
+        ],
         "genres": [
             7,
             8
@@ -451,6 +1586,13 @@
         "description": "A procedurally generated roguelike action game developed by Vlambeer. After creating a prototype called Wasteland Kings for Mojam 2, Vlambeer took the prototype and renamed it Nuclear Throne.",
         "img_url": "https://www.giantbomb.com/api/image/original/2803716-newart.png",
         "update": false,
+        "publishers": [
+            32,
+            33
+        ],
+        "developers": [
+            32
+        ],
         "genres": [
             4,
             7
@@ -470,6 +1612,12 @@
         "description": "A dungeon crawler that seeks to weigh the psychological effects of delving into hellish monster abodes, not just the damage to HP. Team chemistry means more than just skill synergy.",
         "img_url": "https://www.giantbomb.com/api/image/original/2908406-4612953331-hMFSG.jpg",
         "update": false,
+        "publishers": [
+            34
+        ],
+        "developers": [
+            34
+        ],
         "genres": [
             12
         ]
@@ -488,6 +1636,23 @@
         "description": "Considered by many to be the progenitor of the first-person shooter genre, Wolfenstein 3D is a 1992 first-person action game that pits the player, as Allied spy William \"B.J.\" Blazkowicz, against the might of Nazi Germany.",
         "img_url": "https://www.giantbomb.com/api/image/original/2220255-wolf3d_dos.png",
         "update": false,
+        "publishers": [
+            35,
+            36,
+            37,
+            38,
+            39,
+            40,
+            41,
+            42,
+            43
+        ],
+        "developers": [
+            35,
+            41,
+            43,
+            44
+        ],
         "genres": [
             7,
             13
@@ -507,6 +1672,10 @@
         "description": "Tooth and Tail is an \"Arcade RTS\" by Pocketwatch Games, the creators of Monaco: What's yours is Mine.",
         "img_url": "https://www.giantbomb.com/api/image/original/2820867-logo.png",
         "update": false,
+        "publishers": [],
+        "developers": [
+            45
+        ],
         "genres": [
             1,
             2
@@ -526,6 +1695,12 @@
         "description": "Flinthook is a roguelite, grappling hook platformer from Tribute Games.",
         "img_url": "https://www.giantbomb.com/api/image/original/2991332-box_fh.png",
         "update": false,
+        "publishers": [
+            33
+        ],
+        "developers": [
+            46
+        ],
         "genres": [
             8
         ]
@@ -544,6 +1719,12 @@
         "description": "The Stanley Parable is an abstract, psychological, dark and humorous meta-narrative that attempts to make its choices void, journey paradoxical and generate discussion about storytelling in video games.",
         "img_url": "https://www.giantbomb.com/api/image/original/2853861-4714912512-heade.jpg",
         "update": false,
+        "publishers": [
+            47
+        ],
+        "developers": [
+            47
+        ],
         "genres": [
             5
         ]
@@ -562,6 +1743,15 @@
         "description": "An indie minimalist puzzle platformer.",
         "img_url": "https://www.giantbomb.com/api/image/original/2725629-image-2.jpg",
         "update": false,
+        "publishers": [
+            22,
+            33,
+            48
+        ],
+        "developers": [
+            22,
+            48
+        ],
         "genres": [
             6,
             8
@@ -581,6 +1771,12 @@
         "description": "Br\u00fctal Legend is a humorous heavy-metal, open-world, action-adventure game with light real-time strategy elements. As Eddie Riggs, lead the people of the Br\u00fctal World to rise up against the Tainted Coil demons who rule the world, and their leader, the sinister Emperor Doviculus.",
         "img_url": "https://www.giantbomb.com/api/image/original/2085660-box_blegend.png",
         "update": false,
+        "publishers": [
+            49
+        ],
+        "developers": [
+            50
+        ],
         "genres": [
             2,
             9
@@ -600,6 +1796,12 @@
         "description": "Trine 3: Artifacts of Power is the sequel to the sequel to Trine. Partially funded by the EU. This entry will for the first time blend 3D segments with the established 2D gameplay.",
         "img_url": "https://www.giantbomb.com/api/image/original/3117646-image.jpeg",
         "update": false,
+        "publishers": [
+            51
+        ],
+        "developers": [
+            51
+        ],
         "genres": [
             7,
             8
@@ -619,6 +1821,13 @@
         "description": "The final main entry in the Metal Gear Solid series bridges the events between Metal Gear Solid: Peace Walker and the original Metal Gear, as Big Boss wakes up from a nine-year coma in 1984 to rebuild his mercenary paradise.",
         "img_url": "https://www.giantbomb.com/api/image/original/2731604-mgsvclean.jpg",
         "update": false,
+        "publishers": [
+            52
+        ],
+        "developers": [
+            53,
+            54
+        ],
         "genres": [
             4,
             9
@@ -638,6 +1847,17 @@
         "description": "Developed by Double Fine Productions, Psychonauts is a platforming action-adventure game in which players take on the role of Razputin, a young psychic out to thwart an evil plot to subvert the minds of other powerful psychics.",
         "img_url": "https://www.giantbomb.com/api/image/original/1841447-box_pnauts.png",
         "update": false,
+        "publishers": [
+            5,
+            50,
+            55,
+            56,
+            57
+        ],
+        "developers": [
+            50,
+            58
+        ],
         "genres": [
             8,
             9
@@ -657,6 +1877,12 @@
         "description": "When Gotham City's slums have been transformed into a secluded super-prison, it's up to Batman to uncover its conspiracy in the sequel to 2009's Batman: Arkham Asylum.",
         "img_url": "https://www.giantbomb.com/api/image/original/2606170-batmanaccleanbox.jpg",
         "update": false,
+        "publishers": [
+            11
+        ],
+        "developers": [
+            12
+        ],
         "genres": [
             9
         ]
@@ -675,6 +1901,12 @@
         "description": "A tarot card driven roguelike action role playing game, by Defiant Development from Brisbane, Australia.",
         "img_url": "https://www.giantbomb.com/api/image/original/3008935-box_hof.png",
         "update": false,
+        "publishers": [
+            59
+        ],
+        "developers": [
+            59
+        ],
         "genres": [
             1,
             5,
@@ -698,6 +1930,16 @@
         "description": "A fast-paced action game co-developed by PlatinumGames and Kojima Productions. It follows ninja-cyborg Raiden's activities four years after the events of Metal Gear Solid 4: Guns of the Patriots.",
         "img_url": "https://www.giantbomb.com/api/image/original/2581091-91yrrxqis9l._sl1500_.jpg",
         "update": false,
+        "publishers": [
+            52
+        ],
+        "developers": [
+            18,
+            53,
+            60,
+            61,
+            62
+        ],
         "genres": [
             7,
             9
@@ -717,6 +1959,13 @@
         "description": "Rockstar returns to the fictional state of San Andreas with a crew of three criminal protagonists who work together to pull off high-profile heists.",
         "img_url": "https://www.giantbomb.com/api/image/original/2463980-grand%20theft%20auto%20v.jpg",
         "update": false,
+        "publishers": [
+            63,
+            64
+        ],
+        "developers": [
+            65
+        ],
         "genres": [
             9,
             16
@@ -736,6 +1985,16 @@
         "description": "In a world with health regeneration and cover-based systems, one of the longest-running first-person shooter series returns to its brutal, fast-paced roots.",
         "img_url": "https://www.giantbomb.com/api/image/original/2849529-doom.jpg",
         "update": false,
+        "publishers": [
+            43,
+            66
+        ],
+        "developers": [
+            35,
+            67,
+            68,
+            69
+        ],
         "genres": [
             13
         ]
@@ -754,6 +2013,12 @@
         "description": "Duet is a mobile action game with a soundtrack by Melbourne composer and Gotye multi-instrumentalist, Tim Shiel.",
         "img_url": "https://www.giantbomb.com/api/image/original/2564607-1255314345-mzl.b.png",
         "update": false,
+        "publishers": [
+            70
+        ],
+        "developers": [
+            70
+        ],
         "genres": []
     }
 },
@@ -770,6 +2035,12 @@
         "description": "Titan Souls is a top down action game where you play as a hero trying to defeat large and powerful monsters.",
         "img_url": "https://www.giantbomb.com/api/image/original/2653523-6787669712-14510.jpg",
         "update": false,
+        "publishers": [
+            27
+        ],
+        "developers": [
+            71
+        ],
         "genres": [
             7
         ]
@@ -788,6 +2059,13 @@
         "description": "The third entry in the Super Mario Bros inspired platformer series.",
         "img_url": "https://www.giantbomb.com/api/image/original/2478661-box_gstd.png",
         "update": false,
+        "publishers": [
+            72,
+            73
+        ],
+        "developers": [
+            72
+        ],
         "genres": [
             8
         ]
@@ -806,6 +2084,13 @@
         "description": "Deep within the abandoned halls of Mount Massive Asylum, amateur journalist Miles Upshur sets out to find a good story, and instead finds an evil presence.",
         "img_url": "https://www.giantbomb.com/api/image/original/2958612-box_outlast.png",
         "update": false,
+        "publishers": [
+            33,
+            74
+        ],
+        "developers": [
+            74
+        ],
         "genres": [
             5
         ]
@@ -824,6 +2109,12 @@
         "description": "The Sun has stopped in the middle of the sky, the Gods have died and human settlements are being invaded by the Dredge, a race of stone beings. There can be no doubt about it, the world is coming to an end. In this turn-based tactics game, borrowing elements from Norse myth, your clan's continued survival is the only thing that truly matters. Will its banner be stomped into the the ground or fly high and bring back hope to those who have lost it in this desolate cold world?",
         "img_url": "https://www.giantbomb.com/api/image/original/3007517-box_tbs.png",
         "update": false,
+        "publishers": [
+            75
+        ],
+        "developers": [
+            75
+        ],
         "genres": [
             1,
             12
@@ -843,6 +2134,14 @@
         "description": "6180 the moon is a puzzle-platformer in which players control the Moon as it sets off to find the missing Sun.",
         "img_url": "https://www.giantbomb.com/api/image/original/2466112-9616184041-boxsh.png",
         "update": false,
+        "publishers": [
+            76,
+            77
+        ],
+        "developers": [
+            76,
+            78
+        ],
         "genres": [
             8
         ]
@@ -861,6 +2160,12 @@
         "description": "From the makers of Super Crate Box comes the only game to allow players to create, customize, and fly their own luftrausers.",
         "img_url": "https://www.giantbomb.com/api/image/original/2859664-1501548940-heade.jpg",
         "update": false,
+        "publishers": [
+            27
+        ],
+        "developers": [
+            32
+        ],
         "genres": [
             11
         ]
@@ -879,6 +2184,13 @@
         "description": "Race the Sun puts players in a solar-powered aircraft that must avoid obstacles at increasing speeds in an attempt to stay airborne as long as possible in a race against the setting sun. Supports the Oculus Rift for PC.",
         "img_url": "https://www.giantbomb.com/api/image/original/2991334-box_rts.png",
         "update": false,
+        "publishers": [
+            33,
+            79
+        ],
+        "developers": [
+            79
+        ],
         "genres": [
             7,
             16
@@ -898,6 +2210,10 @@
         "description": "Planetbase is a strategy game where players guide a group of space settlers trying to establish an outpost on a remote planet.",
         "img_url": "https://www.giantbomb.com/api/image/original/2991337-box_pb.png",
         "update": false,
+        "publishers": [],
+        "developers": [
+            80
+        ],
         "genres": [
             1,
             10
@@ -917,6 +2233,13 @@
         "description": "The latest game announced by acclaimed indie developer, Introversion Software, in which players build and manage the day-to-day operations of a maximum security prison.",
         "img_url": "https://www.giantbomb.com/api/image/original/2005326-prisonarch_logo.jpg",
         "update": false,
+        "publishers": [
+            81,
+            82
+        ],
+        "developers": [
+            81
+        ],
         "genres": [
             1,
             10
@@ -936,6 +2259,12 @@
         "description": "Arma 3 is the third core game in the simulation and modern combat Arma franchise developed by Bohemia Interactive.",
         "img_url": "https://www.giantbomb.com/api/image/original/2569992-4939205824-Arma3.jpg",
         "update": false,
+        "publishers": [
+            83
+        ],
+        "developers": [
+            83
+        ],
         "genres": [
             10,
             13
@@ -955,6 +2284,13 @@
         "description": "A new real-time strategy game from Stardock. The player commands on a massive scale with large amounts of units on the screen.",
         "img_url": "https://www.giantbomb.com/api/image/original/2899842-f3e059_ashesofthesingularity.jpg",
         "update": false,
+        "publishers": [
+            84
+        ],
+        "developers": [
+            84,
+            85
+        ],
         "genres": [
             2
         ]
@@ -973,6 +2309,18 @@
         "description": "Assassin's Creed: Rogue takes place during the Seven Years' War in and around the American colonies. The protagonist, Shay Patrick Cormac, is an Assassin-turned-Templar who is hunting his former Brothers in the region.",
         "img_url": "https://www.giantbomb.com/api/image/original/2667100-10575388_878538075492285_1649926027762407539_o.jpg",
         "update": false,
+        "publishers": [
+            8
+        ],
+        "developers": [
+            9,
+            86,
+            87,
+            88,
+            89,
+            90,
+            91
+        ],
         "genres": [
             9
         ]
@@ -981,25 +2329,6 @@
 {
     "model": "game_database.game",
     "pk": 45,
-    "fields": {
-        "title": "Batman: Arkham Origins",
-        "db_id": "42245",
-        "main_time": 12.5,
-        "extra_time": 22.0,
-        "completion_time": 37.0,
-        "release_date": null,
-        "description": "Two years after beginning his crime-fighting career, Batman faces his toughest challenge ever when the crime lord known as Black Mask hires the eight deadliest assassins in the DC Universe to kill the vigilante who has been interfering in his operations.",
-        "img_url": "https://www.giantbomb.com/api/image/original/2485321-486263.jpg",
-        "update": false,
-        "genres": [
-            9,
-            17
-        ]
-    }
-},
-{
-    "model": "game_database.game",
-    "pk": 46,
     "fields": {
         "title": "FTL: Faster Than Light",
         "db_id": "37770",
@@ -1010,6 +2339,12 @@
         "description": "In this roguelike space sim, players are tasked with commanding a customized starship on an important mission through a randomized universe, with vile rebels nipping at their heels.",
         "img_url": "https://www.giantbomb.com/api/image/original/2326566-ftl_box.jpg",
         "update": false,
+        "publishers": [
+            92
+        ],
+        "developers": [
+            92
+        ],
         "genres": [
             1,
             12
@@ -1018,99 +2353,7 @@
 },
 {
     "model": "game_database.game",
-    "pk": 47,
-    "fields": {
-        "title": "Xenon Valkyrie",
-        "db_id": "58180",
-        "main_time": 0.0,
-        "extra_time": 12.0,
-        "completion_time": 0.0,
-        "release_date": null,
-        "description": "Xenon Valkyrie is a rogue-like side-scrolling action-adventure game for Windows, Mac, and Linux developed by Diabolical Mind.",
-        "img_url": "https://www.giantbomb.com/api/image/original/2918245-7308933481-",
-        "update": false,
-        "genres": []
-    }
-},
-{
-    "model": "game_database.game",
-    "pk": 48,
-    "fields": {
-        "title": "Kingdom",
-        "db_id": "47635",
-        "main_time": 8.5,
-        "extra_time": 18.0,
-        "completion_time": 36.5,
-        "release_date": null,
-        "description": "A very minimal strategy game that encourages players to stop and enjoy the scenery.",
-        "img_url": "https://www.giantbomb.com/api/image/original/2784516-14369-b.png",
-        "update": false,
-        "genres": [
-            1,
-            5,
-            10
-        ]
-    }
-},
-{
-    "model": "game_database.game",
-    "pk": 49,
-    "fields": {
-        "title": "Viscera Cleanup Detail: Shadow Warrior",
-        "db_id": "44694",
-        "main_time": 1.5,
-        "extra_time": 2.0,
-        "completion_time": 2.0,
-        "release_date": null,
-        "description": "A cleaning simulator by RuneStorm that is set in the Shadow Warrior universe.",
-        "img_url": "https://www.giantbomb.com/api/image/original/3140511-box_vcdsw.png",
-        "update": false,
-        "genres": [
-            7,
-            10
-        ]
-    }
-},
-{
-    "model": "game_database.game",
-    "pk": 50,
-    "fields": {
-        "title": "Galak-Z",
-        "db_id": "42925",
-        "main_time": 9.0,
-        "extra_time": 14.0,
-        "completion_time": 0.0,
-        "release_date": null,
-        "description": "Galak-Z is a sci-fi roguelike space shooter inspired by anime of the 1970s and '80s.",
-        "img_url": "https://www.giantbomb.com/api/image/original/2496428-gz.jpg",
-        "update": false,
-        "genres": [
-            11
-        ]
-    }
-},
-{
-    "model": "game_database.game",
-    "pk": 51,
-    "fields": {
-        "title": "Serious Sam: The First Encounter",
-        "db_id": "27152",
-        "main_time": 6.0,
-        "extra_time": 7.5,
-        "completion_time": 10.5,
-        "release_date": null,
-        "description": "A first-person shooter where players shoot hordes of relentless monsters while trying to save Earth from Mental and his forces.",
-        "img_url": "https://www.giantbomb.com/api/image/original/1824062-box_ssamfe.jpg",
-        "update": false,
-        "genres": [
-            7,
-            13
-        ]
-    }
-},
-{
-    "model": "game_database.game",
-    "pk": 52,
+    "pk": 46,
     "fields": {
         "title": "The Wolf Among Us",
         "db_id": "34213",
@@ -1121,6 +2364,13 @@
         "description": "A prequel to the Fables comic book series, The Wolf Among Us tells a tale of the reformed Big Bad Wolf of childhood folklore (who is the sheriff of a secluded community of fables in 20th century New York City) as he investigates a series of grisly murders.",
         "img_url": "https://www.giantbomb.com/api/image/original/3039239-box_twauttgs.png",
         "update": false,
+        "publishers": [
+            93
+        ],
+        "developers": [
+            93,
+            94
+        ],
         "genres": [
             5
         ]
@@ -1128,7 +2378,7 @@
 },
 {
     "model": "game_database.game",
-    "pk": 53,
+    "pk": 47,
     "fields": {
         "title": "That Dragon, Cancer",
         "db_id": "43546",
@@ -1139,6 +2389,10 @@
         "description": "An adventure game focusing on a true story about raising a son who has terminal cancer.",
         "img_url": "https://www.giantbomb.com/api/image/original/2814311-0694125108-capsu.jpg",
         "update": false,
+        "publishers": [],
+        "developers": [
+            95
+        ],
         "genres": [
             5
         ]
@@ -1146,7 +2400,7 @@
 },
 {
     "model": "game_database.game",
-    "pk": 54,
+    "pk": 48,
     "fields": {
         "title": "Master of Orion",
         "db_id": "49906",
@@ -1157,6 +2411,12 @@
         "description": "A reboot of the space-faring 4X franchise, Master of Orion. It is being developed by NGD studios and published by World of Tanks' creators, Wargaming.",
         "img_url": "https://www.giantbomb.com/api/image/original/2763901-6576315634-capsu.jpg",
         "update": false,
+        "publishers": [
+            96
+        ],
+        "developers": [
+            97
+        ],
         "genres": [
             1
         ]
@@ -1164,7 +2424,7 @@
 },
 {
     "model": "game_database.game",
-    "pk": 55,
+    "pk": 49,
     "fields": {
         "title": "Enter the Gungeon",
         "db_id": "48332",
@@ -1175,6 +2435,13 @@
         "description": "Four unlikely heroes must fight through a fortress inhabited by large sentient bullets (among other gun-related creatures) seeking a legendary weapon in this gun-themed rogue-like \"bullet hell\" shooter.",
         "img_url": "https://www.giantbomb.com/api/image/original/2948220-box_etg.png",
         "update": false,
+        "publishers": [
+            27,
+            98
+        ],
+        "developers": [
+            99
+        ],
         "genres": [
             4,
             9,
@@ -1184,7 +2451,7 @@
 },
 {
     "model": "game_database.game",
-    "pk": 56,
+    "pk": 50,
     "fields": {
         "title": "Furi",
         "db_id": "52304",
@@ -1195,15 +2462,22 @@
         "description": "Furi is an ultra-responsive mix of fast-paced sword fighting and dual-stick shooting. Featuring character designs by Takashi Okazaki, creator of Afro Samurai and a explosive electro soundtrack.",
         "img_url": "https://www.giantbomb.com/api/image/original/2993431-box_furi.png",
         "update": false,
+        "publishers": [
+            33,
+            100
+        ],
+        "developers": [
+            100
+        ],
         "genres": [
             7,
-            18
+            17
         ]
     }
 },
 {
     "model": "game_database.game",
-    "pk": 57,
+    "pk": 51,
     "fields": {
         "title": "Owlboy",
         "db_id": "23714",
@@ -1214,6 +2488,13 @@
         "description": "A 2D platforming action-adventure developed by D-pad Studios for PC.",
         "img_url": "https://www.giantbomb.com/api/image/original/3017059-box_ob.png",
         "update": false,
+        "publishers": [
+            101,
+            102
+        ],
+        "developers": [
+            101
+        ],
         "genres": [
             8,
             9
@@ -1222,7 +2503,7 @@
 },
 {
     "model": "game_database.game",
-    "pk": 58,
+    "pk": 52,
     "fields": {
         "title": "Night in the Woods",
         "db_id": "44986",
@@ -1233,6 +2514,13 @@
         "description": "A story-focused platforming adventure/exploration game with a striking and colorful art style. Taking place in a small town of anthropomorphic animals, the game revolves around college dropout Mae as she tries to get reacquainted with her hometown.",
         "img_url": "https://www.giantbomb.com/api/image/original/2993643-box_nitw.png",
         "update": false,
+        "publishers": [
+            33,
+            103
+        ],
+        "developers": [
+            104
+        ],
         "genres": [
             5,
             8
@@ -1241,17 +2529,24 @@
 },
 {
     "model": "game_database.game",
-    "pk": 59,
+    "pk": 53,
     "fields": {
         "title": "Hollow Knight",
         "db_id": "48412",
         "main_time": 24.0,
         "extra_time": 36.5,
-        "completion_time": 51.0,
+        "completion_time": 51.5,
         "release_date": null,
         "description": "A 2D exploration action adventure game, developed by Team Cherry.",
         "img_url": "https://www.giantbomb.com/api/image/original/3138852-box_hk.png",
         "update": false,
+        "publishers": [
+            105,
+            106
+        ],
+        "developers": [
+            105
+        ],
         "genres": [
             8,
             9
@@ -1260,7 +2555,7 @@
 },
 {
     "model": "game_database.game",
-    "pk": 60,
+    "pk": 54,
     "fields": {
         "title": "Euro Truck Simulator 2",
         "db_id": "40197",
@@ -1271,6 +2566,14 @@
         "description": "Travel across Europe as a trucker delivering cargo in a variety of trucks.",
         "img_url": "https://www.giantbomb.com/api/image/original/3140522-box_ets2.png",
         "update": false,
+        "publishers": [
+            107,
+            108,
+            109
+        ],
+        "developers": [
+            107
+        ],
         "genres": [
             10,
             16
@@ -1279,7 +2582,7 @@
 },
 {
     "model": "game_database.game",
-    "pk": 61,
+    "pk": 55,
     "fields": {
         "title": "Europa Universalis",
         "db_id": "11305",
@@ -1290,6 +2593,12 @@
         "description": "Based on a French board game of the same name, Europa Universalis allows players to take control of a civilization between 1492 and 1792",
         "img_url": "https://www.giantbomb.com/api/image/original/2331102-box_eu.png",
         "update": false,
+        "publishers": [
+            110
+        ],
+        "developers": [
+            111
+        ],
         "genres": [
             1,
             10
@@ -1298,7 +2607,7 @@
 },
 {
     "model": "game_database.game",
-    "pk": 62,
+    "pk": 56,
     "fields": {
         "title": "Farming Simulator 17",
         "db_id": "54151",
@@ -1309,6 +2618,13 @@
         "description": "The newest game in the Farming Simulator franchise for consoles and the PC.",
         "img_url": "https://www.giantbomb.com/api/image/original/3037741-box_fs17.png",
         "update": false,
+        "publishers": [
+            112,
+            113
+        ],
+        "developers": [
+            113
+        ],
         "genres": [
             10
         ]
@@ -1316,7 +2632,7 @@
 },
 {
     "model": "game_database.game",
-    "pk": 63,
+    "pk": 57,
     "fields": {
         "title": "Final Fantasy XV",
         "db_id": "21006",
@@ -1327,6 +2643,13 @@
         "description": "The fifteenth entry in Square Enix's flagship RPG franchise, set in a world that mixes elements of modern technology with magic, a fantasy based on reality.",
         "img_url": "https://www.giantbomb.com/api/image/original/2903750-final%20fantasy%20xv%20v3.jpg",
         "update": false,
+        "publishers": [
+            114
+        ],
+        "developers": [
+            114,
+            115
+        ],
         "genres": [
             7,
             9,
@@ -1336,7 +2659,7 @@
 },
 {
     "model": "game_database.game",
-    "pk": 64,
+    "pk": 58,
     "fields": {
         "title": "Hearts of Iron IV",
         "db_id": "45214",
@@ -1347,6 +2670,12 @@
         "description": "The next entry in the series of WWII wargames from Paradox Interactive.",
         "img_url": "https://www.giantbomb.com/api/image/original/2594042-gaming-hearts-of-iron-4.jpg",
         "update": false,
+        "publishers": [
+            111
+        ],
+        "developers": [
+            116
+        ],
         "genres": [
             1
         ]
@@ -1354,7 +2683,7 @@
 },
 {
     "model": "game_database.game",
-    "pk": 65,
+    "pk": 59,
     "fields": {
         "title": "Hitman",
         "db_id": "45150",
@@ -1365,6 +2694,12 @@
         "description": "The sixth game in IO Interactive's stealth murder franchise, simply titled Hitman, adopts an episodic design which continually introduces new assassination contracts for players to undertake.",
         "img_url": "https://www.giantbomb.com/api/image/original/3124186-1671936150-packs.jpg",
         "update": false,
+        "publishers": [
+            114
+        ],
+        "developers": [
+            117
+        ],
         "genres": [
             9
         ]
@@ -1372,17 +2707,23 @@
 },
 {
     "model": "game_database.game",
-    "pk": 66,
+    "pk": 60,
     "fields": {
         "title": "Just Cause 3",
         "db_id": "48207",
-        "main_time": 17.0,
+        "main_time": 17.5,
         "extra_time": 34.0,
         "completion_time": 57.0,
         "release_date": null,
         "description": "Battle a dictator's forces in a fictional Mediterranean archipelago in this follow-up to the popular series from Avalanche Studios and Square-Enix.",
         "img_url": "https://www.giantbomb.com/api/image/original/2996057-box_jc3.png",
         "update": false,
+        "publishers": [
+            114
+        ],
+        "developers": [
+            118
+        ],
         "genres": [
             7
         ]
@@ -1390,7 +2731,7 @@
 },
 {
     "model": "game_database.game",
-    "pk": 67,
+    "pk": 61,
     "fields": {
         "title": "Life Is Strange: Before the Storm",
         "db_id": "59903",
@@ -1401,8 +2742,193 @@
         "description": "A prequel to the initial Life is Strange game, focused on Chloe's life.",
         "img_url": "https://www.giantbomb.com/api/image/original/2945312-screen%20shot%202017-06-11%20at%208.09.07%20pm.png",
         "update": false,
+        "publishers": [
+            114
+        ],
+        "developers": [
+            119
+        ],
         "genres": [
             5
+        ]
+    }
+},
+{
+    "model": "game_database.game",
+    "pk": 62,
+    "fields": {
+        "title": "Guacamelee!",
+        "db_id": "37673",
+        "main_time": 6.0,
+        "extra_time": 8.5,
+        "completion_time": 14.0,
+        "release_date": null,
+        "description": "Guacamelee! is a side-scrolling Metroidvania style game featuring a luchador on a quest through dual worlds to save El Presidente's daughter.",
+        "img_url": "https://www.giantbomb.com/api/image/original/2421392-guacamelee_key_art_final.jpg",
+        "update": false,
+        "publishers": [
+            33,
+            120
+        ],
+        "developers": [
+            120,
+            121
+        ],
+        "genres": [
+            7,
+            8,
+            18
+        ]
+    }
+},
+{
+    "model": "game_database.game",
+    "pk": 63,
+    "fields": {
+        "title": "The Witcher 3: Wild Hunt",
+        "db_id": "41484",
+        "main_time": 51.0,
+        "extra_time": 103.0,
+        "completion_time": 173.0,
+        "release_date": null,
+        "description": "CD Projekt RED's third Witcher combines the series' non-linear storytelling with a sprawling open world that concludes the saga of Geralt of Rivia.",
+        "img_url": "https://www.giantbomb.com/api/image/original/2945734-the%20witcher%203%20-%20wild%20hunt.jpg",
+        "update": false,
+        "publishers": [
+            11,
+            122,
+            123
+        ],
+        "developers": [
+            122
+        ],
+        "genres": [
+            9,
+            12
+        ]
+    }
+},
+{
+    "model": "game_database.game",
+    "pk": 64,
+    "fields": {
+        "title": "NieR:Automata",
+        "db_id": "49998",
+        "main_time": 20.5,
+        "extra_time": 37.5,
+        "completion_time": 61.0,
+        "release_date": null,
+        "description": "NieR: Automata is an action role-playing game developed by PlatinumGames and published by Square Enix for PlayStation 4, Microsoft Windows and Xbox One.",
+        "img_url": "https://www.giantbomb.com/api/image/original/3124187-8762523691-packs.jpg",
+        "update": false,
+        "publishers": [
+            114
+        ],
+        "developers": [
+            18,
+            60
+        ],
+        "genres": [
+            7,
+            12
+        ]
+    }
+},
+{
+    "model": "game_database.game",
+    "pk": 65,
+    "fields": {
+        "title": "The Evil Within 2",
+        "db_id": "59907",
+        "main_time": 13.0,
+        "extra_time": 18.5,
+        "completion_time": 26.5,
+        "release_date": null,
+        "description": "The Evil Within 2",
+        "img_url": "https://www.giantbomb.com/api/image/original/2945463-tew2_pg_ka_final_rgb_cl_042517_1496835937-1.jpg",
+        "update": false,
+        "publishers": [
+            66
+        ],
+        "developers": [
+            124
+        ],
+        "genres": [
+            4
+        ]
+    }
+},
+{
+    "model": "game_database.game",
+    "pk": 66,
+    "fields": {
+        "title": "Final Fantasy XII: The Zodiac Age",
+        "db_id": "54121",
+        "main_time": 40.5,
+        "extra_time": 61.5,
+        "completion_time": 102.0,
+        "release_date": null,
+        "description": "The Zodiac Age is a remake of 2006's Final Fantasy XII that includes a job system that was previously only available in the Japan-only \"International\" edition. The remake also includes various other additions and enhancements.",
+        "img_url": "https://www.giantbomb.com/api/image/original/3124183-1203822419-packs.jpg",
+        "update": false,
+        "publishers": [
+            114
+        ],
+        "developers": [
+            114
+        ],
+        "genres": [
+            12
+        ]
+    }
+},
+{
+    "model": "game_database.game",
+    "pk": 67,
+    "fields": {
+        "title": "I Am Setsuna",
+        "db_id": "50001",
+        "main_time": 20.5,
+        "extra_time": 26.0,
+        "completion_time": 47.0,
+        "release_date": null,
+        "description": "A Japanese role-playing game developed by Square Enix's Tokyo RPG Factory studio. Its design is meant as a throwback to the classic JRPGs of the 90s.",
+        "img_url": "https://www.giantbomb.com/api/image/original/2872021-28210570252_09c44dd693_o.jpg",
+        "update": false,
+        "publishers": [
+            114
+        ],
+        "developers": [
+            125,
+            126
+        ],
+        "genres": [
+            12
+        ]
+    }
+},
+{
+    "model": "game_database.game",
+    "pk": 68,
+    "fields": {
+        "title": "Kingdom Come: Deliverance",
+        "db_id": "44790",
+        "main_time": 39.5,
+        "extra_time": 71.5,
+        "completion_time": 122.0,
+        "release_date": null,
+        "description": "A medieval open world RPG focused on period-accurate fighting and technique.",
+        "img_url": "https://www.giantbomb.com/api/image/original/3005658-box_kcd.png",
+        "update": false,
+        "publishers": [
+            127
+        ],
+        "developers": [
+            128
+        ],
+        "genres": [
+            7,
+            12
         ]
     }
 },
@@ -1423,6 +2949,7 @@
     "fields": {
         "parent_game": 1,
         "platform": 1,
+        "name": "8-Bit Armies",
         "release_date": "2016-04-22",
         "db_id": "147284",
         "update": false,
@@ -1436,6 +2963,7 @@
     "fields": {
         "parent_game": 2,
         "platform": 1,
+        "name": "",
         "release_date": null,
         "db_id": "",
         "update": true,
@@ -1449,6 +2977,7 @@
     "fields": {
         "parent_game": 3,
         "platform": 1,
+        "name": "Amnesia: the Dark Descent",
         "release_date": "2010-09-08",
         "db_id": "104196",
         "update": false,
@@ -1462,6 +2991,7 @@
     "fields": {
         "parent_game": 4,
         "platform": 1,
+        "name": "Aragami",
         "release_date": "2016-10-04",
         "db_id": "149783",
         "update": false,
@@ -1475,6 +3005,7 @@
     "fields": {
         "parent_game": 5,
         "platform": 1,
+        "name": "Assassin's Creed Chronicles: China",
         "release_date": "2015-04-21",
         "db_id": "140974",
         "update": false,
@@ -1488,6 +3019,7 @@
     "fields": {
         "parent_game": 6,
         "platform": 1,
+        "name": "Batman: Arkham Knight",
         "release_date": "2015-06-23",
         "db_id": "137781",
         "update": false,
@@ -1501,6 +3033,7 @@
     "fields": {
         "parent_game": 7,
         "platform": 1,
+        "name": "",
         "release_date": null,
         "db_id": "",
         "update": true,
@@ -1514,6 +3047,7 @@
     "fields": {
         "parent_game": 8,
         "platform": 1,
+        "name": "Bayonetta",
         "release_date": "2010-01-05",
         "db_id": "73858",
         "update": false,
@@ -1527,6 +3061,7 @@
     "fields": {
         "parent_game": 9,
         "platform": 1,
+        "name": "Bear With Me",
         "release_date": "2016-08-08",
         "db_id": "158105",
         "update": false,
@@ -1540,6 +3075,7 @@
     "fields": {
         "parent_game": 10,
         "platform": 1,
+        "name": "Initial Release",
         "release_date": "2016-11-09",
         "db_id": "151420",
         "update": false,
@@ -1553,6 +3089,7 @@
     "fields": {
         "parent_game": 11,
         "platform": 1,
+        "name": "Homeworld Remastered Collection",
         "release_date": "2015-02-25",
         "db_id": "140455",
         "update": false,
@@ -1566,6 +3103,7 @@
     "fields": {
         "parent_game": 12,
         "platform": 1,
+        "name": "Door Kickers",
         "release_date": "2014-10-20",
         "db_id": "129705",
         "update": false,
@@ -1579,6 +3117,7 @@
     "fields": {
         "parent_game": 13,
         "platform": 1,
+        "name": "Downwell",
         "release_date": "2015-10-15",
         "db_id": "144366",
         "update": false,
@@ -1592,6 +3131,7 @@
     "fields": {
         "parent_game": 14,
         "platform": 1,
+        "name": "TIS-100",
         "release_date": "2015-07-20",
         "db_id": "142722",
         "update": false,
@@ -1605,6 +3145,7 @@
     "fields": {
         "parent_game": 15,
         "platform": 1,
+        "name": "Volgarr the Viking",
         "release_date": "2013-09-13",
         "db_id": "129591",
         "update": false,
@@ -1618,6 +3159,7 @@
     "fields": {
         "parent_game": 16,
         "platform": 1,
+        "name": "Nuclear Throne",
         "release_date": "2015-12-05",
         "db_id": "130915",
         "update": false,
@@ -1631,6 +3173,7 @@
     "fields": {
         "parent_game": 17,
         "platform": 1,
+        "name": "Darkest Dungeon",
         "release_date": "2016-01-19",
         "db_id": "144494",
         "update": false,
@@ -1644,6 +3187,7 @@
     "fields": {
         "parent_game": 18,
         "platform": 1,
+        "name": "Wolfenstein 3D (Steam)",
         "release_date": "2007-08-04",
         "db_id": "19698",
         "update": false,
@@ -1657,6 +3201,7 @@
     "fields": {
         "parent_game": 19,
         "platform": 1,
+        "name": "Tooth and Tail",
         "release_date": "2017-09-12",
         "db_id": "156297",
         "update": false,
@@ -1670,6 +3215,7 @@
     "fields": {
         "parent_game": 20,
         "platform": 1,
+        "name": "Flinthook",
         "release_date": "2017-04-18",
         "db_id": "153581",
         "update": false,
@@ -1683,6 +3229,7 @@
     "fields": {
         "parent_game": 21,
         "platform": 1,
+        "name": "The Stanley Parable",
         "release_date": "2013-10-17",
         "db_id": "130853",
         "update": false,
@@ -1696,6 +3243,7 @@
     "fields": {
         "parent_game": 22,
         "platform": 1,
+        "name": "Thomas Was Alone",
         "release_date": "2012-06-30",
         "db_id": "120481",
         "update": false,
@@ -1709,6 +3257,7 @@
     "fields": {
         "parent_game": 23,
         "platform": 1,
+        "name": "Br\u00fctal Legend",
         "release_date": "2009-10-13",
         "db_id": "73327",
         "update": false,
@@ -1722,6 +3271,7 @@
     "fields": {
         "parent_game": 24,
         "platform": 1,
+        "name": "Trine 3: The Artifacts of Power",
         "release_date": "2015-12-22",
         "db_id": "168297",
         "update": false,
@@ -1735,6 +3285,7 @@
     "fields": {
         "parent_game": 25,
         "platform": 1,
+        "name": "Metal Gear Solid V: The Phantom Pain",
         "release_date": "2015-09-01",
         "db_id": "128086",
         "update": false,
@@ -1748,6 +3299,7 @@
     "fields": {
         "parent_game": 26,
         "platform": 1,
+        "name": "Psychonauts",
         "release_date": "2007-12-04",
         "db_id": "74085",
         "update": false,
@@ -1761,6 +3313,7 @@
     "fields": {
         "parent_game": 27,
         "platform": 1,
+        "name": "Batman: Arkham City",
         "release_date": "2011-10-18",
         "db_id": "98633",
         "update": false,
@@ -1774,6 +3327,7 @@
     "fields": {
         "parent_game": 28,
         "platform": 1,
+        "name": "Hand of Fate",
         "release_date": "2015-02-17",
         "db_id": "140151",
         "update": false,
@@ -1787,6 +3341,7 @@
     "fields": {
         "parent_game": 29,
         "platform": 1,
+        "name": "Metal Gear Rising: Revengeance",
         "release_date": "2013-02-19",
         "db_id": "84188",
         "update": false,
@@ -1800,6 +3355,7 @@
     "fields": {
         "parent_game": 30,
         "platform": 1,
+        "name": "Grand Theft Auto V",
         "release_date": "2013-09-17",
         "db_id": "121148",
         "update": false,
@@ -1813,6 +3369,7 @@
     "fields": {
         "parent_game": 31,
         "platform": 1,
+        "name": "Doom",
         "release_date": "2016-05-13",
         "db_id": "137133",
         "update": false,
@@ -1826,6 +3383,7 @@
     "fields": {
         "parent_game": 32,
         "platform": 1,
+        "name": "",
         "release_date": null,
         "db_id": "",
         "update": true,
@@ -1839,6 +3397,7 @@
     "fields": {
         "parent_game": 33,
         "platform": 1,
+        "name": "Titan Souls",
         "release_date": "2015-04-14",
         "db_id": "140418",
         "update": false,
@@ -1852,6 +3411,7 @@
     "fields": {
         "parent_game": 34,
         "platform": 1,
+        "name": "Giana Sisters: Twisted Dreams",
         "release_date": "2012-10-23",
         "db_id": "120020",
         "update": false,
@@ -1865,6 +3425,7 @@
     "fields": {
         "parent_game": 35,
         "platform": 1,
+        "name": "Outlast",
         "release_date": "2013-09-04",
         "db_id": "121204",
         "update": false,
@@ -1878,6 +3439,7 @@
     "fields": {
         "parent_game": 36,
         "platform": 1,
+        "name": "The Banner Saga",
         "release_date": "2014-01-14",
         "db_id": "125581",
         "update": false,
@@ -1891,6 +3453,7 @@
     "fields": {
         "parent_game": 37,
         "platform": 1,
+        "name": "6180 the moon (Steam)",
         "release_date": "2014-09-19",
         "db_id": "137949",
         "update": false,
@@ -1904,6 +3467,7 @@
     "fields": {
         "parent_game": 38,
         "platform": 1,
+        "name": "Luftrausers",
         "release_date": "2014-03-18",
         "db_id": "133219",
         "update": false,
@@ -1917,6 +3481,7 @@
     "fields": {
         "parent_game": 39,
         "platform": 1,
+        "name": "Race the Sun",
         "release_date": "2013-08-19",
         "db_id": "129205",
         "update": false,
@@ -1930,6 +3495,7 @@
     "fields": {
         "parent_game": 40,
         "platform": 1,
+        "name": "Planetbase",
         "release_date": "2018-01-11",
         "db_id": "158256",
         "update": false,
@@ -1943,6 +3509,7 @@
     "fields": {
         "parent_game": 41,
         "platform": 1,
+        "name": "Prison Architect",
         "release_date": "2016-06-28",
         "db_id": "148315",
         "update": false,
@@ -1956,6 +3523,7 @@
     "fields": {
         "parent_game": 42,
         "platform": 1,
+        "name": "Arma 3",
         "release_date": "2013-09-12",
         "db_id": "125867",
         "update": false,
@@ -1969,6 +3537,7 @@
     "fields": {
         "parent_game": 43,
         "platform": 1,
+        "name": "Ashes of the Singularity",
         "release_date": "2016-03-31",
         "db_id": "147031",
         "update": false,
@@ -1982,6 +3551,7 @@
     "fields": {
         "parent_game": 44,
         "platform": 1,
+        "name": "Assassin's Creed: Rogue",
         "release_date": "2014-11-11",
         "db_id": "137767",
         "update": false,
@@ -1995,8 +3565,9 @@
     "fields": {
         "parent_game": 45,
         "platform": 1,
-        "release_date": "2013-10-25",
-        "db_id": "127873",
+        "name": "FTL",
+        "release_date": "2012-09-14",
+        "db_id": "119544",
         "update": false,
         "publishers": [],
         "developers": []
@@ -2008,8 +3579,9 @@
     "fields": {
         "parent_game": 46,
         "platform": 1,
-        "release_date": "2012-09-14",
-        "db_id": "119544",
+        "name": "The Wolf Among Us: Episode 1 - Faith",
+        "release_date": "2013-10-11",
+        "db_id": "130645",
         "update": false,
         "publishers": [],
         "developers": []
@@ -2021,8 +3593,9 @@
     "fields": {
         "parent_game": 47,
         "platform": 1,
-        "release_date": "2017-12-19",
-        "db_id": "157787",
+        "name": "That Dragon, Cancer",
+        "release_date": "2016-01-12",
+        "db_id": "145600",
         "update": false,
         "publishers": [],
         "developers": []
@@ -2034,8 +3607,9 @@
     "fields": {
         "parent_game": 48,
         "platform": 1,
-        "release_date": "2015-10-21",
-        "db_id": "145078",
+        "name": "Master of Orion",
+        "release_date": "2016-02-26",
+        "db_id": "161286",
         "update": false,
         "publishers": [],
         "developers": []
@@ -2047,8 +3621,9 @@
     "fields": {
         "parent_game": 49,
         "platform": 1,
-        "release_date": "2013-10-11",
-        "db_id": "155608",
+        "name": "Enter the Gungeon",
+        "release_date": "2016-04-05",
+        "db_id": "147063",
         "update": false,
         "publishers": [],
         "developers": []
@@ -2060,8 +3635,9 @@
     "fields": {
         "parent_game": 50,
         "platform": 1,
-        "release_date": "2015-08-04",
-        "db_id": "142537",
+        "name": "Furi",
+        "release_date": "2016-07-05",
+        "db_id": "148385",
         "update": false,
         "publishers": [],
         "developers": []
@@ -2073,8 +3649,9 @@
     "fields": {
         "parent_game": 51,
         "platform": 1,
-        "release_date": "2009-11-24",
-        "db_id": "88325",
+        "name": "Owlboy",
+        "release_date": "2016-11-01",
+        "db_id": "150371",
         "update": false,
         "publishers": [],
         "developers": []
@@ -2086,8 +3663,9 @@
     "fields": {
         "parent_game": 52,
         "platform": 1,
-        "release_date": "2013-10-11",
-        "db_id": "130645",
+        "name": "Night in the Woods",
+        "release_date": "2017-02-21",
+        "db_id": "152501",
         "update": false,
         "publishers": [],
         "developers": []
@@ -2099,8 +3677,9 @@
     "fields": {
         "parent_game": 53,
         "platform": 1,
-        "release_date": "2016-01-12",
-        "db_id": "145600",
+        "name": "Hollow Knight",
+        "release_date": "2017-02-24",
+        "db_id": "153503",
         "update": false,
         "publishers": [],
         "developers": []
@@ -2112,8 +3691,9 @@
     "fields": {
         "parent_game": 54,
         "platform": 1,
-        "release_date": "2016-02-26",
-        "db_id": "161286",
+        "name": "Euro Truck Simulator 2",
+        "release_date": "2012-10-18",
+        "db_id": "120864",
         "update": false,
         "publishers": [],
         "developers": []
@@ -2125,9 +3705,10 @@
     "fields": {
         "parent_game": 55,
         "platform": 1,
-        "release_date": "2016-04-05",
-        "db_id": "147063",
-        "update": false,
+        "name": "",
+        "release_date": null,
+        "db_id": "",
+        "update": true,
         "publishers": [],
         "developers": []
     }
@@ -2138,8 +3719,9 @@
     "fields": {
         "parent_game": 56,
         "platform": 1,
-        "release_date": "2016-07-05",
-        "db_id": "148385",
+        "name": "Farming Simulator 17",
+        "release_date": "2016-10-25",
+        "db_id": "149096",
         "update": false,
         "publishers": [],
         "developers": []
@@ -2151,8 +3733,9 @@
     "fields": {
         "parent_game": 57,
         "platform": 1,
-        "release_date": "2016-11-01",
-        "db_id": "150371",
+        "name": "Final Fantasy XV",
+        "release_date": "2016-11-29",
+        "db_id": "84917",
         "update": false,
         "publishers": [],
         "developers": []
@@ -2164,8 +3747,9 @@
     "fields": {
         "parent_game": 58,
         "platform": 1,
-        "release_date": "2017-02-21",
-        "db_id": "152501",
+        "name": "Hearts of Iron IV",
+        "release_date": "2016-06-06",
+        "db_id": "148061",
         "update": false,
         "publishers": [],
         "developers": []
@@ -2177,8 +3761,9 @@
     "fields": {
         "parent_game": 59,
         "platform": 1,
-        "release_date": "2017-02-24",
-        "db_id": "153503",
+        "name": "Hitman",
+        "release_date": "2016-03-11",
+        "db_id": "146167",
         "update": false,
         "publishers": [],
         "developers": []
@@ -2190,8 +3775,9 @@
     "fields": {
         "parent_game": 60,
         "platform": 1,
-        "release_date": "2012-10-18",
-        "db_id": "120864",
+        "name": "Just Cause 3",
+        "release_date": "2015-12-01",
+        "db_id": "142149",
         "update": false,
         "publishers": [],
         "developers": []
@@ -2203,9 +3789,10 @@
     "fields": {
         "parent_game": 61,
         "platform": 1,
-        "release_date": null,
-        "db_id": "",
-        "update": true,
+        "name": "Life is Strange: Before the Storm (Episode 1)",
+        "release_date": "2017-08-31",
+        "db_id": "156200",
+        "update": false,
         "publishers": [],
         "developers": []
     }
@@ -2216,8 +3803,9 @@
     "fields": {
         "parent_game": 62,
         "platform": 1,
-        "release_date": "2016-10-25",
-        "db_id": "149096",
+        "name": "Guacamelee!",
+        "release_date": "2013-04-09",
+        "db_id": "126551",
         "update": false,
         "publishers": [],
         "developers": []
@@ -2229,8 +3817,9 @@
     "fields": {
         "parent_game": 63,
         "platform": 1,
-        "release_date": "2016-11-29",
-        "db_id": "84917",
+        "name": "The Witcher 3: Wild Hunt",
+        "release_date": "2015-05-19",
+        "db_id": "135013",
         "update": false,
         "publishers": [],
         "developers": []
@@ -2242,8 +3831,9 @@
     "fields": {
         "parent_game": 64,
         "platform": 1,
-        "release_date": "2016-06-06",
-        "db_id": "148061",
+        "name": "NieR: Automata",
+        "release_date": "2017-02-23",
+        "db_id": "151322",
         "update": false,
         "publishers": [],
         "developers": []
@@ -2255,8 +3845,9 @@
     "fields": {
         "parent_game": 65,
         "platform": 1,
-        "release_date": "2016-03-11",
-        "db_id": "146167",
+        "name": "The Evil Within 2",
+        "release_date": "2017-10-13",
+        "db_id": "154803",
         "update": false,
         "publishers": [],
         "developers": []
@@ -2268,8 +3859,9 @@
     "fields": {
         "parent_game": 66,
         "platform": 1,
-        "release_date": "2015-12-01",
-        "db_id": "142149",
+        "name": "Final Fantasy XII: The Zodiac Age",
+        "release_date": "2019-04-30",
+        "db_id": "165476",
         "update": false,
         "publishers": [],
         "developers": []
@@ -2281,8 +3873,23 @@
     "fields": {
         "parent_game": 67,
         "platform": 1,
-        "release_date": "2017-08-31",
-        "db_id": "156200",
+        "name": "I Am Setsuna",
+        "release_date": "2016-07-19",
+        "db_id": "147259",
+        "update": false,
+        "publishers": [],
+        "developers": []
+    }
+},
+{
+    "model": "game_database.gameversion",
+    "pk": 68,
+    "fields": {
+        "parent_game": 68,
+        "platform": 1,
+        "name": "Kingdom Come: Deliverance",
+        "release_date": "2018-02-13",
+        "db_id": "158541",
         "update": false,
         "publishers": [],
         "developers": []
@@ -2292,8 +3899,9 @@
     "model": "game_collection.queue",
     "pk": 1,
     "fields": {
-        "user": 1,
+        "user": 2,
         "game_version": 1,
+        "price": 0.0,
         "date_adquired": "2018-05-17",
         "time_played": null
     }
@@ -2302,8 +3910,9 @@
     "model": "game_collection.queue",
     "pk": 2,
     "fields": {
-        "user": 1,
+        "user": 2,
         "game_version": 2,
+        "price": 0.0,
         "date_adquired": "2018-05-17",
         "time_played": null
     }
@@ -2312,8 +3921,9 @@
     "model": "game_collection.queue",
     "pk": 3,
     "fields": {
-        "user": 1,
+        "user": 2,
         "game_version": 3,
+        "price": 0.0,
         "date_adquired": "2017-01-01",
         "time_played": null
     }
@@ -2322,8 +3932,9 @@
     "model": "game_collection.queue",
     "pk": 4,
     "fields": {
-        "user": 1,
+        "user": 2,
         "game_version": 4,
+        "price": 0.0,
         "date_adquired": "2018-01-03",
         "time_played": null
     }
@@ -2332,8 +3943,9 @@
     "model": "game_collection.queue",
     "pk": 5,
     "fields": {
-        "user": 1,
+        "user": 2,
         "game_version": 5,
+        "price": 0.0,
         "date_adquired": "2016-06-03",
         "time_played": null
     }
@@ -2342,8 +3954,9 @@
     "model": "game_collection.queue",
     "pk": 6,
     "fields": {
-        "user": 1,
+        "user": 2,
         "game_version": 6,
+        "price": 0.0,
         "date_adquired": "2018-10-28",
         "time_played": null
     }
@@ -2352,8 +3965,9 @@
     "model": "game_collection.queue",
     "pk": 7,
     "fields": {
-        "user": 1,
+        "user": 2,
         "game_version": 7,
+        "price": 0.0,
         "date_adquired": "2018-01-18",
         "time_played": null
     }
@@ -2362,8 +3976,9 @@
     "model": "game_collection.queue",
     "pk": 8,
     "fields": {
-        "user": 1,
+        "user": 2,
         "game_version": 8,
+        "price": 0.0,
         "date_adquired": "2018-07-31",
         "time_played": null
     }
@@ -2372,8 +3987,9 @@
     "model": "game_collection.queue",
     "pk": 9,
     "fields": {
-        "user": 1,
+        "user": 2,
         "game_version": 9,
+        "price": 0.0,
         "date_adquired": "2018-05-17",
         "time_played": null
     }
@@ -2382,8 +3998,9 @@
     "model": "game_collection.queue",
     "pk": 10,
     "fields": {
-        "user": 1,
+        "user": 2,
         "game_version": 10,
+        "price": 4.1,
         "date_adquired": "2018-01-03",
         "time_played": null
     }
@@ -2392,8 +4009,9 @@
     "model": "game_collection.queue",
     "pk": 11,
     "fields": {
-        "user": 1,
+        "user": 2,
         "game_version": 42,
+        "price": 0.0,
         "date_adquired": "2018-02-19",
         "time_played": null
     }
@@ -2402,8 +4020,9 @@
     "model": "game_collection.queue",
     "pk": 12,
     "fields": {
-        "user": 1,
+        "user": 2,
         "game_version": 43,
+        "price": 0.0,
         "date_adquired": "2019-03-26",
         "time_played": null
     }
@@ -2412,19 +4031,10 @@
     "model": "game_collection.queue",
     "pk": 13,
     "fields": {
-        "user": 1,
+        "user": 2,
         "game_version": 44,
+        "price": 0.0,
         "date_adquired": "2016-06-03",
-        "time_played": null
-    }
-},
-{
-    "model": "game_collection.queue",
-    "pk": 14,
-    "fields": {
-        "user": 1,
-        "game_version": 45,
-        "date_adquired": "2018-10-28",
         "time_played": null
     }
 },
@@ -2432,8 +4042,9 @@
     "model": "game_collection.playing",
     "pk": 1,
     "fields": {
-        "user": 1,
+        "user": 2,
         "game_version": 11,
+        "price": 0.0,
         "date_adquired": "2018-05-17",
         "time_played": null,
         "date_started": null
@@ -2443,8 +4054,9 @@
     "model": "game_collection.playing",
     "pk": 2,
     "fields": {
-        "user": 1,
+        "user": 2,
         "game_version": 12,
+        "price": 0.0,
         "date_adquired": "2018-01-03",
         "time_played": null,
         "date_started": null
@@ -2454,8 +4066,9 @@
     "model": "game_collection.playing",
     "pk": 3,
     "fields": {
-        "user": 1,
+        "user": 2,
         "game_version": 13,
+        "price": 0.0,
         "date_adquired": "2018-02-19",
         "time_played": null,
         "date_started": null
@@ -2465,8 +4078,9 @@
     "model": "game_collection.playing",
     "pk": 4,
     "fields": {
-        "user": 1,
+        "user": 2,
         "game_version": 14,
+        "price": 0.0,
         "date_adquired": "2019-03-26",
         "time_played": null,
         "date_started": null
@@ -2476,8 +4090,9 @@
     "model": "game_collection.playing",
     "pk": 5,
     "fields": {
-        "user": 1,
+        "user": 2,
         "game_version": 15,
+        "price": 0.0,
         "date_adquired": "2016-06-03",
         "time_played": null,
         "date_started": null
@@ -2487,8 +4102,9 @@
     "model": "game_collection.playing",
     "pk": 6,
     "fields": {
-        "user": 1,
+        "user": 2,
         "game_version": 16,
+        "price": 0.0,
         "date_adquired": "2016-06-03",
         "time_played": null,
         "date_started": null
@@ -2498,8 +4114,9 @@
     "model": "game_collection.playing",
     "pk": 7,
     "fields": {
-        "user": 1,
+        "user": 2,
         "game_version": 17,
+        "price": 0.0,
         "date_adquired": "2018-10-28",
         "time_played": null,
         "date_started": null
@@ -2509,8 +4126,9 @@
     "model": "game_collection.playing",
     "pk": 8,
     "fields": {
-        "user": 1,
+        "user": 2,
         "game_version": 18,
+        "price": 0.0,
         "date_adquired": "2018-01-18",
         "time_played": null,
         "date_started": null
@@ -2520,8 +4138,9 @@
     "model": "game_collection.playing",
     "pk": 9,
     "fields": {
-        "user": 1,
+        "user": 2,
         "game_version": 19,
+        "price": 0.0,
         "date_adquired": "2018-07-31",
         "time_played": null,
         "date_started": null
@@ -2531,8 +4150,9 @@
     "model": "game_collection.playing",
     "pk": 10,
     "fields": {
-        "user": 1,
+        "user": 2,
         "game_version": 20,
+        "price": 0.0,
         "date_adquired": "2018-05-17",
         "time_played": null,
         "date_started": null
@@ -2542,31 +4162,10 @@
     "model": "game_collection.playing",
     "pk": 11,
     "fields": {
-        "user": 1,
-        "game_version": 46,
+        "user": 2,
+        "game_version": 45,
+        "price": 0.0,
         "date_adquired": "2018-05-17",
-        "time_played": null,
-        "date_started": null
-    }
-},
-{
-    "model": "game_collection.playing",
-    "pk": 12,
-    "fields": {
-        "user": 1,
-        "game_version": 47,
-        "date_adquired": "2017-01-01",
-        "time_played": null,
-        "date_started": null
-    }
-},
-{
-    "model": "game_collection.playing",
-    "pk": 13,
-    "fields": {
-        "user": 1,
-        "game_version": 48,
-        "date_adquired": "2018-01-03",
         "time_played": null,
         "date_started": null
     }
@@ -2575,8 +4174,9 @@
     "model": "game_collection.finished",
     "pk": 1,
     "fields": {
-        "user": 1,
+        "user": 2,
         "game_version": 21,
+        "price": 0.0,
         "date_adquired": "2016-07-03",
         "time_played": null,
         "date_started": null,
@@ -2589,8 +4189,9 @@
     "model": "game_collection.finished",
     "pk": 2,
     "fields": {
-        "user": 1,
+        "user": 2,
         "game_version": 22,
+        "price": 0.0,
         "date_adquired": "2016-07-03",
         "time_played": null,
         "date_started": null,
@@ -2603,8 +4204,9 @@
     "model": "game_collection.finished",
     "pk": 3,
     "fields": {
-        "user": 1,
+        "user": 2,
         "game_version": 23,
+        "price": 0.0,
         "date_adquired": "2016-07-03",
         "time_played": null,
         "date_started": null,
@@ -2617,8 +4219,9 @@
     "model": "game_collection.finished",
     "pk": 4,
     "fields": {
-        "user": 1,
+        "user": 2,
         "game_version": 24,
+        "price": 0.0,
         "date_adquired": "2016-03-06",
         "time_played": null,
         "date_started": null,
@@ -2631,8 +4234,9 @@
     "model": "game_collection.finished",
     "pk": 5,
     "fields": {
-        "user": 1,
+        "user": 2,
         "game_version": 25,
+        "price": 0.0,
         "date_adquired": "2016-07-03",
         "time_played": null,
         "date_started": null,
@@ -2645,8 +4249,9 @@
     "model": "game_collection.finished",
     "pk": 6,
     "fields": {
-        "user": 1,
+        "user": 2,
         "game_version": 26,
+        "price": 0.0,
         "date_adquired": "2016-07-04",
         "time_played": null,
         "date_started": null,
@@ -2659,8 +4264,9 @@
     "model": "game_collection.finished",
     "pk": 7,
     "fields": {
-        "user": 1,
+        "user": 2,
         "game_version": 27,
+        "price": 0.0,
         "date_adquired": "2016-07-03",
         "time_played": null,
         "date_started": null,
@@ -2673,8 +4279,9 @@
     "model": "game_collection.finished",
     "pk": 8,
     "fields": {
-        "user": 1,
+        "user": 2,
         "game_version": 28,
+        "price": 0.0,
         "date_adquired": "2016-07-03",
         "time_played": null,
         "date_started": null,
@@ -2687,8 +4294,9 @@
     "model": "game_collection.finished",
     "pk": 9,
     "fields": {
-        "user": 1,
+        "user": 2,
         "game_version": 29,
+        "price": 0.0,
         "date_adquired": "2016-07-03",
         "time_played": null,
         "date_started": null,
@@ -2701,8 +4309,9 @@
     "model": "game_collection.finished",
     "pk": 10,
     "fields": {
-        "user": 1,
+        "user": 2,
         "game_version": 30,
+        "price": 0.0,
         "date_adquired": "2016-06-30",
         "time_played": null,
         "date_started": null,
@@ -2715,8 +4324,9 @@
     "model": "game_collection.finished",
     "pk": 11,
     "fields": {
-        "user": 1,
+        "user": 2,
         "game_version": 31,
+        "price": 0.0,
         "date_adquired": "2016-12-21",
         "time_played": null,
         "date_started": null,
@@ -2729,8 +4339,9 @@
     "model": "game_collection.finished",
     "pk": 12,
     "fields": {
-        "user": 1,
+        "user": 2,
         "game_version": 32,
+        "price": 0.0,
         "date_adquired": "2016-03-06",
         "time_played": null,
         "date_started": null,
@@ -2743,8 +4354,9 @@
     "model": "game_collection.finished",
     "pk": 13,
     "fields": {
-        "user": 1,
+        "user": 2,
         "game_version": 33,
+        "price": 0.0,
         "date_adquired": "2016-11-02",
         "time_played": null,
         "date_started": null,
@@ -2757,8 +4369,9 @@
     "model": "game_collection.finished",
     "pk": 14,
     "fields": {
-        "user": 1,
+        "user": 2,
         "game_version": 34,
+        "price": 0.0,
         "date_adquired": "2016-07-04",
         "time_played": null,
         "date_started": null,
@@ -2771,8 +4384,9 @@
     "model": "game_collection.finished",
     "pk": 15,
     "fields": {
-        "user": 1,
+        "user": 2,
         "game_version": 35,
+        "price": 0.0,
         "date_adquired": "2016-03-06",
         "time_played": null,
         "date_started": null,
@@ -2785,8 +4399,9 @@
     "model": "game_collection.finished",
     "pk": 16,
     "fields": {
-        "user": 1,
+        "user": 2,
         "game_version": 36,
+        "price": 0.0,
         "date_adquired": "2015-06-14",
         "time_played": null,
         "date_started": null,
@@ -2799,8 +4414,9 @@
     "model": "game_collection.finished",
     "pk": 17,
     "fields": {
-        "user": 1,
+        "user": 2,
         "game_version": 37,
+        "price": 0.0,
         "date_adquired": "2016-07-03",
         "time_played": null,
         "date_started": null,
@@ -2810,39 +4426,12 @@
     }
 },
 {
-    "model": "game_collection.finished",
-    "pk": 18,
-    "fields": {
-        "user": 1,
-        "game_version": 50,
-        "date_adquired": "2016-08-27",
-        "time_played": null,
-        "date_started": null,
-        "date_finished": "2016-12-21",
-        "time_to_finish": null,
-        "playstyle": ""
-    }
-},
-{
-    "model": "game_collection.finished",
-    "pk": 19,
-    "fields": {
-        "user": 1,
-        "game_version": 51,
-        "date_adquired": "2016-07-04",
-        "time_played": null,
-        "date_started": null,
-        "date_finished": "2016-12-22",
-        "time_to_finish": null,
-        "playstyle": ""
-    }
-},
-{
     "model": "game_collection.played",
     "pk": 1,
     "fields": {
-        "user": 1,
+        "user": 2,
         "game_version": 38,
+        "price": 0.0,
         "date_adquired": "2014-09-23",
         "time_played": null,
         "date_started": null,
@@ -2853,8 +4442,9 @@
     "model": "game_collection.played",
     "pk": 2,
     "fields": {
-        "user": 1,
+        "user": 2,
         "game_version": 39,
+        "price": 0.0,
         "date_adquired": "2014-09-23",
         "time_played": null,
         "date_started": null,
@@ -2865,8 +4455,9 @@
     "model": "game_collection.played",
     "pk": 3,
     "fields": {
-        "user": 1,
+        "user": 2,
         "game_version": 40,
+        "price": 0.0,
         "date_adquired": null,
         "time_played": null,
         "date_started": null,
@@ -2877,8 +4468,9 @@
     "model": "game_collection.played",
     "pk": 4,
     "fields": {
-        "user": 1,
+        "user": 2,
         "game_version": 41,
+        "price": 0.0,
         "date_adquired": null,
         "time_played": null,
         "date_started": null,
@@ -2886,166 +4478,217 @@
     }
 },
 {
-    "model": "game_collection.abandoned",
+    "model": "game_collection.wishlist",
     "pk": 1,
     "fields": {
-        "user": 1,
+        "user": 2,
+        "game_version": 46,
+        "date_added": "2019-11-18"
+    }
+},
+{
+    "model": "game_collection.wishlist",
+    "pk": 2,
+    "fields": {
+        "user": 2,
+        "game_version": 47,
+        "date_added": "2019-11-18"
+    }
+},
+{
+    "model": "game_collection.wishlist",
+    "pk": 3,
+    "fields": {
+        "user": 2,
+        "game_version": 48,
+        "date_added": "2019-11-18"
+    }
+},
+{
+    "model": "game_collection.wishlist",
+    "pk": 4,
+    "fields": {
+        "user": 2,
         "game_version": 49,
-        "date_adquired": null,
-        "time_played": null,
-        "date_started": null,
-        "date_abandoned": null
+        "date_added": "2019-11-18"
     }
 },
 {
     "model": "game_collection.wishlist",
-    "pk": 1,
+    "pk": 5,
     "fields": {
-        "user": 1,
+        "user": 2,
+        "game_version": 50,
+        "date_added": "2019-11-18"
+    }
+},
+{
+    "model": "game_collection.wishlist",
+    "pk": 6,
+    "fields": {
+        "user": 2,
+        "game_version": 51,
+        "date_added": "2019-11-18"
+    }
+},
+{
+    "model": "game_collection.wishlist",
+    "pk": 7,
+    "fields": {
+        "user": 2,
         "game_version": 52,
-        "date_added": "2019-11-17"
-    }
-},
-{
-    "model": "game_collection.wishlist",
-    "pk": 2,
-    "fields": {
-        "user": 1,
-        "game_version": 53,
-        "date_added": "2019-11-17"
-    }
-},
-{
-    "model": "game_collection.wishlist",
-    "pk": 3,
-    "fields": {
-        "user": 1,
-        "game_version": 54,
-        "date_added": "2019-11-17"
-    }
-},
-{
-    "model": "game_collection.wishlist",
-    "pk": 4,
-    "fields": {
-        "user": 1,
-        "game_version": 55,
-        "date_added": "2019-11-17"
-    }
-},
-{
-    "model": "game_collection.wishlist",
-    "pk": 5,
-    "fields": {
-        "user": 1,
-        "game_version": 56,
-        "date_added": "2019-11-17"
-    }
-},
-{
-    "model": "game_collection.wishlist",
-    "pk": 6,
-    "fields": {
-        "user": 1,
-        "game_version": 57,
-        "date_added": "2019-11-17"
-    }
-},
-{
-    "model": "game_collection.wishlist",
-    "pk": 7,
-    "fields": {
-        "user": 1,
-        "game_version": 58,
-        "date_added": "2019-11-17"
+        "date_added": "2019-11-18"
     }
 },
 {
     "model": "game_collection.wishlist",
     "pk": 8,
     "fields": {
-        "user": 1,
-        "game_version": 59,
-        "date_added": "2019-11-17"
+        "user": 2,
+        "game_version": 53,
+        "date_added": "2019-11-18"
+    }
+},
+{
+    "model": "game_collection.wishlist",
+    "pk": 9,
+    "fields": {
+        "user": 2,
+        "game_version": 62,
+        "date_added": "2019-11-18"
+    }
+},
+{
+    "model": "game_collection.wishlist",
+    "pk": 10,
+    "fields": {
+        "user": 2,
+        "game_version": 63,
+        "date_added": "2019-11-18"
+    }
+},
+{
+    "model": "game_collection.wishlist",
+    "pk": 11,
+    "fields": {
+        "user": 2,
+        "game_version": 64,
+        "date_added": "2019-11-18"
     }
 },
 {
     "model": "game_collection.interested",
     "pk": 1,
     "fields": {
-        "user": 1,
-        "game_version": 60,
-        "date_added": "2019-11-17"
+        "user": 2,
+        "game_version": 54,
+        "date_added": "2019-11-18"
     }
 },
 {
     "model": "game_collection.interested",
     "pk": 2,
     "fields": {
-        "user": 1,
-        "game_version": 61,
-        "date_added": "2019-11-17"
+        "user": 2,
+        "game_version": 55,
+        "date_added": "2019-11-18"
     }
 },
 {
     "model": "game_collection.interested",
     "pk": 3,
     "fields": {
-        "user": 1,
-        "game_version": 62,
-        "date_added": "2019-11-17"
+        "user": 2,
+        "game_version": 56,
+        "date_added": "2019-11-18"
     }
 },
 {
     "model": "game_collection.interested",
     "pk": 4,
     "fields": {
-        "user": 1,
-        "game_version": 63,
-        "date_added": "2019-11-17"
+        "user": 2,
+        "game_version": 57,
+        "date_added": "2019-11-18"
     }
 },
 {
     "model": "game_collection.interested",
     "pk": 5,
     "fields": {
-        "user": 1,
-        "game_version": 64,
-        "date_added": "2019-11-17"
+        "user": 2,
+        "game_version": 58,
+        "date_added": "2019-11-18"
     }
 },
 {
     "model": "game_collection.interested",
     "pk": 6,
     "fields": {
-        "user": 1,
-        "game_version": 65,
-        "date_added": "2019-11-17"
+        "user": 2,
+        "game_version": 59,
+        "date_added": "2019-11-18"
     }
 },
 {
     "model": "game_collection.interested",
     "pk": 7,
     "fields": {
-        "user": 1,
-        "game_version": 66,
-        "date_added": "2019-11-17"
+        "user": 2,
+        "game_version": 60,
+        "date_added": "2019-11-18"
     }
 },
 {
     "model": "game_collection.interested",
     "pk": 8,
     "fields": {
-        "user": 1,
+        "user": 2,
+        "game_version": 61,
+        "date_added": "2019-11-18"
+    }
+},
+{
+    "model": "game_collection.interested",
+    "pk": 9,
+    "fields": {
+        "user": 2,
+        "game_version": 65,
+        "date_added": "2019-11-18"
+    }
+},
+{
+    "model": "game_collection.interested",
+    "pk": 10,
+    "fields": {
+        "user": 2,
+        "game_version": 66,
+        "date_added": "2019-11-18"
+    }
+},
+{
+    "model": "game_collection.interested",
+    "pk": 11,
+    "fields": {
+        "user": 2,
         "game_version": 67,
-        "date_added": "2019-11-17"
+        "date_added": "2019-11-18"
+    }
+},
+{
+    "model": "game_collection.interested",
+    "pk": 12,
+    "fields": {
+        "user": 2,
+        "game_version": 68,
+        "date_added": "2019-11-18"
     }
 },
 {
     "model": "game_collection.tag",
     "pk": 1,
     "fields": {
-        "user": 1,
+        "user": 2,
         "name": "",
         "tag_group": null,
         "game_version": [
@@ -3115,7 +4758,8 @@
             64,
             65,
             66,
-            67
+            67,
+            68
         ]
     }
 }
