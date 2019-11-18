@@ -2,7 +2,7 @@
 {% load static %}
 {% load i18n %}
 
-{% block title %}{% trans "Queue" %}{% endblock title %}
+{% block title %}{{ list_type|title }}{% endblock title %}
 
 {% block stylesheets %}
     {{ block.super }}
@@ -14,7 +14,7 @@
         <div class="">
             <div class="page-title">
                 <div class="title_left">
-                    <h3>{% trans "Queue" %}</h3>
+                    <h3>{{ list_type|title }}</h3>
                 </div>
 
             </div>
@@ -36,7 +36,6 @@
                             <table id="datatable" class="table table-striped table-bordered">
                                 <thead>
                                 <tr>
-                                    <th class="text-center">Date Adquired</th>
                                     <th class="text-center">Platform</th>
                                     <th class="text-center">Game</th>
                                     <th class="text-center">Main Time</th>
@@ -47,21 +46,16 @@
                                 {% for title in titles %}
                                     <tr>
                                         <td class="text-center">
-                                            {% if title.date_adquired is not None %}
-                                                {{ title.date_adquired|date:"Y-m-d" }}
-                                            {% endif %}
+                                            {{ title.platform.name }}
+                                        </td>
+                                        <td><a href="/game/{{ title.parent_game.id }}">
+                                            {{ title.parent_game.title }}</a>
                                         </td>
                                         <td class="text-center">
-                                            {{ title.game_version.platform.name }}
-                                        </td>
-                                        <td><a href="/game/{{ title.game_version.db_id }}">
-                                            {{ title.game_version.parent_game.title }}</a>
+                                            {{ title.parent_game.main_time }}
                                         </td>
                                         <td class="text-center">
-                                            {{ title.game_version.parent_game.main_time }}
-                                        </td>
-                                        <td class="text-center">
-                                            {{ title.game_version.parent_game.extra_time }}
+                                            {{ title.parent_game.extra_time }}
                                         </td>
                                     </tr>
                                 {% endfor %}

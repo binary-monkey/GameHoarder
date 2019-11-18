@@ -19,4 +19,11 @@ urlpatterns = [
     path('collection/finished', views_tables.finished_table, name='finished_table'),
     path('collection/played', views_tables.played_table, name='played_table'),
     path('collection/abandoned', views_tables.abandoned_table, name='abandoned_table'),
+
+    path('search', views.game_search, name='game_search'),
+    path('tag/', views_tables.tag_table, name='tag_table'),
+
+    path('game/<str:db_id>', views.game_view, name='game_view'),
+    path('game/<str:db_id>/add', views.add_game, name='add_game'),
+    path('game/<str:db_id>/move', views.move_game, name='move_game'),
 ]
