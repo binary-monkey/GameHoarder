@@ -249,6 +249,30 @@ class GameCollectionController:
             if "original_url" in data["image"]:
                 game.img_url = data["image"]["original_url"]
 
+        if "publishers" in data:
+            game.publishers.clear()
+
+            if data["publishers"] is not None:
+                for company in data["publishers"]:
+                    company_id = company["id"]
+
+                    if Company.objects.filter(db_id=company_id).exists():
+                        game.publishers.add(Company.objects.get(db_id=company_id))
+                    else:
+                        game.publishers.add(Company.objects.create(db_id=company_id, name=company["name"]))
+
+        if "developers" in data:
+            game.developers.clear()
+
+            if data["developers"] is not None:
+                for company in data["developers"]:
+                    company_id = company["id"]
+
+                    if Company.objects.filter(db_id=company_id).exists():
+                        game.developers.add(Company.objects.get(db_id=company_id))
+                    else:
+                        game.developers.add(Company.objects.create(db_id=company_id, name=company["name"]))
+
         game.update = False
         game.save()
 
@@ -264,6 +288,9 @@ class GameCollectionController:
             else:
                 data = None
 
+        if "name" in data:
+            game_version.name = data["name"]
+
         if "release_date" in data:
             string_date = data["release_date"]
             if string_date is not None:
@@ -272,24 +299,26 @@ class GameCollectionController:
         if "publishers" in data:
             game_version.publishers.clear()
 
-            for company in data["publishers"]:
-                company_id = company["id"]
+            if data["publishers"] is not None:
+                for company in data["publishers"]:
+                    company_id = company["id"]
 
-                if Company.objects.filter(db_id=company_id).exists():
-                    game_version.publishers.add(Company.objects.get(db_id=company_id))
-                else:
-                    game_version.publishers.add(Company.objects.create(db_id=company_id, name=company["name"]))
+                    if Company.objects.filter(db_id=company_id).exists():
+                        game_version.publishers.add(Company.objects.get(db_id=company_id))
+                    else:
+                        game_version.publishers.add(Company.objects.create(db_id=company_id, name=company["name"]))
 
         if "developers" in data:
             game_version.developers.clear()
 
-            for company in data["publishers"]:
-                company_id = company["id"]
+            if data["developers"] is not None:
+                for company in data["developers"]:
+                    company_id = company["id"]
 
-                if Company.objects.filter(db_id=company_id).exists():
-                    game_version.developers.add(Company.objects.get(db_id=company_id))
-                else:
-                    game_version.developers.add(Company.objects.create(db_id=company_id, name=company["name"]))
+                    if Company.objects.filter(db_id=company_id).exists():
+                        game_version.developers.add(Company.objects.get(db_id=company_id))
+                    else:
+                        game_version.developers.add(Company.objects.create(db_id=company_id, name=company["name"]))
 
         game_version.update = False
         game_version.save()

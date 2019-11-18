@@ -39,6 +39,11 @@ class Game(models.Model):
     description = models.TextField(verbose_name=_("description"), blank=True)
     img_url = models.CharField(max_length=128, verbose_name=_("image url"), blank=True)
 
+    publishers = models.ManyToManyField(Company, verbose_name=_("publishers"), related_name="game_publishers",
+                                        blank=True)
+    developers = models.ManyToManyField(Company, verbose_name=_("developers"), related_name="game_developers",
+                                        blank=True)
+
     genres = models.ManyToManyField(Genre, verbose_name=_("genres"))
 
     update = models.BooleanField(default=True, verbose_name=_("update"))
@@ -75,12 +80,15 @@ class GameVersion(models.Model):
     parent_game = models.ForeignKey(Game, on_delete=models.CASCADE)
     platform = models.ForeignKey(Platform, on_delete=models.CASCADE)
 
+    name = models.CharField(max_length=64, verbose_name=_("name"), blank=True)
     release_date = models.DateField(blank=True, null=True, verbose_name=_("release date"))
 
     db_id = models.CharField(max_length=16)
 
-    publishers = models.ManyToManyField(Company, verbose_name=_("publishers"), related_name="publishers")
-    developers = models.ManyToManyField(Company, verbose_name=_("developers"), related_name="developers")
+    publishers = models.ManyToManyField(Company, verbose_name=_("publishers"), related_name="version_publishers",
+                                        blank=True)
+    developers = models.ManyToManyField(Company, verbose_name=_("developers"), related_name="version_developers",
+                                        blank=True)
 
     update = models.BooleanField(default=True)
 
