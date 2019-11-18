@@ -48,8 +48,8 @@
                                         <td class="text-center">
                                             {{ title.platform.name }}
                                         </td>
-                                        <td>
-                                            {{ title.parent_game.title }}
+                                        <td><a href="/game/{{ title.parent_game.id }}">
+                                            {{ title.parent_game.title }}</a>
                                         </td>
                                         <td class="text-center">
                                             {{ title.parent_game.main_time }}

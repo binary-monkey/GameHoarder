@@ -361,3 +361,28 @@ def export_list(request):
 
 def game_search(request):
     return render(request, 'index.html')
+
+def game_view(request, id):
+    custom = Tag.objects.filter(user=request.user)
+    title = Game.objects.get(id=id)
+    genres = title.genres.all()
+    publishers = title.publishers.all()
+    developers = title.developers.all()
+    states = [['Played'], ['Playing'], ['Finished'], ['Abandoned'], ['Queue']]
+    game_version = GameVersion.objects.get(parent_game=title)
+    states[0].append(len(Played.objects.filter(game_version=game_version)))
+    states[1].append(len(Playing.objects.filter(game_version=game_version)))
+    states[2].append(len(Finished.objects.filter(game_version=game_version)))
+    states[3].append(len(Abandoned.objects.filter(game_version=game_version)))
+    states[4].append(len(Queue.objects.filter(game_version=game_version)))
+
+    context = {
+        "tags": custom,
+        "genres": genres,
+        "publishers": publishers,
+        "developers": developers,
+        "states": states,
+        "title": title
+    }
+
+    return render(request, 'game_view.html', context)
