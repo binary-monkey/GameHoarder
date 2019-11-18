@@ -77,9 +77,8 @@ def search(request):
     print(query)
     local_games = GameVersion.objects.filter(**query)
 
-    for g in local_games:
-        print(vars(g))
-    return HttpResponse(200)
+    return render(request, 'search/search_table.html', {'games': local_games})
+
 
 def search_form(request):
     return HttpResponse(201)
