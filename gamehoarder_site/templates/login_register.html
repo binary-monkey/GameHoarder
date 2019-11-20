@@ -1,7 +1,7 @@
 {#Página de login/registro de usuario#}
 {% load i18n %}
 <!DOCTYPE html>
-<html >
+<html>
 <head>
     {% load static %}
     <meta charset="UTF-8">
@@ -60,7 +60,7 @@
                         <label for="id_first_name">
                             {% trans 'Name' %}<span class="req">*</span>
                         </label>
-                        <input id="id_first_name" name="first_name" type="text" required autocomplete="off" />
+                        <input id="id_first_name" name="first_name" type="text" required autocomplete="off"/>
                     </div>
 
                     <div class="field-wrap">
@@ -88,14 +88,16 @@
                     <label for="id_password1">{% trans 'Password' %}
                         <span class="req">*</span>
                     </label>
-                    <input id="id_password1" name="password1" type="password" minlength="8" required autocomplete="off"/>
+                    <input id="id_password1" name="password1" type="password" minlength="8" required
+                           autocomplete="off"/>
                 </div>
 
                 <div class="field-wrap">
                     <label for="id_password2">{% trans 'Repeat Password' %}
                         <span class="req">*</span>
                     </label>
-                    <input id="id_password2" name="password2" type="password" minlength="8" required autocomplete="off"/>
+                    <input id="id_password2" name="password2" type="password" minlength="8" required
+                           autocomplete="off"/>
                 </div>
 
                 <button type="submit" class="button button-block">{% trans 'Create' %}

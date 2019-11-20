@@ -9,17 +9,8 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.utils.translation import to_locale, get_language
 
-from GameHoarder.settings import BASE_DIR
 from game_collection.foms import *
 from game_collection.tasks import *
-
-
-def read_csv(file):
-    file_url = BASE_DIR + file
-
-    csv_file = open(file_url)
-
-    return list(csv.reader(csv_file, delimiter=','))
 
 
 @login_required(login_url='login')
@@ -372,25 +363,6 @@ def game_search(request):
     return render(request, 'index.html')
 
 
-def where_is(game_version, user):
-    if Played.objects.filter(game_version=game_version, user=user).exists():
-        return ["PLAYED", Played.objects.get(game_version=game_version, user=user)]
-    elif Playing.objects.filter(game_version=game_version, user=user).exists():
-        return ["PLAYING", Playing.objects.get(game_version=game_version, user=user)]
-    elif Finished.objects.filter(game_version=game_version, user=user).exists():
-        return ["FINISHED", Finished.objects.get(game_version=game_version, user=user)]
-    elif Abandoned.objects.filter(game_version=game_version, user=user).exists():
-        return ["ABANDONED", Abandoned.objects.get(game_version=game_version, user=user)]
-    elif Queue.objects.filter(game_version=game_version, user=user).exists():
-        return ["QUEUE", Queue.objects.get(game_version=game_version, user=user)]
-    elif Wishlist.objects.filter(game_version=game_version, user=user).exists():
-        return ["WISHLIST", Wishlist.objects.get(game_version=game_version, user=user)]
-    elif Interested.objects.filter(game_version=game_version, user=user).exists():
-        return ["INTERESTED", Interested.objects.get(game_version=game_version, user=user)]
-
-    return None
-
-
 @login_required(login_url='login')
 def game_view(request, db_id):
     custom = Tag.objects.filter(user=request.user)
@@ -419,8 +391,8 @@ def game_view(request, db_id):
         "states": states,
         "title": title,
         "game_version": game_version,
-        "current_state": where_is(game_version, request.user)[0],
-        "current_item": where_is(game_version, request.user)[1]
+        "current_state": GameCollectionController.where_is(game_version, request.user)[0],
+        "current_item": GameCollectionController.where_is(game_version, request.user)[1]
     }
 
     return render(request, 'collection/game_view.html', context)
@@ -440,7 +412,7 @@ def add_game(request, db_id):
 def move_game(request, db_id):
     game_version = GameVersion.objects.get(db_id=db_id)
     user = request.user
-    current_item = where_is(game_version, user)[1]
+    current_item = GameCollectionController.where_is(game_version, user)[1]
 
     if request.method == 'POST':
 
@@ -511,7 +483,7 @@ def move_game(request, db_id):
         "user": user,
         "form": form,
         "collection_states": collection_states,
-        "current_state": where_is(game_version, user)[0],
+        "current_state": GameCollectionController.where_is(game_version, user)[0],
         "current_item": current_item
     }
 

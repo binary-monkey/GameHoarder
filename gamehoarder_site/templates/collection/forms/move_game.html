@@ -165,9 +165,9 @@
                                                min="0" id="{{ form.time_played.id_for_label }}"
                                                name="time_played"
                                                 {% if current_state != "WISHLIST" and current_state != "INTERESTED" %}
-                                                    value="{{ current_item.time_played }}"
+                                               value="{{ current_item.time_played }}"
                                                 {% else %}
-                                                     value="0.0"
+                                               value="0.0"
                                                 {% endif %}
                                         >
                                     </div>
