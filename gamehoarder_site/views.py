@@ -67,7 +67,7 @@ def login_register(request):
             if user is not None:
                 if user.is_active:
                     login(request, user)
-                    return HttpResponseRedirect('/es/')
+                    return HttpResponseRedirect('/')
     else:
         form = UserForm
 
