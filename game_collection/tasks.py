@@ -2,8 +2,9 @@ from celery import shared_task
 from celery_progress.backend import ProgressRecorder
 from django.contrib.auth.models import User
 
+from game_collection.functions import GameCollectionController
 from game_collection.models import Tag, Finished, Queue, Playing, Abandoned, Played, Interested, Wishlist
-from game_database.functions import GiantBombAPI, GameCollectionController
+from game_database.functions import GiantBombAPI
 from game_database.models import Platform, Game, GameVersion
 
 

@@ -52,7 +52,7 @@
                                                 {{ title.date_adquired|date:"Y-m-d" }}
                                             {% endif %}
                                         </td>
-                                    <td class="text-center">
+                                        <td class="text-center">
                                             {% if title.date_started is not None %}
                                                 {{ title.date_started|date:"Y-m-d" }}
                                             {% endif %}
@@ -62,7 +62,7 @@
                                         </td>
                                         <td>
                                             <a href="/game/{{ title.game_version.db_id }}">
-                                            {{ title.game_version.parent_game.title }}</a>
+                                                {{ title.game_version.parent_game.title }}</a>
                                         </td>
                                         <td class="text-center">
                                             {{ title.game_version.parent_game.main_time }}

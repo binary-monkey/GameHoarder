@@ -24,4 +24,3 @@ urlpatterns = i18n_patterns(
     path("", include("game_collection.urls")),
     path("celery-progress/", include('celery_progress.urls')),
 )
-

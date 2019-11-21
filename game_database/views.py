@@ -1,7 +1,8 @@
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 
-from game_database.functions import HowLongToBeatAPI, GameCollectionController
+from game_database.functions import HowLongToBeatAPI
+from game_collection.functions import GameCollectionController
 from game_database.models import Game, GameVersion, Genre, Platform
 
 
