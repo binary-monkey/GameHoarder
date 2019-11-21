@@ -22,7 +22,7 @@ def stats(request):
     if count_queue != 0:
         hours += float(Queue.objects.aggregate(Sum("time_played"))["time_played__sum"])
     if count_playing != 0:
-        hours += float(Played.objects.aggregate(Sum("time_played"))["time_played__sum"])
+        hours += float(Playing.objects.aggregate(Sum("time_played"))["time_played__sum"])
     if count_played != 0:
         hours += float(Played.objects.aggregate(Sum("time_played"))["time_played__sum"])
     if count_finished != 0:
