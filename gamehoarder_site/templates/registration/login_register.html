@@ -13,7 +13,6 @@
 </head>
 
 <body>
-{#  <img src="http://cdn.wonderfulengineering.com/wp-content/uploads/2014/09/blue-wallpaper-7.jpg" alt="fondo">#}
 <img src="{% static 'images/fondo.png' %}" alt="fondo" class="img">
 <div class="form">
 
@@ -43,7 +42,7 @@
                     <input id="id_password" name="password" type="password" required autocomplete="off"/>
                 </div>
 
-                {#              <p class="forgot"><a href="#">Has olvidado tu contraseña?</a></p>#}
+                  <p><a href="password_reset">{% trans 'Have you forgotten your password?' %}</a></p>
 
                 <button type="submit" class="button button-block">{% trans 'Login' %}</button>
 

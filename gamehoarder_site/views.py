@@ -75,7 +75,7 @@ def login_register(request):
     token.update(csrf(request))
     token['form'] = form
 
-    return render(request, 'login_register.html')
+    return render(request, 'registration/login_register.html')
 
 
 @login_required(login_url='login')
