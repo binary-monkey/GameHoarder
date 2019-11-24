@@ -119,3 +119,23 @@ def search(request):
         'games': games,
         'user': request.user.interested_set
     })
+
+@login_required(login_url='login')
+def edit_user(request):
+    custom = Tag.objects.filter(user=request.user)
+    if request.method == 'POST':
+        form = User_Avatar_Form(request.POST, request.FILES, instance={
+            'user': request.user,
+            'avatar': Profile.objects.get(user=request.user),
+        })
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('/')
+    else:
+        form = User_Avatar_Form
+    token = {}
+    token.update(csrf(request))
+    token['form'] = form
+
+    return render(request, 'settings/edit_user.html',
+                  {'tags': custom, 'user': request.user})

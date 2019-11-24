@@ -18,6 +18,7 @@ urlpatterns = [
     url(r'^reset/done/$', auth_views.PasswordResetCompleteView.as_view(template_name="registration/password_reset_complete.html")
          , name='password_reset_complete'),
 
+    path('edit_user', views.edit_user, name='edit_user'),
     path('friends', views.friends, name='friends'),
     path('export', views.download_csv, name='download_csv'),
 
