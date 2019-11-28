@@ -30,6 +30,11 @@ def friends(request):
 
 
 @login_required(login_url='login')
+def userView(request):
+    return render(request, "userView.html")
+
+
+@login_required(login_url='login')
 def download_csv(request):
     if request.method == 'POST':
         response = HttpResponse(content_type='text/csv')
