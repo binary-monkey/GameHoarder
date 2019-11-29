@@ -21,6 +21,7 @@ urlpatterns = i18n_patterns(
     path('admin/', admin.site.urls, name="admin"),
     path("", include("gamehoarder_site.urls")),
     path("database/", include("game_database.urls")),
+    path("api/", include("gamehoarder_api.urls")),
     path("", include("game_collection.urls")),
     path("celery-progress/", include('celery_progress.urls')),
 )

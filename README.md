@@ -115,3 +115,9 @@ and start the celery worker before running the django app:
 ```
 celery -A GameHoarder worker -l info
 ```
+
+## Credits
+
+https://colorlib.com/wp/template/cloud83/
+
+https://www.flaticon.com/packs/essential-collection
