@@ -17,9 +17,10 @@ from .forms import *
 @login_required(login_url='login')
 def index(request):
     custom = Tag.objects.filter(user=request.user)
-
+    profile = Profile.objects.get(user=request.user)
     context = {
-        "tags": custom
+        "tags": custom,
+        "profile": profile
     }
     return render(request, "index.html", context)
 
@@ -66,6 +67,9 @@ def login_register(request):
             user = authenticate(username=username, password=password)
             if user is not None:
                 if user.is_active:
+                    if len(Profile.objects.filter(user=user))==0:
+                        profile = Profile(user=user)
+                        profile.save()
                     login(request, user)
                     return HttpResponseRedirect('/')
     else:

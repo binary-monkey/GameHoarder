@@ -19,11 +19,11 @@ class MediaFileSystemStorage(FileSystemStorage):
 
 class Profile(models.Model):
     user = models.OneToOneField(User, auto_created=True, on_delete=models.CASCADE)
-    avatar = models.ImageField(upload_to='polls/static/images', blank=True, default="polls/static/images/user.png",
+    avatar = models.ImageField(upload_to='avatars', blank=True, default="avatars/user.png",
                                storage=MediaFileSystemStorage())
 
     def save(self, *args, **kwargs):
         super(Profile, self).save(*args, **kwargs)
 
     def __str__(self):
-        return self.user
+        return self.user.username
