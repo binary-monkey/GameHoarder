@@ -15,7 +15,7 @@
                   </div>
                   <div class="x_content">
                     <br />
-                      <form action="/edit_user" enctype="multipart/form-data" method="post" class="form-horizontal form-label-left">{% csrf_token %}
+                      <form action="{% url "edit_user" %}" enctype="multipart/form-data" method="post" class="form-horizontal form-label-left">{% csrf_token %}
                           <div class="item form-group">
                               <label class="control-label col-md-3 col-sm-3 col-xs-12"
                                      for="id_user-first_name">{% trans 'Name' %}

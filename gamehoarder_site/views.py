@@ -27,7 +27,13 @@ def index(request):
 
 @login_required(login_url='login')
 def friends(request):
-    return render(request, "index.html")
+    custom = Tag.objects.filter(user=request.user)
+    profile = Profile.objects.get(user=request.user)
+    context = {
+        "tags": custom,
+        "profile": profile
+    }
+    return render(request, "index.html", context)
 
 
 @login_required(login_url='login')
@@ -90,6 +96,8 @@ def logout(request):
 
 @login_required(login_url='login')
 def search(request):
+    custom = Tag.objects.filter(user=request.user)
+    profile = Profile.objects.get(user=request.user)
     # multiple-choice values
     choices = ['genres', 'platforms']
     # all values except those
@@ -121,7 +129,9 @@ def search(request):
         'platforms': platforms[1:] if len(platforms) > 1 else [],
         'genres': genres[1:] if len(genres) > 1 else [],
         'games': games,
-        'user': request.user.interested_set
+        'user': request.user.interested_set,
+        "tags": custom,
+        "profile": profile
     })
 
 @login_required(login_url='login')
