@@ -41,8 +41,16 @@ def verify_collection_task(self, csv_file):
             "tags": row[11].strip()
         }
 
-        if title["id"] == "":
+        if title["price"] == "":
+            title["price"] = 0
 
+        if title["time_played"] == "":
+            title["time_played"] = 0
+
+        if title["time_to_finish"] == "":
+            title["time_to_finish"] = 0
+
+        if title["id"] == "":
             platform_id = GiantBombAPI.search_platform(title["platform"])["id"]
             original_name = title["name"]
 

@@ -14,8 +14,10 @@ from game_database.models import Genre, Platform
 from .forms import *
 
 
-@login_required(login_url='login')
 def index(request):
+    if not request.user.is_authenticated:
+        return render(request, "landing.html")
+
     custom = Tag.objects.filter(user=request.user)
     profile = Profile.objects.get(user=request.user)
     context = {
