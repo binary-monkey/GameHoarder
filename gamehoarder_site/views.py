@@ -137,6 +137,7 @@ def search(request):
 @login_required(login_url='login')
 def edit_user(request):
     custom = Tag.objects.filter(user=request.user)
+    profile = Profile.objects.get(user=request.user)
     if request.method == 'POST':
         form = User_Avatar_Form(request.POST, request.FILES, instance={
             'user': request.user,
@@ -152,4 +153,4 @@ def edit_user(request):
     token['form'] = form
 
     return render(request, 'settings/edit_user.html',
-                  {'tags': custom, 'user': request.user})
+                  {'tags': custom, 'user': request.user, 'profile': profile})
