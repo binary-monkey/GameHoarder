@@ -14,19 +14,28 @@ from game_database.models import Genre, Platform
 from .forms import *
 
 
-@login_required(login_url='login')
 def index(request):
-    custom = Tag.objects.filter(user=request.user)
+    if not request.user.is_authenticated:
+        return render(request, "landing.html")
 
+    custom = Tag.objects.filter(user=request.user)
+    profile = Profile.objects.get(user=request.user)
     context = {
-        "tags": custom
+        "tags": custom,
+        "profile": profile
     }
     return render(request, "index.html", context)
 
 
 @login_required(login_url='login')
 def friends(request):
-    return render(request, "index.html")
+    custom = Tag.objects.filter(user=request.user)
+    profile = Profile.objects.get(user=request.user)
+    context = {
+        "tags": custom,
+        "profile": profile
+    }
+    return render(request, "index.html", context)
 
 
 @login_required(login_url='login')
@@ -66,8 +75,11 @@ def login_register(request):
             user = authenticate(username=username, password=password)
             if user is not None:
                 if user.is_active:
+                    if len(Profile.objects.filter(user=user))==0:
+                        profile = Profile(user=user)
+                        profile.save()
                     login(request, user)
-                    return HttpResponseRedirect('/es/')
+                    return HttpResponseRedirect('/')
     else:
         form = UserForm
 
@@ -75,7 +87,7 @@ def login_register(request):
     token.update(csrf(request))
     token['form'] = form
 
-    return render(request, 'login_register.html')
+    return render(request, 'registration/login_register.html')
 
 
 @login_required(login_url='login')
@@ -86,6 +98,8 @@ def logout(request):
 
 @login_required(login_url='login')
 def search(request):
+    custom = Tag.objects.filter(user=request.user)
+    profile = Profile.objects.get(user=request.user)
     # multiple-choice values
     choices = ['genres', 'platforms']
     # all values except those
@@ -117,5 +131,28 @@ def search(request):
         'platforms': platforms[1:] if len(platforms) > 1 else [],
         'genres': genres[1:] if len(genres) > 1 else [],
         'games': games,
-        'user': request.user.interested_set
+        'user': request.user.interested_set,
+        "tags": custom,
+        "profile": profile
     })
+
+@login_required(login_url='login')
+def edit_user(request):
+    custom = Tag.objects.filter(user=request.user)
+    profile = Profile.objects.get(user=request.user)
+    if request.method == 'POST':
+        form = User_Avatar_Form(request.POST, request.FILES, instance={
+            'user': request.user,
+            'avatar': Profile.objects.get(user=request.user),
+        })
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('/')
+    else:
+        form = User_Avatar_Form
+    token = {}
+    token.update(csrf(request))
+    token['form'] = form
+
+    return render(request, 'settings/edit_user.html',
+                  {'tags': custom, 'user': request.user, 'profile': profile})
