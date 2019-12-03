@@ -10,6 +10,7 @@
     + [Additional Docker requirements](#additional-docker-requirements)
     + [Running the containers](#running-the-containers)
 + [Usage](#usage)
++ [Credits](#credits)
 
 ## About <a name = "about"></a>
 GameHoarder is a django web app aimed to help you organize your video game 
@@ -121,3 +122,9 @@ celery -A GameHoarder worker -l info
 https://colorlib.com/wp/template/cloud83/
 
 https://www.flaticon.com/packs/essential-collection
+
+## Credits
+- Bootstrap Template based on [Gentelella](https://github.com/ColorlibHQ/gentelella) by Colorlib,
+- Landing Page based on [Cloud83](https://colorlib.com/wp/template/cloud83/) by Colorlib, 
+- All static photos taken from [Unsplash](https://www.unsplash.com), see detailed information [here](CREDITS.MD).
+- Icon Pack from [Essential Collection](https://www.flaticon.com/packs/essential-collection)
