@@ -12,22 +12,25 @@ from django.utils.translation import to_locale, get_language
 from game_collection.foms import *
 from game_collection.tasks import *
 from gamehoarder_site.functions import read_csv
+from gamehoarder_site.models import Profile
 
 
 @login_required(login_url='login')
 def collection_summary(request):
     custom = Tag.objects.filter(user=request.user)
-
+    profile = Profile.objects.get(user=request.user)
     context = {
-        "tags": custom
+        "tags": custom,
+        "profile": profile
     }
     return render(request, "collection/collection_summary.html", context)
 
 
 @login_required(login_url='login')
 def import_collection(request):
+    custom = Tag.objects.filter(user=request.user)
+    profile = Profile.objects.get(user=request.user)
     if request.method == 'POST':
-        custom = Tag.objects.filter(user=request.user)
         if "collection" in request.FILES:
             myfile = request.FILES['collection']
             fs = FileSystemStorage()
@@ -40,7 +43,7 @@ def import_collection(request):
 
             result = verify_collection_task.delay(csv_file)
 
-            context = {"stage": 2, 'task_id': result.task_id, "tags": custom}
+            context = {"stage": 2, 'task_id': result.task_id, "tags": custom, "profile": profile}
 
             return render(request, 'collection/import_collection.html', context)
 
@@ -54,6 +57,7 @@ def import_collection(request):
             context = task.get()
             context["stage"] = int(request.POST.get("stage"))
             context["tags"] = custom
+            context["profile"] = profile
 
             return render(request, 'collection/import_collection.html', context)
 
@@ -66,7 +70,7 @@ def import_collection(request):
 
             result = import_collection_task.delay(titles, request.user.username)
 
-            context = {"stage": 3, 'task_id': result.task_id, "tags": custom}
+            context = {"stage": 3, 'task_id': result.task_id, "tags": custom, "profile": profile}
 
             return render(request, 'collection/import_collection.html', context)
 
@@ -75,8 +79,9 @@ def import_collection(request):
 
 @login_required(login_url='login')
 def import_list(request):
+    custom = Tag.objects.filter(user=request.user)
+    profile = Profile.objects.get(user=request.user)
     if request.method == 'POST':
-        custom = Tag.objects.filter(user=request.user)
         if "list" in request.FILES:
             myfile = request.FILES['list']
             fs = FileSystemStorage()
@@ -91,7 +96,7 @@ def import_list(request):
 
             result = verify_list_task.delay(csv_file)
 
-            context = {"stage": 2, 'task_id': result.task_id, "tags": custom}
+            context = {"stage": 2, 'task_id': result.task_id, "tags": custom, "profile": profile}
 
             return render(request, 'collection/import_list.html', context)
 
@@ -105,6 +110,7 @@ def import_list(request):
             context = task.get()
             context["stage"] = int(request.POST.get("stage"))
             context["tags"] = custom
+            context["profile"] = profile
 
             return render(request, 'collection/import_list.html', context)
 
@@ -117,7 +123,7 @@ def import_list(request):
 
             result = import_list_task.delay(titles, request.user.username)
 
-            context = {"stage": 3, 'task_id': result.task_id}
+            context = {"stage": 3, 'task_id': result.task_id, "tags": custom, "profile": profile}
 
             return render(request, 'collection/import_list.html', context)
 
@@ -360,13 +366,9 @@ def export_list(request):
 
 
 @login_required(login_url='login')
-def game_search(request):
-    return render(request, 'index.html')
-
-
-@login_required(login_url='login')
 def game_view(request, db_id):
     custom = Tag.objects.filter(user=request.user)
+    profile = Profile.objects.get(user=request.user)
     game_version = GameVersion.objects.get(db_id=db_id)
 
     title = game_version.parent_game
@@ -386,6 +388,7 @@ def game_view(request, db_id):
 
     context = {
         "tags": custom,
+        "profile": profile,
         "genres": genres,
         "publishers": publishers,
         "developers": developers,
@@ -474,12 +477,14 @@ def move_game(request, db_id):
     else:
         form = MoveForm()
 
-    custom = Tag.objects.filter(user=user)
+    custom = Tag.objects.filter(user=request.user)
+    profile = Profile.objects.get(user=request.user)
 
     collection_states = ["Interested", "Wishlist", 'Queue', 'Playing', 'Played', 'Finished', 'Abandoned']
 
     context = {
         "tags": custom,
+        "profile": profile,
         "game_version": game_version,
         "user": user,
         "form": form,

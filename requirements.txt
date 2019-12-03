@@ -8,3 +8,4 @@ requests
 celery
 celery-progress
 redis
+django-betterforms
