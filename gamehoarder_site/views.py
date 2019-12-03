@@ -5,7 +5,7 @@ from django.contrib import auth
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.template.context_processors import csrf
 
 from game_collection.models import Tag
@@ -30,8 +30,8 @@ def friends(request):
 
 
 @login_required(login_url='login')
-def userView(request):
-    return render(request, "userView.html")
+def profileView(request):
+    return render(request, "account/profileView.html")
 
 
 @login_required(login_url='login')
@@ -124,3 +124,14 @@ def search(request):
         'games': games,
         'user': request.user.interested_set
     })
+
+
+@login_required(login_url='login')
+def change_friends(request, operation, pk):
+    pass
+    friend = User.objects.get(pk=pk)
+    if operation == 'add':
+        Profile.make_friend(request.user, friend)
+    elif operation == 'remove':
+        Profile.lose_friend(request.user, friend)
+    return redirect('home:home')
