@@ -2,11 +2,12 @@ from datetime import datetime
 
 from game_collection.models import Played, Playing, Finished, Abandoned, Interested, Wishlist, Queue
 from game_database.functions import GiantBombAPI, ResourceType, HowLongToBeatAPI
-from game_database.models import Company, GameVersion, Platform, Game
+from game_database.models import Company, GameVersion, Platform, Game, Genre
 
 
 class GameCollectionController:
 
+    @staticmethod
     def where_is(game_version, user):
         if Played.objects.filter(game_version=game_version, user=user).exists():
             return ["PLAYED", Played.objects.get(game_version=game_version, user=user)]

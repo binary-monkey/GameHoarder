@@ -16,11 +16,14 @@ Including another URLconf
 from django.conf.urls.i18n import i18n_patterns
 from django.contrib import admin
 from django.urls import path, include
+from django.conf.urls.static import static
+from GameHoarder import settings
 
 urlpatterns = i18n_patterns(
     path('admin/', admin.site.urls, name="admin"),
     path("", include("gamehoarder_site.urls")),
     path("database/", include("game_database.urls")),
+    path("api/", include("gamehoarder_api.urls")),
     path("", include("game_collection.urls")),
     path("celery-progress/", include('celery_progress.urls')),
-)
+) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
