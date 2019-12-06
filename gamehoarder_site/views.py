@@ -41,7 +41,13 @@ def friends(request):
 
 @login_required(login_url='login')
 def profileView(request):
-    return render(request, "account/profileView.html")
+    custom = Tag.objects.filter(user=request.user)
+    profile = Profile.objects.get(user=request.user)
+    context = {
+        "tags": custom,
+        "profile": profile,
+    }
+    return render(request, "account/profileView.html", context)
 
 
 @login_required(login_url='login')

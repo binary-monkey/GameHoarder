@@ -19,11 +19,11 @@ urlpatterns = [
         auth_views.PasswordResetCompleteView.as_view(template_name="registration/password_reset_complete.html"),
         name='password_reset_complete'),
 
-    path('export/', views.download_csv, name='download_csv'),
-    path('search/', views.search, name='search'),
-    path('login/', views.login_register, name='login'),
-    path('logout/', views.logout, name='logout'),
-    path('profile/', views.profileView, name='profileView'),
-    path('edit_user/', views.edit_user, name='edit_user'),
-    path('friends/', views.friends, name='friends'),
+    path('export', views.download_csv, name='download_csv'),
+    path('search', views.search, name='search'),
+    path('login', views.login_register, name='login'),
+    path('logout', views.logout, name='logout'),
+    path('profile', views.profileView, name='profileView'),
+    path('edit_user', views.edit_user, name='edit_user'),
+    path('friends', views.friends, name='friends'),
 ]

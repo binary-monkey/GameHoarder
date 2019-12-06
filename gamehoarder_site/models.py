@@ -2,6 +2,7 @@
 from django.contrib.auth.models import User
 from django.db import models
 from django.core.files.storage import FileSystemStorage
+from django.utils.translation import ugettext_lazy as _
 
 ''' Avoids saving again existing files
 '''
@@ -20,16 +21,18 @@ class MediaFileSystemStorage(FileSystemStorage):
 
 
 class Profile(models.Model):
-    friends = models.ManyToManyField(User)
-    user = models.ForeignKey(User, auto_created=True, related_name='owner', null=True, on_delete=models.CASCADE)
+    friends = models.ManyToManyField(User, verbose_name=_("friends"), related_name='friends')
+    user = models.ForeignKey(User, auto_created=True, verbose_name=_("user"), related_name='user', null=True,
+                             on_delete=models.CASCADE)
+
     avatar = models.ImageField(upload_to='avatars', blank=True, default="avatars/user.png",
-                               storage=MediaFileSystemStorage())
+                               verbose_name=_("avatar"), storage=MediaFileSystemStorage())
 
     def save(self, *args, **kwargs):
         super(Profile, self).save(*args, **kwargs)
 
     def __str__(self):
-        return self.user
+        return self.user.username
 
     def get_friends(self):
         return self.friends
@@ -50,3 +53,7 @@ class Profile(models.Model):
             current_user=current_user
         )
         friend.users.remove(new_friend)
+
+    class Meta:
+        verbose_name = _("Profile")
+        verbose_name_plural = _("Profiles")
