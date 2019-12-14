@@ -1,4 +1,6 @@
 {% extends "base_site.html" %}
+{% load i18n %}
+{% load static %}
 
 {% block title %} {{ profile.user.first_name }} {{ profile.user.last_name }} {% endblock title %}
 
@@ -7,181 +9,288 @@
 {% endblock stylesheets %}
 
 {% block content %}
-  <div class="right_col" role="main">
-      <div class="clearfix"></div>
-      <div class="row">
-        <div class="col-md-12 col-sm-12 col-xs-12">
-          <div class="x_panel">
-            <div class="x_content">
-              <div class="col-md-3 col-sm-3 col-xs-12 profile_left">
-                <div class="profile_img">
-                  <div id="crop-avatar">
-                    <!-- Current avatar -->
-                    <img class="img-circle profile_img" src="/images/{{ profile.avatar }}" alt="Avatar" title="Change the avatar">
-                  </div>
+    <div class="right_col" role="main">
+        <div class="clearfix"></div>
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_content">
+                        <div class="col-md-3 col-sm-3 col-xs-12 profile_left">
+                            <div class="profile_img">
+                                <div id="crop-avatar">
+                                    <!-- Current avatar -->
+                                    <a href="{% url "edit_user" %}">
+                                        <img class="img-circle profile_img" src="/images/{{ profile.avatar }}" alt="Avatar" title="Edit profile">
+                                    </a>
+                                </div>
+                            </div>
+                            <h3>{{ profile.user.first_name }} {{ profile.user.last_name }}</h3>
+
+                            <ul class="list-unstyled user_data">
+                                <li>
+                                    <i class="fa fa-map-marker user-profile-icon"></i> San Francisco, California, USA
+                                </li>
+                            </ul>
+                            <a class="btn btn-success nav-link" href="{% url  'edit_user' %}">{% trans "Edit Profile" %}</a>
+                            <br />
+                        </div>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                            <div class="" role="tabpanel" data-example-id="togglable-tabs">
+                                <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
+                                    <li role="presentation" class="active">
+                                        <a href="#tab_games" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">{% trans "Games" %}</a>
+                                    </li>
+                                    <li role="presentation" class="">
+                                        <a href="#tab_friends" role="tab" id="friends-tab" data-toggle="tab" aria-expanded="false">{% trans "Friends" %}</a>
+                                    </li>
+                                    <!--                    <li role="presentation" class=""><a href="#tab_content3" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">Friends</a>-->
+                                    <!--                    </li>-->
+                                </ul>
+                                <div id="myTabContent" class="tab-content">
+                                    <!-- start games -->
+                                    <div role="tabpanel" class="tab-pane fade active in" id="tab_games" aria-labelledby="home-tab">
+                                        <!-- start Queue -->
+                                        <div class="x_panel">
+                                            <div class="x_title">
+                                                <h2>{% trans "Queue" %}</h2>
+                                                <ul class="nav navbar-right panel_toolbox" style="min-width: 0">
+                                                    <li><a class="collapse-link">
+                                                        <i class="fa fa-chevron-up"></i></a>
+                                                    </li>
+                                                </ul>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                            <div class="x_content">
+                                                <div class="album py-5 bg-light">
+                                                    <div class="row">
+                                                        {% if queue.count == 0 %}
+                                                            <h1>{% trans "No Games" %}</h1>
+                                                        {% else %}
+                                                            {% for title in queue %}
+                                                                <div class="col-sm-2">
+                                                                    <div class="card bg-light mb-3" style="max-width: 30rem;">
+                                                                        <a href="/game/{{ title.game_version.db_id }}">
+                                                                            <img class="img-responsive card-img-top" src="{{ title.game_version.parent_game.img_url  }}" alt="{{ title.game_version.name }}"/>
+                                                                        </a>
+                                                                        <div class="card-body">
+                                                                            <b class="card-text">{{ title.game_version.name }}</b>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            {% endfor %}
+                                                            <div class="col-sm-2">
+                                                                <div class="card bg-light mb-3" style="max-width: 10rem;">
+                                                                    <a href="{% url "queue_table" %}">
+                                                                        <img class="img-responsive card-img-overlay " src="{% static  "images/blue-plus-icon.jpg" %}" alt="More"/>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        {% endif %}
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="x_panel">
+                                            <div class="x_title">
+                                                <h2>{% trans "Playing" %}</h2>
+                                                <ul class="nav navbar-right panel_toolbox" style="min-width: 0">
+                                                    <li><a class="collapse-link">
+                                                        <i class="fa fa-chevron-up"></i></a>
+                                                    </li>
+                                                </ul>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                            <div class="x_content">
+                                                <div class="album py-5 bg-light">
+                                                    <div class="row">
+                                                        {% if playing.count == 0 %}
+                                                            <h1>{% trans "No Games" %}</h1>
+                                                        {% else %}
+                                                            {% for title in playing %}
+                                                                <div class="col-sm-2">
+                                                                    <div class="card bg-light mb-3" style="max-width: 30rem;">
+                                                                        <a href="/game/{{ title.game_version.db_id }}">
+                                                                            <img class="img-responsive card-img-overlay" src="{{ title.game_version.parent_game.img_url  }}" alt="{{ title.game_version.name }}"/>
+                                                                        </a>
+                                                                        <div class="card-body">
+                                                                            <b class="card-text">{{ title.game_version.name }}</b>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            {% endfor %}
+                                                            <div class="col-sm-2">
+                                                                <div class="card bg-light mb-3" style="max-width: 10rem;">
+                                                                    <a href="{% url "playing_table" %}">
+                                                                        <img class="img-responsive card-img-top" src="{% static  "images/blue-plus-icon.jpg" %}" alt="More"/>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        {% endif %}
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="x_panel">
+                                            <div class="x_title">
+                                                <h2>{% trans "Finished" %}</h2>
+                                                <ul class="nav navbar-right panel_toolbox" style="min-width: 0">
+                                                    <li><a class="collapse-link">
+                                                        <i class="fa fa-chevron-up"></i></a>
+                                                    </li>
+                                                </ul>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                            <div class="x_content">
+                                                <div class="album py-5 bg-light">
+                                                    <div class="row">
+                                                        {% if finished.count == 0 %}
+                                                            <h1>{% trans "No Games" %}</h1>
+                                                        {% else %}
+                                                            {% for title in finished %}
+                                                                <div class="col-sm-2">
+                                                                    <div class="card bg-light mb-3" style="max-width: 30rem;">
+                                                                        <a href="/game/{{ title.game_version.db_id }}">
+                                                                            <img class="img-responsive card-img-top" src="{{ title.game_version.parent_game.img_url  }}" alt="{{ title.game_version.name }}"/>
+                                                                        </a>
+                                                                        <div class="card-body">
+                                                                            <b class="card-text">{{ title.game_version.name }}</b>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            {% endfor %}
+                                                            <div class="col-sm-2">
+                                                                <div class="card bg-light mb-3" style="max-width: 10rem;">
+                                                                    <a href="{% url "finished_table" %}">
+                                                                        <img class="img-responsive card-img-overlay" src="{% static  "images/blue-plus-icon.jpg" %}" alt="More"/>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        {% endif %}
+
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="x_panel">
+                                            <div class="x_title">
+                                                <h2>{% trans "Played" %}</h2>
+                                                <ul class="nav navbar-right panel_toolbox" style="min-width: 0">
+                                                    <li><a class="collapse-link">
+                                                        <i class="fa fa-chevron-up"></i></a>
+                                                    </li>
+                                                </ul>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                            <div class="x_content">
+                                                <div class="album py-5 bg-light">
+                                                    <div class="row">
+                                                        {% if played.count == 0 %}
+                                                            <h1>{% trans "No Games" %}</h1>
+                                                        {% else %}
+                                                            {% for title in played %}
+                                                                <div class="col-sm-2">
+                                                                    <div class="card bg-light mb-3" style="max-width: 30rem;">
+                                                                        <a href="/game/{{ title.game_version.db_id }}">
+                                                                            <img class="img-responsive card-img-top" src="{{ title.game_version.parent_game.img_url  }}" alt="{{ title.game_version.name }}"/>
+                                                                        </a>
+                                                                        <div class="card-body">
+                                                                            <b class="card-text">{{ title.game_version.name }}</b>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            {% endfor %}
+                                                            <div class="col-sm-2">
+                                                                <div class="card bg-light mb-3" style="max-width: 10rem;">
+                                                                    <a href="{% url "played_table" %}">
+                                                                        <img class="img-responsive card-img-overlay" src="{% static  "images/blue-plus-icon.jpg" %}" alt="More"/>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        {% endif %}
+
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="x_panel">
+                                            <div class="x_title">
+                                                <h2>{% trans "Abandoned" %}</h2>
+                                                <ul class="nav navbar-right panel_toolbox" style="min-width: 0">
+                                                    <li><a class="collapse-link">
+                                                        <i class="fa fa-chevron-up"></i></a>
+                                                    </li>
+                                                </ul>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                            <div class="x_content">
+                                                <div class="album py-5 bg-light">
+                                                    <div class="row">
+                                                        {% if abandoned.count == 0 %}
+                                                            <h1>{% trans "No Games" %}</h1>
+                                                        {% else %}
+                                                            {% for title in abandoned %}
+                                                                <div class="col-sm-2">
+                                                                    <div class="card bg-light mb-3" style="max-width: 30rem;">
+                                                                        <a href="/game/{{ title.game_version.db_id }}">
+                                                                            <img class="img-responsive card-img-top" src="{{ title.game_version.parent_game.img_url  }}" alt="{{ title.game_version.name }}"/>
+                                                                        </a>
+                                                                        <div class="card-body">
+                                                                            <b class="card-text">{{ title.game_version.name }}</b>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            {% endfor %}
+                                                            <div class="col-sm-2">
+                                                                <div class="card bg-light mb-3" style="max-width: 10rem;">
+                                                                    <a href="{% url "abandoned_table" %}">
+                                                                        <img class="img-responsive card-img-overlay center" src="{% static  "images/blue-plus-icon.jpg" %}" alt="More"/>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        {% endif %}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <!-- end games -->
+                                    <!-- start friends -->
+                                    <div role="tabpanel" class="tab-pane fade" id="tab_friends" aria-labelledby="profile-tab">
+                                        <table class="data table table-striped no-margin">
+                                            <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>{% trans "User Name" %}</th>
+                                                <th>{% trans "Last Logged" %}</th>
+                                                <th class="hidden-phone">{% trans "Hours Spent" %}</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            {% for lf in list_friends %}
+                                                <tr>
+                                                    <td></td>
+                                                    <td>{{ lf }}</td>
+                                                    <td>{{ lf.user.last_logged }}</td>
+                                                    <td class="hidden-phone">h</td>
+                                                </tr>
+                                            {% endfor %}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!-- end friends -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <h3>{{ profile.user.first_name }} {{ profile.user.last_name }}</h3>
-
-                <ul class="list-unstyled user_data">
-                  <li>
-                      <i class="fa fa-map-marker user-profile-icon"></i> San Francisco, California, USA
-                  </li>
-
-                  <li>
-                      <i class="fa fa-briefcase user-profile-icon"></i> Software Engineer
-                  </li>
-                </ul>
-                <a class="btn btn-success nav-link" href="{% url  'edit_user' %}">Edit Profile</a>
-                <br />
-                <!-- start skills -->
-                <h4>Skills</h4>
-                <ul class="list-unstyled user_data">
-                  <li>
-                    <p>Web Applications</p>
-                    <div class="progress progress_sm">
-                      <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="50"></div>
-                    </div>
-                  </li>
-                  <li>
-                    <p>Website Design</p>
-                    <div class="progress progress_sm">
-                      <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="70"></div>
-                    </div>
-                  </li>
-                  <li>
-                    <p>Automation & Testing</p>
-                    <div class="progress progress_sm">
-                      <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="30"></div>
-                    </div>
-                  </li>
-                  <li>
-                    <p>UI / UX</p>
-                    <div class="progress progress_sm">
-                      <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="50"></div>
-                    </div>
-                  </li>
-                </ul>
-                <!-- end of skills -->
-
-              </div>
-              <div class="col-md-9 col-sm-9 col-xs-12">
-                <div class="" role="tabpanel" data-example-id="togglable-tabs">
-                  <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
-                    <li role="presentation" class="active"><a href="#tab_recentAct" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Recent Activity</a>
-                    </li>
-                    <li role="presentation" class=""><a href="#tab_friends" role="tab" id="friends-tab" data-toggle="tab" aria-expanded="false">Friends</a>
-                    </li>
-<!--                    <li role="presentation" class=""><a href="#tab_content3" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">Friends</a>-->
-<!--                    </li>-->
-                  </ul>
-                  <div id="myTabContent" class="tab-content">
-                    <div role="tabpanel" class="tab-pane fade active in" id="tab_recentAct" aria-labelledby="home-tab">
-
-                      <!-- start recent activity -->
-                      <ul class="messages">
-                        <li>
-                          <img src="/static/images/img.jpg" class="avatar" alt="Avatar">
-                          <div class="message_date">
-                            <h3 class="date text-info">24</h3>
-                            <p class="month">May</p>
-                          </div>
-                          <div class="message_wrapper">
-                            <h4 class="heading">Desmond Davison</h4>
-                            <blockquote class="message">Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua butcher retro keffiyeh dreamcatcher synth.</blockquote>
-                            <br />
-                            <p class="url">
-                              <span class="fs1 text-info" aria-hidden="true" data-icon=""></span>
-                              <a href="#"><i class="fa fa-paperclip"></i> User Acceptance Test.doc </a>
-                            </p>
-                          </div>
-                        </li>
-                        <li>
-                          <img src="/static/images/img.jpg" class="avatar" alt="Avatar">
-                          <div class="message_date">
-                            <h3 class="date text-error">21</h3>
-                            <p class="month">May</p>
-                          </div>
-                          <div class="message_wrapper">
-                            <h4 class="heading">Brian Michaels</h4>
-                            <blockquote class="message">Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua butcher retro keffiyeh dreamcatcher synth.</blockquote>
-                            <br />
-                            <p class="url">
-                              <span class="fs1" aria-hidden="true" data-icon=""></span>
-                              <a href="#" data-original-title="">Download</a>
-                            </p>
-                          </div>
-                        </li>
-                        <li>
-                          <img src="/static/images/img.jpg" class="avatar" alt="Avatar">
-                          <div class="message_date">
-                            <h3 class="date text-info">24</h3>
-                            <p class="month">May</p>
-                          </div>
-                          <div class="message_wrapper">
-                            <h4 class="heading">Desmond Davison</h4>
-                            <blockquote class="message">Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua butcher retro keffiyeh dreamcatcher synth.</blockquote>
-                            <br />
-                            <p class="url">
-                              <span class="fs1 text-info" aria-hidden="true" data-icon=""></span>
-                              <a href="#"><i class="fa fa-paperclip"></i> User Acceptance Test.doc </a>
-                            </p>
-                          </div>
-                        </li>
-                        <li>
-                          <img src="/static/images/img.jpg" class="avatar" alt="Avatar">
-                          <div class="message_date">
-                            <h3 class="date text-error">21</h3>
-                            <p class="month">May</p>
-                          </div>
-                          <div class="message_wrapper">
-                            <h4 class="heading">Brian Michaels</h4>
-                            <blockquote class="message">Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua butcher retro keffiyeh dreamcatcher synth.</blockquote>
-                            <br />
-                            <p class="url">
-                              <span class="fs1" aria-hidden="true" data-icon=""></span>
-                              <a href="#" data-original-title="">Download</a>
-                            </p>
-                          </div>
-                        </li>
-
-                      </ul>
-                      <!-- end recent activity -->
-
-                    </div>
-                    <div role="tabpanel" class="tab-pane fade" id="tab_friends" aria-labelledby="profile-tab">
-
-                      <!-- start friends -->
-                      <table class="data table table-striped no-margin">
-                        <thead>
-                          <tr>
-                            <th>#</th>
-                            <th>User Name</th>
-                            <th>Last Logged</th>
-                            <th class="hidden-phone">Hours Spent</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          {% for f in friends %}
-                          <tr>
-                            <td></td>
-                            <td>{{ f }}</td>
-                            <td>{{ f.user.last_logged }}</td>
-                            <td class="hidden-phone">h</td>
-                          </tr>
-                          {% endfor %}
-                        </tbody>
-                      </table>
-                      <!-- end friends -->
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
-          </div>
         </div>
-      </div>
     </div>
-  </div>
 {% endblock content %}
 
 {% block javascripts %}

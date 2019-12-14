@@ -8,7 +8,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.template.context_processors import csrf
 
-from game_collection.models import Tag
+from game_collection.models import Tag, Queue, Played, Playing, Abandoned, Finished
 from game_database.functions import GameHoarderDB
 from game_database.models import Genre, Platform
 from .forms import *
@@ -32,21 +32,37 @@ def index(request):
 def friends(request):
     custom = Tag.objects.filter(user=request.user)
     profile = Profile.objects.get(user=request.user)
-    context = {
+
+    return render(request, 'search/friends.html', {
+        'user': request.user.interested_set,
         "tags": custom,
         "profile": profile
-    }
-    return render(request, "index.html", context)
+    })
 
 
 @login_required(login_url='login')
 def profileView(request):
     custom = Tag.objects.filter(user=request.user)
     profile = Profile.objects.get(user=request.user)
+    queue = Queue.objects.filter(user=request.user)[:4]
+    playing = Playing.objects.filter(user=request.user)[:4]
+    finished = Finished.objects.filter(user=request.user)[:4]
+    played = Played.objects.filter(user=request.user)[:4]
+    abandoned = Abandoned.objects.filter(user=request.user)[:4]
+
+    list_friends = profile.friends
+
     context = {
         "tags": custom,
         "profile": profile,
+        "queue": queue,
+        "playing": playing,
+        "finished": finished,
+        "played": played,
+        "abandoned": abandoned,
+        "friends": list_friends,
     }
+
     return render(request, "account/profileView.html", context)
 
 
