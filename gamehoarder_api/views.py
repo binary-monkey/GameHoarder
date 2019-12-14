@@ -37,3 +37,19 @@ def stats(request):
         'reviews': 3
     }
     return JsonResponse(data)
+
+
+def collection_stats(request):
+    user = request.user
+
+    data = {
+        "queue": Queue.objects.filter(user=user).count(),
+        "playing": Playing.objects.filter(user=user).count(),
+        "played": Played.objects.filter(user=user).count(),
+        "finished": Finished.objects.filter(user=user).count(),
+        "abandoned": Abandoned.objects.filter(user=user).count()
+    }
+
+    data["total"] = data["queue"] + data["playing"] + data["played"] + data["finished"] + data["abandoned"]
+
+    return JsonResponse(data)
