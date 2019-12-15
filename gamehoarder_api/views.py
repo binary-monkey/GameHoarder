@@ -1,7 +1,7 @@
 from django.db.models import Sum
 from django.http import JsonResponse
 
-from game_collection.models import Wishlist, Interested, Queue, Playing, Played, Finished, Abandoned
+from game_collection.models import Wishlist, Interested, Queue, Playing, Played, Finished, Abandoned, Review
 from gamehoarder_site.models import Profile
 
 
@@ -34,7 +34,7 @@ def stats(request):
         'users': Profile.objects.all().count(),
         "games": games,
         'hours': hours,
-        'reviews': 3
+        'reviews': Review.objects.all().count()
     }
     return JsonResponse(data)
 

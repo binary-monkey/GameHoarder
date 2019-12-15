@@ -1,3 +1,4 @@
+from datetime import datetime
 from enum import Enum
 
 from django.contrib.auth.models import User
@@ -129,3 +130,20 @@ class Tag(models.Model):
         verbose_name = _("Tag")
         verbose_name_plural = _("Tags")
         unique_together = ('user', 'name',)
+
+
+class Review(models.Model):
+    game_version = models.ForeignKey(GameVersion, verbose_name=_("game version"), on_delete=models.CASCADE)
+    user = models.ForeignKey(User, verbose_name=_("user"), on_delete=models.CASCADE)
+
+    score = models.FloatField(default=5, verbose_name=_("score"))
+    text = models.TextField(verbose_name=_("text"))
+    date = models.DateField(default=datetime.today(), verbose_name=_("date"))
+
+    def __str__(self):
+        return "%s - %s" % (self.user, self.game_version.parent_game.title)
+
+    class Meta:
+        verbose_name = _("Review")
+        verbose_name_plural = _("Reviews")
+        unique_together = ('user', 'game_version',)
