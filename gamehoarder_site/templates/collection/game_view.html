@@ -115,6 +115,17 @@
 
                                     <div class="form-group">
                                         <label class="control-label col-md-2 col-sm-2 col-xs-12"
+                                               for="release-date">{% trans "GameHoarder's Score" %}
+                                        </label>
+                                        <div class="col-md-8 col-xs-12 col-xs-12">
+                                            <input type="text" disabled id="release-date"
+                                                   value="{{ game_version.average_score }}"
+                                                   class="form-control col-md-7 col-xs-12">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-2 col-sm-2 col-xs-12"
                                                for="release-date">{% trans "Main Time" %}
                                         </label>
                                         <div class="col-md-8 col-xs-12 col-xs-12">
@@ -305,6 +316,44 @@
                                 </div>
                             </div>
 
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12 col-sm-12 ">
+                    <div class="x_panel">
+
+                        <div class="x_title">
+                            <h2>{% trans "Latests Reviews" %}</h2>
+                            <ul class="nav navbar-right panel_toolbox" style="min-width: 0">
+                                <li><a class="collapse-link">
+                                    <i class="fa fa-chevron-up"></i></a>
+                                </li>
+                            </ul>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="x_content">
+                            <ul class="messages">
+                                {% for review in game_version.review_set.all|slice:"5" %}
+                                    <li>
+                                        <img src="/images/{{ review.user.profile.avatar }}" class="avatar" alt="Avatar">
+                                        <div class="message_date">
+                                            <h3 class="date text-error">{{ review.date.day }}</h3>
+                                            <p class="month">{{ review.date|date:"M" }}</p>
+                                            <p class="month">{{ review.date.year }}</p>
+                                        </div>
+                                        <div class="message_wrapper">
+                                            <h4 class="heading">{{ review.user.get_full_name }}
+                                                - {{ review.score }}</h4>
+                                            <blockquote class="message">{{ review.text }}
+                                            </blockquote>
+                                            <br>
+                                        </div>
+                                    </li>
+                                {% endfor %}
+                            </ul>
                         </div>
                     </div>
                 </div>

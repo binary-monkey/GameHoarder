@@ -42,8 +42,6 @@ def stats(request):
 def collection_stats(request):
     user = request.user
 
-
-
     data = {
         "queue": Queue.objects.filter(user=user).count(),
         "playing": Playing.objects.filter(user=user).count(),
@@ -56,8 +54,8 @@ def collection_stats(request):
 
     return JsonResponse(data)
 
-def user_stats(request):
 
+def user_stats(request):
     user = request.user
 
     count_interested = Interested.objects.filter(user=user).count()
@@ -87,7 +85,7 @@ def user_stats(request):
     data = {
         "games": games,
         "hours": hours,
-        "completion_rate": round(((count_finished + count_played)*100)/games, 2)
+        "completion_rate": round(((count_finished + count_played) * 100) / games, 2)
     }
 
     return JsonResponse(data)

@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models import Avg
 from django.utils.translation import ugettext_lazy as _
 
 
@@ -97,6 +98,15 @@ class GameVersion(models.Model):
             return self.db_id
         else:
             return "%s - %s" % (self.platform, self.parent_game)
+
+    def average_score(self):
+
+        if self.review_set.count() > 0:
+            return self.review_set.all().aggregate(Avg('score'))["score__avg"]
+        else:
+            return _("No reviews yet...")
+
+
 
     class Meta:
         verbose_name = _("Game Version")
