@@ -55,11 +55,17 @@ def queue_table(request):
     titles = Queue.objects.filter(user=request.user)
     custom = Tag.objects.filter(user=request.user)
     profile = Profile.objects.get(user=request.user)
+    platforms = [p.get('name') for p in Platform.objects.order_by().values('name').distinct()]
+    genres = [g.get('name') for g in Genre.objects.order_by().values('name').distinct()]
 
     context = {
         "tags": custom,
         "titles": titles,
-        "profile": profile
+        "profile": profile,
+        'first_platform': platforms[0] if len(platforms) > 0 else None,
+        'first_genre': genres[0] if len(genres) > 0 else None,
+        'platforms': platforms[1:] if len(platforms) > 1 else [],
+        'genres': genres[1:] if len(genres) > 1 else [],
     }
 
     return render(request, "collection/tables/queue_table.html", context)
@@ -70,11 +76,17 @@ def playing_table(request):
     titles = Playing.objects.filter(user=request.user)
     custom = Tag.objects.filter(user=request.user)
     profile = Profile.objects.get(user=request.user)
+    platforms = [p.get('name') for p in Platform.objects.order_by().values('name').distinct()]
+    genres = [g.get('name') for g in Genre.objects.order_by().values('name').distinct()]
 
     context = {
         "tags": custom,
         "titles": titles,
-        "profile": profile
+        "profile": profile,
+        'first_platform': platforms[0] if len(platforms) > 0 else None,
+        'first_genre': genres[0] if len(genres) > 0 else None,
+        'platforms': platforms[1:] if len(platforms) > 1 else [],
+        'genres': genres[1:] if len(genres) > 1 else [],
     }
 
     return render(request, "collection/tables/playing_table.html", context)
@@ -85,11 +97,17 @@ def finished_table(request):
     titles = Finished.objects.filter(user=request.user)
     custom = Tag.objects.filter(user=request.user)
     profile = Profile.objects.get(user=request.user)
+    platforms = [p.get('name') for p in Platform.objects.order_by().values('name').distinct()]
+    genres = [g.get('name') for g in Genre.objects.order_by().values('name').distinct()]
 
     context = {
         "tags": custom,
         "titles": titles,
-        "profile": profile
+        "profile": profile,
+        'first_platform': platforms[0] if len(platforms) > 0 else None,
+        'first_genre': genres[0] if len(genres) > 0 else None,
+        'platforms': platforms[1:] if len(platforms) > 1 else [],
+        'genres': genres[1:] if len(genres) > 1 else [],
     }
     return render(request, "collection/tables/finished_table.html", context)
 
@@ -99,11 +117,17 @@ def played_table(request):
     titles = Played.objects.filter(user=request.user)
     custom = Tag.objects.filter(user=request.user)
     profile = Profile.objects.get(user=request.user)
+    platforms = [p.get('name') for p in Platform.objects.order_by().values('name').distinct()]
+    genres = [g.get('name') for g in Genre.objects.order_by().values('name').distinct()]
 
     context = {
         "tags": custom,
         "titles": titles,
-        "profile": profile
+        "profile": profile,
+        'first_platform': platforms[0] if len(platforms) > 0 else None,
+        'first_genre': genres[0] if len(genres) > 0 else None,
+        'platforms': platforms[1:] if len(platforms) > 1 else [],
+        'genres': genres[1:] if len(genres) > 1 else [],
     }
 
     return render(request, "collection/tables/played_table.html", context)
@@ -114,11 +138,17 @@ def abandoned_table(request):
     titles = Abandoned.objects.filter(user=request.user)
     custom = Tag.objects.filter(user=request.user)
     profile = Profile.objects.get(user=request.user)
+    platforms = [p.get('name') for p in Platform.objects.order_by().values('name').distinct()]
+    genres = [g.get('name') for g in Genre.objects.order_by().values('name').distinct()]
 
     context = {
         "tags": custom,
         "titles": titles,
-        "profile": profile
+        "profile": profile,
+        'first_platform': platforms[0] if len(platforms) > 0 else None,
+        'first_genre': genres[0] if len(genres) > 0 else None,
+        'platforms': platforms[1:] if len(platforms) > 1 else [],
+        'genres': genres[1:] if len(genres) > 1 else [],
     }
 
     return render(request, "collection/tables/abandoned_table.html", context)
@@ -172,12 +202,18 @@ def tag_table(request):
     tag = Tag.objects.get(name=request.GET['tag'], user=request.user)
     games = tag.game_version.all()
     profile = Profile.objects.get(user=request.user)
+    platforms = [p.get('name') for p in Platform.objects.order_by().values('name').distinct()]
+    genres = [g.get('name') for g in Genre.objects.order_by().values('name').distinct()]
 
     context = {
         "tags": custom,
         "list_type": "interested",
         "titles": games,
-        "profile": profile
+        "profile": profile,
+        'first_platform': platforms[0] if len(platforms) > 0 else None,
+        'first_genre': genres[0] if len(genres) > 0 else None,
+        'platforms': platforms[1:] if len(platforms) > 1 else [],
+        'genres': genres[1:] if len(genres) > 1 else [],
     }
 
     return render(request, "collection/tables/tag_table.html", context)
