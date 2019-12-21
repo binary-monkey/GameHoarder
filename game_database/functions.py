@@ -186,6 +186,7 @@ class GameHoarderDB:
             # param is present and not empty
             if k in params.keys() and params.get(k):
                 query[v] = params.get(k)
+        print(query)
         local_games = GameVersion.objects.filter(**query)
         return local_games
 

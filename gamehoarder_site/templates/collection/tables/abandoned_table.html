@@ -47,7 +47,7 @@
                                     <th class="text-center">Time to Finish</th>
                                 </tr>
                                 </thead>
-                                <tbody>
+                                <tbody id="to_change">
                                 {% for title in titles %}
                                     <tr>
                                         <td class="text-center">
@@ -87,6 +87,64 @@
             </div>
         </div>
     </div>
+
+
+        <script>
+        document.getElementById("ajax_test").onclick = function(){myFunction()};
+        var title = "Abandoned";
+        function myFunction() {
+            $.ajaxSetup({
+                cache: false
+            });
+            var form_s = $('form').serialize();
+            $.ajax({
+                url: window.location.origin+'/table/filter?'+form_s+'&'+'type='+title,
+                type:"GET",
+                cache: false,
+                dataType: 'json',
+                success: function(response) {
+                    $('#to_change').html("");
+                    for (i=0; i<response['new_titles'].length; i++) {
+                        {% for title in titles %}
+                            if (response['new_titles'][i] == "{{title.game_version.db_id}}") {
+                                $('#to_change').append("<tr>\n" +
+                                    "    <td class=\"text-center\">\n" +
+                                    "        {% if title.date_adquired is not None %}\n"+
+                                        "            {{ title.date_adquired|date:"Y-m-d" }}\n"+
+                                        "        {% endif %}\n" +
+                                    "    </td>\n" +
+                                    "    <td class=\"text-center\">\n" +
+                                    "        {% if title.date_started is not None %}\n"+
+                                        "            {{ title.date_started|date:"Y-m-d" }}\n"+
+                                        "        {% endif %}\n" +
+                                    "    </td>\n" +
+                                    "    <td class=\"text-center\">\n" +
+                                    "        {% if title.date_abandoned is not None %}\n"+
+                                        "            {{ title.date_abandoned|date:"Y-m-d" }}\n"+
+                                        "        {% endif %}\n" +
+                                    "    </td>\n" +
+                                    "    <td class=\"text-center\">\n" +
+                                    "        {{ title.game_version.platform.name }}\n" +
+                                    "    </td>\n" +
+                                    "    <td>\n" +
+                                    "        <a href=\"/game/{{ title.game_version.db_id }}\">\n" +
+                                    "            {{ title.game_version.parent_game.title }}</a>\n" +
+                                    "    </td>\n" +
+                                    "    <td class=\"text-center\">\n" +
+                                    "        {% if title.time_played is not None %}\n"+
+                                        "            {{ title.time_played }}\n"+
+                                        "        {% endif %}\n" +
+                                    "    </td>\n" +
+                                    "</tr>");
+                            }
+
+                        {% endfor %}
+                    }
+
+                }
+            })
+        }
+    </script>
 {% endblock content %}
 
 {% block javascripts %}

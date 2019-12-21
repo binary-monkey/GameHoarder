@@ -206,6 +206,7 @@ def tag_table(request):
     genres = [g.get('name') for g in Genre.objects.order_by().values('name').distinct()]
 
     context = {
+        "tag": tag.name,
         "tags": custom,
         "list_type": "interested",
         "titles": games,
