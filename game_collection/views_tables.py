@@ -150,12 +150,17 @@ def wishlist_table(request):
     titles = Wishlist.objects.filter(user=request.user)
     custom = Tag.objects.filter(user=request.user)
     profile = Profile.objects.get(user=request.user)
-
+    platforms = [p.get('name') for p in Platform.objects.order_by().values('name').distinct()]
+    genres = [g.get('name') for g in Genre.objects.order_by().values('name').distinct()]
     context = {
         "tags": custom,
-        "list_type": "interested",
+        "list_type": "wishlist",
         "titles": titles,
-        "profile": profile
+        "profile": profile,
+        'first_platform': platforms[0] if len(platforms) > 0 else None,
+        'first_genre': genres[0] if len(genres) > 0 else None,
+        'platforms': platforms[1:] if len(platforms) > 1 else [],
+        'genres': genres[1:] if len(genres) > 1 else [],
     }
 
     return render(request, "collection/tables/list_table.html", context)
