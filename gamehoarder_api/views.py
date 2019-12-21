@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.db.models import Sum
 from django.http import JsonResponse
 
@@ -57,7 +58,6 @@ def collection_stats(request):
 
 def user_stats(request):
     user = request.user
-
     count_interested = Interested.objects.filter(user=user).count()
     count_wishlist = Wishlist.objects.filter(user=user).count()
     count_queue = Queue.objects.filter(user=user).count()
@@ -89,3 +89,12 @@ def user_stats(request):
     }
 
     return JsonResponse(data)
+
+
+def user_list(request):
+    users = User.objects.all().values("id", "username", "email", "groups__name")
+
+    response = JsonResponse({"data": list(users)})
+    response['Access-Control-Allow-Origin'] = '*'
+
+    return response
