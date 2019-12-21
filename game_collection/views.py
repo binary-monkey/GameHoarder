@@ -5,7 +5,7 @@ import json
 from celery.result import AsyncResult
 from django.contrib.auth.decorators import login_required
 from django.core.files.storage import FileSystemStorage
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, redirect
 from django.utils.translation import to_locale, get_language
 
@@ -494,3 +494,14 @@ def move_game(request, db_id):
     }
 
     return render(request, "collection/forms/move_game.html", context)
+
+# @login_required(login_url='login')
+def filter_table(request):
+    qdict = {}
+    for key in request.GET.keys():
+        qdict[key] = request.GET[key]
+
+    # entrances = Entrance.objects.all().filter(**qdict).order_by('date')[::-1]
+    data = {}
+    return JsonResponse(data)
+

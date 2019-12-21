@@ -10,6 +10,8 @@ urlpatterns = [
     path('list/interested', views_tables.insterested_table, name='interested_table'),
     path('list/wishlist', views_tables.wishlist_table, name='wishlist_table'),
 
+    path('table/filter', views_tables.ajax_tables, name='table_filter'),
+
     path('collection/', views.collection_summary, name='collection_summary'),
     path('collection/import', views.import_collection, name='import_collection'),
     path('collection/export', views.export_collection, name='export_collection'),
