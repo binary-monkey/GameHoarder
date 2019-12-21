@@ -173,7 +173,7 @@ class GameHoarderDB:
         search_params = {
             # # key: REST param, value: model query
             'developer': 'parent_game__developers__name__contains',
-            # 'genres': 'parent_game__genres__in',  # TODO: correct filter for genres
+            'genres': 'parent_game__genres__name__in',
             'platform': 'platform__name__iendswith',
             'publisher': 'parent_game__publishers__name__contains',
             'year': 'parent_game__release_date__year',
@@ -220,6 +220,30 @@ class GameHoarderDB:
                             remote_games_dict[f'{g.parent_game.title}{g.name}'] = g
         # unir diccionarios, dando preferencia a elementos de la DB local
         return {**remote_games_dict, **local_games_dict}.values()
+
+    @staticmethod
+    def table_filter(params):
+        search_params = {
+            # # key: REST param, value: model query
+            'developer': 'parent_game__developers__name__contains',
+            'genres': 'parent_game__genres__name__in',  # TODO: correct filter for genres
+            'platform': 'platform__name__iendswith',
+            'publisher': 'parent_game__publishers__name__contains',
+            'year': 'parent_game__release_date__year',
+            'title': 'parent_game__title__contains',
+        }
+        # GameVersion.objects.filter(=)
+
+        query = {}
+        for k, v in search_params.items():
+            # param is present and not empty
+            if k in params.keys() and params.get(k):
+                query[v] = params.get(k)
+        local_games = GameVersion.objects.filter(**query)
+        local_games_dict = {
+            f'{x.parent_game.title}{x.name}': x for x in local_games
+        }
+        return {**local_games_dict}.values()
 
     @staticmethod
     def params_empty(params):

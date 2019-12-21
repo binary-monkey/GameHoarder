@@ -1,0 +1,92 @@
+{% load i18n %}
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>{% trans "Filter" %}</h2>
+
+                    <ul class="nav navbar-right panel_toolbox" style="min-width: 0">
+                        <li><a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i></a>
+                        </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <form id="filter-form" data-parsley-validate class="form-horizontal form-label-left">
+
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="title">Title</label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input type="text" id="title" name="title"
+                                   class="form-control col-md-7 col-xs-12">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="year">Year</label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input type="text" id="year" name="year"
+                                   class="form-control col-md-7 col-xs-12">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="middle-name"
+                               class="control-label col-md-3 col-sm-3 col-xs-12">Developer</label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input id="developer" class="form-control col-md-7 col-xs-12" type="text"
+                                   name="developer">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="middle-name"
+                               class="control-label col-md-3 col-sm-3 col-xs-12">Publisher</label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input id="publisher" class="form-control col-md-7 col-xs-12" type="text"
+                                   name="publisher">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12"
+                               for="title">Platforms:</label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <p style="padding: 5px;">
+                                <input type="checkbox" name="platforms[]" id="{{ first_platform }}"
+                                       value="{{ first_platform }}" data-parsley-mincheck="0"
+                                       class="flat"/> {{ first_platform }}
+                                <br/>
+                                {% for platform in platforms %}
+                                    <input type="checkbox" name="platforms[]" id="{{ platform }}"
+                                           value="{{ platform }}" class="flat"/> {{ platform }}
+                                    <br/>
+                                {% endfor %}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="title">Genres:</label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <p style="padding: 5px;">
+                                <input type="checkbox" name="genres[]" id="{{ first_genre }}"
+                                       value="{{ first_genre }}" data-parsley-mincheck="0"
+                                       class="flat"/> {{ first_genre }}
+                                <br/>
+                                {% for genre in genres %}
+                                    <input type="checkbox" name="genres[]" id="{{ genre }}"
+                                           value="{{ genre }}" class="flat"/> {{ genre }}
+                                    <br/>
+                                {% endfor %}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="ln_solid"></div>
+                    <div class="form-group">
+                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                            <button class="btn btn-primary" id="ajax_test" type="button">Apply</button>
+                            <button class="btn btn-primary" type="reset" onClick="window.location.reload()">Reset</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            </div>
+    </div>
+</div>
