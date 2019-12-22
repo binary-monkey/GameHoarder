@@ -88,7 +88,7 @@
                                             <div id="to_change">
                                                 {% for user in profiles %}
                                                     <div class="col-sm-2">
-                                                        <a href="{% url 'profile_with_pk' pk=user.pk %}">
+                                                        <a href="{% url 'profile_with_pk' pk=user.user.id %}">
                                                             <div class="card bg-light mb-3" style="max-width: 30rem;">
                                                                 <img class="img-responsive card-img-top" src="/images/{{ user.avatar }}" alt="{{ user.user.username }}"/>
                                                                 <div class="card-body">

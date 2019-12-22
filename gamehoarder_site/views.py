@@ -36,7 +36,7 @@ def profileView(request, pk=None):
     custom = Tag.objects.filter(user=request.user)
     profile = Profile.objects.get(user=request.user)
 
-    if pk!=None and pk != profile.pk:
+    if pk!=None and pk != request.user.id:
         user = User.objects.get(pk=pk)
         current_profile = Profile.objects.get(user=user)
         queue = Queue.objects.filter(user=user)[:5]
@@ -152,7 +152,7 @@ def ajax_users(request):
     username = request.GET['username']
 
     initial = Profile.objects.filter(Q(user__first_name__contains=username) | Q(user__username__contains=username)
-                                      | Q(user__last_name__contains=username))
+                                      | Q(user__last_name__contains=username)).exclude(user=request.user)
 
 
     initial = list(initial.values())
@@ -177,7 +177,7 @@ def ajax_users(request):
 def search_user(request):
     custom = Tag.objects.filter(user=request.user)
     profile = Profile.objects.get(user=request.user)
-    profiles = Profile.objects.all()
+    profiles = Profile.objects.all().exclude(user=request.user)
 
     context = {
         "tags": custom,
