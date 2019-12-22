@@ -27,4 +27,5 @@ urlpatterns = [
     path('game/<str:db_id>', views.game_view, name='game_view'),
     path('game/<str:db_id>/add', views.add_game, name='add_game'),
     path('game/<str:db_id>/move', views.move_game, name='move_game'),
+    path('game/remove/<str:db_id>', views.remove_review, name='remove_review')
 ]

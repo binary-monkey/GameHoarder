@@ -335,7 +335,8 @@
                         {% if can_review %}
                           <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">{% trans "Create review" %}</button>
                         {% else %}
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg" disabled>{% trans "Create review" %}</button>
+                            <button id="edit_button" type="button" class="btn btn-dark" data-toggle="modal" data-target=".bs-example-modal-lg">{% trans "Edit review" %}</button>
+                            <a type="button" href="{% url 'remove_review' game_version.db_id %}" class="btn btn-danger">{% trans "Remove review" %}</a>
                         {% endif %}
                           <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
                             <div class="modal-dialog modal-lg">
@@ -348,28 +349,42 @@
                                 </div>
                                   <br>
 
-                                <form action="" enctype="multipart/form-data" method="post" class="form-horizontal form-label-left">{% csrf_token %}
+                                {% if can_review %}
+                                    <form action="?existing=0" enctype="multipart/form-data" method="post" class="form-horizontal form-label-left">{% csrf_token %}
+                                {% else %}
+                                    <form action="?existing=1" enctype="multipart/form-data" method="post" class="form-horizontal form-label-left">{% csrf_token %}
+                                {% endif %}
                                   <div class="item form-group">
                                       <label class="control-label col-md-3 col-sm-3 col-xs-12"
                                              for="id_score">{% trans 'Score' %}
                                          </label>
                                         <div class="col-md-6 col-sm-7 col-xs-12">
-                                                <input id="id_score" type="text" name="score" maxlength="10" required="required" class="form-control col-md-7 col-xs-12" value=""/>
+                                            {% if can_review %}
+                                                <input id="id_score" type="number" name="score" min="0" max="10" step="any" required="required" class="form-control col-md-7 col-xs-12" value=""/>
+                                            {% else %}
+                                                <input id="id_score" type="number" name="score" min="0" max="10" step="any" required="" class="form-control col-md-7 col-xs-12" value="{{ existing_review.score }}"/>
+                                            {% endif %}
                                         </div>
                                   </div>
                                   <br>
                                     <div class="item form-group">
-                                    <label for="id_text" class="control-label col-md-3 col-sm-3 col-xs-12">{% trans 'Deja un comentario' %}(200 max):</label>
+                                    <label for="id_text" class="control-label col-md-3 col-sm-3 col-xs-12">{% trans 'Leave a comment' %}(200 max):</label>
                                     <div class="col-md-6 col-sm-7 col-xs-12">
-                                        <textarea id="id_text" required="required" class="form-control" name="text" data-parsley-trigger="keyup"
+                                        {% if can_review %}
+                                            <textarea id="id_text" required="required" class="form-control" name="text" data-parsley-trigger="keyup"
                                                   data-parsley-maxlength="200"></textarea></div>
+                                        {% else %}
+                                        <textarea id="id_text" required="" class="form-control" name="text" data-parsley-trigger="keyup"
+                                              data-parsley-maxlength="200">{{ existing_review.text }}</textarea></div>
+                                        {% endif %}
+
                                     </div>
                                   <br>
 
                                 <div class="modal-footer">
                                   <button type="button" class="btn btn-default" data-dismiss="modal">{% trans "Close" %}</button>
                                   <button type="submit" id="create_btn" class="btn btn-primary">{% trans "Save review" %}</button>
-                                    <p id="error_msg" hidden>Score value is incorrect</p>
+                                    <p id="error_msg" hidden>{% trans "Score value is incorrect" %}</p>
                                 </div>
                                 </form>
                               </div>
@@ -407,7 +422,14 @@
         var create_btn = document.getElementById('create_btn');
         var msg = document.getElementById('error_msg');
 
+        var btn_edit = document.getElementById('edit_button');
+        btn_edit.onclick = defaultValue;
+
         score.onchange = validateScore;
+        function defaultValue(){
+            document.getElementById('id_score').value = {{ existing_review.score }};
+        }
+
         function validateScore(){
           if(score.value<0 || score.value>10 || !isFinite(score.value)) {
             create_btn.disabled = true;
