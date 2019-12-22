@@ -1,5 +1,5 @@
 {% load static %}
-
+{% load i18n %}
 <!DOCTYPE html>
 <html lang="zxx">
 <head>
@@ -46,7 +46,7 @@
         </div>
         <div class="header-right">
             <div class="header-btns">
-                <a href="{% url "login" %}" class="site-btn sb-c3">Login / Register</a>
+                <a href="{% url "login" %}" class="site-btn sb-c3">{% trans "Login" %} / {% trans "Register" %}</a>
             </div>
         </div>
     </div>
@@ -59,10 +59,10 @@
     <div class="hero-slider owl-carousel">
         <div class="hs-item set-bg" data-setbg="{% static "img/bg.jpg" %}">
             <div class="container">
-                <h2>Game Hoarder</h2>
-                <p>Upgrade your Collection Tracking</p>
+                <h2>{% trans "Game Hoarde" %}r</h2>
+                <p>{% trans "Upgrade your Collection Tracking" %}</p>
                 <div class="clearfix"></div>
-                <a href="#features" class="site-btn sb-c1">Read More</a>
+                <a href="#features" class="site-btn sb-c1">{% trans "Read More" %}</a>
             </div>
         </div>
     </div>
@@ -116,7 +116,7 @@
                 </div>
                 <div class="milestone-text text-white">
                     <h2>[[ info.games ]]</h2>
-                    <p>Games Tracked</p>
+                    <p>{% trans "Games Tracked" %}</p>
                 </div>
             </div>
             <div class="col-lg-3 col-sm-6">
@@ -125,7 +125,7 @@
                 </div>
                 <div class="milestone-text text-white">
                     <h2>[[ info.hours ]]</h2>
-                    <p>Hours Logged</p>
+                    <p>{% trans "Hours Logged" %}</p>
                 </div>
             </div>
             <div class="col-lg-3 col-sm-6">
@@ -134,7 +134,7 @@
                 </div>
                 <div class="milestone-text text-white">
                     <h2>[[ info.reviews ]]</h2>
-                    <p>Reviews Submitted</p>
+                    <p>{% trans "Reviews Submitte" %}d</p>
                 </div>
             </div>
         </div>
@@ -147,8 +147,8 @@
 <section class="about-section spad">
     <div class="container">
         <div class="section-title">
-            <p>Managing your Collection</p>
-            <h2>The Game Lifecycle</h2>
+            <p>{% trans "Managing your Collection" %}</p>
+            <h2>{% trans "The Game Lifecycle" %}</h2>
         </div>
         <br>
         <div class="row">
@@ -156,29 +156,20 @@
                 <img src="{% static "img/lifecycle.png" %}" alt="">
             </div>
             <div class="col-lg-7 about-img" style="margin-bottom: 20pt">
-                <p>Nowadays there are so many games being released every week that it's hard to keep track of what games
-                    you actually want to play, in order to help you better manage this we introduce the following
-                    lists:</p>
+                <p>{% trans "Nowadays there are so many games being released every week that it's hard to keep track of what games you actually want to play, in order to help you better manage this we introduce the following lists" %}:</p>
                 <ul class="about-list">
-                    <li><strong>Interested</strong> this is the list of games you are interested in but you have yet to
-                        decide if you will be playing.
+                    <li><strong>{% trans "Interested" %}</strong> {% trans "this is the list of games you are interested in but you have yet to decide if you will be playing" %}.
                     </li>
-                    <li><strong>Wishlist</strong> games fall into this list after you have decided to play them.</li>
+                    <li><strong>{% trans "Wishlist" %}</strong> {% trans "games fall into this list after you have decided to play them" %}.</li>
                 </ul>
-                <p>No on to the games you actually have, one of the most important issues when keeping track of your collection is to know if you've played
-                    or it is just collecting dust in your shelf, virtual or otherwise, to help you track your games and
-                    their status we propose the following lifecycle:</p>
+                <p>{% trans "No on to the games you actually have, one of the most important issues when keeping track of your collection is to know if you've played or it is just collecting dust in your shelf, virtual or otherwise, to help you track your games and their status we propose the following lifecycle" %}:</p>
                 <ul class="about-list">
-                    <li><strong>Queue</strong> this is the first stage of your game, when you've just adquired it.</li>
-                    <li><strong>Playing</strong> these are the games you are currently playing.</li>
-                    <li><strong>Finished</strong> this is stage is for a campaign game you have beaten.</li>
-                    <li><strong>Played</strong> this stage is far more general, a game falls here when you've had your
-                        fill and will not continue playing.
+                    <li><strong>{% trans "Queue" %}</strong> {% trans "this is the first stage of your game, when you've just adquired it" %}.</li>
+                    <li><strong>{% trans "" %}Playing</strong> {% trans "these are the games you are currently playing" %}.</li>
+                    <li><strong>{% trans "" %}Finished</strong> {% trans "this is stage is for a campaign game you have beaten" %}.</li>
+                    <li><strong>{% trans "" %}Played</strong> {% trans "this stage is far more general, a game falls here when you've had your fill and will not continue playing" %}.
                     </li>
-                    <li><strong>Abandoned</strong> this stage is a bit sad, when a game falls here is because you've
-                        stopped playing due to not wanting to play any further, maybe the campaign is too long or maybe
-                        you just don't like the game, you may want to consider refunding games you have in this
-                        list.
+                    <li><strong>{% trans "Abandoned" %}</strong> {% trans "this stage is a bit sad, when a game falls here is because you've stopped playing due to not wanting to play any further, maybe the campaign is too long or maybe you just don't like the game, you may want to consider refunding games you have in this list" %}.
                     </li>
                 </ul>
             </div>
@@ -192,9 +183,9 @@
 <section class="banner-section set-bg" data-setbg="{% static "img/banner-bg.jpg" %}">
     <div class="container">
         <div class="banner-card">
-            <h2>We want to help you upgrade your hoarding experience</h2>
-            <h6>We are dying to have you be part of our community.</h6>
-            <a href="{% url "login" %}" class="site-btn sb-c3">Sign up with us</a>
+            <h2>{% trans "We want to help you upgrade your hoarding experience" %}</h2>
+            <h6>{% trans "We are dying to have you be part of our community" %}.</h6>
+            <a href="{% url "login" %}" class="site-btn sb-c3">{% trans "Sign up with us" %}</a>
         </div>
     </div>
 </section>
@@ -208,8 +199,7 @@
             <div class="col-lg-4 col-md-12">
                 <div class="footer-widget about-widget">
                     <img src="{% static "img/logo.png" %}" alt="">
-                    <p>GameHoarder was developed as a student project, but it has become so much more, from the
-                        binmonkey tema we hope you trust us to keep track of your game hoarding obsession.</p>
+                    <p>{% trans "GameHoarder was developed as a student project, but it has become so much more, from the binmonkey tema we hope you trust us to keep track of your game hoarding obsession" %}.</p>
                     <div class="social-links">
                         <a href="https://github.com/binary-monkey/"><i class="fa fa-github"></i></a>
                     </div>
@@ -221,9 +211,9 @@
             </div>
             <div class="col-lg-3 col-sm-4">
                 <div class="footer-widget">
-                    <h5 class="fw-title">Contact</h5>
+                    <h5 class="fw-title">{% trans "Contact" %}</h5>
                     <ul>
-                        <li><a href="https://github.com/binary-monkey/">Find us at our Github group page</a>
+                        <li><a href="https://github.com/binary-monkey/">{% trans "Find us at our Github group page" %}</a>
                         </li>
                     </ul>
                 </div>
