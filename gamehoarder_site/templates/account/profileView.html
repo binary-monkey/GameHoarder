@@ -33,7 +33,7 @@
 
                                 </div>
                             </div>
-                            <h3>{{ current_profile.user }}</h3><br/>
+                            <h3>{{ current_profile.user }}</h3>
                             <h2>{{ current_profile.user.first_name }} {{ current_profile.user.last_name }}</h2>
                             {% if current_profile == profile %}
                                 <a class="btn btn-primary nav-link" href="{% url  'edit_user' %}">
