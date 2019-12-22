@@ -187,7 +187,7 @@ def search(request):
         games = None
 
     games_wrapper = []
-    games = list(games)
+    games = list(games) if games else []
     for i in range(len(games)):
         games_wrapper.append(
             {
