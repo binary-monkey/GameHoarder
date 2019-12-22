@@ -7,6 +7,7 @@ from gamehoarder_site.models import Profile
 from django.http import JsonResponse
 from game_database.functions import GameHoarderDB
 
+
 def ajax_tables(request):
     # multiple-choice values
     choices = ['genres', 'platforms']
@@ -24,19 +25,19 @@ def ajax_tables(request):
         games = GameHoarderDB.table_filter(params)
 
         initial = None
-        if type_table=="Interested":
+        if type_table == "Interested":
             initial = Interested.objects.filter(user=request.user)
-        elif type_table=="Wishlist":
+        elif type_table == "Wishlist":
             initial = Wishlist.objects.filter(user=request.user)
-        elif type_table=="Queue":
+        elif type_table == "Queue":
             initial = Queue.objects.filter(user=request.user)
-        elif type_table=="Playing":
+        elif type_table == "Playing":
             initial = Playing.objects.filter(user=request.user)
-        elif type_table=="Finished":
+        elif type_table == "Finished":
             initial = Finished.objects.filter(user=request.user)
-        elif type_table=="Played":
+        elif type_table == "Played":
             initial = Played.objects.filter(user=request.user)
-        elif type_table=="Abandoned":
+        elif type_table == "Abandoned":
             initial = Abandoned.objects.filter(user=request.user)
         else:
             tag = Tag.objects.get(name=type_table, user=request.user)
@@ -49,6 +50,7 @@ def ajax_tables(request):
 
     context = {'new_titles': new}
     return JsonResponse(context)
+
 
 @login_required(login_url='login')
 def queue_table(request):
