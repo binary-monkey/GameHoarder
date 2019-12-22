@@ -374,8 +374,11 @@ def game_view(request, db_id):
         if form.is_valid():
             text = form['text'].value()
             score = form['score'].value()
-            new_review = Review(user=request.user, text=text, score=score, game_version=GameVersion.objects.get(db_id=db_id))
-            new_review.save()
+            try:
+                new_review = Review(user=request.user, text=text, score=score, game_version=GameVersion.objects.get(db_id=db_id))
+                new_review.save()
+            except: # Just for some cases when the browser saves the form reloading
+                pass
 
     can_review = not (len(Review.objects.filter(user=request.user, game_version__db_id=db_id))>0)
 
