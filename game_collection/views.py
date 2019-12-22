@@ -5,12 +5,14 @@ import json
 from celery.result import AsyncResult
 from django.contrib.auth.decorators import login_required
 from django.core.files.storage import FileSystemStorage
-from django.http import HttpResponse, JsonResponse
+from django.http import HttpResponse, JsonResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
+from django.template.context_processors import csrf
 from django.utils.translation import to_locale, get_language
 
-from game_collection.foms import *
+from game_collection.forms import *
 from game_collection.tasks import *
+from game_collection.models import *
 from gamehoarder_site.functions import read_csv
 from gamehoarder_site.models import Profile
 
@@ -367,6 +369,16 @@ def export_list(request):
 
 @login_required(login_url='login')
 def game_view(request, db_id):
+    if request.method == 'POST':
+        form = ReviewForm(request.POST)
+        if form.is_valid():
+            text = form['text'].value()
+            score = form['score'].value()
+            new_review = Review(user=request.user, text=text, score=score, game_version=GameVersion.objects.get(db_id=db_id))
+            new_review.save()
+
+    can_review = not (len(Review.objects.filter(user=request.user, game_version__db_id=db_id))>0)
+
     custom = Tag.objects.filter(user=request.user)
     profile = Profile.objects.get(user=request.user)
     game_version = GameVersion.objects.get(db_id=db_id)
@@ -396,7 +408,8 @@ def game_view(request, db_id):
         "title": title,
         "game_version": game_version,
         "current_state": GameCollectionController.where_is(game_version, request.user)[0],
-        "current_item": GameCollectionController.where_is(game_version, request.user)[1]
+        "current_item": GameCollectionController.where_is(game_version, request.user)[1],
+        "can_review": can_review
     }
 
     return render(request, 'collection/game_view.html', context)
@@ -494,14 +507,3 @@ def move_game(request, db_id):
     }
 
     return render(request, "collection/forms/move_game.html", context)
-
-# @login_required(login_url='login')
-def filter_table(request):
-    qdict = {}
-    for key in request.GET.keys():
-        qdict[key] = request.GET[key]
-
-    # entrances = Entrance.objects.all().filter(**qdict).order_by('date')[::-1]
-    data = {}
-    return JsonResponse(data)
-
