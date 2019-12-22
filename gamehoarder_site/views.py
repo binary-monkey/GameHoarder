@@ -122,7 +122,8 @@ def login_register(request):
             user = authenticate(username=username, password=password)
             if user is not None:
                 if user.is_active:
-                    if len(Profile.objects.filter(user=user)) == 0:
+                    # faster than len()
+                    if Profile.objects.filter(user=user).count() == 0:
                         profile = Profile(user=user)
                         profile.save()
                     login(request, user)
