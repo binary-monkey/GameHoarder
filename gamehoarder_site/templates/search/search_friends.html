@@ -2,7 +2,7 @@
 {% load static %}
 {% load i18n %}
 
-{% block title %} Dashboard 1 {% endblock title %}
+{% block title %} {% trans "Users" %} {% endblock title %}
 
 {% block stylesheets %}
     {{ block.super }}
@@ -33,7 +33,9 @@
                                                     <div class="card bg-light mb-3" style="max-width: 30rem;">
                                                         <img class="img-responsive card-img-top" src="/images/{{ user.avatar }}" alt="{{ user.user.username }}"/>
                                                         <div class="card-body">
-                                                            <b class="card-text">{{ user.user.username }}</b>
+                                                            <b class="card-text">{{ user.user.first_name }} {{ user.user.last_name }}</b>
+                                                            <br/>
+                                                            <small class="card-text">{{ user.user.username }}</small>
                                                         </div>
                                                     </div>
                                                 </a>

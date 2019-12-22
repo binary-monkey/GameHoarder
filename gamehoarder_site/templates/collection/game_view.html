@@ -1,6 +1,6 @@
 {% extends "base_site.html" %}
 {% load i18n %}
-{% block title %} Game View {% endblock title %}
+{% block title %} {% trans "Game View" %} {% endblock title %}
 
 {% block stylesheets %}
     {{ block.super }}
@@ -12,7 +12,7 @@
         <div class="">
             <div class="page-title">
                 <div class="title_left">
-                    <h3>Game Overview</h3>
+                    <h3>{% trans "Game Overview" %}</h3>
                 </div>
 
             </div>
@@ -22,7 +22,6 @@
             <div class="row">
                 <div class="col-md-12 col-sm-12 ">
                     <div class="x_panel">
-
                         <div class="x_title">
                             <h2>{{ title.title }}</h2>
                             <ul class="nav navbar-right panel_toolbox" style="min-width: 0">
@@ -32,22 +31,17 @@
                             </ul>
                             <div class="clearfix"></div>
                         </div>
-
                         <div class="x_content">
-
                             <div class="col-md-4 col-sm-4">
                                 <div>
                                     <img class="img-responsive avatar-view" src="{{ title.img_url }}" alt="..."/>
                                 </div>
                             </div>
-
                             <div class="col-md-5 col-sm-5 " style="border:0px solid #e5e5e5;">
-
                                 <h4>{{ title.description }}</h4>
                                 <br/>
-
                                 <h2>
-                                    Release Date: {% if game_version.release_date is not None %}
+                                    {% trans "Release Date" %}: {% if game_version.release_date is not None %}
                                     {{ game_version.release_date }}
                                 {% elif title.release_date is not None %}
                                     {{ title.release_date }}
@@ -57,7 +51,7 @@
                                 <br/>
 
                                 <div class="">
-                                    <h2>Publishers:</h2>
+                                    <h2>{% trans "Publishers" %}:</h2>
                                     <ul class="list-inline prod_size display-layout">
                                         {% for publisher in publishers %}
                                             <li>
@@ -69,7 +63,7 @@
                                 <br/>
 
                                 <div class="">
-                                    <h2>Developers:</h2>
+                                    <h2>{% trans "Developers" %}:</h2>
                                     <ul class="list-inline prod_size display-layout">
                                         {% for developer in developers %}
                                             <li>
@@ -81,7 +75,7 @@
                                 <br/>
 
                                 <div class="">
-                                    <h2>Genres:</h2>
+                                    <h2>{% trans "Genres" %}:</h2>
                                     <ul class="list-inline prod_size display-layout">
                                         {% for genre in genres %}
                                             <li>
@@ -93,9 +87,9 @@
                                 <br/>
 
                                 <div>
-                                    <h2>Main time: {{ title.main_time }}h</h2>
-                                    <h2>Extra time: {{ title.extra_time }}h</h2>
-                                    <h2>Completion time: {{ title.completion_time }}h</h2>
+                                    <h2>{% trans "Main time" %}: {{ title.main_time }}h</h2>
+                                    <h2>{% trans "Extra time" %}: {{ title.extra_time }}h</h2>
+                                    <h2>{% trans "Completion time" %}: {{ title.completion_time }}h</h2>
                                 </div>
                             </div>
                         </div>

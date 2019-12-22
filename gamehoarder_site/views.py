@@ -37,18 +37,18 @@ def profileView(request, pk=None):
     if pk and pk != profile.pk:
         user = User.objects.get(pk=pk)
         current_profile = Profile.objects.get(user=user)
-        queue = Queue.objects.filter(user=user)[:4]
-        playing = Playing.objects.filter(user=user)[:4]
-        finished = Finished.objects.filter(user=user)[:4]
-        played = Played.objects.filter(user=user)[:4]
-        abandoned = Abandoned.objects.filter(user=user)[:4]
+        queue = Queue.objects.filter(user=user)[:5]
+        playing = Playing.objects.filter(user=user)[:5]
+        finished = Finished.objects.filter(user=user)[:5]
+        played = Played.objects.filter(user=user)[:5]
+        abandoned = Abandoned.objects.filter(user=user)[:5]
     else:
         current_profile = profile
-        queue = Queue.objects.filter(user=request.user)[:4]
-        playing = Playing.objects.filter(user=request.user)[:4]
-        finished = Finished.objects.filter(user=request.user)[:4]
-        played = Played.objects.filter(user=request.user)[:4]
-        abandoned = Abandoned.objects.filter(user=request.user)[:4]
+        queue = Queue.objects.filter(user=request.user)[:5]
+        playing = Playing.objects.filter(user=request.user)[:5]
+        finished = Finished.objects.filter(user=request.user)[:5]
+        played = Played.objects.filter(user=request.user)[:5]
+        abandoned = Abandoned.objects.filter(user=request.user)[:5]
 
     list_friends = current_profile.friends.all()
 
@@ -210,5 +210,5 @@ def edit_user(request):
     token.update(csrf(request))
     token['form'] = form
 
-    return render(request, 'settings/edit_user.html',
+    return render(request, 'account/edit_user.html',
                   {'tags': custom, 'user': request.user, 'profile': profile})

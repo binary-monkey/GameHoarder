@@ -15,7 +15,7 @@
             </a>
         </div>
         <div class="profile_info">
-            <span>Welcome,</span>
+            <span>{% trans "Welcome" %},</span>
             <h2>{{ profile.user.username }}</h2>
         </div>
     </div>
@@ -28,7 +28,7 @@
         <div class="menu_section">
             <h3>{% trans "General" %}</h3>
             <ul class="nav side-menu">
-                <li><a href="{% url "index" %}"><i class="fa fa-home"></i> Home <span class="fa"></span></a></li>
+                <li><a href="{% url "profileView" %}"><i class="fa fa-home"></i> {% trans "Home" %} <span class="fa"></span></a></li>
                 <li><a href="{% url "search_users" %}"><i class="fa fa-users"></i> {% trans "Users" %} <span
                         class="fa"></span></a></li>
             </ul>
