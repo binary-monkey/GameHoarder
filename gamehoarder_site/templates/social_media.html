@@ -1,0 +1,30 @@
+<!-- facebook sources -->
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v5.0"></script>
+
+<table align="left">
+    <tr>
+        <th>
+            Sharing options:
+        </th>
+    </tr>
+    <tr>
+        <th>
+            <!-- twitter button -->
+            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button"
+               data-text="{{ share_text }}"
+{#               data-hashtags="GameHoarder"#}
+               data-show-count="false">Tweet</a>
+            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        </th>
+    </tr>
+    <tr>
+        <th>
+            <!-- facebook button -->
+            <div class="fb-share-button" data-href="{{ request.get_full_path }}" data-layout="button" data-size="small">
+              <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{ target }}%2F&amp;src=sdkpreparse"
+              class="fb-xfbml-parse-ignore">Share</a></div>
+            </p>
+        </th>
+    </tr>
+</table>

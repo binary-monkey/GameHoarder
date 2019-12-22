@@ -412,7 +412,8 @@ def game_view(request, db_id):
         "game_version": game_version,
         "current_state": GameCollectionController.where_is(game_version, request.user)[0],
         "current_item": GameCollectionController.where_is(game_version, request.user)[1],
-        "can_review": can_review
+        "can_review": can_review,
+        "share_text": f"Check out {title.title} on #GameHoarder"
     }
 
     return render(request, 'collection/game_view.html', context)
