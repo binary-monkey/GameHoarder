@@ -185,17 +185,31 @@ def search(request):
         games = GameHoarderDB.search(params, use_api=use_api)
     else:
         games = None
+
+    games_wrapper = []
+    games = list(games)
+    for i in range(len(games)):
+        games_wrapper.append(
+            {
+                'game': games[i],
+                'developers': ' | '.join(dev.name for dev in games[i].parent_game.developers.all()),
+                'publishers': ' | '.join(pub.name for pub in games[i].parent_game.publishers.all())
+            }
+        )
+    print(games_wrapper)
+
     platforms = [p.get('name') for p in Platform.objects.order_by().values('name').distinct()]
     genres = [g.get('name') for g in Genre.objects.order_by().values('name').distinct()]
+    print(games)
     return render(request, 'search/search_form.html', {
         'first_platform': platforms[0] if len(platforms) > 0 else None,
         'first_genre': genres[0] if len(genres) > 0 else None,
         'platforms': platforms[1:] if len(platforms) > 1 else [],
         'genres': genres[1:] if len(genres) > 1 else [],
-        'games': games,
+        'games': games_wrapper,
         'user': request.user.interested_set,
         "tags": custom,
-        "profile": profile
+        "profile": profile,
     })
 
 

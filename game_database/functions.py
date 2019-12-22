@@ -174,7 +174,7 @@ class GameHoarderDB:
             # # key: REST param, value: model query
             'developer': 'parent_game__developers__name__contains',
             'genres': 'parent_game__genres__name__in',
-            'platform': 'platform__name__iendswith',
+            'platforms': 'platform__name__iendswith',
             'publisher': 'parent_game__publishers__name__contains',
             'year': 'parent_game__release_date__year',
             'title': 'parent_game__title__contains',
@@ -211,6 +211,7 @@ class GameHoarderDB:
                     platforms = Platform.objects.filter(db_id=platform.get('id'))
                     # evitar repetir búsquedas
                     if len(platforms) == 0:
+                        from game_collection.functions import GameCollectionController
                         p = GameCollectionController.create_platform(platform.get('id'))
                         p.save()
                         games = Game.objects.filter(db_id=game.get('id'))

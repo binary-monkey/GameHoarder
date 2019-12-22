@@ -20,48 +20,52 @@
                         <th class="text-center">{% trans "Title" %}</th>
                         <th class="text-center">{% trans "Release Date" %}</th>
                         <th class="text-center">{% trans "Platform" %}</th>
-                        <th class="text-center">{% trans "Developer" %}</th>
-                        <th class="text-center">{% trans "Publisher" %}</th>
+                        <th class="text-center">{% trans "Developers" %}</th>
+                        <th class="text-center">{% trans "Publishers" %}</th>
                         <th class="text-center">{% trans "Actions" %}</th>
                     </tr>
                     </thead>
                     <tbody>
-                    {% for game in games %}
-                        <tr>
-                            <td class="text-center">
-                                {% if game.name is not None %}
-                                    {{ game.name }}
-                                {% endif %}
-                            </td>
-                            <td class="text-center">
-                                {% if game.release_date is not None %}
-                                    {{ game.release_date|date:"Y-m-d" }}
-                                {% endif %}
-                            </td>
-                            <td class="text-center">
-                                {% if game.platform is not None %}
-                                    {{ game.platform.name }}
-                                {% endif %}
-                            </td>
-                            <td class="text-center">
-                                {% if game.platform is not None %}
-                                    {{ game.developers.name }}
-                                {% endif %}
-                            </td>
-                            <td class="text-center">
-                                {% if game.publishers is not None %}
-                                    {{ game.publishers.name }}
-                                {% endif %}
-                            </td>
-                            <td class="text-center">
-                                {% if game in user.interested_set %}
+                    {% for wrap in games %}
+                        {% if wrap.game.db_id %}
+                            <tr>
+                                <td class="text-center">
+                                    <a href="{% url "game_view" wrap.game.db_id %}">
+                                        {% if wrap.game.name is not None %}
+                                            {{ wrap.game.name }}
+                                        {% endif %}
+                                    </a>
+                                </td>
+                                <td class="text-center">
+                                    {% if wrap.game.release_date is not None %}
+                                        {{ wrap.game.release_date|date:"Y-m-d" }}
+                                    {% endif %}
+                                </td>
+                                <td class="text-center">
+                                    {% if wrap.game.platform is not None %}
+                                        {{ wrap.game.platform.name }}
+                                    {% endif %}
+                                </td>
+                                <td class="text-center">
+                                    {% if wrap.game.platform is not None %}
+                                        {{ wrap.developers }}
+                                    {% endif %}
+                                </td>
+                                <td class="text-center">
+                                    {% if wrap.game.publishers is not None %}
+                                        {{ wrap.publishers }}
+                                    {% endif %}
+                                </td>
+                                <td class="text-center">
+                                    {% if wrap.game in user.interested_set %}
 
-                                {% else %}
-                                    <a class="btn btn-primary"
-                                       href="{% url "add_game" game.db_id %}">{% trans "Add to interested" %}</a>
-                                {% endif %}
-                            </td>
-                        </tr>
+                                    {% else %}
+                                        <a class="btn btn-primary"
+                                           href="{% url "add_game" wrap.game.db_id %}">{% trans "Add to interested" %}</a>
+                                    {% endif %}
+                                </td>
+                            </tr>
+                        {% endif %}
                     {% endfor %}
                     </tbody>
                 </table>
