@@ -1,6 +1,6 @@
 {% extends "base_site.html" %}
 {% load i18n %}
-{% block title %} Game View {% endblock title %}
+{% block title %} {% trans "Game View" %} {% endblock title %}
 
 {% block stylesheets %}
     {{ block.super }}
@@ -12,7 +12,7 @@
         <div class="">
             <div class="page-title">
                 <div class="title_left">
-                    <h3>Game Overview</h3>
+                    <h3>{% trans "Game Overview" %}</h3>
                 </div>
 
             </div>
@@ -22,7 +22,6 @@
             <div class="row">
                 <div class="col-md-12 col-sm-12 ">
                     <div class="x_panel">
-
                         <div class="x_title">
                             <h2>{{ title.title }}</h2>
                             <ul class="nav navbar-right panel_toolbox" style="min-width: 0">
@@ -32,16 +31,12 @@
                             </ul>
                             <div class="clearfix"></div>
                         </div>
-
                         <div class="x_content">
-
                             <div class="col-md-4 col-sm-4">
                                 <img class="center-block img-thumbnail" style="max-height: 40vh"
                                      src="{{ title.img_url }}" alt="..."/>
                             </div>
-
                             <div class="col-md-5 col-sm-5 " style="border:0px solid #e5e5e5;">
-
                                 <div class="form-horizontal form-label-left">
 
                                     <div class="form-group">

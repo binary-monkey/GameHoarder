@@ -1,6 +1,6 @@
 {% extends "app/base_site.html" %}
-
-{% block title %} Fixed Footer {% endblock title %}
+{% load i18n %}
+{% block title %} {% trans "Fixed Footer" %} {% endblock title %}
 
 {% block stylesheets %}
     {{ block.super }}
@@ -15,7 +15,7 @@
         <div class="">
             <div class="page-title">
                 <div class="title_left">
-                    <h3>Fixed Footer <small> Just add class <strong>footer_fixed</strong></small></h3>
+                    <h3>{% trans "Fixed Footer" %} <small> {% trans "Just add class" %} <strong>{% trans "footer_fixed" %}</strong></small></h3>
                 </div>
             </div>
         </div>

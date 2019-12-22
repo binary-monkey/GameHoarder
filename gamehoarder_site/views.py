@@ -5,15 +5,18 @@ from django.contrib import auth
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.template.context_processors import csrf
+from django.urls import reverse
 from django.contrib.auth.models import Group
-from game_collection.models import Tag
+
+from game_collection.models import Tag, Queue, Played, Playing, Abandoned, Finished
 from game_database.functions import GameHoarderDB
 from game_database.models import Genre, Platform
 from .forms import *
 
 
+@login_required(login_url='login')
 def index(request):
     if not request.user.is_authenticated:
         return render(request, "landing.html")
@@ -28,14 +31,52 @@ def index(request):
 
 
 @login_required(login_url='login')
-def friends(request):
+def profileView(request, pk=None):
     custom = Tag.objects.filter(user=request.user)
     profile = Profile.objects.get(user=request.user)
+
+    if pk and pk != profile.pk:
+        user = User.objects.get(pk=pk)
+        current_profile = Profile.objects.get(user=user)
+        queue = Queue.objects.filter(user=user)[:5]
+        playing = Playing.objects.filter(user=user)[:5]
+        finished = Finished.objects.filter(user=user)[:5]
+        played = Played.objects.filter(user=user)[:5]
+        abandoned = Abandoned.objects.filter(user=user)[:5]
+    else:
+        current_profile = profile
+        queue = Queue.objects.filter(user=request.user)[:5]
+        playing = Playing.objects.filter(user=request.user)[:5]
+        finished = Finished.objects.filter(user=request.user)[:5]
+        played = Played.objects.filter(user=request.user)[:5]
+        abandoned = Abandoned.objects.filter(user=request.user)[:5]
+
+    list_friends = current_profile.friends.all()
+
     context = {
         "tags": custom,
-        "profile": profile
+        "profile": profile,
+        "current_profile": current_profile,
+        "queue": queue,
+        "playing": playing,
+        "finished": finished,
+        "played": played,
+        "abandoned": abandoned,
+        "list_friends": list_friends
     }
-    return render(request, "index.html", context)
+
+    return render(request, "account/profileView.html", context)
+
+
+@login_required(login_url='login')
+def change_friends(request, operation, pk):
+    friend = Profile.objects.get(pk=pk)
+    profile = Profile.objects.get(user=request.user)
+    if operation == 'add':
+        Profile.make_friend(profile, friend)
+    elif operation == 'remove':
+        Profile.remove_friend(profile, friend)
+    return redirect('profile_with_pk', pk=pk)
 
 
 @login_required(login_url='login')
@@ -80,7 +121,7 @@ def login_register(request):
             user = authenticate(username=username, password=password)
             if user is not None:
                 if user.is_active:
-                    if len(Profile.objects.filter(user=user))==0:
+                    if len(Profile.objects.filter(user=user)) == 0:
                         profile = Profile(user=user)
                         profile.save()
                     login(request, user)
@@ -99,6 +140,21 @@ def login_register(request):
 def logout(request):
     auth.logout(request)
     return HttpResponseRedirect("login")
+
+
+@login_required(login_url='login')
+def search_users(request):
+    custom = Tag.objects.filter(user=request.user)
+    profile = Profile.objects.get(user=request.user)
+    users = Profile.objects.exclude(user=request.user)
+
+    context = {
+        "tags": custom,
+        "profile": profile,
+        "users": users
+    }
+
+    return render(request, 'search/search_friends.html', context)
 
 
 @login_required(login_url='login')
@@ -141,6 +197,7 @@ def search(request):
         "profile": profile
     })
 
+
 @login_required(login_url='login')
 def edit_user(request):
     custom = Tag.objects.filter(user=request.user)
@@ -159,5 +216,6 @@ def edit_user(request):
     token.update(csrf(request))
     token['form'] = form
 
-    return render(request, 'settings/edit_user.html',
+
+    return render(request, 'account/edit_user.html',
                   {'tags': custom, 'user': request.user, 'profile': profile})
