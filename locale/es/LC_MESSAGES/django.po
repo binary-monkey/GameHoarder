@@ -23,36 +23,36 @@ msgstr ""
 
 #: game_collection/apps.py:7
 msgid "Game Collection"
-msgstr ""
+msgstr "Colección de juegos"
 
 #: game_collection/models.py:13 game_collection/models.py:80
 #: game_collection/models.py:106 game_collection/models.py:119
 #: game_collection/models.py:137 gamehoarder_site/models.py:25
 #: gamehoarder_site/templates/registration/login_register.html:27
 msgid "user"
-msgstr ""
+msgstr "usuario"
 
 #: game_collection/models.py:14 game_collection/models.py:81
 #: game_collection/models.py:121 game_collection/models.py:136
 msgid "game version"
-msgstr ""
+msgstr "version del juego"
 
 #: game_collection/models.py:15
 msgid "price"
-msgstr ""
+msgstr "precio"
 
 #: game_collection/models.py:17
 msgid "date adquired"
-msgstr ""
+msgstr "fecha de adquisición"
 
 #: game_collection/models.py:18
 msgid "time played"
-msgstr ""
+msgstr "tiempo jugado"
 
 #: game_collection/models.py:33 game_collection/models.py:47
 #: game_collection/models.py:62 game_collection/models.py:71
 msgid "date started"
-msgstr ""
+msgstr "fecha de inicio"
 
 #: game_collection/models.py:36 game_collection/models.py:37
 #: gamehoarder_site/templates/account/profileView.html:117
@@ -62,19 +62,19 @@ msgstr ""
 #: gamehoarder_site/templates/index.html:151
 #: gamehoarder_site/templates/sidebar.html:46
 msgid "Playing"
-msgstr ""
+msgstr "Jugando"
 
 #: game_collection/models.py:48
 msgid "date finished"
-msgstr ""
+msgstr "fecha finalizado"
 
 #: game_collection/models.py:49
 msgid "time to finish"
-msgstr ""
+msgstr "tiempo hasta terminar"
 
 #: game_collection/models.py:53
 msgid "playstyle"
-msgstr ""
+msgstr "estilo de juego"
 
 #: game_collection/models.py:57 game_collection/models.py:58
 #: gamehoarder_site/templates/account/profileView.html:162
@@ -84,11 +84,11 @@ msgstr ""
 #: gamehoarder_site/templates/index.html:151
 #: gamehoarder_site/templates/sidebar.html:47
 msgid "Finished"
-msgstr ""
+msgstr "Terminados"
 
 #: game_collection/models.py:63
 msgid "date stopped"
-msgstr ""
+msgstr "fecha paro"
 
 #: game_collection/models.py:66 game_collection/models.py:67
 #: gamehoarder_site/templates/account/profileView.html:206
@@ -98,11 +98,11 @@ msgstr ""
 #: gamehoarder_site/templates/index.html:151
 #: gamehoarder_site/templates/sidebar.html:48
 msgid "Played"
-msgstr ""
+msgstr "Jugado"
 
 #: game_collection/models.py:72
 msgid "date abandoned"
-msgstr ""
+msgstr "fecha abandonado"
 
 #: game_collection/models.py:75 game_collection/models.py:76
 #: gamehoarder_site/templates/account/profileView.html:250
@@ -113,143 +113,143 @@ msgstr ""
 #: gamehoarder_site/templates/landing.html:172
 #: gamehoarder_site/templates/sidebar.html:49
 msgid "Abandoned"
-msgstr ""
+msgstr "Abanonados"
 
 #: game_collection/models.py:83
 msgid "date added"
-msgstr ""
+msgstr "fecha añadido"
 
 #: game_collection/models.py:95 game_collection/models.py:96
 #: gamehoarder_site/templates/collection/import_list.html:335
 #: gamehoarder_site/templates/landing.html:163
 #: gamehoarder_site/templates/sidebar.html:60
 msgid "Wishlist"
-msgstr ""
+msgstr "Lista de Deseos"
 
 #: game_collection/models.py:101 game_collection/models.py:102
 #: gamehoarder_site/templates/collection/import_list.html:331
 #: gamehoarder_site/templates/landing.html:161
 #: gamehoarder_site/templates/sidebar.html:57
 msgid "Interested"
-msgstr ""
+msgstr "Interesados"
 
 #: game_collection/models.py:107 game_collection/models.py:120
 #: game_database/models.py:7 game_database/models.py:19
 #: game_database/models.py:64 game_database/models.py:84
 msgid "name"
-msgstr ""
+msgstr "nombre"
 
 #: game_collection/models.py:113
 msgid "Tag Group"
-msgstr ""
+msgstr "Grupo de etiqueta"
 
 #: game_collection/models.py:114
 msgid "Tag Groups"
-msgstr ""
+msgstr "Grupo de etiquetas"
 
 #: game_collection/models.py:124
 msgid "tag group"
-msgstr ""
+msgstr "grupo de etiqueta"
 
 #: game_collection/models.py:130
 msgid "Tag"
-msgstr ""
+msgstr "Etiqueta"
 
 #: game_collection/models.py:131
 msgid "Tags"
-msgstr ""
+msgstr "Etiquetas"
 
 #: game_collection/models.py:139
 msgid "score"
-msgstr ""
+msgstr "puntuación"
 
 #: game_collection/models.py:140
 msgid "text"
-msgstr ""
+msgstr "texto"
 
 #: game_collection/models.py:141
 msgid "date"
-msgstr ""
+msgstr "fecha"
 
 #: game_collection/models.py:147
 msgid "Review"
-msgstr ""
+msgstr "Reseña"
 
 #: game_collection/models.py:148
 msgid "Reviews"
-msgstr ""
+msgstr "Reseñas"
 
 #: game_database/apps.py:7
 msgid "Game Database"
-msgstr ""
+msgstr "Base de datos de juegos"
 
 #: game_database/models.py:8 game_database/models.py:20
 #: game_database/models.py:33 game_database/models.py:65
 #: gamehoarder_site/templates/collection/import_collection.html:179
 #: gamehoarder_site/templates/collection/import_list.html:179
 msgid "DB ID"
-msgstr ""
+msgstr "DB ID"
 
 #: game_database/models.py:14
 msgid "Genre"
-msgstr ""
+msgstr "Genero"
 
 #: game_database/models.py:15
 #: gamehoarder_site/templates/collection/game_view.html:102
 msgid "Genres"
-msgstr ""
+msgstr "Generos"
 
 #: game_database/models.py:26
 msgid "Company"
-msgstr ""
+msgstr "Compañía"
 
 #: game_database/models.py:27
 msgid "Companies"
-msgstr ""
+msgstr "Compañías"
 
 #: game_database/models.py:31
 msgid "title"
-msgstr ""
+msgstr "titulo"
 
 #: game_database/models.py:35
 msgid "main time"
-msgstr ""
+msgstr "tiempo principal"
 
 #: game_database/models.py:36
 msgid "extra time"
-msgstr ""
+msgstr "tiempo adicional"
 
 #: game_database/models.py:37
 msgid "completion time"
-msgstr ""
+msgstr "tiempo completación"
 
 #: game_database/models.py:39 game_database/models.py:85
 msgid "release date"
-msgstr ""
+msgstr "salida al mercado"
 
 #: game_database/models.py:40 game_database/models.py:67
 msgid "description"
-msgstr ""
+msgstr "descripción"
 
 #: game_database/models.py:41 game_database/models.py:68
 msgid "image url"
-msgstr ""
+msgstr "url de imagen"
 
 #: game_database/models.py:43 game_database/models.py:89
 msgid "publishers"
-msgstr ""
+msgstr "editores"
 
 #: game_database/models.py:45 game_database/models.py:91
 msgid "developers"
-msgstr ""
+msgstr "desarrolladores"
 
 #: game_database/models.py:48
 msgid "genres"
-msgstr ""
+msgstr "generos"
 
 #: game_database/models.py:50
 msgid "update"
-msgstr ""
+msgstr "actualizar"
 
 #: game_database/models.py:59
 #: gamehoarder_site/templates/collection/tables/abandoned_table.html:45
@@ -260,13 +260,13 @@ msgstr ""
 #: gamehoarder_site/templates/collection/tables/queue_table.html:43
 #: gamehoarder_site/templates/collection/tables/tag_table.html:42
 msgid "Game"
-msgstr ""
+msgstr "Juego"
 
 #: game_database/models.py:60
 #: gamehoarder_site/templates/account/profileView.html:57
 #: gamehoarder_site/templates/index.html:153
 msgid "Games"
-msgstr ""
+msgstr "Juegos"
 
 #: game_database/models.py:76
 #: gamehoarder_site/templates/collection/import_collection.html:180
@@ -282,16 +282,16 @@ msgstr ""
 #: gamehoarder_site/templates/collection/tables/tag_table.html:41
 #: gamehoarder_site/templates/search/search_table.html:22
 msgid "Platform"
-msgstr ""
+msgstr "Plataforma"
 
 #: game_database/models.py:77
 #: gamehoarder_site/templates/search/search_form.html:72
 msgid "Platforms"
-msgstr ""
+msgstr "Plataformas"
 
 #: game_database/models.py:107
 msgid "No reviews yet..."
-msgstr ""
+msgstr "No hay reseñas todavía..."
 
 #: game_database/models.py:112
 msgid "Game Version"
@@ -299,40 +299,40 @@ msgstr ""
 
 #: game_database/models.py:113
 msgid "Game Versions"
-msgstr ""
+msgstr "Versión de Juego"
 
 #: gamehoarder_site/models.py:24
 msgid "friends"
-msgstr ""
+msgstr "amigos"
 
 #: gamehoarder_site/models.py:29
 msgid "avatar"
-msgstr ""
+msgstr "avatar"
 
 #: gamehoarder_site/models.py:58
 #: gamehoarder_site/templates/top_navigation.html:19
 msgid "Profile"
-msgstr ""
+msgstr "Perfil"
 
 #: gamehoarder_site/models.py:59
 msgid "Profiles"
-msgstr ""
+msgstr "Perfiles"
 
 #: gamehoarder_site/templates/account/edit_user.html:9
 msgid "Modify user"
-msgstr ""
+msgstr "Modificar usuario"
 
 #: gamehoarder_site/templates/account/edit_user.html:21
 #: gamehoarder_site/templates/collection/import_collection.html:250
 #: gamehoarder_site/templates/collection/import_list.html:250
 #: gamehoarder_site/templates/registration/login_register.html:49
 msgid "Name"
-msgstr ""
+msgstr "Nombre"
 
 #: gamehoarder_site/templates/account/edit_user.html:31
 #: gamehoarder_site/templates/registration/login_register.html:54
 msgid "Surname"
-msgstr ""
+msgstr "Apellido"
 
 #: gamehoarder_site/templates/account/edit_user.html:56
 #: gamehoarder_site/templates/account/edit_user.html:66
@@ -340,47 +340,47 @@ msgstr ""
 #: gamehoarder_site/templates/registration/login_register.html:73
 #: gamehoarder_site/templates/registration/password_reset_confirm.html:26
 msgid "Password"
-msgstr ""
+msgstr "Contraseña"
 
 #: gamehoarder_site/templates/account/edit_user.html:61
 msgid "Repeat password"
-msgstr ""
+msgstr "Repetir Contraseña"
 
 #: gamehoarder_site/templates/account/edit_user.html:72
 #: gamehoarder_site/templates/registration/login_register.html:80
 #: gamehoarder_site/templates/registration/password_reset_confirm.html:34
 #: gamehoarder_site/templates/reset_password/password_reset_confirm.html:22
 msgid "Repeat Password"
-msgstr ""
+msgstr "Repetir Contraseña"
 
 #: gamehoarder_site/templates/account/edit_user.html:79
 msgid "Avatar"
-msgstr ""
+msgstr "Avatar"
 
 #: gamehoarder_site/templates/account/edit_user.html:90
 #: gamehoarder_site/templates/registration/password_reset_confirm.html:40
 msgid "Save"
-msgstr ""
+msgstr "Guardar"
 
 #: gamehoarder_site/templates/account/profileView.html:27
 msgid "Edit profile"
-msgstr ""
+msgstr "Editar perfil"
 
 #: gamehoarder_site/templates/account/profileView.html:41
 msgid "Edit Profile"
-msgstr ""
+msgstr "Editar perfil"
 
 #: gamehoarder_site/templates/account/profileView.html:45
 msgid "Follow"
-msgstr ""
+msgstr "Seguir"
 
 #: gamehoarder_site/templates/account/profileView.html:47
 msgid "Unfollow"
-msgstr ""
+msgstr "Dejar de Seguir"
 
 #: gamehoarder_site/templates/account/profileView.html:61
 msgid "Friends"
-msgstr ""
+msgstr "Amigos"
 
 #: gamehoarder_site/templates/account/profileView.html:73
 #: gamehoarder_site/templates/collection/import_collection.html:332
@@ -391,7 +391,7 @@ msgstr ""
 #: gamehoarder_site/templates/landing.html:167
 #: gamehoarder_site/templates/sidebar.html:45
 msgid "Queue"
-msgstr ""
+msgstr "Cola"
 
 #: gamehoarder_site/templates/account/profileView.html:85
 #: gamehoarder_site/templates/account/profileView.html:129
@@ -399,63 +399,63 @@ msgstr ""
 #: gamehoarder_site/templates/account/profileView.html:218
 #: gamehoarder_site/templates/account/profileView.html:262
 msgid "No Games"
-msgstr ""
+msgstr "No hay Juegos"
 
 #: gamehoarder_site/templates/account/profileView.html:300
 msgid "No Friends"
-msgstr ""
+msgstr "No hay Amigos"
 
 #: gamehoarder_site/templates/base_site.html:14
 msgid "GameHoarder"
-msgstr ""
+msgstr "GameHoarder"
 
 #: gamehoarder_site/templates/collection/collection_summary.html:3
 #: gamehoarder_site/templates/index.html:33
 msgid "Collection Summary"
-msgstr ""
+msgstr "Resumen Colección"
 
 #: gamehoarder_site/templates/collection/collection_summary.html:12
 #: gamehoarder_site/templates/collection/import_collection.html:6
 #: gamehoarder_site/templates/collection/import_collection.html:18
 msgid "Import Collection"
-msgstr ""
+msgstr "Importar Collección"
 
 #: gamehoarder_site/templates/collection/collection_summary.html:13
 msgid "Import Lists"
-msgstr ""
+msgstr "Importar Lista"
 
 #: gamehoarder_site/templates/collection/forms/filter_tables.html:6
 msgid "Filter"
-msgstr ""
+msgstr "Filtro"
 
 #: gamehoarder_site/templates/collection/forms/filter_tables.html:69
 #: gamehoarder_site/templates/search/search_form.html:91
 msgid "Toggle Options"
-msgstr ""
+msgstr "Opciones de cambio"
 
 #: gamehoarder_site/templates/collection/forms/move_game.html:4
 #: gamehoarder_site/templates/collection/forms/move_game.html:16
 msgid "Move"
-msgstr ""
+msgstr "Mover"
 
 #: gamehoarder_site/templates/collection/forms/move_game.html:24
 msgid "Movement Form"
-msgstr ""
+msgstr "Movide Desde"
 
 #: gamehoarder_site/templates/collection/forms/move_game.html:37
 #: gamehoarder_site/templates/collection/import_collection.html:328
 #: gamehoarder_site/templates/collection/import_list.html:327
 msgid "List"
-msgstr ""
+msgstr "Lista"
 
 #: gamehoarder_site/templates/collection/forms/move_game.html:65
 msgid "Item"
-msgstr ""
+msgstr "Artículo"
 
 #: gamehoarder_site/templates/collection/forms/move_game.html:75
 #: gamehoarder_site/templates/collection/game_view.html:195
 msgid "Cost"
-msgstr ""
+msgstr "Coste"
 
 #: gamehoarder_site/templates/collection/forms/move_game.html:94
 #: gamehoarder_site/templates/collection/forms/move_game.html:99
@@ -466,13 +466,13 @@ msgstr ""
 #: gamehoarder_site/templates/collection/tables/playing_table.html:41
 #: gamehoarder_site/templates/collection/tables/queue_table.html:41
 msgid "Date Adquired"
-msgstr ""
+msgstr "Fecha Adquisición"
 
 #: gamehoarder_site/templates/collection/forms/move_game.html:104
 #: gamehoarder_site/templates/collection/forms/move_game.html:125
 #: gamehoarder_site/templates/collection/forms/move_game.html:152
 msgid "success"
-msgstr ""
+msgstr "éxito"
 
 #: gamehoarder_site/templates/collection/forms/move_game.html:113
 #: gamehoarder_site/templates/collection/forms/move_game.html:118
@@ -482,12 +482,12 @@ msgstr ""
 #: gamehoarder_site/templates/collection/tables/played_table.html:42
 #: gamehoarder_site/templates/collection/tables/playing_table.html:42
 msgid "Date Started"
-msgstr ""
+msgstr "Fecha Comienzo"
 
 #: gamehoarder_site/templates/collection/forms/move_game.html:135
 #: gamehoarder_site/templates/collection/forms/move_game.html:140
 msgid "Date Other"
-msgstr ""
+msgstr "Fecha otros"
 
 #: gamehoarder_site/templates/collection/forms/move_game.html:160
 #: gamehoarder_site/templates/collection/game_view.html:294
@@ -495,77 +495,77 @@ msgstr ""
 #: gamehoarder_site/templates/collection/tables/finished_table.html:45
 #: gamehoarder_site/templates/collection/tables/played_table.html:46
 msgid "Time Played"
-msgstr ""
+msgstr "Tiempo Jugado"
 
 #: gamehoarder_site/templates/collection/forms/move_game.html:180
 #: gamehoarder_site/templates/collection/game_view.html:242
 #: gamehoarder_site/templates/collection/tables/abandoned_table.html:47
 #: gamehoarder_site/templates/collection/tables/finished_table.html:46
 msgid "Time to Finish"
-msgstr ""
+msgstr "Tiempo hasta final"
 
 #: gamehoarder_site/templates/collection/forms/move_game.html:200
 #: gamehoarder_site/templates/collection/game_view.html:253
 msgid "Playstyle"
-msgstr ""
+msgstr "Estilo de juego"
 
 #: gamehoarder_site/templates/collection/forms/move_game.html:211
 msgid "Main Story"
-msgstr ""
+msgstr "Historia Principal"
 
 #: gamehoarder_site/templates/collection/forms/move_game.html:217
 msgid "Main + Extras"
-msgstr ""
+msgstr "Principal + Extras"
 
 #: gamehoarder_site/templates/collection/forms/move_game.html:223
 msgid "Completionist"
-msgstr ""
+msgstr "Complecionista"
 
 #: gamehoarder_site/templates/collection/forms/move_game.html:232
 #: gamehoarder_site/templates/search/search_form.html:129
 msgid "Cancel"
-msgstr ""
+msgstr "Cancelar"
 
 #: gamehoarder_site/templates/collection/forms/move_game.html:233
 #: gamehoarder_site/templates/search/search_form.html:130
 msgid "Reset"
-msgstr ""
+msgstr "Resetear"
 
 #: gamehoarder_site/templates/collection/forms/move_game.html:234
 #: gamehoarder_site/templates/search/search_form.html:131
 msgid "Submit"
-msgstr ""
+msgstr "Enviar"
 
 #: gamehoarder_site/templates/collection/game_view.html:3
 msgid "Game View"
-msgstr ""
+msgstr "Vista de Juego"
 
 #: gamehoarder_site/templates/collection/game_view.html:15
 msgid "Game Overview"
-msgstr ""
+msgstr "Resumen del juego"
 
 #: gamehoarder_site/templates/collection/game_view.html:46
 msgid "Description"
-msgstr ""
+msgstr "Descripción"
 
 #: gamehoarder_site/templates/collection/game_view.html:57
 #: gamehoarder_site/templates/search/search_table.html:21
 msgid "Release Date"
-msgstr ""
+msgstr "Fecha Publicación"
 
 #: gamehoarder_site/templates/collection/game_view.html:77
 #: gamehoarder_site/templates/search/search_table.html:24
 msgid "Publishers"
-msgstr ""
+msgstr "Editores"
 
 #: gamehoarder_site/templates/collection/game_view.html:90
 #: gamehoarder_site/templates/search/search_table.html:23
 msgid "Developers"
-msgstr ""
+msgstr "Desarrolladores"
 
 #: gamehoarder_site/templates/collection/game_view.html:115
 msgid "GameHoarder's Score"
-msgstr ""
+msgstr "Puntuación GameHoarder"
 
 #: gamehoarder_site/templates/collection/game_view.html:126
 #: gamehoarder_site/templates/collection/tables/list_table.html:43
@@ -573,95 +573,95 @@ msgstr ""
 #: gamehoarder_site/templates/collection/tables/queue_table.html:44
 #: gamehoarder_site/templates/collection/tables/tag_table.html:43
 msgid "Main Time"
-msgstr ""
+msgstr "Tiempo Principal"
 
 #: gamehoarder_site/templates/collection/game_view.html:137
 msgid "Extra Time"
-msgstr ""
+msgstr "Tiempo Extra"
 
 #: gamehoarder_site/templates/collection/game_view.html:148
 msgid "Completion Time"
-msgstr ""
+msgstr "Tiempo Completación"
 
 #: gamehoarder_site/templates/collection/game_view.html:168
 msgid "User Information"
-msgstr ""
+msgstr "Datos de Usuario"
 
 #: gamehoarder_site/templates/collection/game_view.html:183
 msgid "State"
-msgstr ""
+msgstr "Stado"
 
 #: gamehoarder_site/templates/collection/game_view.html:231
 #: gamehoarder_site/templates/collection/tables/abandoned_table.html:43
 #: gamehoarder_site/templates/collection/tables/finished_table.html:42
 #: gamehoarder_site/templates/collection/tables/played_table.html:43
 msgid "Date Finished"
-msgstr ""
+msgstr "Fecha Finalización"
 
 #: gamehoarder_site/templates/collection/game_view.html:267
 msgid "Date Stopped"
-msgstr ""
+msgstr "Fecha Paro"
 
 #: gamehoarder_site/templates/collection/game_view.html:281
 msgid "Date Abandoned"
-msgstr ""
+msgstr "Fecha Abandono"
 
 #: gamehoarder_site/templates/collection/game_view.html:311
 msgid "Remove"
-msgstr ""
+msgstr "Eliminar"
 
 #: gamehoarder_site/templates/collection/game_view.html:326
 msgid "Latests Reviews"
-msgstr ""
+msgstr "Últimos Comentarios"
 
 #: gamehoarder_site/templates/collection/game_view.html:336
 #: gamehoarder_site/templates/collection/game_view.html:348
 msgid "Create review"
-msgstr ""
+msgstr "Crear reseña"
 
 #: gamehoarder_site/templates/collection/game_view.html:338
 msgid "Edit review"
-msgstr ""
+msgstr "Editar reseña"
 
 #: gamehoarder_site/templates/collection/game_view.html:339
 msgid "Remove review"
-msgstr ""
+msgstr "Eliminar reseña"
 
 #: gamehoarder_site/templates/collection/game_view.html:359
 msgid "Score"
-msgstr ""
+msgstr "Puntuación"
 
 #: gamehoarder_site/templates/collection/game_view.html:371
 msgid "Leave a comment"
-msgstr ""
+msgstr "Dejar comentario"
 
 #: gamehoarder_site/templates/collection/game_view.html:385
 msgid "Close"
-msgstr ""
+msgstr "Cerrar"
 
 #: gamehoarder_site/templates/collection/game_view.html:386
 msgid "Save review"
-msgstr ""
+msgstr "Guardar reseña"
 
 #: gamehoarder_site/templates/collection/game_view.html:387
 msgid "Score value is incorrect"
-msgstr ""
+msgstr "Valor de puntuación es incorrecto"
 
 #: gamehoarder_site/templates/collection/import_collection.html:27
 #: gamehoarder_site/templates/collection/import_list.html:27
 msgid "File Selector"
-msgstr ""
+msgstr "Selector de Archivos"
 
 #: gamehoarder_site/templates/collection/import_collection.html:41
 #: gamehoarder_site/templates/collection/import_list.html:41
 #: venv/lib/python3.7/site-packages/django/db/models/fields/files.py:221
 msgid "File"
-msgstr ""
+msgstr "Archivo"
 
 #: gamehoarder_site/templates/collection/import_collection.html:49
 #: gamehoarder_site/templates/collection/import_list.html:49
 msgid "Remove Header"
-msgstr ""
+msgstr "Eliminar Encabezamiento"
 
 #: gamehoarder_site/templates/collection/import_collection.html:62
 #: gamehoarder_site/templates/collection/import_list.html:62
@@ -673,93 +673,93 @@ msgstr ""
 #: gamehoarder_site/templates/collection/import_list.html:75
 #: gamehoarder_site/templates/collection/import_list.html:285
 msgid "Progress"
-msgstr ""
+msgstr "Subir"
 
 #: gamehoarder_site/templates/collection/import_collection.html:104
 #: gamehoarder_site/templates/collection/import_collection.html:315
 #: gamehoarder_site/templates/collection/import_list.html:104
 #: gamehoarder_site/templates/collection/import_list.html:314
 msgid "Import Summary"
-msgstr ""
+msgstr "Importar Resumen"
 
 #: gamehoarder_site/templates/collection/import_collection.html:118
 #: gamehoarder_site/templates/collection/import_collection.html:329
 #: gamehoarder_site/templates/collection/import_list.html:117
 #: gamehoarder_site/templates/collection/import_list.html:328
 msgid "Number"
-msgstr ""
+msgstr "Numero"
 
 #: gamehoarder_site/templates/collection/import_collection.html:121
 #: gamehoarder_site/templates/collection/import_list.html:120
 msgid "Imported by ID"
-msgstr ""
+msgstr "Importado por ID"
 
 #: gamehoarder_site/templates/collection/import_collection.html:125
 #: gamehoarder_site/templates/collection/import_list.html:124
 msgid "Imported by Search"
-msgstr ""
+msgstr "Importado por Busqueda"
 
 #: gamehoarder_site/templates/collection/import_collection.html:129
 #: gamehoarder_site/templates/collection/import_list.html:128
 msgid "Total Imported"
-msgstr ""
+msgstr "Total Importado"
 
 #: gamehoarder_site/templates/collection/import_collection.html:133
 #: gamehoarder_site/templates/collection/import_list.html:132
 msgid "Failed"
-msgstr ""
+msgstr "Fallido"
 
 #: gamehoarder_site/templates/collection/import_collection.html:151
 #: gamehoarder_site/templates/collection/import_list.html:150
 msgid "Import"
-msgstr ""
+msgstr "Importar"
 
 #: gamehoarder_site/templates/collection/import_collection.html:165
 #: gamehoarder_site/templates/collection/import_list.html:165
 msgid "Not Matching Titles"
-msgstr ""
+msgstr "Títulos No Coincidentes"
 
 #: gamehoarder_site/templates/collection/import_collection.html:181
 #: gamehoarder_site/templates/collection/import_list.html:181
 msgid "Original Name"
-msgstr ""
+msgstr "Nombre Original"
 
 #: gamehoarder_site/templates/collection/import_collection.html:182
 #: gamehoarder_site/templates/collection/import_list.html:182
 msgid "DB Name"
-msgstr ""
+msgstr "Nombre DB"
 
 #: gamehoarder_site/templates/collection/import_collection.html:222
 #: gamehoarder_site/templates/collection/import_collection.html:270
 #: gamehoarder_site/templates/collection/import_list.html:222
 #: gamehoarder_site/templates/collection/import_list.html:270
 msgid "Download"
-msgstr ""
+msgstr "Descargar"
 
 #: gamehoarder_site/templates/collection/import_collection.html:238
 #: gamehoarder_site/templates/collection/import_list.html:238
 msgid "Failed Titles"
-msgstr ""
+msgstr "Títulos Fallidos"
 
 #: gamehoarder_site/templates/collection/import_collection.html:325
 #: gamehoarder_site/templates/collection/import_list.html:324
 msgid "out of"
-msgstr ""
+msgstr "fuera de"
 
 #: gamehoarder_site/templates/collection/import_collection.html:325
 #: gamehoarder_site/templates/collection/import_list.html:324
 msgid "failed"
-msgstr ""
+msgstr "fallido"
 
 #: gamehoarder_site/templates/collection/import_collection.html:359
 #: gamehoarder_site/templates/collection/import_list.html:346
 msgid "Finish"
-msgstr ""
+msgstr "Finalizar"
 
 #: gamehoarder_site/templates/collection/import_list.html:6
 #: gamehoarder_site/templates/collection/import_list.html:17
 msgid "Import List"
-msgstr ""
+msgstr "Importar Lista"
 
 #: gamehoarder_site/templates/collection/tables/abandoned_table.html:29
 #: gamehoarder_site/templates/collection/tables/finished_table.html:28
@@ -769,40 +769,40 @@ msgstr ""
 #: gamehoarder_site/templates/collection/tables/queue_table.html:29
 #: gamehoarder_site/templates/collection/tables/tag_table.html:29
 msgid "Titles"
-msgstr ""
+msgstr "Titulos"
 
 #: gamehoarder_site/templates/collection/tables/list_table.html:40
 msgid "Date Added"
-msgstr ""
+msgstr "Fecha Añadido"
 
 #: gamehoarder_site/templates/collection/tables/list_table.html:44
 #: gamehoarder_site/templates/collection/tables/playing_table.html:46
 #: gamehoarder_site/templates/collection/tables/queue_table.html:45
 #: gamehoarder_site/templates/collection/tables/tag_table.html:44
 msgid "Main + Extra Time"
-msgstr ""
+msgstr "Principal + Extras Tiempo"
 
 #: gamehoarder_site/templates/fixed_footer.html:3
 #: gamehoarder_site/templates/fixed_footer.html:18
 msgid "Fixed Footer"
-msgstr ""
+msgstr "Fixed Footer"
 
 #: gamehoarder_site/templates/fixed_footer.html:18
 msgid "Just add class"
-msgstr ""
+msgstr "Sólo hay que añadir la clase"
 
 #: gamehoarder_site/templates/fixed_footer.html:18
 msgid "footer_fixed"
-msgstr ""
+msgstr "footer_fixed"
 
 #: gamehoarder_site/templates/footer.html:4
 msgid "Chipmunk - Based on"
-msgstr ""
+msgstr "Chipmunk - Basado en"
 
 #: gamehoarder_site/templates/index.html:6
 #: gamehoarder_site/templates/sidebar.html:31
 msgid "Home"
-msgstr ""
+msgstr "Inicio"
 
 #: gamehoarder_site/templates/landing.html:49
 #: gamehoarder_site/templates/registration/login_register.html:8
@@ -811,45 +811,45 @@ msgstr ""
 #: gamehoarder_site/templates/reset_password/password_reset_complete.html:14
 #: gamehoarder_site/templates/reset_password/password_reset_form.html:11
 msgid "Login"
-msgstr ""
+msgstr "Ingresar"
 
 #: gamehoarder_site/templates/landing.html:49
 #: gamehoarder_site/templates/registration/login_register.html:18
 #: gamehoarder_site/templates/registration/login_register.html:43
 msgid "Register"
-msgstr ""
+msgstr "Registrar"
 
 #: gamehoarder_site/templates/landing.html:62
-msgid "Game Hoarde"
-msgstr ""
+msgid "Game Hoarder"
+msgstr "Game Hoarder"
 
 #: gamehoarder_site/templates/landing.html:63
 msgid "Upgrade your Collection Tracking"
-msgstr ""
+msgstr "Actualice el Seguimiento de su Colección"
 
 #: gamehoarder_site/templates/landing.html:65
 msgid "Read More"
-msgstr ""
+msgstr "Leer Más"
 
 #: gamehoarder_site/templates/landing.html:119
 msgid "Games Tracked"
-msgstr ""
+msgstr "Juegos Rastreados"
 
 #: gamehoarder_site/templates/landing.html:128
 msgid "Hours Logged"
-msgstr ""
+msgstr "Horas Registradas"
 
 #: gamehoarder_site/templates/landing.html:137
-msgid "Reviews Submitte"
-msgstr ""
+msgid "Reviews Submitted"
+msgstr "Reseñas Enviadas"
 
 #: gamehoarder_site/templates/landing.html:150
 msgid "Managing your Collection"
-msgstr ""
+msgstr "Gestionando su colección"
 
 #: gamehoarder_site/templates/landing.html:151
 msgid "The Game Lifecycle"
-msgstr ""
+msgstr "El Ciclo de Vida del Juego"
 
 #: gamehoarder_site/templates/landing.html:159
 msgid ""
@@ -857,16 +857,21 @@ msgid ""
 "keep track of what games you actually want to play, in order to help you "
 "better manage this we introduce the following lists"
 msgstr ""
+"Hoy en día hay tantos juegos que se lanzan cada semana que es difícil llevar "
+"la cuenta de los juegos a los que realmente quieres jugar, para ayudarte a "
+"manejarlo mejor te presentamos las siguientes listas"
 
 #: gamehoarder_site/templates/landing.html:161
 msgid ""
 "this is the list of games you are interested in but you have yet to decide "
 "if you will be playing"
 msgstr ""
+"esta es la lista de juegos en los que estás interesado pero aún no has decidido "
+"si vas a jugar"
 
 #: gamehoarder_site/templates/landing.html:163
 msgid "games fall into this list after you have decided to play them"
-msgstr ""
+msgstr "los juegos entran en esta lista después de que usted haya decidido jugarlos"
 
 #: gamehoarder_site/templates/landing.html:165
 msgid ""
@@ -875,24 +880,30 @@ msgid ""
 "collecting dust in your shelf, virtual or otherwise, to help you track your "
 "games and their status we propose the following lifecycle"
 msgstr ""
+"No en los juegos que realmente tienes, una de las cuestiones más importantes "
+"a la hora de llevar un registro de tu colección es saber si has jugado o sólo "
+"está acumulando polvo en tu estantería, virtual o no, para ayudarte a llevar "
+"un seguimiento de tus juegos y su estado proponemos el siguiente ciclo de vida"
 
 #: gamehoarder_site/templates/landing.html:167
 msgid "this is the first stage of your game, when you've just adquired it"
-msgstr ""
+msgstr "esta es la primera etapa de tu juego, cuando acabas de adquirirlo"
 
 #: gamehoarder_site/templates/landing.html:168
 msgid "these are the games you are currently playing"
-msgstr ""
+msgstr "estos son los juegos a los que estás jugando actualmente"
 
 #: gamehoarder_site/templates/landing.html:169
 msgid "this is stage is for a campaign game you have beaten"
-msgstr ""
+msgstr "este escenario es para un juego de campaña que has vencido"
 
 #: gamehoarder_site/templates/landing.html:170
 msgid ""
 "this stage is far more general, a game falls here when you've had your fill "
 "and will not continue playing"
 msgstr ""
+"esta etapa es mucho más general, un juego cae aquí cuando ya has tenido tu "
+"ración y no seguirás jugando"
 
 #: gamehoarder_site/templates/landing.html:172
 msgid ""
@@ -901,10 +912,14 @@ msgid ""
 "long or maybe you just don't like the game, you may want to consider "
 "refunding games you have in this list"
 msgstr ""
+"esta etapa es un poco triste, cuando un juego cae aquí es porque has dejado "
+"de jugar debido a que no quieres seguir jugando, tal vez la campaña es "
+"demasiado larga o tal vez simplemente no te gusta el juego, es posible "
+"que quieras considerar el reembolso de los juegos que tienes en esta lista"
 
 #: gamehoarder_site/templates/landing.html:186
 msgid "We want to help you upgrade your hoarding experience"
-msgstr ""
+msgstr "Queremos ayudarle a mejorar su experiencia de acaparamiento"
 
 #: gamehoarder_site/templates/landing.html:187
 msgid "We are dying to have you be part of our community"
@@ -912,7 +927,7 @@ msgstr ""
 
 #: gamehoarder_site/templates/landing.html:188
 msgid "Sign up with us"
-msgstr ""
+msgstr "Nos morimos por que seas parte de nuestra comunidad"
 
 #: gamehoarder_site/templates/landing.html:202
 msgid ""
@@ -920,93 +935,100 @@ msgid ""
 "more, from the binmonkey tema we hope you trust us to keep track of your "
 "game hoarding obsession"
 msgstr ""
+"GameHoarder se desarrolló como un proyecto de estudiantes, pero se ha "
+"convertido en mucho más, desde el tema del binmonkey esperamos que confíes "
+"en nosotros para seguir la pista de tu obsesión por el acaparamiento de juegos"
 
 #: gamehoarder_site/templates/landing.html:214
 msgid "Contact"
-msgstr ""
+msgstr "Contactar"
 
 #: gamehoarder_site/templates/landing.html:216
 msgid "Find us at our Github group page"
-msgstr ""
+msgstr "Encuéntranos en nuestra página de grupo en Github"
 
 #: gamehoarder_site/templates/registration/login_register.html:23
 msgid "Welcome again!"
-msgstr ""
+msgstr "Bienvenido de nuevo!"
 
 #: gamehoarder_site/templates/registration/login_register.html:38
 msgid "Have you forgotten your password?"
-msgstr ""
+msgstr "¿Ha olvidado su contraseña?"
 
 #: gamehoarder_site/templates/registration/login_register.html:61
 msgid "User"
-msgstr ""
+msgstr "Usuario"
 
 #: gamehoarder_site/templates/registration/login_register.html:86
 msgid "Create"
-msgstr ""
+msgstr "Crear"
 
 #: gamehoarder_site/templates/registration/password_reset_complete.html:5
 #: gamehoarder_site/templates/registration/password_reset_confirm.html:7
 #: gamehoarder_site/templates/registration/password_reset_done.html:7
 #: gamehoarder_site/templates/registration/password_reset_form.html:7
 msgid "Password reset"
-msgstr ""
+msgstr "Restablecer la contraseña"
 
 #: gamehoarder_site/templates/registration/password_reset_complete.html:18
 msgid "GameHoarder Login"
-msgstr ""
+msgstr "Inicio de Sesión en GameHoarder"
 
 #: gamehoarder_site/templates/registration/password_reset_complete.html:32
 msgid "Your password has been updated. You can now"
-msgstr ""
+msgstr "Su contraseña ha sido actualizada. Ahora puede"
 
 #: gamehoarder_site/templates/registration/password_reset_confirm.html:21
 msgid "Change password"
-msgstr ""
+msgstr "Cambiar contraseña"
 
 #: gamehoarder_site/templates/registration/password_reset_confirm.html:46
 msgid ""
 "The link is invalid, it may have been already used, please request another "
 "one."
 msgstr ""
+"El enlace no es válido, puede que ya haya sido utilizado, por favor "
+"solicite otro."
 
 #: gamehoarder_site/templates/registration/password_reset_done.html:21
 msgid "We have sent you a email to reset your password."
-msgstr ""
+msgstr "Le hemos enviado un correo electrónico para restablecer su contraseña."
 
 #: gamehoarder_site/templates/registration/password_reset_done.html:25
 msgid ""
 "In case youd haven't received it yet, check if you introduced it correctly "
 "and also the spam folder."
 msgstr ""
+"En caso de que no lo hayas recibido todavía, comprueba si lo has "
+"introducido correctamente y también la carpeta de spam."
 
 #: gamehoarder_site/templates/registration/password_reset_email.html:3
 msgid "In order to restablish the password for your account"
-msgstr ""
+msgstr "Para restablecer la contraseña de su cuenta"
 
 #: gamehoarder_site/templates/registration/password_reset_email.html:4
 msgid "go to the following link"
-msgstr ""
+msgstr "ir al siguiente enlace"
 
 #: gamehoarder_site/templates/registration/password_reset_email.html:8
 msgid "If it doesn't work try copying the url to your search bar"
-msgstr ""
+msgstr "Si no funciona, intente copiar la url en su barra de búsqueda."
 
 #: gamehoarder_site/templates/registration/password_reset_email.html:10
 msgid "Regards"
-msgstr ""
+msgstr "Saludos"
 
 #: gamehoarder_site/templates/registration/password_reset_email.html:11
 msgid "GameHoarder Support"
-msgstr ""
+msgstr "Soporte de GameHoarder"
 
 #: gamehoarder_site/templates/registration/password_reset_form.html:21
 msgid "Forgotten password"
-msgstr ""
+msgstr "Contraseña olvidada"
 
 #: gamehoarder_site/templates/registration/password_reset_form.html:30
 msgid "Send"
-msgstr ""
+msgstr "Enviar"
 
 #: gamehoarder_site/templates/reset_password/password_reset_complete.html:3
 #: gamehoarder_site/templates/reset_password/password_reset_complete.html:10
@@ -1014,228 +1036,231 @@ msgstr ""
 #: gamehoarder_site/templates/reset_password/password_reset_confirm.html:12
 #: gamehoarder_site/templates/reset_password/password_reset_confirm.html:18
 msgid "New Password"
-msgstr ""
+msgstr "Nueva Contraseña"
 
 #: gamehoarder_site/templates/reset_password/password_reset_complete.html:13
 msgid "Your password is reset"
-msgstr ""
+msgstr "Su contraseña está restablecida"
 
 #: gamehoarder_site/templates/reset_password/password_reset_confirm.html:29
 msgid "USED LINK"
-msgstr ""
+msgstr "LINK UTILIZADO"
 
 #: gamehoarder_site/templates/reset_password/password_reset_email.html:2
 msgid "A change of password was asked"
-msgstr ""
+msgstr "Se pidió un cambio de contraseña"
 
 #: gamehoarder_site/templates/reset_password/password_reset_email.html:3
 msgid "Click in the next link to create a new password"
-msgstr ""
+msgstr "Haga clic en el siguiente enlace para crear una nueva contraseña"
 
 #: gamehoarder_site/templates/reset_password/password_reset_email.html:7
 msgid "Your username is"
-msgstr ""
+msgstr "Su nombre de usuario es"
 
 #: gamehoarder_site/templates/reset_password/password_reset_form.html:3
 msgid "Reset Password"
-msgstr ""
+msgstr "Restablecer la contraseña"
 
 #: gamehoarder_site/templates/reset_password/password_reset_form.html:17
 msgid "Email"
-msgstr ""
+msgstr "Email"
 
 #: gamehoarder_site/templates/search/search_form.html:5
 msgid "Search results"
-msgstr ""
+msgstr "Resultados de la búsqueda"
 
 #: gamehoarder_site/templates/search/search_form.html:20
 msgid "Game Search"
-msgstr ""
+msgstr "Búsqueda de juegos"
 
 #: gamehoarder_site/templates/search/search_form.html:28
 msgid "Search Parameters"
-msgstr ""
+msgstr "Parámetros de búsqueda"
 
 #: gamehoarder_site/templates/search/search_form.html:41
 #: gamehoarder_site/templates/search/search_table.html:20
 #: gamehoarder_site/templates/upload.html:9
 msgid "Title"
-msgstr ""
+msgstr "Título"
 
 #: gamehoarder_site/templates/search/search_form.html:56
 msgid "Developer"
-msgstr ""
+msgstr "Desarrollador"
 
 #: gamehoarder_site/templates/search/search_form.html:64
 msgid "Publisher"
-msgstr ""
+msgstr "Editor"
 
 #: gamehoarder_site/templates/search/search_form.html:115
 msgid "Use GiantBomb API *"
-msgstr ""
+msgstr "Usar la API de GiantBomb *"
 
 #: gamehoarder_site/templates/search/search_form.html:119
 #: venv/lib/python3.7/site-packages/django/forms/widgets.py:713
 msgid "No"
-msgstr ""
+msgstr "No"
 
 #: gamehoarder_site/templates/search/search_form.html:121
 #: venv/lib/python3.7/site-packages/django/forms/widgets.py:712
 msgid "Yes"
-msgstr ""
+msgstr "Si"
 
 #: gamehoarder_site/templates/search/search_friends.html:5
 #: gamehoarder_site/templates/search/search_friends.html:16
 #: gamehoarder_site/templates/sidebar.html:32
 msgid "Users"
-msgstr ""
+msgstr "Usuarios"
 
 #: gamehoarder_site/templates/search/search_friends.html:28
 msgid "No Profile"
-msgstr ""
+msgstr "No hay Perfil"
 
 #: gamehoarder_site/templates/search/search_table.html:8
 msgid "Search Results"
-msgstr ""
+msgstr "Resultados de la Búsqueda"
 
 #: gamehoarder_site/templates/search/search_table.html:25
 msgid "Actions"
-msgstr ""
+msgstr "Acciones"
 
 #: gamehoarder_site/templates/search/search_table.html:64
 msgid "Add to interested"
-msgstr ""
+msgstr "Añadir a interesados"
 
 #: gamehoarder_site/templates/sidebar.html:18
 msgid "Welcome"
-msgstr ""
+msgstr "Bienvenido"
 
 #: gamehoarder_site/templates/sidebar.html:29
 msgid "General"
-msgstr ""
+msgstr "General"
 
 #: gamehoarder_site/templates/sidebar.html:37
 msgid "Collection"
-msgstr ""
+msgstr "Collección"
 
 #: gamehoarder_site/templates/sidebar.html:39
 msgid "Summary"
-msgstr ""
+msgstr "Resumén"
 
 #: gamehoarder_site/templates/sidebar.html:41
 msgid "Search"
-msgstr ""
+msgstr "Buscar"
 
 #: gamehoarder_site/templates/sidebar.html:43
 msgid "Tables"
-msgstr ""
+msgstr "Tablas"
 
 #: gamehoarder_site/templates/sidebar.html:55
 msgid "Lists"
-msgstr ""
+msgstr "Listas"
 
 #: gamehoarder_site/templates/sidebar.html:62
 msgid "Custom"
-msgstr ""
+msgstr "Personalizar"
 
 #: gamehoarder_site/templates/top_navigation.html:25
 msgid "Help"
-msgstr ""
+msgstr "Ayuda"
 
 #: gamehoarder_site/templates/top_navigation.html:26
 msgid "Log Out"
-msgstr ""
+msgstr "Cerrar Sesión"
 
 #: venv/lib/python3.7/site-packages/django/contrib/messages/apps.py:7
 msgid "Messages"
-msgstr ""
+msgstr "Mensajes"
 
 #: venv/lib/python3.7/site-packages/django/contrib/sitemaps/apps.py:7
 msgid "Site Maps"
-msgstr ""
+msgstr "Mapas del sitio"
 
 #: venv/lib/python3.7/site-packages/django/contrib/staticfiles/apps.py:9
 msgid "Static Files"
-msgstr ""
+msgstr "Archivos estáticos"
 
 #: venv/lib/python3.7/site-packages/django/contrib/syndication/apps.py:7
 msgid "Syndication"
-msgstr ""
+msgstr "Sindicación"
 
 #: venv/lib/python3.7/site-packages/django/core/paginator.py:45
 msgid "That page number is not an integer"
-msgstr ""
+msgstr "Ese número de página no es un número entero"
 
 #: venv/lib/python3.7/site-packages/django/core/paginator.py:47
 msgid "That page number is less than 1"
-msgstr ""
+msgstr "Ese número de página no es un número entero"
 
 #: venv/lib/python3.7/site-packages/django/core/paginator.py:52
 msgid "That page contains no results"
-msgstr ""
+msgstr "Esa página no contiene ningún resultado"
 
 #: venv/lib/python3.7/site-packages/django/core/validators.py:31
 msgid "Enter a valid value."
-msgstr ""
+msgstr "Introduzca un valor válido."
 
 #: venv/lib/python3.7/site-packages/django/core/validators.py:102
 #: venv/lib/python3.7/site-packages/django/forms/fields.py:658
 msgid "Enter a valid URL."
-msgstr ""
+msgstr "Introduzca una URL válida."
 
 #: venv/lib/python3.7/site-packages/django/core/validators.py:154
 msgid "Enter a valid integer."
-msgstr ""
+msgstr "Introduzca un número entero válido."
 
 #: venv/lib/python3.7/site-packages/django/core/validators.py:165
 msgid "Enter a valid email address."
-msgstr ""
+msgstr "Introduzca una dirección de correo electrónico válida."
 
 #. Translators: "letters" means latin letters: a-z and A-Z.
 #: venv/lib/python3.7/site-packages/django/core/validators.py:239
 msgid ""
 "Enter a valid 'slug' consisting of letters, numbers, underscores or hyphens."
 msgstr ""
+"Introduzca un 'slug' válido que consista en letras, números, guiones bajos o guiones."
 
 #: venv/lib/python3.7/site-packages/django/core/validators.py:246
 msgid ""
 "Enter a valid 'slug' consisting of Unicode letters, numbers, underscores, or "
 "hyphens."
 msgstr ""
+"Introduzca un 'slug' válido que consista en letras, números, "
+"guiones bajos o guiones de Unicode."
 
 #: venv/lib/python3.7/site-packages/django/core/validators.py:255
 #: venv/lib/python3.7/site-packages/django/core/validators.py:275
 msgid "Enter a valid IPv4 address."
-msgstr ""
+msgstr "Introduzca una dirección IPv4 válida."
 
 #: venv/lib/python3.7/site-packages/django/core/validators.py:260
 #: venv/lib/python3.7/site-packages/django/core/validators.py:276
 msgid "Enter a valid IPv6 address."
-msgstr ""
+msgstr "Introduzca una dirección IPv6 válida."
 
 #: venv/lib/python3.7/site-packages/django/core/validators.py:270
 #: venv/lib/python3.7/site-packages/django/core/validators.py:274
 msgid "Enter a valid IPv4 or IPv6 address."
-msgstr ""
+msgstr "Introduzca una dirección IPv4 o IPv6 válida."
 
 #: venv/lib/python3.7/site-packages/django/core/validators.py:304
 msgid "Enter only digits separated by commas."
-msgstr ""
+msgstr "Introduzca sólo los dígitos separados por comas."
 
 #: venv/lib/python3.7/site-packages/django/core/validators.py:310
 #, python-format
 msgid "Ensure this value is %(limit_value)s (it is %(show_value)s)."
-msgstr ""
+msgstr "Asegúrese de que este valor es %(valor_límite)s (es %(valor_muestra)s)."
 
 #: venv/lib/python3.7/site-packages/django/core/validators.py:342
 #, python-format
 msgid "Ensure this value is less than or equal to %(limit_value)s."
-msgstr ""
+msgstr "Asegúrese de que este valor es menor o igual a %(valor_límite)s."
 
 #: venv/lib/python3.7/site-packages/django/core/validators.py:351
 #, python-format
 msgid "Ensure this value is greater than or equal to %(limit_value)s."
-msgstr ""
+msgstr "Asegúrese de que este valor es mayor o igual a %(valor_límite)s."
 
 #: venv/lib/python3.7/site-packages/django/core/validators.py:361
 #, python-format
@@ -1246,7 +1271,11 @@ msgid_plural ""
 "Ensure this value has at least %(limit_value)d characters (it has "
 "%(show_value)d)."
 msgstr[0] ""
+"Asegúrese de que este valor tiene al menos el carácter "
+"%(limit_value)d (tiene %(show_value)d)."
 msgstr[1] ""
+"Asegúrese de que este valor tiene al menos los caracteres "
+"%(limit_value)d (tiene %(show_value)d)."
 
 #: venv/lib/python3.7/site-packages/django/core/validators.py:376
 #, python-format
@@ -1257,27 +1286,31 @@ msgid_plural ""
 "Ensure this value has at most %(limit_value)d characters (it has "
 "%(show_value)d)."
 msgstr[0] ""
+"Asegúrese de que este valor tiene como máximo el carácter "
+"%(limit_value)d (tiene %(show_value)d)."
 msgstr[1] ""
+"Asegúrate de que este valor tenga como máximo los caracteres "
+"%(limit_value)d (tiene %(show_value)d)."
 
 #: venv/lib/python3.7/site-packages/django/core/validators.py:395
 #: venv/lib/python3.7/site-packages/django/forms/fields.py:290
 #: venv/lib/python3.7/site-packages/django/forms/fields.py:325
 msgid "Enter a number."
-msgstr ""
+msgstr "Introduzca un número."
 
 #: venv/lib/python3.7/site-packages/django/core/validators.py:397
 #, python-format
 msgid "Ensure that there are no more than %(max)s digit in total."
 msgid_plural "Ensure that there are no more than %(max)s digits in total."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Asegúrese de que no haya más de un dígito de %(max)s en total."
+msgstr[1] "Asegúrese de que no haya más de %(max)s dígitos en total."
 
 #: venv/lib/python3.7/site-packages/django/core/validators.py:402
 #, python-format
 msgid "Ensure that there are no more than %(max)s decimal place."
 msgid_plural "Ensure that there are no more than %(max)s decimal places."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Asegúrese de que no haya más de %(max)s decimales."
+msgstr[1] "Asegúrese de que no haya más de %(max)s decimales."
 
 #: venv/lib/python3.7/site-packages/django/core/validators.py:407
 #, python-format
@@ -1286,7 +1319,9 @@ msgid ""
 msgid_plural ""
 "Ensure that there are no more than %(max)s digits before the decimal point."
 msgstr[0] ""
+"Asegúrese de que no haya más de un dígito de %(max)s antes del punto decimal."
 msgstr[1] ""
+"Asegúrese de que no haya más de %(max)s dígitos antes del punto decimal."
 
 #: venv/lib/python3.7/site-packages/django/core/validators.py:469
 #, python-format
@@ -1294,38 +1329,40 @@ msgid ""
 "File extension '%(extension)s' is not allowed. Allowed extensions are: "
 "'%(allowed_extensions)s'."
 msgstr ""
+"No se permite la extensión de archivo '%(extension)s'. Las extensiones "
+"permitidas son: '%(allowed_extensions)s'."
 
 #: venv/lib/python3.7/site-packages/django/core/validators.py:521
 msgid "Null characters are not allowed."
-msgstr ""
+msgstr "No se permiten los caracteres nulos."
 
 #: venv/lib/python3.7/site-packages/django/db/models/base.py:1162
 #: venv/lib/python3.7/site-packages/django/forms/models.py:756
 msgid "and"
-msgstr ""
+msgstr "y"
 
 #: venv/lib/python3.7/site-packages/django/db/models/base.py:1164
 #, python-format
 msgid "%(model_name)s with this %(field_labels)s already exists."
-msgstr ""
+msgstr "%(nombre_del_modelo)s con este %(etiquetas_de_campo)s ya existe."
 
 #: venv/lib/python3.7/site-packages/django/db/models/fields/__init__.py:104
 #, python-format
 msgid "Value %(value)r is not a valid choice."
-msgstr ""
+msgstr "El valor %(valor)r no es una elección válida."
 
 #: venv/lib/python3.7/site-packages/django/db/models/fields/__init__.py:105
 msgid "This field cannot be null."
-msgstr ""
+msgstr "Este campo no puede ser nulo."
 
 #: venv/lib/python3.7/site-packages/django/db/models/fields/__init__.py:106
 msgid "This field cannot be blank."
-msgstr ""
+msgstr "Este campo no puede estar en blanco."
 
 #: venv/lib/python3.7/site-packages/django/db/models/fields/__init__.py:107
 #, python-format
 msgid "%(model_name)s with this %(field_label)s already exists."
-msgstr ""
+msgstr "%(nombre_del_modelo)s con este %(etiqueta_del_campo)s ya existe."
 
 #. Translators: The 'lookup_type' is one of 'date', 'year' or 'month'.
 #. Eg: "Title must be unique for pub_date year"
@@ -1334,50 +1371,51 @@ msgstr ""
 msgid ""
 "%(field_label)s must be unique for %(date_field_label)s %(lookup_type)s."
 msgstr ""
+"%(field_label)s debe ser único para %(date_field_label)s %(lookup_type)s."
 
 #: venv/lib/python3.7/site-packages/django/db/models/fields/__init__.py:128
 #, python-format
 msgid "Field of type: %(field_type)s"
-msgstr ""
+msgstr "Campo de tipo: %(tipo_campo)s"
 
 #: venv/lib/python3.7/site-packages/django/db/models/fields/__init__.py:899
 #: venv/lib/python3.7/site-packages/django/db/models/fields/__init__.py:1766
 msgid "Integer"
-msgstr ""
+msgstr "Entero"
 
 #: venv/lib/python3.7/site-packages/django/db/models/fields/__init__.py:903
 #: venv/lib/python3.7/site-packages/django/db/models/fields/__init__.py:1764
 #, python-format
 msgid "'%(value)s' value must be an integer."
-msgstr ""
+msgstr "El valor de '%(valor)s' debe ser un número entero."
 
 #: venv/lib/python3.7/site-packages/django/db/models/fields/__init__.py:978
 #: venv/lib/python3.7/site-packages/django/db/models/fields/__init__.py:1844
 msgid "Big (8 byte) integer"
-msgstr ""
+msgstr "Entero grande (8 bytes)"
 
 #: venv/lib/python3.7/site-packages/django/db/models/fields/__init__.py:990
 #, python-format
 msgid "'%(value)s' value must be either True or False."
-msgstr ""
+msgstr "El valor de '%(valor)s' debe ser Verdadero o Falso."
 
 #: venv/lib/python3.7/site-packages/django/db/models/fields/__init__.py:991
 #, python-format
 msgid "'%(value)s' value must be either True, False, or None."
-msgstr ""
+msgstr "El valor de '%(valor)s' debe ser Verdadero, Falso o Ninguno."
 
 #: venv/lib/python3.7/site-packages/django/db/models/fields/__init__.py:993
 msgid "Boolean (Either True or False)"
-msgstr ""
+msgstr "Booleano (Verdadero o Falso)"
 
 #: venv/lib/python3.7/site-packages/django/db/models/fields/__init__.py:1034
 #, python-format
 msgid "String (up to %(max_length)s)"
-msgstr ""
+msgstr "Cadena (hasta %(longitud_máxima)s)"
 
 #: venv/lib/python3.7/site-packages/django/db/models/fields/__init__.py:1098
 msgid "Comma-separated integers"
-msgstr ""
+msgstr "Enteros separados por comas"
 
 #: venv/lib/python3.7/site-packages/django/db/models/fields/__init__.py:1147
 #, python-format
@@ -1385,6 +1423,8 @@ msgid ""
 "'%(value)s' value has an invalid date format. It must be in YYYY-MM-DD "
 "format."
 msgstr ""
+"El valor de '%(valor)s' tiene un formato de fecha inválido. Debe estar "
+"en el formato AAAA-MM-DD."
 
 #: venv/lib/python3.7/site-packages/django/db/models/fields/__init__.py:1149
 #: venv/lib/python3.7/site-packages/django/db/models/fields/__init__.py:1292
@@ -1393,10 +1433,12 @@ msgid ""
 "'%(value)s' value has the correct format (YYYY-MM-DD) but it is an invalid "
 "date."
 msgstr ""
+"El valor de '%(valor)s' tiene el formato correcto (AAAA-MM-DD) pero "
+"es una fecha inválida."
 
 #: venv/lib/python3.7/site-packages/django/db/models/fields/__init__.py:1152
 msgid "Date (without time)"
-msgstr ""
+msgstr "Fecha (sin hora)"
 
 #: venv/lib/python3.7/site-packages/django/db/models/fields/__init__.py:1290
 #, python-format
@@ -1404,6 +1446,8 @@ msgid ""
 "'%(value)s' value has an invalid format. It must be in YYYY-MM-DD HH:MM[:ss[."
 "uuuuuu]][TZ] format."
 msgstr ""
+"El valor de '%(valor)s' tiene un formato inválido. Debe estar en formato "
+"AAAA-MM-DD HH:MM[:ss[.uuuuuu]][TZ]."
 
 #: venv/lib/python3.7/site-packages/django/db/models/fields/__init__.py:1294
 #, python-format
@@ -1411,19 +1455,21 @@ msgid ""
 "'%(value)s' value has the correct format (YYYY-MM-DD HH:MM[:ss[.uuuuuu]]"
 "[TZ]) but it is an invalid date/time."
 msgstr ""
+"El valor '%(valor)s' tiene el formato correcto (AAAA-MM-DD HH:MM[:ss[.uuuuuu]]"
+"[TZ]) pero es una fecha/hora inválida."
 
 #: venv/lib/python3.7/site-packages/django/db/models/fields/__init__.py:1298
 msgid "Date (with time)"
-msgstr ""
+msgstr "Fecha (con hora)"
 
 #: venv/lib/python3.7/site-packages/django/db/models/fields/__init__.py:1446
 #, python-format
 msgid "'%(value)s' value must be a decimal number."
-msgstr ""
+msgstr "El valor de '%(valor)s' debe ser un número decimal."
 
 #: venv/lib/python3.7/site-packages/django/db/models/fields/__init__.py:1448
 msgid "Decimal number"
-msgstr ""
+msgstr "Número decimal"
 
 #: venv/lib/python3.7/site-packages/django/db/models/fields/__init__.py:1587
 #, python-format
@@ -1431,66 +1477,68 @@ msgid ""
 "'%(value)s' value has an invalid format. It must be in [DD] [HH:[MM:]]ss[."
 "uuuuuu] format."
 msgstr ""
+"El valor de '%(valor)s' tiene un formato inválido. Debe tener el formato "
+"[DD] [HH:[MM:]]ss[.uuuuuu]."
 
 #: venv/lib/python3.7/site-packages/django/db/models/fields/__init__.py:1590
 msgid "Duration"
-msgstr ""
+msgstr "Duración"
 
 #: venv/lib/python3.7/site-packages/django/db/models/fields/__init__.py:1640
 msgid "Email address"
-msgstr ""
+msgstr "Dirección de Email"
 
 #: venv/lib/python3.7/site-packages/django/db/models/fields/__init__.py:1663
 msgid "File path"
-msgstr ""
+msgstr "Ruta de archivo"
 
 #: venv/lib/python3.7/site-packages/django/db/models/fields/__init__.py:1729
 #, python-format
 msgid "'%(value)s' value must be a float."
-msgstr ""
+msgstr "El valor de '%(valor)s' debe ser un flotante."
 
 #: venv/lib/python3.7/site-packages/django/db/models/fields/__init__.py:1731
 msgid "Floating point number"
-msgstr ""
+msgstr "Número de coma flotante"
 
 #: venv/lib/python3.7/site-packages/django/db/models/fields/__init__.py:1860
 msgid "IPv4 address"
-msgstr ""
+msgstr "Dirección IPv4"
 
 #: venv/lib/python3.7/site-packages/django/db/models/fields/__init__.py:1891
 msgid "IP address"
-msgstr ""
+msgstr "Dirección IP"
 
 #: venv/lib/python3.7/site-packages/django/db/models/fields/__init__.py:1971
 #: venv/lib/python3.7/site-packages/django/db/models/fields/__init__.py:1972
 #, python-format
 msgid "'%(value)s' value must be either None, True or False."
-msgstr ""
+msgstr "El valor de '%(valor)s' debe ser Ninguno, Verdadero o Falso."
 
 #: venv/lib/python3.7/site-packages/django/db/models/fields/__init__.py:1974
 msgid "Boolean (Either True, False or None)"
-msgstr ""
+msgstr "Booleano (Verdadero, Falso o Ninguno)"
 
 #: venv/lib/python3.7/site-packages/django/db/models/fields/__init__.py:2009
 msgid "Positive integer"
-msgstr ""
+msgstr "Entero positivo"
 
 #: venv/lib/python3.7/site-packages/django/db/models/fields/__init__.py:2022
 msgid "Positive small integer"
-msgstr ""
+msgstr "Entero positivo pequeño"
 
 #: venv/lib/python3.7/site-packages/django/db/models/fields/__init__.py:2036
 #, python-format
 msgid "Slug (up to %(max_length)s)"
-msgstr ""
+msgstr "Slug (hasta %(longitud_máxima)s)"
 
 #: venv/lib/python3.7/site-packages/django/db/models/fields/__init__.py:2068
 msgid "Small integer"
-msgstr ""
+msgstr "Entero pequeño"
 
 #: venv/lib/python3.7/site-packages/django/db/models/fields/__init__.py:2075
 msgid "Text"
-msgstr ""
+msgstr "Texto"
 
 #: venv/lib/python3.7/site-packages/django/db/models/fields/__init__.py:2103
 #, python-format
@@ -1498,6 +1546,8 @@ msgid ""
 "'%(value)s' value has an invalid format. It must be in HH:MM[:ss[.uuuuuu]] "
 "format."
 msgstr ""
+"El valor de '%(valor)s' tiene un formato inválido. Debe estar en el formato "
+"HH:MM[:ss[.uuuuuu]]."
 
 #: venv/lib/python3.7/site-packages/django/db/models/fields/__init__.py:2105
 #, python-format
@@ -1505,107 +1555,111 @@ msgid ""
 "'%(value)s' value has the correct format (HH:MM[:ss[.uuuuuu]]) but it is an "
 "invalid time."
 msgstr ""
+"El valor '%(valor)s' tiene el formato correcto (HH:MM[:ss[.uuuuuu]]) pero "
+"es un tiempo inválido."
 
 #: venv/lib/python3.7/site-packages/django/db/models/fields/__init__.py:2108
 msgid "Time"
-msgstr ""
+msgstr "Hora"
 
 #: venv/lib/python3.7/site-packages/django/db/models/fields/__init__.py:2234
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 #: venv/lib/python3.7/site-packages/django/db/models/fields/__init__.py:2256
 msgid "Raw binary data"
-msgstr ""
+msgstr "Datos binarios brutos"
 
 #: venv/lib/python3.7/site-packages/django/db/models/fields/__init__.py:2306
 #, python-format
 msgid "'%(value)s' is not a valid UUID."
-msgstr ""
+msgstr "El '%(valor)s' no es un UUID válido."
 
 #: venv/lib/python3.7/site-packages/django/db/models/fields/__init__.py:2308
 msgid "Universally unique identifier"
-msgstr ""
+msgstr "Identificador único universal"
 
 #: venv/lib/python3.7/site-packages/django/db/models/fields/files.py:360
 msgid "Image"
-msgstr ""
+msgstr "Imagen"
 
 #: venv/lib/python3.7/site-packages/django/db/models/fields/related.py:778
 #, python-format
 msgid "%(model)s instance with %(field)s %(value)r does not exist."
-msgstr ""
+msgstr "La instancia de %(modelo) con %(campo)s %(valor)r no existe."
 
 #: venv/lib/python3.7/site-packages/django/db/models/fields/related.py:780
 msgid "Foreign Key (type determined by related field)"
-msgstr ""
+msgstr "Clave externa (clase determinada por el campo relacionado)"
 
 #: venv/lib/python3.7/site-packages/django/db/models/fields/related.py:1007
 msgid "One-to-one relationship"
-msgstr ""
+msgstr "Relación uno a uno"
 
 #: venv/lib/python3.7/site-packages/django/db/models/fields/related.py:1057
 #, python-format
 msgid "%(from)s-%(to)s relationship"
-msgstr ""
+msgstr "Relación %(de)s-%(a)s"
 
 #: venv/lib/python3.7/site-packages/django/db/models/fields/related.py:1058
 #, python-format
 msgid "%(from)s-%(to)s relationships"
-msgstr ""
+msgstr "Relaciones %(de)s-%(a)s"
 
 #: venv/lib/python3.7/site-packages/django/db/models/fields/related.py:1100
 msgid "Many-to-many relationship"
-msgstr ""
+msgstr "Relación de muchos a muchos"
 
 #. Translators: If found as last label character, these punctuation
 #. characters will prevent the default label_suffix to be appended to the label
 #: venv/lib/python3.7/site-packages/django/forms/boundfield.py:146
 msgid ":?.!"
-msgstr ""
+msgstr ":?.!"
 
 #: venv/lib/python3.7/site-packages/django/forms/fields.py:53
 msgid "This field is required."
-msgstr ""
+msgstr "Este campo es obligatorio."
 
 #: venv/lib/python3.7/site-packages/django/forms/fields.py:245
 msgid "Enter a whole number."
-msgstr ""
+msgstr "Introduzca un número entero."
 
 #: venv/lib/python3.7/site-packages/django/forms/fields.py:396
 #: venv/lib/python3.7/site-packages/django/forms/fields.py:1126
 msgid "Enter a valid date."
-msgstr ""
+msgstr "Introduzca una fecha válida."
 
 #: venv/lib/python3.7/site-packages/django/forms/fields.py:420
 #: venv/lib/python3.7/site-packages/django/forms/fields.py:1127
 msgid "Enter a valid time."
-msgstr ""
+msgstr "Introduzca una hora válida."
 
 #: venv/lib/python3.7/site-packages/django/forms/fields.py:442
 msgid "Enter a valid date/time."
-msgstr ""
+msgstr "Introduzca una fecha/hora válida."
 
 #: venv/lib/python3.7/site-packages/django/forms/fields.py:471
 msgid "Enter a valid duration."
-msgstr ""
+msgstr "Introduzca una duración válida."
 
 #: venv/lib/python3.7/site-packages/django/forms/fields.py:472
 #, python-brace-format
 msgid "The number of days must be between {min_days} and {max_days}."
-msgstr ""
+msgstr "El número de días debe estar entre {min_days} y {max_days}."
 
 #: venv/lib/python3.7/site-packages/django/forms/fields.py:532
 msgid "No file was submitted. Check the encoding type on the form."
 msgstr ""
+"No se presentó ningún archivo. Compruebe el tipo de codificación "
+"en el formulario."
 
 #: venv/lib/python3.7/site-packages/django/forms/fields.py:533
 msgid "No file was submitted."
-msgstr ""
+msgstr "No se presentó ningún archivo."
 
 #: venv/lib/python3.7/site-packages/django/forms/fields.py:534
 msgid "The submitted file is empty."
-msgstr ""
+msgstr "El archivo enviado está vacío."
 
 #: venv/lib/python3.7/site-packages/django/forms/fields.py:536
 #, python-format
@@ -1613,52 +1667,58 @@ msgid "Ensure this filename has at most %(max)d character (it has %(length)d)."
 msgid_plural ""
 "Ensure this filename has at most %(max)d characters (it has %(length)d)."
 msgstr[0] ""
+"Asegúrese de que este nombre de archivo tenga como máximo el "
+"carácter %(max)d (tiene %(longitud)d)."
 msgstr[1] ""
+"Asegúrese de que este nombre de archivo tenga como máximo los "
+"caracteres %(max)d (tiene %(longitud)d)."
 
 #: venv/lib/python3.7/site-packages/django/forms/fields.py:539
 msgid "Please either submit a file or check the clear checkbox, not both."
-msgstr ""
+msgstr "Por favor, envíe un archivo o marque la casilla de verificación, no las dos cosas."
 
 #: venv/lib/python3.7/site-packages/django/forms/fields.py:600
 msgid ""
 "Upload a valid image. The file you uploaded was either not an image or a "
 "corrupted image."
 msgstr ""
+"Suba una imagen válida. El archivo que has subido no era una imagen o "
+"era una imagen dañada"
 
 #: venv/lib/python3.7/site-packages/django/forms/fields.py:762
 #: venv/lib/python3.7/site-packages/django/forms/fields.py:852
 #: venv/lib/python3.7/site-packages/django/forms/models.py:1270
 #, python-format
 msgid "Select a valid choice. %(value)s is not one of the available choices."
-msgstr ""
+msgstr "Seleccione una opción válida. El %(valor)s no es una de las opciones disponibles."
 
 #: venv/lib/python3.7/site-packages/django/forms/fields.py:853
 #: venv/lib/python3.7/site-packages/django/forms/fields.py:968
 #: venv/lib/python3.7/site-packages/django/forms/models.py:1269
 msgid "Enter a list of values."
-msgstr ""
+msgstr "Introduzca una lista de valores."
 
 #: venv/lib/python3.7/site-packages/django/forms/fields.py:969
 msgid "Enter a complete value."
-msgstr ""
+msgstr "Introduzca un valor completo."
 
 #: venv/lib/python3.7/site-packages/django/forms/fields.py:1185
 msgid "Enter a valid UUID."
-msgstr ""
+msgstr "Introduzca un UUID válido."
 
 #. Translators: This is the default suffix added to form field labels
 #: venv/lib/python3.7/site-packages/django/forms/forms.py:86
 msgid ":"
-msgstr ""
+msgstr ":"
 
 #: venv/lib/python3.7/site-packages/django/forms/forms.py:212
 #, python-format
 msgid "(Hidden field %(name)s) %(error)s"
-msgstr ""
+msgstr "(Campo oculto %(nombre)s) %(error)s"
 
 #: venv/lib/python3.7/site-packages/django/forms/formsets.py:91
 msgid "ManagementForm data is missing or has been tampered with"
-msgstr ""
+msgstr "ManagementLos datos del formulario faltan o han sido manipulados"
 
 #: venv/lib/python3.7/site-packages/django/forms/formsets.py:338
 #, python-format
@@ -1671,27 +1731,27 @@ msgstr[1] ""
 #, python-format
 msgid "Please submit %d or more forms."
 msgid_plural "Please submit %d or more forms."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Por favor, envíe los formularios de %d o menos."
+msgstr[1] "Por favor, envíe los formularios de %d o más."
 
 #: venv/lib/python3.7/site-packages/django/forms/formsets.py:371
 #: venv/lib/python3.7/site-packages/django/forms/formsets.py:373
 msgid "Order"
-msgstr ""
+msgstr "Ordenar"
 
 #: venv/lib/python3.7/site-packages/django/forms/formsets.py:375
 msgid "Delete"
-msgstr ""
+msgstr "Eliminar"
 
 #: venv/lib/python3.7/site-packages/django/forms/models.py:751
 #, python-format
 msgid "Please correct the duplicate data for %(field)s."
-msgstr ""
+msgstr "Por favor, corrija los datos duplicados para %(campo)s."
 
 #: venv/lib/python3.7/site-packages/django/forms/models.py:755
 #, python-format
 msgid "Please correct the duplicate data for %(field)s, which must be unique."
-msgstr ""
+msgstr "Por favor, corrija los datos duplicados para %(campo)s, que deben ser únicos."
 
 #: venv/lib/python3.7/site-packages/django/forms/models.py:761
 #, python-format
@@ -1699,23 +1759,25 @@ msgid ""
 "Please correct the duplicate data for %(field_name)s which must be unique "
 "for the %(lookup)s in %(date_field)s."
 msgstr ""
+"Por favor, corrija los datos duplicados de %(nombre_del_campo)s que deben ser "
+"únicos para los %(lookup)s en %(campo_de_fecha)s."
 
 #: venv/lib/python3.7/site-packages/django/forms/models.py:770
 msgid "Please correct the duplicate values below."
-msgstr ""
+msgstr "Por favor, corrija los valores duplicados a continuación."
 
 #: venv/lib/python3.7/site-packages/django/forms/models.py:1091
 msgid "The inline value did not match the parent instance."
-msgstr ""
+msgstr "El valor inline no coincidía con la instancia padre."
 
 #: venv/lib/python3.7/site-packages/django/forms/models.py:1158
 msgid "Select a valid choice. That choice is not one of the available choices."
-msgstr ""
+msgstr "Seleccione una opción válida. Esa elección no es una de las opciones disponibles."
 
 #: venv/lib/python3.7/site-packages/django/forms/models.py:1272
 #, python-format
 msgid "\"%(pk)s\" is not a valid value."
-msgstr ""
+msgstr "\"%(pk)s\" no es un valor válido."
 
 #: venv/lib/python3.7/site-packages/django/forms/utils.py:162
 #, python-format
@@ -1723,429 +1785,431 @@ msgid ""
 "%(datetime)s couldn't be interpreted in time zone %(current_timezone)s; it "
 "may be ambiguous or it may not exist."
 msgstr ""
+"%(datetime)s no puede ser interpretado en el huso horario %(current_timezone)s; "
+"puede ser ambiguo o puede no existir."
 
 #: venv/lib/python3.7/site-packages/django/forms/widgets.py:395
 msgid "Clear"
-msgstr ""
+msgstr "Limpiar"
 
 #: venv/lib/python3.7/site-packages/django/forms/widgets.py:396
 msgid "Currently"
-msgstr ""
+msgstr "Actualmente"
 
 #: venv/lib/python3.7/site-packages/django/forms/widgets.py:397
 msgid "Change"
-msgstr ""
+msgstr "Cambiar"
 
 #: venv/lib/python3.7/site-packages/django/forms/widgets.py:711
 msgid "Unknown"
-msgstr ""
+msgstr "Desconocido"
 
 #: venv/lib/python3.7/site-packages/django/template/defaultfilters.py:788
 msgid "yes,no,maybe"
-msgstr ""
+msgstr "Sí,no,tal vez"
 
 #: venv/lib/python3.7/site-packages/django/template/defaultfilters.py:817
 #: venv/lib/python3.7/site-packages/django/template/defaultfilters.py:834
 #, python-format
 msgid "%(size)d byte"
 msgid_plural "%(size)d bytes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(tamaño)d byte"
+msgstr[1] "%(tamaño)d bytes"
 
 #: venv/lib/python3.7/site-packages/django/template/defaultfilters.py:836
 #, python-format
 msgid "%s KB"
-msgstr ""
+msgstr "%s KB"
 
 #: venv/lib/python3.7/site-packages/django/template/defaultfilters.py:838
 #, python-format
 msgid "%s MB"
-msgstr ""
+msgstr "%s MB"
 
 #: venv/lib/python3.7/site-packages/django/template/defaultfilters.py:840
 #, python-format
 msgid "%s GB"
-msgstr ""
+msgstr "%s GB"
 
 #: venv/lib/python3.7/site-packages/django/template/defaultfilters.py:842
 #, python-format
 msgid "%s TB"
-msgstr ""
+msgstr "%s TB"
 
 #: venv/lib/python3.7/site-packages/django/template/defaultfilters.py:844
 #, python-format
 msgid "%s PB"
-msgstr ""
+msgstr "%s PB"
 
 #: venv/lib/python3.7/site-packages/django/utils/dateformat.py:62
 msgid "p.m."
-msgstr ""
+msgstr "p.m."
 
 #: venv/lib/python3.7/site-packages/django/utils/dateformat.py:63
 msgid "a.m."
-msgstr ""
+msgstr "a.m."
 
 #: venv/lib/python3.7/site-packages/django/utils/dateformat.py:68
 msgid "PM"
-msgstr ""
+msgstr "PM"
 
 #: venv/lib/python3.7/site-packages/django/utils/dateformat.py:69
 msgid "AM"
-msgstr ""
+msgstr "AM"
 
 #: venv/lib/python3.7/site-packages/django/utils/dateformat.py:150
 msgid "midnight"
-msgstr ""
+msgstr "medianoche"
 
 #: venv/lib/python3.7/site-packages/django/utils/dateformat.py:152
 msgid "noon"
-msgstr ""
+msgstr "mediodía"
 
 #: venv/lib/python3.7/site-packages/django/utils/dates.py:6
 msgid "Monday"
-msgstr ""
+msgstr "Lunes"
 
 #: venv/lib/python3.7/site-packages/django/utils/dates.py:6
 msgid "Tuesday"
-msgstr ""
+msgstr "Martes"
 
 #: venv/lib/python3.7/site-packages/django/utils/dates.py:6
 msgid "Wednesday"
-msgstr ""
+msgstr "Miércoles"
 
 #: venv/lib/python3.7/site-packages/django/utils/dates.py:6
 msgid "Thursday"
-msgstr ""
+msgstr "Jueves"
 
 #: venv/lib/python3.7/site-packages/django/utils/dates.py:6
 msgid "Friday"
-msgstr ""
+msgstr "Viernes"
 
 #: venv/lib/python3.7/site-packages/django/utils/dates.py:7
 msgid "Saturday"
-msgstr ""
+msgstr "Sábado"
 
 #: venv/lib/python3.7/site-packages/django/utils/dates.py:7
 msgid "Sunday"
-msgstr ""
+msgstr "Domingo"
 
 #: venv/lib/python3.7/site-packages/django/utils/dates.py:10
 msgid "Mon"
-msgstr ""
+msgstr "Lun"
 
 #: venv/lib/python3.7/site-packages/django/utils/dates.py:10
 msgid "Tue"
-msgstr ""
+msgstr "Mar"
 
 #: venv/lib/python3.7/site-packages/django/utils/dates.py:10
 msgid "Wed"
-msgstr ""
+msgstr "Mie"
 
 #: venv/lib/python3.7/site-packages/django/utils/dates.py:10
 msgid "Thu"
-msgstr ""
+msgstr "Jue"
 
 #: venv/lib/python3.7/site-packages/django/utils/dates.py:10
 msgid "Fri"
-msgstr ""
+msgstr "Vie"
 
 #: venv/lib/python3.7/site-packages/django/utils/dates.py:11
 msgid "Sat"
-msgstr ""
+msgstr "Sab"
 
 #: venv/lib/python3.7/site-packages/django/utils/dates.py:11
 msgid "Sun"
-msgstr ""
+msgstr "Dom"
 
 #: venv/lib/python3.7/site-packages/django/utils/dates.py:14
 msgid "January"
-msgstr ""
+msgstr "Enero"
 
 #: venv/lib/python3.7/site-packages/django/utils/dates.py:14
 msgid "February"
-msgstr ""
+msgstr "Febrero"
 
 #: venv/lib/python3.7/site-packages/django/utils/dates.py:14
 msgid "March"
-msgstr ""
+msgstr "Marzo"
 
 #: venv/lib/python3.7/site-packages/django/utils/dates.py:14
 msgid "April"
-msgstr ""
+msgstr "Abril"
 
 #: venv/lib/python3.7/site-packages/django/utils/dates.py:14
 msgid "May"
-msgstr ""
+msgstr "Mayo"
 
 #: venv/lib/python3.7/site-packages/django/utils/dates.py:14
 msgid "June"
-msgstr ""
+msgstr "Junio"
 
 #: venv/lib/python3.7/site-packages/django/utils/dates.py:15
 msgid "July"
-msgstr ""
+msgstr "Julio"
 
 #: venv/lib/python3.7/site-packages/django/utils/dates.py:15
 msgid "August"
-msgstr ""
+msgstr "Agosto"
 
 #: venv/lib/python3.7/site-packages/django/utils/dates.py:15
 msgid "September"
-msgstr ""
+msgstr "Septiembre"
 
 #: venv/lib/python3.7/site-packages/django/utils/dates.py:15
 msgid "October"
-msgstr ""
+msgstr "Octubre"
 
 #: venv/lib/python3.7/site-packages/django/utils/dates.py:15
 msgid "November"
-msgstr ""
+msgstr "Noviembre"
 
 #: venv/lib/python3.7/site-packages/django/utils/dates.py:16
 msgid "December"
-msgstr ""
+msgstr "Diciembre"
 
 #: venv/lib/python3.7/site-packages/django/utils/dates.py:19
 msgid "jan"
-msgstr ""
+msgstr "ene"
 
 #: venv/lib/python3.7/site-packages/django/utils/dates.py:19
 msgid "feb"
-msgstr ""
+msgstr "feb"
 
 #: venv/lib/python3.7/site-packages/django/utils/dates.py:19
 msgid "mar"
-msgstr ""
+msgstr "mar"
 
 #: venv/lib/python3.7/site-packages/django/utils/dates.py:19
 msgid "apr"
-msgstr ""
+msgstr "abr"
 
 #: venv/lib/python3.7/site-packages/django/utils/dates.py:19
 msgid "may"
-msgstr ""
+msgstr "may"
 
 #: venv/lib/python3.7/site-packages/django/utils/dates.py:19
 msgid "jun"
-msgstr ""
+msgstr "jun"
 
 #: venv/lib/python3.7/site-packages/django/utils/dates.py:20
 msgid "jul"
-msgstr ""
+msgstr "jul"
 
 #: venv/lib/python3.7/site-packages/django/utils/dates.py:20
 msgid "aug"
-msgstr ""
+msgstr "ago"
 
 #: venv/lib/python3.7/site-packages/django/utils/dates.py:20
 msgid "sep"
-msgstr ""
+msgstr "sep"
 
 #: venv/lib/python3.7/site-packages/django/utils/dates.py:20
 msgid "oct"
-msgstr ""
+msgstr "oct"
 
 #: venv/lib/python3.7/site-packages/django/utils/dates.py:20
 msgid "nov"
-msgstr ""
+msgstr "nov"
 
 #: venv/lib/python3.7/site-packages/django/utils/dates.py:20
 msgid "dec"
-msgstr ""
+msgstr "dic"
 
 #: venv/lib/python3.7/site-packages/django/utils/dates.py:23
 msgctxt "abbrev. month"
 msgid "Jan."
-msgstr ""
+msgstr "Ene."
 
 #: venv/lib/python3.7/site-packages/django/utils/dates.py:24
 msgctxt "abbrev. month"
 msgid "Feb."
-msgstr ""
+msgstr "Feb."
 
 #: venv/lib/python3.7/site-packages/django/utils/dates.py:25
 msgctxt "abbrev. month"
 msgid "March"
-msgstr ""
+msgstr "Marzo"
 
 #: venv/lib/python3.7/site-packages/django/utils/dates.py:26
 msgctxt "abbrev. month"
 msgid "April"
-msgstr ""
+msgstr "Abril"
 
 #: venv/lib/python3.7/site-packages/django/utils/dates.py:27
 msgctxt "abbrev. month"
 msgid "May"
-msgstr ""
+msgstr "Mayo"
 
 #: venv/lib/python3.7/site-packages/django/utils/dates.py:28
 msgctxt "abbrev. month"
 msgid "June"
-msgstr ""
+msgstr "Junio"
 
 #: venv/lib/python3.7/site-packages/django/utils/dates.py:29
 msgctxt "abbrev. month"
 msgid "July"
-msgstr ""
+msgstr "Julio"
 
 #: venv/lib/python3.7/site-packages/django/utils/dates.py:30
 msgctxt "abbrev. month"
 msgid "Aug."
-msgstr ""
+msgstr "Ago."
 
 #: venv/lib/python3.7/site-packages/django/utils/dates.py:31
 msgctxt "abbrev. month"
 msgid "Sept."
-msgstr ""
+msgstr "Sept."
 
 #: venv/lib/python3.7/site-packages/django/utils/dates.py:32
 msgctxt "abbrev. month"
 msgid "Oct."
-msgstr ""
+msgstr "Oct."
 
 #: venv/lib/python3.7/site-packages/django/utils/dates.py:33
 msgctxt "abbrev. month"
 msgid "Nov."
-msgstr ""
+msgstr "Nov."
 
 #: venv/lib/python3.7/site-packages/django/utils/dates.py:34
 msgctxt "abbrev. month"
 msgid "Dec."
-msgstr ""
+msgstr "Dic."
 
 #: venv/lib/python3.7/site-packages/django/utils/dates.py:37
 msgctxt "alt. month"
 msgid "January"
-msgstr ""
+msgstr "Enero"
 
 #: venv/lib/python3.7/site-packages/django/utils/dates.py:38
 msgctxt "alt. month"
 msgid "February"
-msgstr ""
+msgstr "Febrero"
 
 #: venv/lib/python3.7/site-packages/django/utils/dates.py:39
 msgctxt "alt. month"
 msgid "March"
-msgstr ""
+msgstr "Marzo"
 
 #: venv/lib/python3.7/site-packages/django/utils/dates.py:40
 msgctxt "alt. month"
 msgid "April"
-msgstr ""
+msgstr "Abril"
 
 #: venv/lib/python3.7/site-packages/django/utils/dates.py:41
 msgctxt "alt. month"
 msgid "May"
-msgstr ""
+msgstr "Mayo"
 
 #: venv/lib/python3.7/site-packages/django/utils/dates.py:42
 msgctxt "alt. month"
 msgid "June"
-msgstr ""
+msgstr "Junio"
 
 #: venv/lib/python3.7/site-packages/django/utils/dates.py:43
 msgctxt "alt. month"
 msgid "July"
-msgstr ""
+msgstr "Julio"
 
 #: venv/lib/python3.7/site-packages/django/utils/dates.py:44
 msgctxt "alt. month"
 msgid "August"
-msgstr ""
+msgstr "Agosto"
 
 #: venv/lib/python3.7/site-packages/django/utils/dates.py:45
 msgctxt "alt. month"
 msgid "September"
-msgstr ""
+msgstr "Septiembre"
 
 #: venv/lib/python3.7/site-packages/django/utils/dates.py:46
 msgctxt "alt. month"
 msgid "October"
-msgstr ""
+msgstr "Octubre"
 
 #: venv/lib/python3.7/site-packages/django/utils/dates.py:47
 msgctxt "alt. month"
 msgid "November"
-msgstr ""
+msgstr "Noviembre"
 
 #: venv/lib/python3.7/site-packages/django/utils/dates.py:48
 msgctxt "alt. month"
 msgid "December"
-msgstr ""
+msgstr "Deciembre"
 
 #: venv/lib/python3.7/site-packages/django/utils/ipv6.py:8
 msgid "This is not a valid IPv6 address."
-msgstr ""
+msgstr "Esta no es una dirección IPv6 válida."
 
 #: venv/lib/python3.7/site-packages/django/utils/text.py:67
 #, python-format
 msgctxt "String to return when truncating text"
 msgid "%(truncated_text)s…"
-msgstr ""
+msgstr "%(truncated_text)s…"
 
 #: venv/lib/python3.7/site-packages/django/utils/text.py:233
 msgid "or"
-msgstr ""
+msgstr "o"
 
 #. Translators: This string is used as a separator between list elements
 #: venv/lib/python3.7/site-packages/django/utils/text.py:252
 #: venv/lib/python3.7/site-packages/django/utils/timesince.py:83
 msgid ", "
-msgstr ""
+msgstr ", "
 
 #: venv/lib/python3.7/site-packages/django/utils/timesince.py:9
 #, python-format
 msgid "%d year"
 msgid_plural "%d years"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d año"
+msgstr[1] "%d años"
 
 #: venv/lib/python3.7/site-packages/django/utils/timesince.py:10
 #, python-format
 msgid "%d month"
 msgid_plural "%d months"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d mes"
+msgstr[1] "%d meses"
 
 #: venv/lib/python3.7/site-packages/django/utils/timesince.py:11
 #, python-format
 msgid "%d week"
 msgid_plural "%d weeks"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d semana"
+msgstr[1] "%d semanas"
 
 #: venv/lib/python3.7/site-packages/django/utils/timesince.py:12
 #, python-format
 msgid "%d day"
 msgid_plural "%d days"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d día"
+msgstr[1] "%d días"
 
 #: venv/lib/python3.7/site-packages/django/utils/timesince.py:13
 #, python-format
 msgid "%d hour"
 msgid_plural "%d hours"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d hora"
+msgstr[1] "%d horas"
 
 #: venv/lib/python3.7/site-packages/django/utils/timesince.py:14
 #, python-format
 msgid "%d minute"
 msgid_plural "%d minutes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d minuto"
+msgstr[1] "%d minutos"
 
 #: venv/lib/python3.7/site-packages/django/utils/timesince.py:72
 msgid "0 minutes"
-msgstr ""
+msgstr "0 minutos"
 
 #: venv/lib/python3.7/site-packages/django/views/csrf.py:110
 msgid "Forbidden"
-msgstr ""
+msgstr "Prohibido"
 
 #: venv/lib/python3.7/site-packages/django/views/csrf.py:111
 msgid "CSRF verification failed. Request aborted."
-msgstr ""
+msgstr "La verificación del CSRF falló. Solicitud abortada."
 
 #: venv/lib/python3.7/site-packages/django/views/csrf.py:115
 msgid ""
@@ -2154,6 +2218,10 @@ msgid ""
 "required for security reasons, to ensure that your browser is not being "
 "hijacked by third parties."
 msgstr ""
+"Usted está viendo este mensaje porque este sitio HTTPS requiere un 'encabezado "
+"de referencia' para ser enviado por su navegador Web, pero no se envió ninguno. "
+"Este encabezado es necesario por razones de seguridad, para asegurar que tu "
+"navegador no sea secuestrado por terceros."
 
 #: venv/lib/python3.7/site-packages/django/views/csrf.py:120
 msgid ""
@@ -2161,6 +2229,9 @@ msgid ""
 "enable them, at least for this site, or for HTTPS connections, or for 'same-"
 "origin' requests."
 msgstr ""
+"Si ha configurado su navegador para desactivar las cabeceras de 'Referer', "
+"por favor, vuelva a habilitarlas, al menos para este sitio, o para las "
+"conexiones HTTPS, o para las peticiones de 'mismo origen'."
 
 #: venv/lib/python3.7/site-packages/django/views/csrf.py:124
 msgid ""
@@ -2170,6 +2241,11 @@ msgid ""
 "If you're concerned about privacy, use alternatives like <a rel=\"noreferrer"
 "\" ...> for links to third-party sites."
 msgstr ""
+"Si utilizas la etiqueta <meta name=\"referrer\" content=\"no-referrer\"> o "
+"incluyes el encabezado 'Referrer-Policy: no-referrer', elimínalos. La "
+"protección del CSRF requiere que la cabecera 'Referer' haga una comprobación "
+"estricta de los referenciadores. Si te preocupa la privacidad, utiliza "
+"alternativas como <a rel=\"noreferrer\" ...> para los enlaces a sitios de terceros."
 
 #: venv/lib/python3.7/site-packages/django/views/csrf.py:132
 msgid ""
@@ -2177,30 +2253,36 @@ msgid ""
 "submitting forms. This cookie is required for security reasons, to ensure "
 "that your browser is not being hijacked by third parties."
 msgstr ""
+"Usted está viendo este mensaje porque este sitio requiere una cookie CSRF "
+"cuando se envían los formularios. Esta cookie es necesaria por razones de "
+"seguridad, para asegurar que su navegador no sea secuestrado por terceros."
 
 #: venv/lib/python3.7/site-packages/django/views/csrf.py:137
 msgid ""
 "If you have configured your browser to disable cookies, please re-enable "
 "them, at least for this site, or for 'same-origin' requests."
 msgstr ""
+"Si ha configurado su navegador para deshabilitar las cookies, por favor, "
+"vuelva a habilitarlas, al menos para este sitio, o para las solicitudes de "
+"'mismo origen'."
 
 #: venv/lib/python3.7/site-packages/django/views/csrf.py:142
 msgid "More information is available with DEBUG=True."
-msgstr ""
+msgstr "Más información está disponible con DEBUG=True."
 
 #: venv/lib/python3.7/site-packages/django/views/generic/dates.py:41
 msgid "No year specified"
-msgstr ""
+msgstr "No se especifica el año"
 
 #: venv/lib/python3.7/site-packages/django/views/generic/dates.py:61
 #: venv/lib/python3.7/site-packages/django/views/generic/dates.py:111
 #: venv/lib/python3.7/site-packages/django/views/generic/dates.py:208
 msgid "Date out of range"
-msgstr ""
+msgstr "Fecha fuera del rango"
 
 #: venv/lib/python3.7/site-packages/django/views/generic/dates.py:90
 msgid "No month specified"
-msgstr ""
+msgstr "No se especifica el mes"
 
 #: venv/lib/python3.7/site-packages/django/views/generic/dates.py:142
 msgid "No day specified"
@@ -2208,13 +2290,13 @@ msgstr ""
 
 #: venv/lib/python3.7/site-packages/django/views/generic/dates.py:188
 msgid "No week specified"
-msgstr ""
+msgstr "No se especifica la semana"
 
 #: venv/lib/python3.7/site-packages/django/views/generic/dates.py:338
 #: venv/lib/python3.7/site-packages/django/views/generic/dates.py:367
 #, python-format
 msgid "No %(verbose_name_plural)s available"
-msgstr ""
+msgstr "No hay %(verbose_name_plural)s disponibles"
 
 #: venv/lib/python3.7/site-packages/django/views/generic/dates.py:589
 #, python-format
@@ -2222,48 +2304,50 @@ msgid ""
 "Future %(verbose_name_plural)s not available because %(class_name)s."
 "allow_future is False."
 msgstr ""
+"Future %(verbose_name_plural)s no está disponible porque %(class_name)"
+"s.allow_future es False."
 
 #: venv/lib/python3.7/site-packages/django/views/generic/dates.py:623
 #, python-format
 msgid "Invalid date string '%(datestr)s' given format '%(format)s'"
-msgstr ""
+msgstr "Cadena de fecha inválida '%(datestr)s' dado el formato '%(format)s'."
 
 #: venv/lib/python3.7/site-packages/django/views/generic/detail.py:54
 #, python-format
 msgid "No %(verbose_name)s found matching the query"
-msgstr ""
+msgstr "No se ha encontrado ningún %(verbose_name)s que coincida con la consulta"
 
 #: venv/lib/python3.7/site-packages/django/views/generic/list.py:67
 msgid "Page is not 'last', nor can it be converted to an int."
-msgstr ""
+msgstr "La página no es 'última', ni puede ser convertida en un int."
 
 #: venv/lib/python3.7/site-packages/django/views/generic/list.py:72
 #, python-format
 msgid "Invalid page (%(page_number)s): %(message)s"
-msgstr ""
+msgstr "Página no válida (%(número_de_página)s): %(mensaje)s"
 
 #: venv/lib/python3.7/site-packages/django/views/generic/list.py:154
 #, python-format
 msgid "Empty list and '%(class_name)s.allow_empty' is False."
-msgstr ""
+msgstr "La lista vacía y '%(nombre_clase)s.allow_empty' es Falso."
 
 #: venv/lib/python3.7/site-packages/django/views/static.py:40
 msgid "Directory indexes are not allowed here."
-msgstr ""
+msgstr "Los índices de directorio no están permitidos aquí."
 
 #: venv/lib/python3.7/site-packages/django/views/static.py:42
 #, python-format
 msgid "\"%(path)s\" does not exist"
-msgstr ""
+msgstr "\"%(path)s\" no existe"
 
 #: venv/lib/python3.7/site-packages/django/views/static.py:80
 #, python-format
 msgid "Index of %(directory)s"
-msgstr ""
+msgstr "Índice de %(directorio)s"
 
 #: venv/lib/python3.7/site-packages/django/views/templates/default_urlconf.html:6
 msgid "Django: the Web framework for perfectionists with deadlines."
-msgstr ""
+msgstr "Django: el marco web para perfeccionistas con plazos de entrega."
 
 #: venv/lib/python3.7/site-packages/django/views/templates/default_urlconf.html:345
 #, python-format
@@ -2271,10 +2355,12 @@ msgid ""
 "View <a href=\"https://docs.djangoproject.com/en/%(version)s/releases/\" "
 "target=\"_blank\" rel=\"noopener\">release notes</a> for Django %(version)s"
 msgstr ""
+"Ver <a href=\"https://docs.djangoproject.com/en/%(version)s/releases/\" "
+"target=\"_blank\" rel=\"noopener\">notas de lanzamiento</a> para Django %(version)s"
 
 #: venv/lib/python3.7/site-packages/django/views/templates/default_urlconf.html:367
 msgid "The install worked successfully! Congratulations!"
-msgstr ""
+msgstr "La instalación funcionó con éxito! Felicitaciones!"
 
 #: venv/lib/python3.7/site-packages/django/views/templates/default_urlconf.html:368
 #, python-format
@@ -2284,42 +2370,46 @@ msgid ""
 "\">DEBUG=True</a> is in your settings file and you have not configured any "
 "URLs."
 msgstr ""
+"Estás viendo esta página porque <a href=\"https://docs.djangoproject.com/"
+"en/%(version)s/ref/settings/#debug\" target=\"_blank\" rel=\"noopener\">"
+"DEBUG=True</a> está en tu archivo de configuración y no has configurado "
+"ninguna URL."
 
 #: venv/lib/python3.7/site-packages/django/views/templates/default_urlconf.html:383
 msgid "Django Documentation"
-msgstr ""
+msgstr "Documentación de Django"
 
 #: venv/lib/python3.7/site-packages/django/views/templates/default_urlconf.html:384
 msgid "Topics, references, &amp; how-to's"
-msgstr ""
+msgstr "Temas, referencias, &amp; instrucciones de uso"
 
 #: venv/lib/python3.7/site-packages/django/views/templates/default_urlconf.html:395
 msgid "Tutorial: A Polling App"
-msgstr ""
+msgstr "Tutorial: Una aplicación de sondeo"
 
 #: venv/lib/python3.7/site-packages/django/views/templates/default_urlconf.html:396
 msgid "Get started with Django"
-msgstr ""
+msgstr "Empieza con Django"
 
 #: venv/lib/python3.7/site-packages/django/views/templates/default_urlconf.html:407
 msgid "Django Community"
-msgstr ""
+msgstr "Comunidad de Django"
 
 #: venv/lib/python3.7/site-packages/django/views/templates/default_urlconf.html:408
 msgid "Connect, get help, or contribute"
-msgstr ""
+msgstr "Conéctese, obtenga ayuda o contribuya"
 
 #: venv/lib/python3.7/site-packages/kombu/transport/qpid.py:1301
 #, python-format
 msgid "Attempting to connect to qpid with SASL mechanism %s"
-msgstr ""
+msgstr "Intento de conexión a qpid con mecanismo SASL %s"
 
 #: venv/lib/python3.7/site-packages/kombu/transport/qpid.py:1306
 #, python-format
 msgid "Connected to qpid with SASL mechanism %s"
-msgstr ""
+msgstr "Conectado a qpid con mecanismo SASL %s"
 
 #: venv/lib/python3.7/site-packages/kombu/transport/qpid.py:1324
 #, python-format
 msgid "Unable to connect to qpid with SASL mechanism %s"
-msgstr ""
+msgstr "No se puede conectar a qpid con el mecanismo SASL %s"
