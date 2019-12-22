@@ -61,7 +61,7 @@
 
                                     {% else %}
                                         <a class="btn btn-primary"
-                                           href="{% url "add_game" wrap.game.db_id %}">{% trans "Add to interested" %}</a>
+                                           href="{% url "add_game" wrap.game.parent_game.db_id %}">{% trans "Add to interested" %}</a>
                                     {% endif %}
                                 </td>
                             </tr>

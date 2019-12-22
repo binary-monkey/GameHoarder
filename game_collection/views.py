@@ -400,7 +400,6 @@ def game_view(request, db_id):
     states[2].append(len(Finished.objects.filter(game_version=game_version)))
     states[3].append(len(Abandoned.objects.filter(game_version=game_version)))
     states[4].append(len(Queue.objects.filter(game_version=game_version)))
-
     context = {
         "tags": custom,
         "profile": profile,
@@ -410,11 +409,14 @@ def game_view(request, db_id):
         "states": states,
         "title": title,
         "game_version": game_version,
-        "current_state": GameCollectionController.where_is(game_version, request.user)[0],
-        "current_item": GameCollectionController.where_is(game_version, request.user)[1],
         "can_review": can_review,
         "share_text": f"Check out {title.title} on #GameHoarder"
     }
+    try:
+        context["current_state"] = GameCollectionController.where_is(game_version, request.user)[0],
+        context["current_item"] = GameCollectionController.where_is(game_version, request.user)[1]
+    except TypeError:
+        pass
 
     return render(request, 'collection/game_view.html', context)
 

@@ -196,11 +196,10 @@ def search(request):
                 'publishers': ' | '.join(pub.name for pub in games[i].parent_game.publishers.all())
             }
         )
-    print(games_wrapper)
 
     platforms = [p.get('name') for p in Platform.objects.order_by().values('name').distinct()]
     genres = [g.get('name') for g in Genre.objects.order_by().values('name').distinct()]
-    print(games)
+
     return render(request, 'search/search_form.html', {
         'first_platform': platforms[0] if len(platforms) > 0 else None,
         'first_genre': genres[0] if len(genres) > 0 else None,
