@@ -3,11 +3,13 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+
 # Django stuff:
 *.log
 *.mo
 local_settings.py
 db.sqlite3
+gamehoarder_site/static/images/avatars/*
 
 # Environments
 .env

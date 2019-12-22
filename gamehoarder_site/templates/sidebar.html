@@ -28,7 +28,8 @@
         <div class="menu_section">
             <h3>{% trans "General" %}</h3>
             <ul class="nav side-menu">
-                <li><a href="{% url "profileView" %}"><i class="fa fa-home"></i> {% trans "Home" %} <span class="fa"></span></a></li>
+                <li><a href="{% url "index" %}"><i class="fa fa-home"></i> {% trans "Home" %} <span
+                        class="fa"></span></a></li>
                 <li><a href="{% url "search_users" %}"><i class="fa fa-users"></i> {% trans "Users" %} <span
                         class="fa"></span></a></li>
             </ul>
@@ -59,14 +60,14 @@
                 </li>
                 <li><a href="{% url "wishlist_table" %}"><i class="fa fa-star"></i> {% trans "Wishlist" %} <span
                         class="fa"></span></a></li>
-                <li><a><i class="fa fa-institution"></i> {% trans "Custom" %} <span
-                        class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                        {% for tag in tags %}
-                            <li><a href="/tag/?tag={{ tag.name }}">{{ tag.name }}</a></li>
-                        {% endfor %}
-                    </ul>
-                </li>
+                {#                <li><a><i class="fa fa-institution"></i> {% trans "Custom" %} <span#}
+                {#                        class="fa fa-chevron-down"></span></a>#}
+                {#                    <ul class="nav child_menu">#}
+                {#                        {% for tag in tags %}#}
+                {#                            <li><a href="/tag/?tag={{ tag.name }}">{{ tag.name }}</a></li>#}
+                {#                        {% endfor %}#}
+                {#                    </ul>#}
+                {#                </li>#}
             </ul>
         </div>
     </div>

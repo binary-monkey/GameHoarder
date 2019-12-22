@@ -25,10 +25,10 @@ urlpatterns = [
     path('login', views.login_register, name='login'),
     path('logout', views.logout, name='logout'),
     path('profile', views.profileView, name='profileView'),
-    path('profile/<int:pk>/', views.profileView, name='profile_with_pk'),
+    path('friend/<int:pk>/', views.profileView, name='profile_with_pk'),
     path('edit_user', views.edit_user, name='edit_user'),
-    path('search_users', views.search_users, name='search_users'),
-
+    path('search_users', views.search_user, name='search_users'),
+    path('users/filter', views.ajax_users, name='users_filter'),
     url(r'^connect/(?P<operation>.+)/(?P<pk>\d+)/$', views.change_friends, name='change_friends'),
 
 ]

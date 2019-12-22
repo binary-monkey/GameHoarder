@@ -1,5 +1,6 @@
 {% extends "base_site.html" %}
 {% load i18n %}
+{% load static %}
 {% block title %}{% trans "Collection Summary" %}  {% endblock title %}
 
 {% block stylesheets %}
@@ -8,12 +9,173 @@
 
 {% block content %}
     <div class="right_col" role="main">
-        {# TODO this should be in the settings page   #}
-        <a href="{% url "import_collection" %}" class="btn btn-primary">{% trans "Import Collection" %}</a>
-        <a href="{% url "import_lists" %}" class="btn btn-primary">{% trans "Import Lists" %}</a>
+
+        <div class="row tile_count" id="user-stats">
+            <div class="col-md-2 col-sm-4 col-xs-6  tile_stats_count">
+                <span class="count_top"><i class="fa fa-gamepad"></i> Games</span>
+                <div class="count">[[ info.games ]]</div>
+            </div>
+            <div class="col-md-2 col-sm-4 col-xs-6  tile_stats_count">
+                <span class="count_top"><i class="fa fa-clock-o"></i> Hours</span>
+                <div class="count">[[ info.hours ]]</div>
+            </div>
+            <div class="col-md-2 col-sm-4 col-xs-6  tile_stats_count">
+                <span class="count_top"><i class="fa fa-archive"></i> Completion Rate</span>
+                <div class="count">[[ info.completion_rate ]] %</div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-5 col-sm-5 ">
+                <div class="x_panel tile fixed_height_320 overflow_hidden">
+                    <div class="x_title">
+                        <h2>{% trans "Collection Summary" %}</h2>
+                        <ul class="nav navbar-right panel_toolbox" style="min-width: 0">
+                            <li><a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i></a>
+                            </li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+
+                    <div class="x_content">
+                        <table class="" style="width:100%">
+                            <tr>
+                                <th style="width:37%;">
+
+                                </th>
+                                <th>
+                                    <div class="col-lg-7 col-md-7 col-sm-7 ">
+                                        <p class="">List</p>
+                                    </div>
+
+                                </th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <canvas id="collectionSummaryPie" height="140" width="140"
+                                            style="margin: 15px 10px 10px 0"></canvas>
+                                </td>
+                                <td id="collection-stats">
+                                    <table class="tile_info">
+                                        <tr>
+                                            <td>
+                                                <p><i class="fa fa-square blue"></i>{% trans "Queue" %} </p>
+                                            </td>
+                                            <td>[[ parseFloat((info.queue / info.total) * 100).toFixed(2)]]%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p><i class="fa fa-square green"></i>Playing </p>
+                                            </td>
+                                            <td>[[ parseFloat((info.playing / info.total) * 100).toFixed(2)]]%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p><i class="fa fa-square purple"></i>Played </p>
+                                            </td>
+                                            <td>[[ parseFloat((info.played / info.total) * 100).toFixed(2)]]%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p><i class="fa fa-square aero"></i>Finished </p>
+                                            </td>
+                                            <td>[[ parseFloat((info.finished / info.total) * 100).toFixed(2)]]%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p><i class="fa fa-square red"></i>Abandoned </p>
+                                            </td>
+                                            <td>[[ parseFloat((info.abandoned / info.total) * 100).toFixed(2)]]%</td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <a href="{% url "import_collection" %}" class="btn btn-primary">{% trans "Import Collection" %}</a>
+            <a href="{% url "import_lists" %}" class="btn btn-primary">{% trans "Import Lists" %}</a>
+        </div>
     </div>
 {% endblock content %}
 
 {% block javascripts %}
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="{% static "/vendors/Chart.js/dist/Chart.min.js" %}"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <script>
+
+        var app = new Vue({
+            delimiters: ['[[', ']]'],
+            el: '#user-stats',
+
+            data() {
+                return {
+                    info: null
+                }
+            },
+            mounted() {
+                axios
+                    .get('{% url "user_stats" %}')
+                    .then(response => (this.info = response.data))
+            },
+
+        });
+        var app2 = new Vue({
+            delimiters: ['[[', ']]'],
+            el: '#collection-stats',
+
+            data() {
+                return {
+                    info: null
+                }
+            },
+            mounted() {
+                axios
+                    .get('{% url "collection_stats" %}')
+                    .then(response => (this.info = response.data));
+
+                this.createChart("collectionSummaryPie", this.info)
+            },
+
+            methods: {
+                createChart(chartId, chartData) {
+                    var ctx = document.getElementById(chartId);
+                    var myChart = new Chart(ctx, {
+                        type: 'pie',
+                        data: {
+                            labels: ["{% trans 'Queue' %}", '{% trans "Playing" %}', '{% trans "Played" %}', '{% trans "Finished" %}', '{% trans "Abandoned" %}'],
+                            datasets: [{
+                                label: '{% trans "Games" %}',
+                                data: chartData,
+                                backgroundColor: [
+                                    '#3498DB',
+                                    '#1ABB9C',
+                                    '#9B59B6',
+                                    '#9CC2CB',
+                                    '#E74C3C',
+                                ],
+                            }]
+                        },
+                        options: {
+                            legend: {
+                                display: false
+                            },
+                        }
+                    });
+
+                }
+            }
+        });
+
+    </script>
+
     {{ block.super }}
 {% endblock javascripts %}

@@ -7,7 +7,6 @@ from django.utils.translation import ugettext_lazy as _
 ''' Avoids saving again existing files
 '''
 
-
 class MediaFileSystemStorage(FileSystemStorage):
     def get_available_name(self, name, max_length=None):
         if max_length and len(name) > max_length:

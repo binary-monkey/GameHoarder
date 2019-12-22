@@ -4,11 +4,11 @@ import json
 from django.contrib import auth
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponse, HttpResponseRedirect
+from django.contrib.auth.models import Group
+from django.db.models import Q
+from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.shortcuts import render, redirect
 from django.template.context_processors import csrf
-from django.urls import reverse
-from django.contrib.auth.models import Group
 
 from game_collection.models import Tag, Queue, Played, Playing, Abandoned, Finished
 from game_database.functions import GameHoarderDB
@@ -16,18 +16,11 @@ from game_database.models import Genre, Platform
 from .forms import *
 
 
-@login_required(login_url='login')
 def index(request):
     if not request.user.is_authenticated:
         return render(request, "landing.html")
 
-    custom = Tag.objects.filter(user=request.user)
-    profile = Profile.objects.get(user=request.user)
-    context = {
-        "tags": custom,
-        "profile": profile
-    }
-    return render(request, "index.html", context)
+    return profileView(request)
 
 
 @login_required(login_url='login')
@@ -35,7 +28,7 @@ def profileView(request, pk=None):
     custom = Tag.objects.filter(user=request.user)
     profile = Profile.objects.get(user=request.user)
 
-    if pk and pk != profile.pk:
+    if pk!=None and pk != request.user.id:
         user = User.objects.get(pk=pk)
         current_profile = Profile.objects.get(user=user)
         queue = Queue.objects.filter(user=user)[:5]
@@ -43,6 +36,8 @@ def profileView(request, pk=None):
         finished = Finished.objects.filter(user=user)[:5]
         played = Played.objects.filter(user=user)[:5]
         abandoned = Abandoned.objects.filter(user=user)[:5]
+        # list_friends = profile.friends.all()
+
     else:
         current_profile = profile
         queue = Queue.objects.filter(user=request.user)[:5]
@@ -145,18 +140,44 @@ def logout(request):
 
 
 @login_required(login_url='login')
-def search_users(request):
+def ajax_users(request):
+    username = request.GET['username']
+
+    initial = Profile.objects.filter(Q(user__first_name__contains=username) | Q(user__username__contains=username)
+                                      | Q(user__last_name__contains=username)).exclude(user=request.user)
+
+
+    initial = list(initial.values())
+
+    following = request.GET['following']
+
+    profiles = []
+    for i in initial:
+        if following == "no":
+            if i.pk not in Profile.objects.get(user=request.user).friends.reverse().get().pk:
+                profiles.append(i)
+        else:
+            profiles.append(i)
+
+    codes = [i['user_id'] for i in profiles]
+    print(codes)
+    context = {"new_profiles": codes}
+    return JsonResponse(context)
+
+
+@login_required(login_url='login')
+def search_user(request):
     custom = Tag.objects.filter(user=request.user)
     profile = Profile.objects.get(user=request.user)
-    users = Profile.objects.exclude(user=request.user)
+    profiles = Profile.objects.all().exclude(user=request.user)
 
     context = {
         "tags": custom,
         "profile": profile,
-        "users": users
+        "profiles": profiles
     }
 
-    return render(request, 'search/search_friends.html', context)
+    return render(request, "search/search_friends.html", context)
 
 
 @login_required(login_url='login')
