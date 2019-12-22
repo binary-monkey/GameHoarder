@@ -33,7 +33,8 @@
 
                                 </div>
                             </div>
-                            <h3>{{ current_profile.user.first_name }} {{ current_profile.user.last_name }}</h3>
+                            <h3>{{ current_profile.user }}</h3>
+                            <h2>{{ current_profile.user.first_name }} {{ current_profile.user.last_name }}</h2>
                             {% if current_profile == profile %}
                                 <a class="btn btn-primary nav-link" href="{% url  'edit_user' %}">
                                     {% trans "Edit Profile" %}
@@ -301,7 +302,7 @@
                                                             <div class="col-sm-2">
                                                                 <a href="{% url 'profile_with_pk' pk=fr.pk %}">
                                                                     <div class="card bg-light mb-3" style="max-width: 30rem;">
-                                                                        <img class="img-responsive card-img-top" src="/images/{{ fr.avatar }}" alt="{{ fr.username }}"/>
+                                                                        <img class="img-responsive card-img-top" src="/images/{{ fr.user.get.avatar }}" alt="{{ fr.username }}"/>
                                                                         <div class="card-body">
                                                                             <b class="card-text">{{ fr.username }}</b>
                                                                         </div>
