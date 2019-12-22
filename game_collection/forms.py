@@ -1,4 +1,5 @@
 from django import forms
+from game_collection.models import Review
 
 
 class MoveForm(forms.Form):
@@ -15,3 +16,7 @@ class MoveForm(forms.Form):
     time_other = forms.FloatField()
 
     playstyle = forms.IntegerField()
+
+class ReviewForm(forms.Form):
+    score = forms.FloatField()
+    text = forms.CharField()
