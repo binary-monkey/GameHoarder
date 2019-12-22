@@ -58,6 +58,12 @@ class TagGroupAdmin(admin.ModelAdmin):
     ordering = ("name",)
 
 
+class ReviewAdmin(admin.ModelAdmin):
+    list_display = ("user", "game_version", "score")
+    list_display_links = ('user',)
+    ordering = ("user", "game_version")
+
+
 admin.site.register(Queue, QueueAdmin)
 admin.site.register(Playing, PlayingAdmin)
 admin.site.register(Finished, FinishedAdmin)
@@ -69,3 +75,5 @@ admin.site.register(Wishlist, WishlistAdmin)
 
 admin.site.register(Tag, TagAdmin)
 admin.site.register(TagGroup, TagGroupAdmin)
+
+admin.site.register(Review, ReviewAdmin)

@@ -36,66 +36,126 @@
                         <div class="x_content">
 
                             <div class="col-md-4 col-sm-4">
-                                <div>
-                                    <img class="img-responsive avatar-view" src="{{ title.img_url }}" alt="..."/>
-                                </div>
+                                <img class="center-block img-thumbnail" style="max-height: 40vh"
+                                     src="{{ title.img_url }}" alt="..."/>
                             </div>
 
                             <div class="col-md-5 col-sm-5 " style="border:0px solid #e5e5e5;">
 
-                                <h4>{{ title.description }}</h4>
-                                <br/>
+                                <div class="form-horizontal form-label-left">
 
-                                <h2>
-                                    Release Date: {% if game_version.release_date is not None %}
-                                    {{ game_version.release_date }}
-                                {% elif title.release_date is not None %}
-                                    {{ title.release_date }}
-                                {% endif %}
-                                </h2>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-2 col-sm-2 col-xs-12"
+                                               for="description">{% trans "Description" %}
+                                        </label>
+                                        <div class="col-md-8 col-xs-12 col-xs-12">
+                                            <textarea id="description" style="resize: none" disabled
+                                                      class="form-control"
+                                                      rows="3"></textarea>
+                                        </div>
+                                    </div>
 
-                                <br/>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-2 col-sm-2 col-xs-12"
+                                               for="release-date">{% trans "Release Date" %}
+                                        </label>
+                                        <div class="col-md-8 col-xs-12 col-xs-12">
+                                            {# If you do this directly you enter empty spaces in the value #}
+                                            {% if game_version.release_date is not None %}
 
-                                <div class="">
-                                    <h2>Publishers:</h2>
-                                    <ul class="list-inline prod_size display-layout">
-                                        {% for publisher in publishers %}
-                                            <li>
-                                                <button class="btn btn-default btn-xs disabled">{{ publisher.name }}</button>
-                                            </li>
-                                        {% endfor %}
-                                    </ul>
-                                </div>
-                                <br/>
+                                                <input type="text" disabled id="release-date"
+                                                       value="{{ game_version.release_date }}"
+                                                       class="form-control col-md-7 col-xs-12">
 
-                                <div class="">
-                                    <h2>Developers:</h2>
-                                    <ul class="list-inline prod_size display-layout">
-                                        {% for developer in developers %}
-                                            <li>
-                                                <button class="btn btn-default btn-xs disabled">{{ developer.name }}</button>
-                                            </li>
-                                        {% endfor %}
-                                    </ul>
-                                </div>
-                                <br/>
+                                            {% elif title.release_date is not None %}
+                                                <input type="text" disabled id="release-date"
+                                                       value="{{ title.release_date }}"
+                                                       class="form-control col-md-7 col-xs-12">
+                                            {% endif %}
+                                        </div>
+                                    </div>
 
-                                <div class="">
-                                    <h2>Genres:</h2>
-                                    <ul class="list-inline prod_size display-layout">
-                                        {% for genre in genres %}
-                                            <li>
-                                                <button class="btn btn-default btn-xs disabled">{{ genre.name }}</button>
-                                            </li>
-                                        {% endfor %}
-                                    </ul>
-                                </div>
-                                <br/>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-2 col-sm-2 col-xs-12"
+                                               for="release-date">{% trans "Publishers" %}
+                                        </label>
+                                        <div class="col-md-8 col-xs-12 col-xs-12">
+                                            {% for publisher in publishers %}
+                                                <span>
+                                                    <button class="btn btn-default btn-xs disabled">{{ publisher.name }}</button>
+                                                </span>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
 
-                                <div>
-                                    <h2>Main time: {{ title.main_time }}h</h2>
-                                    <h2>Extra time: {{ title.extra_time }}h</h2>
-                                    <h2>Completion time: {{ title.completion_time }}h</h2>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-2 col-sm-2 col-xs-12"
+                                               for="release-date">{% trans "Developers" %}
+                                        </label>
+                                        <div class="col-md-8 col-xs-12 col-xs-12">
+                                            {% for developer in developers %}
+                                                <span>
+                                                    <button class="btn btn-default btn-xs disabled">{{ developer.name }}</button>
+                                                </span>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-2 col-sm-2 col-xs-12"
+                                               for="release-date">{% trans "Genres" %}
+                                        </label>
+                                        <div class="col-md-8 col-xs-12 col-xs-12">
+                                            {% for genre in genres %}
+                                                <span>
+                                                    <button class="btn btn-default btn-xs disabled">{{ genre.name }}</button>
+                                                </span>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-2 col-sm-2 col-xs-12"
+                                               for="release-date">{% trans "GameHoarder's Score" %}
+                                        </label>
+                                        <div class="col-md-8 col-xs-12 col-xs-12">
+                                            <input type="text" disabled id="release-date"
+                                                   value="{{ game_version.average_score }}"
+                                                   class="form-control col-md-7 col-xs-12">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-2 col-sm-2 col-xs-12"
+                                               for="release-date">{% trans "Main Time" %}
+                                        </label>
+                                        <div class="col-md-8 col-xs-12 col-xs-12">
+                                            <input type="text" disabled id="release-date"
+                                                   value="{{ title.main_time }} h"
+                                                   class="form-control col-md-7 col-xs-12">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-2 col-sm-2 col-xs-12"
+                                               for="release-date">{% trans "Extra Time" %}
+                                        </label>
+                                        <div class="col-md-8 col-xs-12 col-xs-12">
+                                            <input type="text" disabled id="release-date"
+                                                   value="{{ title.extra_time }} h"
+                                                   class="form-control col-md-7 col-xs-12">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-2 col-sm-2 col-xs-12"
+                                               for="release-date">{% trans "Completion Time" %}
+                                        </label>
+                                        <div class="col-md-8 col-xs-12 col-xs-12">
+                                            <input type="text" disabled id="release-date"
+                                                   value="{{ title.completion_time }} h"
+                                                   class="form-control col-md-7 col-xs-12">
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -260,10 +320,57 @@
                     </div>
                 </div>
             </div>
+
+            <div class="row">
+                <div class="col-md-12 col-sm-12 ">
+                    <div class="x_panel">
+
+                        <div class="x_title">
+                            <h2>{% trans "Latests Reviews" %}</h2>
+                            <ul class="nav navbar-right panel_toolbox" style="min-width: 0">
+                                <li><a class="collapse-link">
+                                    <i class="fa fa-chevron-up"></i></a>
+                                </li>
+                            </ul>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="x_content">
+                            <ul class="messages">
+                                {% for review in game_version.review_set.all|slice:"5" %}
+                                    <li>
+                                        <img src="/images/{{ review.user.profile.avatar }}" class="avatar" alt="Avatar">
+                                        <div class="message_date">
+                                            <h3 class="date text-error">{{ review.date.day }}</h3>
+                                            <p class="month">{{ review.date|date:"M" }}</p>
+                                            <p class="month">{{ review.date.year }}</p>
+                                        </div>
+                                        <div class="message_wrapper">
+                                            <h4 class="heading">{{ review.user.get_full_name }}
+                                                - {{ review.score }}</h4>
+                                            <blockquote class="message">{{ review.text }}
+                                            </blockquote>
+                                            <br>
+                                        </div>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 {% endblock content %}
 
 {% block javascripts %}
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script>
+
+        $(document).ready(function () {
+            document.getElementById("description").defaultValue = "{{title.description}}";
+        });
+
+    </script>
     {{ block.super }}
+
 {% endblock javascripts %}

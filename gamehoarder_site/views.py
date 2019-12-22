@@ -7,7 +7,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.template.context_processors import csrf
-
+from django.contrib.auth.models import Group
 from game_collection.models import Tag
 from game_database.functions import GameHoarderDB
 from game_database.models import Genre, Platform
@@ -68,10 +68,15 @@ def login_register(request):
         form = UserForm(request.POST)
         if form.is_valid():
             form.save()
+            user = User.objects.last()
+            default = Group.objects.get(name="standard_user")
+            user.groups.add(default)
+            user.save()
             return HttpResponseRedirect('login')
         else:
             username = request.POST.get('username')
             password = request.POST.get('password')
+
             user = authenticate(username=username, password=password)
             if user is not None:
                 if user.is_active:

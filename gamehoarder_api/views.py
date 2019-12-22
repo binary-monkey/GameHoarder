@@ -1,7 +1,8 @@
+from django.contrib.auth.models import User
 from django.db.models import Sum
 from django.http import JsonResponse
 
-from game_collection.models import Wishlist, Interested, Queue, Playing, Played, Finished, Abandoned
+from game_collection.models import Wishlist, Interested, Queue, Playing, Played, Finished, Abandoned, Review
 from gamehoarder_site.models import Profile
 
 
@@ -34,15 +35,13 @@ def stats(request):
         'users': Profile.objects.all().count(),
         "games": games,
         'hours': hours,
-        'reviews': 3
+        'reviews': Review.objects.all().count()
     }
     return JsonResponse(data)
 
 
 def collection_stats(request):
     user = request.user
-
-
 
     data = {
         "queue": Queue.objects.filter(user=user).count(),
@@ -56,10 +55,9 @@ def collection_stats(request):
 
     return JsonResponse(data)
 
+
 def user_stats(request):
-
     user = request.user
-
     count_interested = Interested.objects.filter(user=user).count()
     count_wishlist = Wishlist.objects.filter(user=user).count()
     count_queue = Queue.objects.filter(user=user).count()
@@ -87,7 +85,16 @@ def user_stats(request):
     data = {
         "games": games,
         "hours": hours,
-        "completion_rate": round(((count_finished + count_played)*100)/games, 2)
+        "completion_rate": round(((count_finished + count_played) * 100) / games, 2)
     }
 
     return JsonResponse(data)
+
+
+def user_list(request):
+    users = User.objects.all().values("id", "username", "email", "groups__name")
+
+    response = JsonResponse({"data": list(users)})
+    response['Access-Control-Allow-Origin'] = '*'
+
+    return response
