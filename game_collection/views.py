@@ -368,20 +368,38 @@ def export_list(request):
 
 
 @login_required(login_url='login')
+def remove_review(request, db_id):
+    try:
+        review = Review.objects.get(user=request.user, game_version__db_id=db_id)
+        review.delete()
+    except:
+        pass
+    return game_view(request, db_id)
+
+
+@login_required(login_url='login')
 def game_view(request, db_id):
     if request.method == 'POST':
         form = ReviewForm(request.POST)
         if form.is_valid():
             text = form['text'].value()
-            score = form['score'].value()
+            score = float(form['score'].value())
             try:
-                new_review = Review(user=request.user, text=text, score=score, game_version=GameVersion.objects.get(db_id=db_id))
-                new_review.save()
+                if not int(request.GET['existing'])==1:
+                    new_review = Review(user=request.user, text=text, score=score, game_version=GameVersion.objects.get(db_id=db_id))
+                    new_review.save()
+                else:
+                    review = Review.objects.get(user=request.user, game_version__db_id=db_id)
+                    review.score = score
+                    review.text = text
+                    review.save()
             except: # Just for some cases when the browser saves the form reloading
                 pass
-
     can_review = not (len(Review.objects.filter(user=request.user, game_version__db_id=db_id))>0)
-
+    if can_review:
+        review = ""
+    else:
+        review = Review.objects.get(user=request.user, game_version__db_id=db_id)
     custom = Tag.objects.filter(user=request.user)
     profile = Profile.objects.get(user=request.user)
     game_version = GameVersion.objects.get(db_id=db_id)
@@ -410,6 +428,7 @@ def game_view(request, db_id):
         "title": title,
         "game_version": game_version,
         "can_review": can_review,
+        "existing_review": review,
         "share_text": f"Check out {title.title} on #GameHoarder"
     }
     try:
