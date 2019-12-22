@@ -147,7 +147,8 @@
                                                 <input type="hidden" value="{{ title }}" name="titles"/>
                                             {% endfor %}
                                             <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
-                                                <button type="submit" class="btn btn-primary">{% trans "Import" %}</button>
+                                                <button type="submit"
+                                                        class="btn btn-primary">{% trans "Import" %}</button>
                                             </div>
                                         </form>
                                     </div>
@@ -219,7 +220,8 @@
                                                     <input type="hidden" value="{{ title }}" name="data"/>
                                                 {% endfor %}
                                                 <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
-                                                    <button type="submit" class="btn btn-primary">{% trans "Download" %}</button>
+                                                    <button type="submit"
+                                                            class="btn btn-primary">{% trans "Download" %}</button>
                                                 </div>
                                             </form>
                                         </div>
@@ -267,7 +269,8 @@
                                                     <input type="hidden" value="{{ title }}" name="data"/>
                                                 {% endfor %}
                                                 <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
-                                                    <button type="submit" class="btn btn-primary">{% trans "Download" %}</button>
+                                                    <button type="submit"
+                                                            class="btn btn-primary">{% trans "Download" %}</button>
                                                 </div>
                                             </form>
                                         </div>
@@ -343,8 +346,8 @@
                                         <form id="import" method="post"
                                               enctype="multipart/form-data">
                                             <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
-                                                <button type="submit" class="btn btn-primary">{% trans "Finish" %}</button>
-                                            </div>
+                                                <a href="{% url "collection_summary" %}" type="submit"
+                                                   class="btn btn-primary">{% trans "Finish" %}</a></div>
                                         </form>
                                     </div>
                                 </div>
