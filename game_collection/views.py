@@ -5,14 +5,13 @@ import json
 from celery.result import AsyncResult
 from django.contrib.auth.decorators import login_required
 from django.core.files.storage import FileSystemStorage
-from django.http import HttpResponse, JsonResponse, HttpResponseRedirect
+from django.http import HttpResponse
 from django.shortcuts import render, redirect
-from django.template.context_processors import csrf
 from django.utils.translation import to_locale, get_language
 
 from game_collection.forms import *
-from game_collection.tasks import *
 from game_collection.models import *
+from game_collection.tasks import *
 from gamehoarder_site.functions import read_csv
 from gamehoarder_site.models import Profile
 
@@ -35,11 +34,10 @@ def import_collection(request):
     if request.method == 'POST':
         if "collection" in request.FILES:
             myfile = request.FILES['collection']
-            fs = FileSystemStorage()
+            fs = FileSystemStorage(location="media/")
             filename = fs.save(myfile.name, myfile)
-            uploaded_file_url = fs.url(filename)
 
-            csv_file = read_csv(uploaded_file_url)
+            csv_file = read_csv("/media/%s" % filename)
             if "remove-header" in request.POST:
                 csv_file.pop(0)  # Removes headers
 
@@ -86,11 +84,10 @@ def import_list(request):
     if request.method == 'POST':
         if "list" in request.FILES:
             myfile = request.FILES['list']
-            fs = FileSystemStorage()
+            fs = FileSystemStorage(location="media/")
             filename = fs.save(myfile.name, myfile)
-            uploaded_file_url = fs.url(filename)
 
-            csv_file = read_csv(uploaded_file_url)
+            csv_file = read_csv("/media/%s" % filename)
             if "remove-header" in request.POST:
                 csv_file.pop(0)  # Removes headers
 
