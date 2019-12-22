@@ -62,7 +62,8 @@ def profileView(request, pk=None):
         "finished": finished,
         "played": played,
         "abandoned": abandoned,
-        "list_friends": list_friends
+        "list_friends": list_friends,
+        "share_text": f"Check {profile.user.username}'s profile on #GameHoarder"
     }
 
     return render(request, "account/profileView.html", context)
