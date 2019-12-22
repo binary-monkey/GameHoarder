@@ -46,7 +46,7 @@
                                         <div class="col-md-8 col-xs-12 col-xs-12">
                                             <textarea id="description" style="resize: none" disabled
                                                       class="form-control"
-                                                      rows="3"></textarea>
+                                                      rows="5"></textarea>
                                         </div>
                                     </div>
 
@@ -330,6 +330,50 @@
                             <div class="clearfix"></div>
                         </div>
                         <div class="x_content">
+                        {% if can_review %}
+                          <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">{% trans "Create review" %}</button>
+                        {% else %}
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg" disabled>{% trans "Create review" %}</button>
+                        {% endif %}
+                          <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                              <div class="modal-content">
+
+                                <div class="modal-header">
+                                  <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                                  </button>
+                                  <h4 class="modal-title" id="myModalLabel">{% trans "Create review" %}</h4>
+                                </div>
+                                  <br>
+
+                                <form action="" enctype="multipart/form-data" method="post" class="form-horizontal form-label-left">{% csrf_token %}
+                                  <div class="item form-group">
+                                      <label class="control-label col-md-3 col-sm-3 col-xs-12"
+                                             for="id_score">{% trans 'Score' %}
+                                         </label>
+                                        <div class="col-md-6 col-sm-7 col-xs-12">
+                                                <input id="id_score" type="text" name="score" maxlength="10" required="required" class="form-control col-md-7 col-xs-12" value=""/>
+                                        </div>
+                                  </div>
+                                  <br>
+                                    <div class="item form-group">
+                                    <label for="id_text" class="control-label col-md-3 col-sm-3 col-xs-12">{% trans 'Deja un comentario' %}(200 max):</label>
+                                    <div class="col-md-6 col-sm-7 col-xs-12">
+                                        <textarea id="id_text" required="required" class="form-control" name="text" data-parsley-trigger="keyup"
+                                                  data-parsley-maxlength="200"></textarea></div>
+                                    </div>
+                                  <br>
+
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-default" data-dismiss="modal">{% trans "Close" %}</button>
+                                  <button type="submit" id="create_btn" class="btn btn-primary">{% trans "Save review" %}</button>
+                                    <p id="error_msg" hidden>Score value is incorrect</p>
+                                </div>
+                                </form>
+                              </div>
+                            </div>
+                          </div>
+
                             <ul class="messages">
                                 {% for review in game_version.review_set.all|slice:"5" %}
                                     <li>
@@ -355,6 +399,24 @@
             </div>
         </div>
     </div>
+
+    <script>
+        var score = document.getElementById('id_score');
+        var create_btn = document.getElementById('create_btn');
+        var msg = document.getElementById('error_msg');
+
+        score.onchange = validateScore;
+        function validateScore(){
+          if(score.value<0 || score.value>10 || !isFinite(score.value)) {
+            create_btn.disabled = true;
+            msg.hidden = false;
+          } else {
+            create_btn.disabled = false;
+            msg.hidden = true;
+          }
+        }
+
+    </script>
 {% endblock content %}
 
 {% block javascripts %}
