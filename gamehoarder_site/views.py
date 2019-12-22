@@ -8,6 +8,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.template.context_processors import csrf
 from django.urls import reverse
+from django.contrib.auth.models import Group
 
 from game_collection.models import Tag, Queue, Played, Playing, Abandoned, Finished
 from game_database.functions import GameHoarderDB
@@ -108,10 +109,15 @@ def login_register(request):
         form = UserForm(request.POST)
         if form.is_valid():
             form.save()
+            user = User.objects.last()
+            default = Group.objects.get(name="standard_user")
+            user.groups.add(default)
+            user.save()
             return HttpResponseRedirect('login')
         else:
             username = request.POST.get('username')
             password = request.POST.get('password')
+
             user = authenticate(username=username, password=password)
             if user is not None:
                 if user.is_active:
@@ -209,6 +215,7 @@ def edit_user(request):
     token = {}
     token.update(csrf(request))
     token['form'] = form
+
 
     return render(request, 'account/edit_user.html',
                   {'tags': custom, 'user': request.user, 'profile': profile})

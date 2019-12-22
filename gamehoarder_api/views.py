@@ -1,7 +1,8 @@
+from django.contrib.auth.models import User
 from django.db.models import Sum
 from django.http import JsonResponse
 
-from game_collection.models import Wishlist, Interested, Queue, Playing, Played, Finished, Abandoned
+from game_collection.models import Wishlist, Interested, Queue, Playing, Played, Finished, Abandoned, Review
 from gamehoarder_site.models import Profile
 
 
@@ -34,6 +35,66 @@ def stats(request):
         'users': Profile.objects.all().count(),
         "games": games,
         'hours': hours,
-        'reviews': 3
+        'reviews': Review.objects.all().count()
     }
     return JsonResponse(data)
+
+
+def collection_stats(request):
+    user = request.user
+
+    data = {
+        "queue": Queue.objects.filter(user=user).count(),
+        "playing": Playing.objects.filter(user=user).count(),
+        "played": Played.objects.filter(user=user).count(),
+        "finished": Finished.objects.filter(user=user).count(),
+        "abandoned": Abandoned.objects.filter(user=user).count()
+    }
+
+    data["total"] = data["queue"] + data["playing"] + data["played"] + data["finished"] + data["abandoned"]
+
+    return JsonResponse(data)
+
+
+def user_stats(request):
+    user = request.user
+    count_interested = Interested.objects.filter(user=user).count()
+    count_wishlist = Wishlist.objects.filter(user=user).count()
+    count_queue = Queue.objects.filter(user=user).count()
+    count_playing = Playing.objects.filter(user=user).count()
+    count_played = Played.objects.filter(user=user).count()
+    count_finished = Finished.objects.filter(user=user).count()
+    count_abandoned = Abandoned.objects.filter(user=user).count()
+
+    games = count_interested + count_wishlist + count_queue + count_playing + count_played + count_finished + count_abandoned
+
+    hours = 0
+
+    # This check is needed because if the list is empty aggregate returns None
+    if count_queue != 0:
+        hours += float(Queue.objects.filter(user=user).aggregate(Sum("time_played"))["time_played__sum"])
+    if count_playing != 0:
+        hours += float(Playing.objects.filter(user=user).aggregate(Sum("time_played"))["time_played__sum"])
+    if count_played != 0:
+        hours += float(Played.objects.filter(user=user).aggregate(Sum("time_played"))["time_played__sum"])
+    if count_finished != 0:
+        hours += float(Finished.objects.filter(user=user).aggregate(Sum("time_played"))["time_played__sum"])
+    if count_abandoned != 0:
+        hours += float(Abandoned.objects.filter(user=user).aggregate(Sum("time_played"))["time_played__sum"])
+
+    data = {
+        "games": games,
+        "hours": hours,
+        "completion_rate": round(((count_finished + count_played) * 100) / games, 2)
+    }
+
+    return JsonResponse(data)
+
+
+def user_list(request):
+    users = User.objects.all().values("id", "username", "email", "groups__name")
+
+    response = JsonResponse({"data": list(users)})
+    response['Access-Control-Allow-Origin'] = '*'
+
+    return response

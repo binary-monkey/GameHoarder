@@ -118,12 +118,6 @@ celery -A GameHoarder worker -l info
 ```
 
 ## Credits
-
-https://colorlib.com/wp/template/cloud83/
-
-https://www.flaticon.com/packs/essential-collection
-
-## Credits
 - Bootstrap Template based on [Gentelella](https://github.com/ColorlibHQ/gentelella) by Colorlib,
 - Landing Page based on [Cloud83](https://colorlib.com/wp/template/cloud83/) by Colorlib, 
 - All static photos taken from [Unsplash](https://www.unsplash.com), see detailed information [here](CREDITS.MD).
