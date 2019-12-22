@@ -47,21 +47,21 @@
                                             <input class="form-check-input" type="radio" name="following"
                                                    id="all" value="all" checked>
                                             <label class="form-check-label" for="all">
-                                                {% trans 'All' %}
+                                                {% trans "All" %}
                                             </label>
                                             <br/>
                                             <input class="form-check-input" type="radio" name="following"
                                                    id="no" value="no">
                                             <label class="form-check-label" for="no">
-                                                {% trans 'No' %}
+                                                {% trans "No" %}
                                             </label>
                                         </p>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                                        <button class="btn btn-primary" id="ajax_users_test" type="button">{% trans 'Apply'%}</button>
-                                        <button class="btn btn-primary" type="reset" onClick="window.location.reload()">{% trans 'Reset'%}</button>
+                                        <button class="btn btn-primary" id="ajax_users_test" type="button">{% trans "Apply"%}</button>
+                                        <button class="btn btn-primary" type="reset" onClick="window.location.reload()">{% trans "Reset"%}</button>
                                     </div>
                                 </div>
                             </form>
@@ -84,10 +84,8 @@
                             <div class="x_content">
                                 <table id="datatable" class="tab-pane fade active in">
                                     <div class="album py-5 bg-light">
-                                        <div class="row" id="to_change_users">
-                                            {% if profiles.count == 0 %}
-                                                <h1>{% trans "No Profile" %}</h1>
-                                            {% else %}
+                                        <div class="row" >
+                                            <div id="to_change">
                                                 {% for user in profiles %}
                                                     <div class="col-sm-2">
                                                         <a href="{% url 'profile_with_pk' pk=user.pk %}">
@@ -102,7 +100,7 @@
                                                         </a>
                                                     </div>
                                                 {% endfor %}
-                                            {% endif %}
+                                            </div>
                                         </div>
                                     </div>
                                 </table>
@@ -117,23 +115,22 @@
 
     <script>
         document.getElementById("ajax_users_test").onclick = function(){myFunction()};
-        var title = '{{ list_type|title }}';
         function myFunction() {
             $.ajaxSetup({
                 cache: false
             });
             var form_s = $('form').serialize();
             $.ajax({
-                url: window.location.origin+'/user/filter?'+form_s+'&'+'type='+title,
+                url: window.location.origin+'/users/filter?'+form_s,
                 type:"GET",
                 cache: false,
                 dataType: 'json',
                 success: function(response) {
-                    $('#to_change_users').html("");
-                    for (i=0; i<response['new_titles'].length; i++) {
+                    $('#to_change').html("");
+                    for (i=0; i<response['new_profiles'].length; i++) {
                         {% for pr in profiles %}
-                            if (response['new_profiles'][i] === "{{pr}}") {
-                                $('#to_change_users').append("<div class=\"col-sm-2\">\n" +
+                            if (response['new_profiles'][i] == "{{pr}}") {
+                                $('#to_change').append("<div class=\"col-sm-2\">\n" +
                                         "<a href=\"{% url 'profile_with_pk' pk=pr.pk %}\">\n"+
                                             "<div class=\"card bg-light mb-3\" style=\"max-width: 30rem;\">\n"+
                                                 "<img class=\"img-responsive card-img-top\" src=\"/images/{{ pr.avatar }}\" alt=\"{{ pr.user.username }}\"/>\n"+

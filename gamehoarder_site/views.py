@@ -145,16 +145,23 @@ def logout(request):
 @login_required(login_url='login')
 def ajax_users(request):
     params = request.GET.dict().items()
-    profiles = []
-    initial = None
-    if Profile.user.username.__contains__(params):
-        initial = Profile.objects.filter(user=request.user)
+    username = params['username']
+    del params['username']
+    initial = [Profile.objects.filter(user__first_name__contains=username),
+               Profile.objects.filter(user__username__contains=username),
+               Profile.objects.filter(user__last_name__contains=username)]
 
+    following = params['following']
+
+    profiles = []
     for i in initial:
-        profiles.append(i)
+        if following == "no":
+            if i.pk not in Profile.objects.get(user=request.user).friends.reverse().get().pk:
+                profiles.append(i)
+        else:
+            profiles.append(i)
 
     context = {"new_profiles": profiles}
-
     return JsonResponse(context)
 
 
