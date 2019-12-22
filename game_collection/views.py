@@ -428,11 +428,9 @@ def game_view(request, db_id):
         "existing_review": review,
         "share_text": f"Check out {title.title} on #GameHoarder"
     }
-    try:
-        context["current_state"] = GameCollectionController.where_is(game_version, request.user)[0],
-        context["current_item"] = GameCollectionController.where_is(game_version, request.user)[1]
-    except TypeError:
-        pass
+
+    context["current_state"] = GameCollectionController.where_is(game_version, request.user)[0]
+    context["current_item"] = GameCollectionController.where_is(game_version, request.user)[1]
 
     return render(request, 'collection/game_view.html', context)
 
@@ -465,7 +463,7 @@ def move_game(request, db_id):
                 "user": user,
                 "game_version": game_version,
                 "price": form.cleaned_data["price"],
-                "date_adquired": datetime.datetime.strptime(form.cleaned_data['date_adquired'], "%m/%d/%Y"),
+                "date_adquired": datetime.strptime(form.cleaned_data['date_adquired'], "%m/%d/%Y"),
                 "time_played": form.cleaned_data["time_played"],
             }
 
@@ -481,27 +479,27 @@ def move_game(request, db_id):
                 Queue.objects.create(**new_item)
 
             elif new_state == 4:
-                new_item["date_started"] = datetime.datetime.strptime(form.cleaned_data['date_started'], "%m/%d/%Y")
+                new_item["date_started"] = datetime.strptime(form.cleaned_data['date_started'], "%m/%d/%Y")
 
                 Playing.objects.create(**new_item)
 
             elif new_state == 5:
-                new_item["date_started"] = datetime.datetime.strptime(form.cleaned_data['date_started'], "%m/%d/%Y")
-                new_item["date_stopped"] = datetime.datetime.strptime(form.cleaned_data['date_other'], "%m/%d/%Y")
+                new_item["date_started"] = datetime.strptime(form.cleaned_data['date_started'], "%m/%d/%Y")
+                new_item["date_stopped"] = datetime.strptime(form.cleaned_data['date_other'], "%m/%d/%Y")
 
                 Played.objects.create(**new_item)
 
             elif new_state == 6:
-                new_item["date_started"] = datetime.datetime.strptime(form.cleaned_data['date_started'], "%m/%d/%Y")
-                new_item["date_finished"] = datetime.datetime.strptime(form.cleaned_data['date_other'], "%m/%d/%Y")
+                new_item["date_started"] = datetime.strptime(form.cleaned_data['date_started'], "%m/%d/%Y")
+                new_item["date_finished"] = datetime.strptime(form.cleaned_data['date_other'], "%m/%d/%Y")
 
                 new_item["time_to_finish"] = form.cleaned_data["time_other"]
 
                 Finished.objects.create(**new_item)
 
             elif new_state == 7:
-                new_item["date_started"] = datetime.datetime.strptime(form.cleaned_data['date_started'], "%m/%d/%Y")
-                new_item["date_abandoned"] = datetime.datetime.strptime(form.cleaned_data['date_other'], "%m/%d/%Y")
+                new_item["date_started"] = datetime.strptime(form.cleaned_data['date_started'], "%m/%d/%Y")
+                new_item["date_abandoned"] = datetime.strptime(form.cleaned_data['date_other'], "%m/%d/%Y")
 
                 Abandoned.objects.create(**new_item)
 

@@ -117,7 +117,7 @@ class TagGroup(models.Model):
 
 class Tag(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name=_("user"))
-    name = models.CharField(max_length=16, verbose_name=_("name"), unique=True)
+    name = models.CharField(max_length=16, verbose_name=_("name"))
     game_version = models.ManyToManyField(GameVersion, verbose_name=_("game version"))
 
     tag_group = models.ForeignKey(TagGroup, on_delete=models.SET_NULL, blank=True, null=True,

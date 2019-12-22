@@ -4,31 +4,23 @@ import json
 from django.contrib import auth
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import Group
+from django.db.models import Q
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.shortcuts import render, redirect
 from django.template.context_processors import csrf
-from django.urls import reverse
-from django.contrib.auth.models import Group
 
 from game_collection.models import Tag, Queue, Played, Playing, Abandoned, Finished
 from game_database.functions import GameHoarderDB
 from game_database.models import Genre, Platform
 from .forms import *
-from django.db.models import Q
 
 
-@login_required(login_url='login')
 def index(request):
     if not request.user.is_authenticated:
         return render(request, "landing.html")
 
-    custom = Tag.objects.filter(user=request.user)
-    profile = Profile.objects.get(user=request.user)
-    context = {
-        "tags": custom,
-        "profile": profile
-    }
-    return render(request, "index.html", context)
+    return profileView(request)
 
 
 @login_required(login_url='login')

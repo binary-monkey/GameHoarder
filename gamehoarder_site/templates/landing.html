@@ -76,16 +76,17 @@
             <div class="col-md-4 feature">
                 <img src="{% static "img/feature-icons/1.png" %}" width="50%" alt="#">
                 <h4>{% trans "Track your Collection" %}</h4>
-                <p>{% trans "You can keep track of your game collection!" %}</p>
+                <p>{% trans "Say goodbye to those long spreadsheets" %}</p>
             </div>
             <div class="col-md-4 feature">
                 <img src="{% static "img/feature-icons/2.png" %}" width="50%" alt="#">
                 <h4>{% trans "Connect with your Friends" %}</h4>
-                <p>{% trans "You can follow and connect with yout friends¡" %}</p>
+                <p>{% trans "Everything is better with friends" %}</p>
             </div>
             <div class="col-md-4 feature">
                 <img src="{% static "img/feature-icons/3.png" %}" width="50%" alt="#">
                 <h4>{% trans "Access it Anywhere" %}</h4>
+                <p>{% trans "Keep it mobile" %}</p>
             </div>
         </div>
     </div>
@@ -253,7 +254,7 @@
             {#TODO there is a better way to do this #}
             axios
                 .get('{% url "stats" %}')
-                .then(response => (this.info = response.data))
+                .then(response => (this.info = response.data));
 
             window.setInterval(() => {
                 axios
