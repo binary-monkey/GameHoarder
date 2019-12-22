@@ -4,7 +4,7 @@ import json
 from django.contrib import auth
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.shortcuts import render, redirect
 from django.template.context_processors import csrf
 from django.urls import reverse
@@ -144,18 +144,41 @@ def logout(request):
 
 
 @login_required(login_url='login')
-def search_users(request):
+def ajax_users(request):
+    params = request.GET.dict().items()
+    username = params['username']
+    del params['username']
+    initial = [Profile.objects.filter(user__first_name__contains=username),
+               Profile.objects.filter(user__username__contains=username),
+               Profile.objects.filter(user__last_name__contains=username)]
+
+    following = params['following']
+
+    profiles = []
+    for i in initial:
+        if following == "no":
+            if i.pk not in Profile.objects.get(user=request.user).friends.reverse().get().pk:
+                profiles.append(i)
+        else:
+            profiles.append(i)
+
+    context = {"new_profiles": profiles}
+    return JsonResponse(context)
+
+
+@login_required(login_url='login')
+def search_user(request):
     custom = Tag.objects.filter(user=request.user)
     profile = Profile.objects.get(user=request.user)
-    users = Profile.objects.exclude(user=request.user)
+    profiles = Profile.objects.all()
 
     context = {
         "tags": custom,
         "profile": profile,
-        "users": users
+        "profiles": profiles
     }
 
-    return render(request, 'search/search_friends.html', context)
+    return render(request, "search/search_friends.html", context)
 
 
 @login_required(login_url='login')
@@ -229,7 +252,6 @@ def edit_user(request):
     token = {}
     token.update(csrf(request))
     token['form'] = form
-
 
     return render(request, 'account/edit_user.html',
                   {'tags': custom, 'user': request.user, 'profile': profile})
