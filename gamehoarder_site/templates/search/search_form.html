@@ -17,7 +17,7 @@
         <div class="">
             <div class="page-title">
                 <div class="title_left">
-                    <h3>Game Search</h3>
+                    <h3>{% trans 'Game Search' %}</h3>
                 </div>
             </div>
             <div class="clearfix"></div>
@@ -25,7 +25,7 @@
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="x_panel">
                         <div class="x_title">
-                            <h2>Search Parameters <small>elements marked with * are required</small></h2>
+                            <h2>{% trans 'Search Parameters' %} <small>elements marked with * are required</small></h2>
                             <ul class="nav navbar-right panel_toolbox">
                                 <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                 <li><a class="close-link"><i class="fa fa-close"></i></a>
@@ -38,14 +38,14 @@
                             <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
 
                                 <div class="form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="title">Title</label>
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="title">{% trans 'Title' %}</label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         <input type="text" id="title" name="title"
                                                class="form-control col-md-7 col-xs-12">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="year">Year</label>
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="year">{% trans 'Year' %}</label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         <input type="text" id="year" name="year"
                                                class="form-control col-md-7 col-xs-12">
@@ -53,7 +53,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="middle-name"
-                                           class="control-label col-md-3 col-sm-3 col-xs-12">Developer</label>
+                                           class="control-label col-md-3 col-sm-3 col-xs-12">{% trans 'Developer' %}</label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         <input id="developer" class="form-control col-md-7 col-xs-12" type="text"
                                                name="developer">
@@ -61,7 +61,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="middle-name"
-                                           class="control-label col-md-3 col-sm-3 col-xs-12">Publisher</label>
+                                           class="control-label col-md-3 col-sm-3 col-xs-12">{% trans 'Publisher' %}</label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         <input id="publisher" class="form-control col-md-7 col-xs-12" type="text"
                                                name="publisher">
@@ -69,7 +69,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label col-md-3 col-sm-3 col-xs-12"
-                                           for="title">Platforms:</label>
+                                           for="title"> {% trans 'Platforms' %}:</label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         <p style="padding: 5px;">
                                             <input type="checkbox" name="platforms[]" id="{{ first_platform }}"
@@ -85,7 +85,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="title">Genres:</label>
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="title">{% trans 'Genres' %}:</label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         <p style="padding: 5px;">
                                             <input type="checkbox" name="genres[]" id="{{ first_genre }}"
@@ -101,13 +101,14 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="title">Use GiantBomb
-                                        API *:</label>
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="title">
+                                        {% trans 'Use GiantBomb API *' %}:
+                                    </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         <p style="padding: 5px;">
-                                            No:
+                                            {% trans 'No' %}:
                                             <input type="radio" class="flat" name="use_api" id="genderM" value="false"
-                                                   checked="" required/> Yes:
+                                                   checked="" required/> {% trans 'Yes' %}:
                                             <input type="radio" class="flat" name="use_api" id="genderF" value="true"/>
                                         </p>
                                     </div>
@@ -115,9 +116,9 @@
                                 <div class="ln_solid"></div>
                                 <div class="form-group">
                                     <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                                        <button class="btn btn-primary" type="button">Cancel</button>
-                                        <button class="btn btn-primary" type="reset">Reset</button>
-                                        <button type="submit" class="btn btn-success">Submit</button>
+                                        <button class="btn btn-primary" type="button">{% trans 'Cancel' %}</button>
+                                        <button class="btn btn-primary" type="reset">{% trans 'Reset' %}</button>
+                                        <button type="submit" class="btn btn-success">{% trans 'Submit' %}</button>
                                     </div>
                                 </div>
                             </form>

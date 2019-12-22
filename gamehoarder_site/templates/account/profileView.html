@@ -2,7 +2,7 @@
 {% load i18n %}
 {% load static %}
 
-{% block title %} {{ profile.user.first_name }} {{ profile.user.last_name }} {% endblock title %}
+{% block title %} {{ current_profile.user.first_name }} {{ current_profile.user.last_name }} {% endblock title %}
 
 {% block stylesheets %}
     {{ block.super }}
@@ -19,36 +19,52 @@
                             <div class="profile_img">
                                 <div id="crop-avatar">
                                     <!-- Current avatar -->
-                                    <a href="{% url "edit_user" %}">
-                                        <img class="img-circle profile_img" src="/images/{{ profile.avatar }}" alt="Avatar" title="Edit profile">
-                                    </a>
+                                    {% if current_profile == profile %}
+                                        <a href="{% url "edit_user" %}">
+                                            <img class="img-circle profile_img"
+                                                 src="/images/{{ current_profile.avatar }}"
+                                                 alt="Avatar" title="{% trans "Edit profile" %}">
+                                        </a>
+                                    {% else %}
+                                        <img class="img-circle profile_img"
+                                             src="/images/{{ current_profile.avatar }}" alt="Avatar"
+                                             title="{{ current_profile.user.username }}">
+                                    {% endif %}
+
                                 </div>
                             </div>
-                            <h3>{{ profile.user.first_name }} {{ profile.user.last_name }}</h3>
-
-                            <ul class="list-unstyled user_data">
-                                <li>
-                                    <i class="fa fa-map-marker user-profile-icon"></i> San Francisco, California, USA
-                                </li>
-                            </ul>
-                            <a class="btn btn-success nav-link" href="{% url  'edit_user' %}">{% trans "Edit Profile" %}</a>
-                            <br />
+                            <h3>{{ current_profile.user.first_name }} {{ current_profile.user.last_name }}</h3>
+                            {% if current_profile == profile %}
+                                <a class="btn btn-primary nav-link" href="{% url  'edit_user' %}">
+                                    {% trans "Edit Profile" %}
+                                </a>
+                            {% else %}
+                                {% if not profile.user in list_friends %}
+                                    <a class="btn btn-success nav-link" href="{% url 'change_friends' operation='add' pk=current_profile.pk %}">{% trans "Follow" %}</a>
+                                {% else %}
+                                    <a class="btn btn-danger nav-link" href="{% url 'change_friends' operation='remove' pk=current_profile.pk %}">{% trans "Unfollow" %}</a>
+                                {% endif %}
+                            {% endif %}
+                            <br/>
                         </div>
                         <div class="col-md-9 col-sm-9 col-xs-12">
                             <div class="" role="tabpanel" data-example-id="togglable-tabs">
                                 <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
                                     <li role="presentation" class="active">
-                                        <a href="#tab_games" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">{% trans "Games" %}</a>
+                                        <a href="#tab_games" id="home-tab" role="tab" data-toggle="tab"
+                                           aria-expanded="true">{% trans "Games" %}</a>
                                     </li>
                                     <li role="presentation" class="">
-                                        <a href="#tab_friends" role="tab" id="friends-tab" data-toggle="tab" aria-expanded="false">{% trans "Friends" %}</a>
+                                        <a href="#tab_friends" role="tab" id="friends-tab" data-toggle="tab"
+                                           aria-expanded="false">{% trans "Friends" %}</a>
                                     </li>
                                     <!--                    <li role="presentation" class=""><a href="#tab_content3" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">Friends</a>-->
                                     <!--                    </li>-->
                                 </ul>
                                 <div id="myTabContent" class="tab-content">
                                     <!-- start games -->
-                                    <div role="tabpanel" class="tab-pane fade active in" id="tab_games" aria-labelledby="home-tab">
+                                    <div role="tabpanel" class="tab-pane fade active in" id="tab_games"
+                                         aria-labelledby="home-tab">
                                         <!-- start Queue -->
                                         <div class="x_panel">
                                             <div class="x_title">
@@ -68,25 +84,28 @@
                                                         {% else %}
                                                             {% for title in queue %}
                                                                 <div class="col-sm-2">
-                                                                    <div class="card bg-light mb-3" style="max-width: 30rem;">
-                                                                        <a href="/game/{{ title.game_version.db_id }}">
-                                                                            <img class="img-responsive card-img-top" src="{{ title.game_version.parent_game.img_url  }}" alt="{{ title.game_version.name }}"/>
-                                                                        </a>
-                                                                        <div class="card-body">
-                                                                            <b class="card-text">{{ title.game_version.name }}</b>
+                                                                    <a href="/game/{{ title.game_version.db_id }}">
+                                                                        <div class="card bg-light mb-3" style="max-width: 30rem;">
+                                                                            <img class="img-responsive card-img-top"
+                                                                                 src="{{ title.game_version.parent_game.img_url }}"
+                                                                                 alt="{{ title.game_version.name }}"/>
+                                                                            <div class="card-body">
+                                                                                <b class="card-text">{{ title.game_version.name }}</b>
+                                                                            </div>
                                                                         </div>
-                                                                    </div>
+                                                                    </a>
                                                                 </div>
                                                             {% endfor %}
                                                             <div class="col-sm-2">
                                                                 <div class="card bg-light mb-3" style="max-width: 10rem;">
                                                                     <a href="{% url "queue_table" %}">
-                                                                        <img class="img-responsive card-img-overlay " src="{% static  "images/blue-plus-icon.jpg" %}" alt="More"/>
+                                                                        <img class="img-responsive card-img-overlay"
+                                                                             src="{% static "images/blue-plus-icon.jpg" %}"
+                                                                             alt="More"/>
                                                                     </a>
                                                                 </div>
                                                             </div>
                                                         {% endif %}
-
                                                     </div>
                                                 </div>
                                             </div>
@@ -109,25 +128,29 @@
                                                         {% else %}
                                                             {% for title in playing %}
                                                                 <div class="col-sm-2">
-                                                                    <div class="card bg-light mb-3" style="max-width: 30rem;">
-                                                                        <a href="/game/{{ title.game_version.db_id }}">
-                                                                            <img class="img-responsive card-img-overlay" src="{{ title.game_version.parent_game.img_url  }}" alt="{{ title.game_version.name }}"/>
-                                                                        </a>
-                                                                        <div class="card-body">
-                                                                            <b class="card-text">{{ title.game_version.name }}</b>
+                                                                    <a href="/game/{{ title.game_version.db_id }}">
+                                                                        <div class="card bg-light mb-3" style="max-width: 30rem;">
+                                                                            <img class="img-responsive card-img-overlay"
+                                                                                 src="{{ title.game_version.parent_game.img_url }}"
+                                                                                 alt="{{ title.game_version.name }}"/>
+
+                                                                            <div class="card-body">
+                                                                                <b class="card-text">{{ title.game_version.name }}</b>
+                                                                            </div>
                                                                         </div>
-                                                                    </div>
+                                                                    </a>
                                                                 </div>
                                                             {% endfor %}
                                                             <div class="col-sm-2">
                                                                 <div class="card bg-light mb-3" style="max-width: 10rem;">
                                                                     <a href="{% url "playing_table" %}">
-                                                                        <img class="img-responsive card-img-top" src="{% static  "images/blue-plus-icon.jpg" %}" alt="More"/>
+                                                                        <img class="img-responsive card-img-top"
+                                                                             src="{% static "images/blue-plus-icon.jpg" %}"
+                                                                             alt="More"/>
                                                                     </a>
                                                                 </div>
                                                             </div>
                                                         {% endif %}
-
                                                     </div>
                                                 </div>
                                             </div>
@@ -150,26 +173,28 @@
                                                         {% else %}
                                                             {% for title in finished %}
                                                                 <div class="col-sm-2">
-                                                                    <div class="card bg-light mb-3" style="max-width: 30rem;">
-                                                                        <a href="/game/{{ title.game_version.db_id }}">
-                                                                            <img class="img-responsive card-img-top" src="{{ title.game_version.parent_game.img_url  }}" alt="{{ title.game_version.name }}"/>
-                                                                        </a>
-                                                                        <div class="card-body">
-                                                                            <b class="card-text">{{ title.game_version.name }}</b>
+                                                                    <a href="/game/{{ title.game_version.db_id }}">
+                                                                        <div class="card bg-light mb-3" style="max-width: 30rem;">
+                                                                            <img class="img-responsive card-img-top"
+                                                                                 src="{{ title.game_version.parent_game.img_url }}"
+                                                                                 alt="{{ title.game_version.name }}"/>
+                                                                            <div class="card-body">
+                                                                                <b class="card-text">{{ title.game_version.name }}</b>
+                                                                            </div>
                                                                         </div>
-                                                                    </div>
+                                                                    </a>
                                                                 </div>
                                                             {% endfor %}
                                                             <div class="col-sm-2">
                                                                 <div class="card bg-light mb-3" style="max-width: 10rem;">
                                                                     <a href="{% url "finished_table" %}">
-                                                                        <img class="img-responsive card-img-overlay" src="{% static  "images/blue-plus-icon.jpg" %}" alt="More"/>
+                                                                        <img class="img-responsive card-img-overlay"
+                                                                             src="{% static "images/blue-plus-icon.jpg" %}"
+                                                                             alt="More"/>
                                                                     </a>
                                                                 </div>
                                                             </div>
                                                         {% endif %}
-
-
                                                     </div>
                                                 </div>
                                             </div>
@@ -192,20 +217,24 @@
                                                         {% else %}
                                                             {% for title in played %}
                                                                 <div class="col-sm-2">
-                                                                    <div class="card bg-light mb-3" style="max-width: 30rem;">
-                                                                        <a href="/game/{{ title.game_version.db_id }}">
-                                                                            <img class="img-responsive card-img-top" src="{{ title.game_version.parent_game.img_url  }}" alt="{{ title.game_version.name }}"/>
-                                                                        </a>
-                                                                        <div class="card-body">
-                                                                            <b class="card-text">{{ title.game_version.name }}</b>
+                                                                    <a href="/game/{{ title.game_version.db_id }}">
+                                                                        <div class="card bg-light mb-3" style="max-width: 30rem;">
+                                                                            <img class="img-responsive card-img-top"
+                                                                                 src="{{ title.game_version.parent_game.img_url }}"
+                                                                                 alt="{{ title.game_version.name }}"/>
+                                                                            <div class="card-body">
+                                                                                <b class="card-text">{{ title.game_version.name }}</b>
+                                                                            </div>
                                                                         </div>
-                                                                    </div>
+                                                                    </a>
                                                                 </div>
                                                             {% endfor %}
                                                             <div class="col-sm-2">
                                                                 <div class="card bg-light mb-3" style="max-width: 10rem;">
                                                                     <a href="{% url "played_table" %}">
-                                                                        <img class="img-responsive card-img-overlay" src="{% static  "images/blue-plus-icon.jpg" %}" alt="More"/>
+                                                                        <img class="img-responsive card-img-overlay"
+                                                                             src="{% static "images/blue-plus-icon.jpg" %}"
+                                                                             alt="More"/>
                                                                     </a>
                                                                 </div>
                                                             </div>
@@ -234,20 +263,24 @@
                                                         {% else %}
                                                             {% for title in abandoned %}
                                                                 <div class="col-sm-2">
-                                                                    <div class="card bg-light mb-3" style="max-width: 30rem;">
-                                                                        <a href="/game/{{ title.game_version.db_id }}">
-                                                                            <img class="img-responsive card-img-top" src="{{ title.game_version.parent_game.img_url  }}" alt="{{ title.game_version.name }}"/>
-                                                                        </a>
-                                                                        <div class="card-body">
-                                                                            <b class="card-text">{{ title.game_version.name }}</b>
+                                                                    <a href="/game/{{ title.game_version.db_id }}">
+                                                                        <div class="card bg-light mb-3" style="max-width: 30rem;">
+                                                                            <img class="img-responsive card-img-top"
+                                                                                 src="{{ title.game_version.parent_game.img_url }}"
+                                                                                 alt="{{ title.game_version.name }}"/>
+                                                                            <div class="card-body">
+                                                                                <b class="card-text">{{ title.game_version.name }}</b>
+                                                                            </div>
                                                                         </div>
-                                                                    </div>
+                                                                    </a>
                                                                 </div>
                                                             {% endfor %}
                                                             <div class="col-sm-2">
                                                                 <div class="card bg-light mb-3" style="max-width: 10rem;">
                                                                     <a href="{% url "abandoned_table" %}">
-                                                                        <img class="img-responsive card-img-overlay center" src="{% static  "images/blue-plus-icon.jpg" %}" alt="More"/>
+                                                                        <img class="img-responsive card-img-overlay center"
+                                                                             src="{% static "images/blue-plus-icon.jpg" %}"
+                                                                             alt="More"/>
                                                                     </a>
                                                                 </div>
                                                             </div>
@@ -261,25 +294,27 @@
                                     <!-- end games -->
                                     <!-- start friends -->
                                     <div role="tabpanel" class="tab-pane fade" id="tab_friends" aria-labelledby="profile-tab">
-                                        <table class="data table table-striped no-margin">
-                                            <thead>
-                                            <tr>
-                                                <th>#</th>
-                                                <th>{% trans "User Name" %}</th>
-                                                <th>{% trans "Last Logged" %}</th>
-                                                <th class="hidden-phone">{% trans "Hours Spent" %}</th>
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-                                            {% for lf in list_friends %}
-                                                <tr>
-                                                    <td></td>
-                                                    <td>{{ lf }}</td>
-                                                    <td>{{ lf.user.last_logged }}</td>
-                                                    <td class="hidden-phone">h</td>
-                                                </tr>
-                                            {% endfor %}
-                                            </tbody>
+                                        <table id="datatable" class="tab-pane fade active in">
+                                            <div class="album py-5 bg-light">
+                                                <div class="row">
+                                                    {% if list_friends.count == 0 %}
+                                                        <h1>{% trans "No Friends" %}</h1>
+                                                    {% else %}
+                                                        {% for fr in list_friends %}
+                                                            <div class="col-sm-2">
+                                                                <a href="{% url 'profile_with_pk' pk=fr.pk %}">
+                                                                    <div class="card bg-light mb-3" style="max-width: 30rem;">
+                                                                        <img class="img-responsive card-img-top" src="/images/{{ fr.avatar }}" alt="{{ fr.username }}"/>
+                                                                        <div class="card-body">
+                                                                            <b class="card-text">{{ fr.username }}</b>
+                                                                        </div>
+                                                                    </div>
+                                                                </a>
+                                                            </div>
+                                                        {% endfor %}
+                                                    {% endif %}
+                                                </div>
+                                            </div>
                                         </table>
                                     </div>
                                     <!-- end friends -->

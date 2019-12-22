@@ -31,9 +31,6 @@ class Profile(models.Model):
     def save(self, *args, **kwargs):
         super(Profile, self).save(*args, **kwargs)
 
-    def __str__(self):
-        return self.user.username
-
     def get_friends(self):
         return self.friends
 
@@ -41,18 +38,21 @@ class Profile(models.Model):
         return self.avatar
 
     @classmethod
-    def make_friend(cls, current_user, new_friend):
-        friend, created = cls.objects.get_or_create(
-            current_user=current_user
-        )
-        friend.users.add(new_friend)
+    def make_friend(cls, current_profile, new_friend):
+        friends = current_profile.friends
+        friends.add(new_friend.user)
+        friends = new_friend.friends
+        friends.add(current_profile.user)
 
     @classmethod
-    def lose_friend(cls, current_user, new_friend):
-        friend, created = cls.objects.get_or_create(
-            current_user=current_user
-        )
-        friend.users.remove(new_friend)
+    def remove_friend(cls, current_profile, new_friend):
+        friends = current_profile.friends
+        friends.remove(new_friend.user)
+        friends = new_friend.friends
+        friends.remove(current_profile.user)
+
+    def __str__(self):
+        return self.user.username
 
     class Meta:
         verbose_name = _("Profile")

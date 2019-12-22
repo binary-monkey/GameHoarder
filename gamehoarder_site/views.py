@@ -7,6 +7,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.template.context_processors import csrf
+from django.urls import reverse
 
 from game_collection.models import Tag, Queue, Played, Playing, Abandoned, Finished
 from game_database.functions import GameHoarderDB
@@ -29,41 +30,52 @@ def index(request):
 
 
 @login_required(login_url='login')
-def friends(request):
+def profileView(request, pk=None):
     custom = Tag.objects.filter(user=request.user)
     profile = Profile.objects.get(user=request.user)
 
-    return render(request, 'search/friends.html', {
-        'user': request.user.interested_set,
-        "tags": custom,
-        "profile": profile
-    })
+    if pk and pk != profile.pk:
+        user = User.objects.get(pk=pk)
+        current_profile = Profile.objects.get(user=user)
+        queue = Queue.objects.filter(user=user)[:4]
+        playing = Playing.objects.filter(user=user)[:4]
+        finished = Finished.objects.filter(user=user)[:4]
+        played = Played.objects.filter(user=user)[:4]
+        abandoned = Abandoned.objects.filter(user=user)[:4]
+    else:
+        current_profile = profile
+        queue = Queue.objects.filter(user=request.user)[:4]
+        playing = Playing.objects.filter(user=request.user)[:4]
+        finished = Finished.objects.filter(user=request.user)[:4]
+        played = Played.objects.filter(user=request.user)[:4]
+        abandoned = Abandoned.objects.filter(user=request.user)[:4]
 
-
-@login_required(login_url='login')
-def profileView(request):
-    custom = Tag.objects.filter(user=request.user)
-    profile = Profile.objects.get(user=request.user)
-    queue = Queue.objects.filter(user=request.user)[:4]
-    playing = Playing.objects.filter(user=request.user)[:4]
-    finished = Finished.objects.filter(user=request.user)[:4]
-    played = Played.objects.filter(user=request.user)[:4]
-    abandoned = Abandoned.objects.filter(user=request.user)[:4]
-
-    list_friends = profile.friends
+    list_friends = current_profile.friends.all()
 
     context = {
         "tags": custom,
         "profile": profile,
+        "current_profile": current_profile,
         "queue": queue,
         "playing": playing,
         "finished": finished,
         "played": played,
         "abandoned": abandoned,
-        "friends": list_friends,
+        "list_friends": list_friends
     }
 
     return render(request, "account/profileView.html", context)
+
+
+@login_required(login_url='login')
+def change_friends(request, operation, pk):
+    friend = Profile.objects.get(pk=pk)
+    profile = Profile.objects.get(user=request.user)
+    if operation == 'add':
+        Profile.make_friend(profile, friend)
+    elif operation == 'remove':
+        Profile.remove_friend(profile, friend)
+    return redirect('profile_with_pk', pk=pk)
 
 
 @login_required(login_url='login')
@@ -122,6 +134,21 @@ def login_register(request):
 def logout(request):
     auth.logout(request)
     return HttpResponseRedirect("login")
+
+
+@login_required(login_url='login')
+def search_users(request):
+    custom = Tag.objects.filter(user=request.user)
+    profile = Profile.objects.get(user=request.user)
+    users = Profile.objects.exclude(user=request.user)
+
+    context = {
+        "tags": custom,
+        "profile": profile,
+        "users": users
+    }
+
+    return render(request, 'search/search_friends.html', context)
 
 
 @login_required(login_url='login')
@@ -185,14 +212,3 @@ def edit_user(request):
 
     return render(request, 'settings/edit_user.html',
                   {'tags': custom, 'user': request.user, 'profile': profile})
-
-
-@login_required(login_url='login')
-def change_friends(request, operation, pk):
-    pass
-    friend = User.objects.get(pk=pk)
-    if operation == 'add':
-        Profile.make_friend(request.user, friend)
-    elif operation == 'remove':
-        Profile.lose_friend(request.user, friend)
-    return redirect('home:home')
