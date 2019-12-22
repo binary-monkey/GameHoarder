@@ -10,47 +10,148 @@
 
 {% block content %}
     <div class="right_col" role="main">
-    <div class="">
-        <div class="page-title">
-            <div class="title_left">
-                <h3>{% trans "Users" %}</h3>
+        <div class="">
+            <div class="page-title">
+                <div class="title_left">
+                    <h3>{% trans "Users" %}</h3>
+                </div>
             </div>
-        </div>
-        <div class="clearfix"></div>
-        <div class="row">
-            <div class="col-md-12 col-sm-12 ">
-                <div class="x_panel">
-                    <div class="x_content">
-                        <table id="datatable" class="tab-pane fade active in">
-                            <div class="album py-5 bg-light">
-                                <div class="row">
-                                    {% if users.count == 0 %}
-                                        <h1>{% trans "No Profile" %}</h1>
-                                    {% else %}
-                                        {% for user in users %}
-                                            <div class="col-sm-2">
-                                                <a href="{% url 'profile_with_pk' pk=user.pk %}">
-                                                    <div class="card bg-light mb-3" style="max-width: 30rem;">
-                                                        <img class="img-responsive card-img-top" src="/images/{{ user.avatar }}" alt="{{ user.user.username }}"/>
-                                                        <div class="card-body">
-                                                            <b class="card-text">{{ user.user.first_name }} {{ user.user.last_name }}</b>
-                                                            <br/>
-                                                            <small class="card-text">{{ user.user.username }}</small>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        {% endfor %}
-                                    {% endif %}
+            <div class="clearfix"></div>
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2>{% trans "Search Parameters" %} </h2>
+                            <ul class="nav navbar-right panel_toolbox">
+                                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                </li>
+                            </ul>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="x_content">
+                            <br/>
+                            <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="username">{% trans "Username" %}:</label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <input type="text" id="username" name="username"
+                                               class="form-control col-md-7 col-xs-12">
+                                    </div>
                                 </div>
-                            </div>
-                        </table>
+                                <div class="form-check">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12"
+                                           for="following"> {% trans "Following" %}:</label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <p style="padding: 5px;">
+                                            <input class="form-check-input" type="radio" name="following"
+                                                   id="all" value="all" checked>
+                                            <label class="form-check-label" for="all">
+                                                {% trans 'All' %}
+                                            </label>
+                                            <br/>
+                                            <input class="form-check-input" type="radio" name="following"
+                                                   id="no" value="no">
+                                            <label class="form-check-label" for="no">
+                                                {% trans 'No' %}
+                                            </label>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                                        <button class="btn btn-primary" id="ajax_users_test" type="button">{% trans 'Apply'%}</button>
+                                        <button class="btn btn-primary" type="reset" onClick="window.location.reload()">{% trans 'Reset'%}</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
+            {% if profiles %}
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 ">
+                        <div class="x_panel">
+                            <div class="x_title">
+                                <h2>{% trans "Results" %} </h2>
+                                <ul class="nav navbar-right panel_toolbox">
+                                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                    </li>
+                                </ul>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="x_content">
+                                <table id="datatable" class="tab-pane fade active in">
+                                    <div class="album py-5 bg-light">
+                                        <div class="row" id="to_change_users">
+                                            {% if profiles.count == 0 %}
+                                                <h1>{% trans "No Profile" %}</h1>
+                                            {% else %}
+                                                {% for user in profiles %}
+                                                    <div class="col-sm-2">
+                                                        <a href="{% url 'profile_with_pk' pk=user.pk %}">
+                                                            <div class="card bg-light mb-3" style="max-width: 30rem;">
+                                                                <img class="img-responsive card-img-top" src="/images/{{ user.avatar }}" alt="{{ user.user.username }}"/>
+                                                                <div class="card-body">
+                                                                    <b class="card-text">{{ user.user.first_name }} {{ user.user.last_name }}</b>
+                                                                    <br/>
+                                                                    <small class="card-text">{{ user.user.username }}</small>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                {% endfor %}
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
         </div>
     </div>
-    </div>
+
+
+    <script>
+        document.getElementById("ajax_users_test").onclick = function(){myFunction()};
+        var title = '{{ list_type|title }}';
+        function myFunction() {
+            $.ajaxSetup({
+                cache: false
+            });
+            var form_s = $('form').serialize();
+            $.ajax({
+                url: window.location.origin+'/user/filter?'+form_s+'&'+'type='+title,
+                type:"GET",
+                cache: false,
+                dataType: 'json',
+                success: function(response) {
+                    $('#to_change_users').html("");
+                    for (i=0; i<response['new_titles'].length; i++) {
+                        {% for pr in profiles %}
+                            if (response['new_profiles'][i] === "{{pr}}") {
+                                $('#to_change_users').append("<div class=\"col-sm-2\">\n" +
+                                        "<a href=\"{% url 'profile_with_pk' pk=pr.pk %}\">\n"+
+                                            "<div class=\"card bg-light mb-3\" style=\"max-width: 30rem;\">\n"+
+                                                "<img class=\"img-responsive card-img-top\" src=\"/images/{{ pr.avatar }}\" alt=\"{{ pr.user.username }}\"/>\n"+
+                                                "<div class=\"card-body\">\n"+
+                                                    "<b class=\"card-text\">{{ pr.user.first_name }} {{ pr.user.last_name }}</b>\n"+
+                                                    "<br/>\n" +
+                                                    "<small class=\"card-text\">{{ pr.user.username }}</small>\n" +
+                                                "</div>\n" +
+                                            "</div>\n" +
+                                        "</a>\n" +
+                                    "</div>\n");
+                            }
+                        {% endfor %}
+                    }
+                }
+            })
+        }
+    </script>
 {% endblock content %}
 
 {% block javascripts %}
