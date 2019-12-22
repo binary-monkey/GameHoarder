@@ -14,6 +14,7 @@ from game_collection.models import Tag, Queue, Played, Playing, Abandoned, Finis
 from game_database.functions import GameHoarderDB
 from game_database.models import Genre, Platform
 from .forms import *
+from django.db.models import Q
 
 
 @login_required(login_url='login')
@@ -35,7 +36,7 @@ def profileView(request, pk=None):
     custom = Tag.objects.filter(user=request.user)
     profile = Profile.objects.get(user=request.user)
 
-    if pk and pk != profile.pk:
+    if pk!=None and pk != profile.pk:
         user = User.objects.get(pk=pk)
         current_profile = Profile.objects.get(user=user)
         queue = Queue.objects.filter(user=user)[:5]
@@ -43,6 +44,8 @@ def profileView(request, pk=None):
         finished = Finished.objects.filter(user=user)[:5]
         played = Played.objects.filter(user=user)[:5]
         abandoned = Abandoned.objects.filter(user=user)[:5]
+        # list_friends = profile.friends.all()
+
     else:
         current_profile = profile
         queue = Queue.objects.filter(user=request.user)[:5]
@@ -146,14 +149,15 @@ def logout(request):
 
 @login_required(login_url='login')
 def ajax_users(request):
-    params = request.GET.dict().items()
-    username = params['username']
-    del params['username']
-    initial = [Profile.objects.filter(user__first_name__contains=username),
-               Profile.objects.filter(user__username__contains=username),
-               Profile.objects.filter(user__last_name__contains=username)]
+    username = request.GET['username']
 
-    following = params['following']
+    initial = Profile.objects.filter(Q(user__first_name__contains=username) | Q(user__username__contains=username)
+                                      | Q(user__last_name__contains=username))
+
+
+    initial = list(initial.values())
+
+    following = request.GET['following']
 
     profiles = []
     for i in initial:
@@ -163,7 +167,9 @@ def ajax_users(request):
         else:
             profiles.append(i)
 
-    context = {"new_profiles": profiles}
+    codes = [i['user_id'] for i in profiles]
+    print(codes)
+    context = {"new_profiles": codes}
     return JsonResponse(context)
 
 

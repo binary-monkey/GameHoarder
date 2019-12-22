@@ -128,21 +128,21 @@
                 success: function(response) {
                     $('#to_change').html("");
                     for (i=0; i<response['new_profiles'].length; i++) {
-                        {% for pr in profiles %}
-                            if (response['new_profiles'][i] == "{{pr}}") {
+                        {% for user in profiles %}
+                            if (response['new_profiles'][i] == "{{user.user_id}}") {
                                 $('#to_change').append("<div class=\"col-sm-2\">\n" +
-                                        "<a href=\"{% url 'profile_with_pk' pk=pr.pk %}\">\n"+
-                                            "<div class=\"card bg-light mb-3\" style=\"max-width: 30rem;\">\n"+
-                                                "<img class=\"img-responsive card-img-top\" src=\"/images/{{ pr.avatar }}\" alt=\"{{ pr.user.username }}\"/>\n"+
-                                                "<div class=\"card-body\">\n"+
-                                                    "<b class=\"card-text\">{{ pr.user.first_name }} {{ pr.user.last_name }}</b>\n"+
-                                                    "<br/>\n" +
-                                                    "<small class=\"card-text\">{{ pr.user.username }}</small>\n" +
-                                                "</div>\n" +
-                                            "</div>\n" +
-                                        "</a>\n" +
-                                    "</div>\n");
-                            }
+                                    "    <a href=\"{% url 'profile_with_pk' pk=user.pk %}\">\n" +
+                                    "        <div class=\"card bg-light mb-3\" style=\"max-width: 30rem;\">\n" +
+                                    "            <img class=\"img-responsive card-img-top\" src=\"/images/{{ user.avatar }}\" alt=\"{{ user.user.username }}\"/>\n" +
+                                    "            <div class=\"card-body\">\n" +
+                                    "                <b class=\"card-text\">{{ user.user.first_name }} {{ user.user.last_name }}</b>\n" +
+                                    "                <br/>\n" +
+                                    "                <small class=\"card-text\">{{ user.user.username }}</small>\n" +
+                                    "            </div>\n" +
+                                    "        </div>\n" +
+                                    "    </a>\n" +
+                                    "</div>");
+                                }
                         {% endfor %}
                     }
                 }
