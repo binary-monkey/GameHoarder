@@ -8,14 +8,15 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.template.context_processors import csrf
 from django.urls import reverse
+from django.contrib.auth.models import Group
 
 from game_collection.models import Tag, Queue, Played, Playing, Abandoned, Finished
-from django.contrib.auth.models import Group
 from game_database.functions import GameHoarderDB
 from game_database.models import Genre, Platform
 from .forms import *
 
 
+@login_required(login_url='login')
 def index(request):
     if not request.user.is_authenticated:
         return render(request, "landing.html")
@@ -214,6 +215,7 @@ def edit_user(request):
     token = {}
     token.update(csrf(request))
     token['form'] = form
+
 
     return render(request, 'account/edit_user.html',
                   {'tags': custom, 'user': request.user, 'profile': profile})

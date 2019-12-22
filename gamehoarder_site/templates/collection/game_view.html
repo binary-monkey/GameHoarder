@@ -36,9 +36,7 @@
                                 <img class="center-block img-thumbnail" style="max-height: 40vh"
                                      src="{{ title.img_url }}" alt="..."/>
                             </div>
-
                             <div class="col-md-5 col-sm-5 " style="border:0px solid #e5e5e5;">
-
                                 <div class="form-horizontal form-label-left">
 
                                     <div class="form-group">
@@ -131,6 +129,29 @@
                                                    class="form-control col-md-7 col-xs-12">
                                         </div>
                                     </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-2 col-sm-2 col-xs-12"
+                                               for="release-date">{% trans "Extra Time" %}
+                                        </label>
+                                        <div class="col-md-8 col-xs-12 col-xs-12">
+                                            <input type="text" disabled id="release-date"
+                                                   value="{{ title.extra_time }} h"
+                                                   class="form-control col-md-7 col-xs-12">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-2 col-sm-2 col-xs-12"
+                                               for="release-date">{% trans "Completion Time" %}
+                                        </label>
+                                        <div class="col-md-8 col-xs-12 col-xs-12">
+                                            <input type="text" disabled id="release-date"
+                                                   value="{{ title.completion_time }} h"
+                                                   class="form-control col-md-7 col-xs-12">
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -346,4 +367,5 @@
 
     </script>
     {{ block.super }}
+
 {% endblock javascripts %}
