@@ -9,3 +9,4 @@ celery
 celery-progress
 redis
 django-betterforms
+python-gettext

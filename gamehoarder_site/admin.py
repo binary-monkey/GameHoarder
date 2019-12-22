@@ -4,7 +4,7 @@ from gamehoarder_site.models import *
 
 class ProfileAdmin(admin.ModelAdmin):
     # list_filter = ('',)
-    list_display = ('user',)
+    list_display = ('user', 'pk')
     # search_fields = ['']
 
 
