@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+{% load i18n %}
 <head>
     {% block head %}
         {% block meta %}
@@ -10,7 +11,7 @@
             <meta name="viewport" content="width=device-width, initial-scale=1">
         {% endblock meta %}
 
-        <title>GameHoarder | {% block title %}{% endblock %}</title>
+        <title>{% trans "GameHoarder" %} | {% block title %}{% endblock %}</title>
 
         {% block stylesheets %}
             <!-- Bootstrap -->

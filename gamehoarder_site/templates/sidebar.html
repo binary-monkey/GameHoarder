@@ -2,7 +2,7 @@
 {% load static %}
 <div class="left_col scroll-view">
     <div class="navbar nav_title" style="border: 0;">
-        <a href="index.html" class="site_title"><i class="fa fa-spinner"></i> <span>GameHoarder</span></a>
+        <p class="site_title"><i class="fa fa-spinner"></i> <span>GameHoarder</span></p>
     </div>
 
     <div class="clearfix"></div>
@@ -10,10 +10,12 @@
     <!-- menu profile quick info -->
     <div class="profile clearfix">
         <div class="profile_pic">
-            <img src="/images/{{ profile.avatar }}" alt="{{ profile.user.username }}" class="img-circle profile_img">
+            <a href="{% url "profileView" %}">
+                <img src="/images/{{ profile.avatar }}" alt="{{ profile.user.username }}" class="img-circle profile_img">
+            </a>
         </div>
         <div class="profile_info">
-            <span>Welcome,</span>
+            <span>{% trans "Welcome" %},</span>
             <h2>{{ profile.user.username }}</h2>
         </div>
     </div>
@@ -26,8 +28,8 @@
         <div class="menu_section">
             <h3>{% trans "General" %}</h3>
             <ul class="nav side-menu">
-                <li><a href="{% url "index" %}"><i class="fa fa-home"></i> Home <span class="fa"></span></a></li>
-                <li><a href="{% url "friends" %}"><i class="fa fa-users"></i> {% trans "Friends" %} <span
+                <li><a href="{% url "profileView" %}"><i class="fa fa-home"></i> {% trans "Home" %} <span class="fa"></span></a></li>
+                <li><a href="{% url "search_users" %}"><i class="fa fa-users"></i> {% trans "Users" %} <span
                         class="fa"></span></a></li>
             </ul>
         </div>

@@ -5,15 +5,18 @@ from django.contrib import auth
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.template.context_processors import csrf
+from django.urls import reverse
+from django.contrib.auth.models import Group
 
-from game_collection.models import Tag
+from game_collection.models import Tag, Queue, Played, Playing, Abandoned, Finished
 from game_database.functions import GameHoarderDB
 from game_database.models import Genre, Platform
 from .forms import *
 
 
+@login_required(login_url='login')
 def index(request):
     if not request.user.is_authenticated:
         return render(request, "landing.html")
@@ -28,14 +31,53 @@ def index(request):
 
 
 @login_required(login_url='login')
-def friends(request):
+def profileView(request, pk=None):
     custom = Tag.objects.filter(user=request.user)
     profile = Profile.objects.get(user=request.user)
+
+    if pk and pk != profile.pk:
+        user = User.objects.get(pk=pk)
+        current_profile = Profile.objects.get(user=user)
+        queue = Queue.objects.filter(user=user)[:5]
+        playing = Playing.objects.filter(user=user)[:5]
+        finished = Finished.objects.filter(user=user)[:5]
+        played = Played.objects.filter(user=user)[:5]
+        abandoned = Abandoned.objects.filter(user=user)[:5]
+    else:
+        current_profile = profile
+        queue = Queue.objects.filter(user=request.user)[:5]
+        playing = Playing.objects.filter(user=request.user)[:5]
+        finished = Finished.objects.filter(user=request.user)[:5]
+        played = Played.objects.filter(user=request.user)[:5]
+        abandoned = Abandoned.objects.filter(user=request.user)[:5]
+
+    list_friends = current_profile.friends.all()
+
     context = {
         "tags": custom,
-        "profile": profile
+        "profile": profile,
+        "current_profile": current_profile,
+        "queue": queue,
+        "playing": playing,
+        "finished": finished,
+        "played": played,
+        "abandoned": abandoned,
+        "list_friends": list_friends,
+        "share_text": f"Check {profile.user.username}'s profile on #GameHoarder"
     }
-    return render(request, "index.html", context)
+
+    return render(request, "account/profileView.html", context)
+
+
+@login_required(login_url='login')
+def change_friends(request, operation, pk):
+    friend = Profile.objects.get(pk=pk)
+    profile = Profile.objects.get(user=request.user)
+    if operation == 'add':
+        Profile.make_friend(profile, friend)
+    elif operation == 'remove':
+        Profile.remove_friend(profile, friend)
+    return redirect('profile_with_pk', pk=pk)
 
 
 @login_required(login_url='login')
@@ -68,14 +110,20 @@ def login_register(request):
         form = UserForm(request.POST)
         if form.is_valid():
             form.save()
+            user = User.objects.last()
+            default = Group.objects.get(name="standard_user")
+            user.groups.add(default)
+            user.save()
             return HttpResponseRedirect('login')
         else:
             username = request.POST.get('username')
             password = request.POST.get('password')
+
             user = authenticate(username=username, password=password)
             if user is not None:
                 if user.is_active:
-                    if len(Profile.objects.filter(user=user))==0:
+                    # faster than len()
+                    if Profile.objects.filter(user=user).count() == 0:
                         profile = Profile(user=user)
                         profile.save()
                     login(request, user)
@@ -94,6 +142,21 @@ def login_register(request):
 def logout(request):
     auth.logout(request)
     return HttpResponseRedirect("login")
+
+
+@login_required(login_url='login')
+def search_users(request):
+    custom = Tag.objects.filter(user=request.user)
+    profile = Profile.objects.get(user=request.user)
+    users = Profile.objects.exclude(user=request.user)
+
+    context = {
+        "tags": custom,
+        "profile": profile,
+        "users": users
+    }
+
+    return render(request, 'search/search_friends.html', context)
 
 
 @login_required(login_url='login')
@@ -123,18 +186,32 @@ def search(request):
         games = GameHoarderDB.search(params, use_api=use_api)
     else:
         games = None
+
+    games_wrapper = []
+    games = list(games) if games else []
+    for i in range(len(games)):
+        games_wrapper.append(
+            {
+                'game': games[i],
+                'developers': ' | '.join(dev.name for dev in games[i].parent_game.developers.all()),
+                'publishers': ' | '.join(pub.name for pub in games[i].parent_game.publishers.all())
+            }
+        )
+
     platforms = [p.get('name') for p in Platform.objects.order_by().values('name').distinct()]
     genres = [g.get('name') for g in Genre.objects.order_by().values('name').distinct()]
+
     return render(request, 'search/search_form.html', {
         'first_platform': platforms[0] if len(platforms) > 0 else None,
         'first_genre': genres[0] if len(genres) > 0 else None,
         'platforms': platforms[1:] if len(platforms) > 1 else [],
         'genres': genres[1:] if len(genres) > 1 else [],
-        'games': games,
+        'games': games_wrapper,
         'user': request.user.interested_set,
         "tags": custom,
-        "profile": profile
+        "profile": profile,
     })
+
 
 @login_required(login_url='login')
 def edit_user(request):
@@ -154,5 +231,5 @@ def edit_user(request):
     token.update(csrf(request))
     token['form'] = form
 
-    return render(request, 'settings/edit_user.html',
+    return render(request, 'account/edit_user.html',
                   {'tags': custom, 'user': request.user, 'profile': profile})

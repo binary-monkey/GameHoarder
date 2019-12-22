@@ -173,8 +173,8 @@ class GameHoarderDB:
         search_params = {
             # # key: REST param, value: model query
             'developer': 'parent_game__developers__name__contains',
-            # 'genres': 'parent_game__genres__in',  # TODO: correct filter for genres
-            'platform': 'platform__name__iendswith',
+            'genres': 'parent_game__genres__name__in',
+            'platforms': 'platform__name__iendswith',
             'publisher': 'parent_game__publishers__name__contains',
             'year': 'parent_game__release_date__year',
             'title': 'parent_game__title__contains',
@@ -204,22 +204,47 @@ class GameHoarderDB:
         # TODO: extender búsqueda externa a más campos que 'title'
         remote_games_dict = {}
         if use_api and params.get('title'):
+            from game_collection.functions import GameCollectionController
             remote_games = GiantBombAPI.search_game(game_title=params.get('title'), limit=5)
             for game in remote_games:
                 for platform in game.get("platforms"):
                     platforms = Platform.objects.filter(db_id=platform.get('id'))
+                    p = platforms[0] if platforms.count() != 0 else None
                     # evitar repetir búsquedas
-                    if len(platforms) == 0:
+                    if platforms.count() == 0:
                         p = GameCollectionController.create_platform(platform.get('id'))
                         p.save()
-                        games = Game.objects.filter(db_id=game.get('id'))
-                        # evitar repetir búsquedas
-                        if len(games) == 0:
-                            g = GameCollectionController.create_game(game.get('id'), p)
-                            g.save()
-                            remote_games_dict[f'{g.parent_game.title}{g.name}'] = g
+                    # evitar repetir búsquedas
+                    if not Game.objects.filter(db_id=game.get('id')).exists():
+                        g = GameCollectionController.create_game(game.get('id'), p)
+                        g.save()
+                        remote_games_dict[f'{g.parent_game.title}{g.name}'] = g
         # unir diccionarios, dando preferencia a elementos de la DB local
         return {**remote_games_dict, **local_games_dict}.values()
+
+    @staticmethod
+    def table_filter(params):
+        search_params = {
+            # # key: REST param, value: model query
+            'developer': 'parent_game__developers__name__contains',
+            'genres': 'parent_game__genres__name__in',  # TODO: correct filter for genres
+            'platform': 'platform__name__iendswith',
+            'publisher': 'parent_game__publishers__name__contains',
+            'year': 'parent_game__release_date__year',
+            'title': 'parent_game__title__contains',
+        }
+        # GameVersion.objects.filter(=)
+
+        query = {}
+        for k, v in search_params.items():
+            # param is present and not empty
+            if k in params.keys() and params.get(k):
+                query[v] = params.get(k)
+        local_games = GameVersion.objects.filter(**query)
+        local_games_dict = {
+            f'{x.parent_game.title}{x.name}': x for x in local_games
+        }
+        return {**local_games_dict}.values()
 
     @staticmethod
     def params_empty(params):

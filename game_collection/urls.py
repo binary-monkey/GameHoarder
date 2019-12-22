@@ -10,6 +10,8 @@ urlpatterns = [
     path('list/interested', views_tables.insterested_table, name='interested_table'),
     path('list/wishlist', views_tables.wishlist_table, name='wishlist_table'),
 
+    path('table/filter', views_tables.ajax_tables, name='table_filter'),
+
     path('collection/', views.collection_summary, name='collection_summary'),
     path('collection/import', views.import_collection, name='import_collection'),
     path('collection/export', views.export_collection, name='export_collection'),
@@ -25,4 +27,5 @@ urlpatterns = [
     path('game/<str:db_id>', views.game_view, name='game_view'),
     path('game/<str:db_id>/add', views.add_game, name='add_game'),
     path('game/<str:db_id>/move', views.move_game, name='move_game'),
+    path('game/remove/<str:db_id>', views.remove_review, name='remove_review')
 ]

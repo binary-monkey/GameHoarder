@@ -1,6 +1,6 @@
 {% extends "base_site.html" %}
 {% load i18n %}
-{% block title %} Game View {% endblock title %}
+{% block title %} {% trans "Game View" %} {% endblock title %}
 
 {% block stylesheets %}
     {{ block.super }}
@@ -12,17 +12,18 @@
         <div class="">
             <div class="page-title">
                 <div class="title_left">
-                    <h3>Game Overview</h3>
+                    <h3>{% trans "Game Overview" %}</h3>
                 </div>
 
             </div>
+
+            {% include  "social_media.html" %}
 
             <div class="clearfix"></div>
 
             <div class="row">
                 <div class="col-md-12 col-sm-12 ">
                     <div class="x_panel">
-
                         <div class="x_title">
                             <h2>{{ title.title }}</h2>
                             <ul class="nav navbar-right panel_toolbox" style="min-width: 0">
@@ -32,70 +33,126 @@
                             </ul>
                             <div class="clearfix"></div>
                         </div>
-
                         <div class="x_content">
-
                             <div class="col-md-4 col-sm-4">
-                                <div>
-                                    <img class="img-responsive avatar-view" src="{{ title.img_url }}" alt="..."/>
-                                </div>
+                                <img class="center-block img-thumbnail" style="max-height: 40vh"
+                                     src="{{ title.img_url }}" alt="..."/>
                             </div>
-
                             <div class="col-md-5 col-sm-5 " style="border:0px solid #e5e5e5;">
+                                <div class="form-horizontal form-label-left">
 
-                                <h4>{{ title.description }}</h4>
-                                <br/>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-2 col-sm-2 col-xs-12"
+                                               for="description">{% trans "Description" %}
+                                        </label>
+                                        <div class="col-md-8 col-xs-12 col-xs-12">
+                                            <textarea id="description" style="resize: none" disabled
+                                                      class="form-control"
+                                                      rows="5"></textarea>
+                                        </div>
+                                    </div>
 
-                                <h2>
-                                    Release Date: {% if game_version.release_date is not None %}
-                                    {{ game_version.release_date }}
-                                {% elif title.release_date is not None %}
-                                    {{ title.release_date }}
-                                {% endif %}
-                                </h2>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-2 col-sm-2 col-xs-12"
+                                               for="release-date">{% trans "Release Date" %}
+                                        </label>
+                                        <div class="col-md-8 col-xs-12 col-xs-12">
+                                            {# If you do this directly you enter empty spaces in the value #}
+                                            {% if game_version.release_date is not None %}
 
-                                <br/>
+                                                <input type="text" disabled id="release-date"
+                                                       value="{{ game_version.release_date }}"
+                                                       class="form-control col-md-7 col-xs-12">
 
-                                <div class="">
-                                    <h2>Publishers:</h2>
-                                    <ul class="list-inline prod_size display-layout">
-                                        {% for publisher in publishers %}
-                                            <li>
-                                                <button class="btn btn-default btn-xs disabled">{{ publisher.name }}</button>
-                                            </li>
-                                        {% endfor %}
-                                    </ul>
-                                </div>
-                                <br/>
+                                            {% elif title.release_date is not None %}
+                                                <input type="text" disabled id="release-date"
+                                                       value="{{ title.release_date }}"
+                                                       class="form-control col-md-7 col-xs-12">
+                                            {% endif %}
+                                        </div>
+                                    </div>
 
-                                <div class="">
-                                    <h2>Developers:</h2>
-                                    <ul class="list-inline prod_size display-layout">
-                                        {% for developer in developers %}
-                                            <li>
-                                                <button class="btn btn-default btn-xs disabled">{{ developer.name }}</button>
-                                            </li>
-                                        {% endfor %}
-                                    </ul>
-                                </div>
-                                <br/>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-2 col-sm-2 col-xs-12"
+                                               for="release-date">{% trans "Publishers" %}
+                                        </label>
+                                        <div class="col-md-8 col-xs-12 col-xs-12">
+                                            {% for publisher in publishers %}
+                                                <span>
+                                                    <button class="btn btn-default btn-xs disabled">{{ publisher.name }}</button>
+                                                </span>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
 
-                                <div class="">
-                                    <h2>Genres:</h2>
-                                    <ul class="list-inline prod_size display-layout">
-                                        {% for genre in genres %}
-                                            <li>
-                                                <button class="btn btn-default btn-xs disabled">{{ genre.name }}</button>
-                                            </li>
-                                        {% endfor %}
-                                    </ul>
-                                </div>
-                                <br/>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-2 col-sm-2 col-xs-12"
+                                               for="release-date">{% trans "Developers" %}
+                                        </label>
+                                        <div class="col-md-8 col-xs-12 col-xs-12">
+                                            {% for developer in developers %}
+                                                <span>
+                                                    <button class="btn btn-default btn-xs disabled">{{ developer.name }}</button>
+                                                </span>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-2 col-sm-2 col-xs-12"
+                                               for="release-date">{% trans "Genres" %}
+                                        </label>
+                                        <div class="col-md-8 col-xs-12 col-xs-12">
+                                            {% for genre in genres %}
+                                                <span>
+                                                    <button class="btn btn-default btn-xs disabled">{{ genre.name }}</button>
+                                                </span>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
 
-                                <div>
-                                    <h2>Main time: {{ title.main_time }}h</h2>
-                                    <h2>Extra time: {{ title.extra_time }}h</h2>
-                                    <h2>Completion time: {{ title.completion_time }}h</h2>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-2 col-sm-2 col-xs-12"
+                                               for="release-date">{% trans "GameHoarder's Score" %}
+                                        </label>
+                                        <div class="col-md-8 col-xs-12 col-xs-12">
+                                            <input type="text" disabled id="release-date"
+                                                   value="{{ game_version.average_score }}"
+                                                   class="form-control col-md-7 col-xs-12">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-2 col-sm-2 col-xs-12"
+                                               for="release-date">{% trans "Main Time" %}
+                                        </label>
+                                        <div class="col-md-8 col-xs-12 col-xs-12">
+                                            <input type="text" disabled id="release-date"
+                                                   value="{{ title.main_time }} h"
+                                                   class="form-control col-md-7 col-xs-12">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-2 col-sm-2 col-xs-12"
+                                               for="release-date">{% trans "Extra Time" %}
+                                        </label>
+                                        <div class="col-md-8 col-xs-12 col-xs-12">
+                                            <input type="text" disabled id="release-date"
+                                                   value="{{ title.extra_time }} h"
+                                                   class="form-control col-md-7 col-xs-12">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-2 col-sm-2 col-xs-12"
+                                               for="release-date">{% trans "Completion Time" %}
+                                        </label>
+                                        <div class="col-md-8 col-xs-12 col-xs-12">
+                                            <input type="text" disabled id="release-date"
+                                                   value="{{ title.completion_time }} h"
+                                                   class="form-control col-md-7 col-xs-12">
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -260,10 +317,141 @@
                     </div>
                 </div>
             </div>
+
+            <div class="row">
+                <div class="col-md-12 col-sm-12 ">
+                    <div class="x_panel">
+
+                        <div class="x_title">
+                            <h2>{% trans "Latests Reviews" %}</h2>
+                            <ul class="nav navbar-right panel_toolbox" style="min-width: 0">
+                                <li><a class="collapse-link">
+                                    <i class="fa fa-chevron-up"></i></a>
+                                </li>
+                            </ul>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="x_content">
+                        {% if can_review %}
+                          <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">{% trans "Create review" %}</button>
+                        {% else %}
+                            <button id="edit_button" type="button" class="btn btn-dark" data-toggle="modal" data-target=".bs-example-modal-lg">{% trans "Edit review" %}</button>
+                            <a type="button" href="{% url 'remove_review' game_version.db_id %}" class="btn btn-danger">{% trans "Remove review" %}</a>
+                        {% endif %}
+                          <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                              <div class="modal-content">
+
+                                <div class="modal-header">
+                                  <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                                  </button>
+                                  <h4 class="modal-title" id="myModalLabel">{% trans "Create review" %}</h4>
+                                </div>
+                                  <br>
+
+                                {% if can_review %}
+                                    <form action="?existing=0" enctype="multipart/form-data" method="post" class="form-horizontal form-label-left">{% csrf_token %}
+                                {% else %}
+                                    <form action="?existing=1" enctype="multipart/form-data" method="post" class="form-horizontal form-label-left">{% csrf_token %}
+                                {% endif %}
+                                  <div class="item form-group">
+                                      <label class="control-label col-md-3 col-sm-3 col-xs-12"
+                                             for="id_score">{% trans 'Score' %}
+                                         </label>
+                                        <div class="col-md-6 col-sm-7 col-xs-12">
+                                            {% if can_review %}
+                                                <input id="id_score" type="number" name="score" min="0" max="10" step="any" required="required" class="form-control col-md-7 col-xs-12" value=""/>
+                                            {% else %}
+                                                <input id="id_score" type="number" name="score" min="0" max="10" step="any" required="" class="form-control col-md-7 col-xs-12" value="{{ existing_review.score }}"/>
+                                            {% endif %}
+                                        </div>
+                                  </div>
+                                  <br>
+                                    <div class="item form-group">
+                                    <label for="id_text" class="control-label col-md-3 col-sm-3 col-xs-12">{% trans 'Leave a comment' %}(200 max):</label>
+                                    <div class="col-md-6 col-sm-7 col-xs-12">
+                                        {% if can_review %}
+                                            <textarea id="id_text" required="required" class="form-control" name="text" data-parsley-trigger="keyup"
+                                                  data-parsley-maxlength="200"></textarea></div>
+                                        {% else %}
+                                        <textarea id="id_text" required="" class="form-control" name="text" data-parsley-trigger="keyup"
+                                              data-parsley-maxlength="200">{{ existing_review.text }}</textarea></div>
+                                        {% endif %}
+
+                                    </div>
+                                  <br>
+
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-default" data-dismiss="modal">{% trans "Close" %}</button>
+                                  <button type="submit" id="create_btn" class="btn btn-primary">{% trans "Save review" %}</button>
+                                    <p id="error_msg" hidden>{% trans "Score value is incorrect" %}</p>
+                                </div>
+                                </form>
+                              </div>
+                            </div>
+                          </div>
+
+                            <ul class="messages">
+                                {% for review in game_version.review_set.all|slice:"5" %}
+                                    <li>
+                                        <img src="/images/{{ review.user.profile.avatar }}" class="avatar" alt="Avatar">
+                                        <div class="message_date">
+                                            <h3 class="date text-error">{{ review.date.day }}</h3>
+                                            <p class="month">{{ review.date|date:"M" }}</p>
+                                            <p class="month">{{ review.date.year }}</p>
+                                        </div>
+                                        <div class="message_wrapper">
+                                            <h4 class="heading">{{ review.user.get_full_name }}
+                                                - {{ review.score }}</h4>
+                                            <blockquote class="message">{{ review.text }}
+                                            </blockquote>
+                                            <br>
+                                        </div>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+
+    <script>
+        var score = document.getElementById('id_score');
+        var create_btn = document.getElementById('create_btn');
+        var msg = document.getElementById('error_msg');
+
+        var btn_edit = document.getElementById('edit_button');
+        btn_edit.onclick = defaultValue;
+
+        score.onchange = validateScore;
+        function defaultValue(){
+            document.getElementById('id_score').value = {{ existing_review.score }};
+        }
+
+        function validateScore(){
+          if(score.value<0 || score.value>10 || !isFinite(score.value)) {
+            create_btn.disabled = true;
+            msg.hidden = false;
+          } else {
+            create_btn.disabled = false;
+            msg.hidden = true;
+          }
+        }
+
+    </script>
 {% endblock content %}
 
 {% block javascripts %}
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script>
+
+        $(document).ready(function () {
+            document.getElementById("description").defaultValue = "{{title.description}}";
+        });
+
+    </script>
     {{ block.super }}
+
 {% endblock javascripts %}

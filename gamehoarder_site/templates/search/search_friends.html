@@ -1,0 +1,58 @@
+{% extends "base_site.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block title %} {% trans "Users" %} {% endblock title %}
+
+{% block stylesheets %}
+    {{ block.super }}
+{% endblock stylesheets %}
+
+{% block content %}
+    <div class="right_col" role="main">
+    <div class="">
+        <div class="page-title">
+            <div class="title_left">
+                <h3>{% trans "Users" %}</h3>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="row">
+            <div class="col-md-12 col-sm-12 ">
+                <div class="x_panel">
+                    <div class="x_content">
+                        <table id="datatable" class="tab-pane fade active in">
+                            <div class="album py-5 bg-light">
+                                <div class="row">
+                                    {% if users.count == 0 %}
+                                        <h1>{% trans "No Profile" %}</h1>
+                                    {% else %}
+                                        {% for user in users %}
+                                            <div class="col-sm-2">
+                                                <a href="{% url 'profile_with_pk' pk=user.pk %}">
+                                                    <div class="card bg-light mb-3" style="max-width: 30rem;">
+                                                        <img class="img-responsive card-img-top" src="/images/{{ user.avatar }}" alt="{{ user.user.username }}"/>
+                                                        <div class="card-body">
+                                                            <b class="card-text">{{ user.user.first_name }} {{ user.user.last_name }}</b>
+                                                            <br/>
+                                                            <small class="card-text">{{ user.user.username }}</small>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        {% endfor %}
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock content %}
+
+{% block javascripts %}
+    {{ block.super }}
+{% endblock javascripts %}
