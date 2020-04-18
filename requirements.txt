@@ -8,7 +8,7 @@ celery
 celery-progress
 certifi
 chardet
-Django==2.2
+Django==2.2.10
 django-betterforms
 howlongtobeatpy
 idna
